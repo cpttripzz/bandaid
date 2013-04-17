@@ -1,0 +1,7 @@
+parameters:
+#    bandaid_bandaid_user.example.class: Bandaid\BandaidUserBundle\Example
+
+services:
+#    bandaid_bandaid_user.example:
+#        class: %bandaid_bandaid_user.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]
