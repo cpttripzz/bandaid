@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source source="LOCAL" name="Data Source" product="MySQL" version="5.5.29-0ubuntu0.12.10.1" jdbc-version="4.0" driver-name="MySQL-AB JDBC Driver" driver-version="mysql-connector-java-5.1.22 ( Revision: ${bzr.revision-id} )" uuid="d4a89e92-172b-4406-a735-404543ee7a13">
+    <extra-name-characters>#@</extra-name-characters>
+    <identifier-quote-string>`</identifier-quote-string>
+    <synchronize>true</synchronize>
+    <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
+    <jdbc-url>jdbc:mysql://127.0.0.1/sf_bandaid</jdbc-url>
+    <user-name>root</user-name>
+    <user-password>df9bdf98df99df9edf9fdf9c</user-password>
+    <schema-pattern>sf_bandaid.*</schema-pattern>
+    <default-schemas>sf_bandaid.*</default-schemas>
+    <default-dialect>MySQL</default-dialect>
+    <libraries>
+      <library>
+        <url>jar://$PROJECT_DIR$/../../lib/mysql-connector-java-5.1.22-bin.jar!/</url>
+      </library>
+      <library>
+        <url>file://$PROJECT_DIR$/../../lib/mysql-connector-license.txt</url>
+      </library>
+    </libraries>
+    <schema name="" catalog="sf_bandaid"/>
+    <table name="city" schema="" catalog="sf_bandaid" type="TABLE">
+      <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="country_code" sqlType="CHAR" length="2" precision="0" nullable="false" jdbcType="1"/>
+      <column name="city" sqlType="VARCHAR" length="50" precision="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="fk_city_country" columns="country_code" ref-table="country" ref-schema="" ref-catalog="sf_bandaid" ref-columns="country_code" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="fk_entity_location_location" table="entity_location" schema="" catalog="sf_bandaid" columns="city_id"/>
+      <index name="idx_country_code" unique="false" columns="country_code"/>
+    </table>
+    <table name="country" schema="" catalog="sf_bandaid" type="TABLE">
+      <column name="country_code" sqlType="CHAR" length="2" precision="0" nullable="false" jdbcType="1"/>
+      <column name="country_name" sqlType="VARCHAR" length="50" precision="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="country_code"/>
+      <exported-key name="fk_city_country" table="city" schema="" catalog="sf_bandaid" columns="country_code"/>
+      <index name="idx_country_code" unique="false" columns="country_code"/>
+      <index name="idx_country_name" unique="false" columns="country_name"/>
+    </table>
+    <table name="entity" schema="" catalog="sf_bandaid" type="TABLE">
+      <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="entity_type" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="description" sqlType="TEXT" length="65535" precision="0" nullable="true" jdbcType="-1"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="fk_entity_entity_type" columns="entity_type" ref-table="entity_type" ref-schema="" ref-catalog="sf_bandaid" ref-columns="id" update-rule="3" delete-rule="0" deferrability="2"/>
+      <exported-key name="fk_entity_media_entity" table="entity_media" schema="" catalog="sf_bandaid" columns="entity_id"/>
+    </table>
+    <table name="entity_genre" schema="" catalog="sf_bandaid" type="TABLE">
+      <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="genre_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="entity_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="fk_entity_genre" columns="genre_id" ref-table="genre" ref-schema="" ref-catalog="sf_bandaid" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="fk_entity_genre_genre" columns="genre_id" ref-table="genre" ref-schema="" ref-catalog="sf_bandaid" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+    </table>
+    <table name="entity_location" schema="" catalog="sf_bandaid" type="TABLE">
+      <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="entity_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="entity_type" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="city_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="fk_entity_location_location" columns="city_id" ref-table="city" ref-schema="" ref-catalog="sf_bandaid" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+    </table>
+    <table name="entity_media" schema="" catalog="sf_bandaid" type="TABLE">
+      <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="entity_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="media_type" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="media_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="fk_entity_media_entity" columns="entity_id" ref-table="entity" ref-schema="" ref-catalog="sf_bandaid" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="fk_entity_media_media" columns="media_id" ref-table="media" ref-schema="" ref-catalog="sf_bandaid" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+    </table>
+    <table name="entity_type" schema="" catalog="sf_bandaid" type="TABLE">
+      <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="name" sqlType="VARCHAR" length="32" precision="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <exported-key name="fk_entity_entity_type" table="entity" schema="" catalog="sf_bandaid" columns="entity_type"/>
+    </table>
+    <table name="fos_user" schema="" catalog="sf_bandaid" type="TABLE">
+      <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="username" sqlType="VARCHAR" length="255" precision="0" nullable="false" jdbcType="12"/>
+      <column name="username_canonical" sqlType="VARCHAR" length="255" precision="0" nullable="false" jdbcType="12"/>
+      <column name="email" sqlType="VARCHAR" length="255" precision="0" nullable="false" jdbcType="12"/>
+      <column name="email_canonical" sqlType="VARCHAR" length="255" precision="0" nullable="false" jdbcType="12"/>
+      <column name="enabled" sqlType="BIT" length="0" precision="0" nullable="false" jdbcType="-7"/>
+      <column name="salt" sqlType="VARCHAR" length="255" precision="0" nullable="false" jdbcType="12"/>
+      <column name="password" sqlType="VARCHAR" length="255" precision="0" nullable="false" jdbcType="12"/>
+      <column name="last_login" sqlType="DATETIME" length="19" precision="0" nullable="true" jdbcType="93"/>
+      <column name="locked" sqlType="BIT" length="0" precision="0" nullable="false" jdbcType="-7"/>
+      <column name="expired" sqlType="BIT" length="0" precision="0" nullable="false" jdbcType="-7"/>
+      <column name="expires_at" sqlType="DATETIME" length="19" precision="0" nullable="true" jdbcType="93"/>
+      <column name="confirmation_token" sqlType="VARCHAR" length="255" precision="0" nullable="true" jdbcType="12"/>
+      <column name="password_requested_at" sqlType="DATETIME" length="19" precision="0" nullable="true" jdbcType="93"/>
+      <column name="roles" sqlType="LONGTEXT" length="2147483647" precision="0" nullable="false" jdbcType="-1" remarks="KERDMlR5cGU6YXJyYXkp"/>
+      <column name="credentials_expired" sqlType="BIT" length="0" precision="0" nullable="false" jdbcType="-7"/>
+      <column name="credentials_expire_at" sqlType="DATETIME" length="19" precision="0" nullable="true" jdbcType="93"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="UNIQ_957A647992FC23A8" unique="true" columns="username_canonical"/>
+      <index name="UNIQ_957A6479A0D96FBF" unique="true" columns="email_canonical"/>
+    </table>
+    <table name="genre" schema="" catalog="sf_bandaid" type="TABLE">
+      <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="genre_name" sqlType="VARCHAR" length="32" precision="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <exported-key name="fk_entity_genre" table="entity_genre" schema="" catalog="sf_bandaid" columns="genre_id"/>
+      <exported-key name="fk_entity_genre_genre" table="entity_genre" schema="" catalog="sf_bandaid" columns="genre_id"/>
+    </table>
+    <table name="media" schema="" catalog="sf_bandaid" type="TABLE">
+      <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="type" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="filename" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="extension" sqlType="CHAR" length="3" precision="0" nullable="true" jdbcType="1"/>
+      <column name="is_public" sqlType="BIT" length="0" precision="0" nullable="true" jdbcType="-7" def="MA=="/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="fk_media_media_type" columns="type" ref-table="media_type" ref-schema="" ref-catalog="sf_bandaid" ref-columns="id" update-rule="3" delete-rule="0" deferrability="2"/>
+      <exported-key name="fk_entity_media_media" table="entity_media" schema="" catalog="sf_bandaid" columns="media_id"/>
+    </table>
+    <table name="media_type" schema="" catalog="sf_bandaid" type="TABLE">
+      <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="type" sqlType="VARCHAR" length="32" precision="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <exported-key name="fk_media_media_type" table="media" schema="" catalog="sf_bandaid" columns="type"/>
+    </table>
+  </data-source>
+</component>

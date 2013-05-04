@@ -1,0 +1,27 @@
+City:
+    type: entity
+    table: city
+    fields:
+        id:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            generator:
+                strategy: IDENTITY
+        city:
+            type: string
+            length: 50
+            fixed: false
+            nullable: false
+    manyToOne:
+        countryCode:
+            targetEntity: Country
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                country_code:
+                    referencedColumnName: country_code
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

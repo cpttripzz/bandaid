@@ -1,0 +1,25 @@
+Entity:
+    type: entity
+    table: entity
+    fields:
+        id:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            generator:
+                strategy: IDENTITY
+        description:
+            type: text
+            nullable: true
+    manyToOne:
+        entityType:
+            targetEntity: EntityType
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                entity_type:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }
