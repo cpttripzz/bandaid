@@ -9,27 +9,25 @@ framework:
     router:
         resource: "%kernel.root_dir%/config/routing.yml"
         strict_requirements: %kernel.debug%
-    form:            ~
-    csrf_protection: ~
+    form:            true
+    csrf_protection: true
     validation:      { enable_annotations: true }
-    templating:
-        engines: ['twig']
-        #assets_version: SomeVersionScheme
-    default_locale:  "%locale%"
-    trusted_proxies: ~
+    templating:      { engines: ['twig'] } #assets_version: SomeVersionScheme
+    default_locale:  %locale%
+    trust_proxy_headers: false # Should Request object should trust proxy headers (X_FORWARDED_FOR/HTTP_CLIENT_IP)
     session:         ~
-    fragments:       ~
 
 # Twig Configuration
 twig:
     debug:            %kernel.debug%
     strict_variables: %kernel.debug%
+    exception_controller: 'FOS\RestBundle\Controller\ExceptionController::showAction'
 
 # Assetic Configuration
 assetic:
     debug:          %kernel.debug%
     use_controller: false
-    bundles:        [ ]
+    bundles:        [  ]
     #java: /usr/bin/java
     filters:
         cssrewrite: ~
@@ -48,13 +46,26 @@ doctrine:
         user:     %database_user%
         password: %database_password%
         charset:  UTF8
-        # if using pdo_sqlite as your database driver, add the path in parameters.yml
-        # e.g. database_path: %kernel.root_dir%/data/data.db3
-        # path:     %database_path%
 
     orm:
         auto_generate_proxy_classes: %kernel.debug%
         auto_mapping: true
+        mappings:
+            translatable:
+                type: annotation
+                alias: Gedmo
+                prefix: Gedmo\Translatable\Entity
+                dir: "%kernel.root_dir%/../vendor/gedmo/doctrine-extensions/lib/Gedmo/Translatable/Entity"
+            loggable:
+                type: annotation
+                alias: Gedmo
+                prefix: Gedmo\Loggable\Entity
+                dir: "%kernel.root_dir%/../vendor/gedmo/doctrine-extensions/lib/Gedmo/Loggable/Entity"
+            tree:
+                type: annotation
+                alias: Gedmo
+                prefix: Gedmo\Tree\Entity
+                dir: "%kernel.root_dir%/../vendor/gedmo/doctrine-extensions/lib/Gedmo/Tree/Entity"
 
 # Swiftmailer Configuration
 swiftmailer:
@@ -63,7 +74,58 @@ swiftmailer:
     username:  %mailer_user%
     password:  %mailer_password%
     spool:     { type: memory }
+
+
+jms_security_extra:
+    secure_all_services: false
+    enable_iddqd_attribute: false
+    expressions: true
+
+jms_serializer:
+    handlers:
+
+
+sensio_framework_extra:
+    router:  { annotations: true }
+    request: { converters: true }
+    view:    { annotations: false }  # More info at https://github.com/FriendsOfSymfony/FOSRestBundle/issues/95
+    cache:   { annotations: true }
+
+jms_aop:
+    cache_dir: %kernel.cache_dir%/jms_aop
+
 fos_user:
-    db_driver: orm # other valid values are 'mongodb', 'couchdb' and 'propel'
-    firewall_name: main
+    db_driver: orm
+    firewall_name: wsse_secured #fos_secured
     user_class: Bandaid\BandaidUserBundle\Entity\User
+fos_rest:
+    view:
+        view_response_listener: true
+        failed_validation: HTTP_BAD_REQUEST
+        default_engine: php
+        formats:
+            json: true
+            xml: true
+            rss: false
+    format_listener:
+        prefer_extension: true
+    body_listener:
+        decoders:
+            json: fos_rest.decoder.json
+    param_fetcher_listener: true
+    allowed_methods_listener: true
+
+mopa_wsse_authentication:
+    provider_class: Mopa\Bundle\WSSEAuthenticationBundle\Security\Authentication\Provider\WsseAuthenticationProvider
+    listener_class: Mopa\Bundle\WSSEAuthenticationBundle\Security\Firewall\WsseListener
+    factory_class: Mopa\Bundle\WSSEAuthenticationBundle\Security\Factory\WsseFactory
+
+stof_doctrine_extensions:
+    default_locale: %locale%
+    orm:
+        default:
+            translatable: true
+            timestampable: true
+            sluggable: true
+            loggable: true
+            tree: true
