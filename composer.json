@@ -23,6 +23,7 @@
         "braincrafted/bootstrap-bundle": "dev-master",
         "twitter/bootstrap": "2.3.*",
         "jquery/jquery": "1.9.*",
+        "knplabs/knp-paginator-bundle": "dev-master",
         "knplabs/knp-menu-bundle": "dev-master"
     },
     "repositories": [
