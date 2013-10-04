@@ -28,7 +28,11 @@ class Genre
      */
     private $genreName;
 
+    private $entities;
 
+    public function addEntity(Entity $entity){
+        $this->entities[] = $entity;
+    }
 
     /**
      * Get id

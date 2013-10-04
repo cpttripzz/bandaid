@@ -13,6 +13,27 @@ use Doctrine\ORM\Mapping as ORM;
 class Entity
 {
     /**
+     * @ORM\ManyToMany(targetEntity="Genre",cascade={"persist"})
+     * @ORM\JoinTable(name="entity_genre",
+     *      joinColumns={@ORM\JoinColumn(name="entity_id", referencedColumnName="id")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="genre_id", referencedColumnName="id")}
+     *      )
+     **/
+    private $genres;
+
+
+    public function addGenre(Genre $genre)
+    {
+        $genre->addEntity($this); // synchronously updating inverse side
+        $this->genres[] = $genre;
+    }
+
+    public function __construct() {
+        $this->genres = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+    
+    
+    /**
      * @var integer
      *
      * @ORM\Column(name="id", type="integer", nullable=false)
@@ -43,7 +64,7 @@ class Entity
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -59,14 +80,14 @@ class Entity
     public function setDescription($description)
     {
         $this->description = $description;
-    
+
         return $this;
     }
 
     /**
      * Get description
      *
-     * @return string 
+     * @return string
      */
     public function getDescription()
     {
@@ -82,14 +103,14 @@ class Entity
     public function setEntityType(\Bandaid\BandaidUserBundle\Entity\EntityType $entityType = null)
     {
         $this->entityType = $entityType;
-    
+
         return $this;
     }
 
     /**
      * Get entityType
      *
-     * @return \Bandaid\BandaidUserBundle\Entity\EntityType 
+     * @return \Bandaid\BandaidUserBundle\Entity\EntityType
      */
     public function getEntityType()
     {
