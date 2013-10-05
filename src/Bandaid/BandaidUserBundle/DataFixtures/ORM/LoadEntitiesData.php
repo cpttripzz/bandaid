@@ -1,6 +1,6 @@
 <?php
 
-    namespace Ens\JobeetBundle\DataFixtures\ORM;
+    namespace  Bandaid\BandaidUserBundle\DataFixtures\ORM;
     use Bandaid\BandaidUserBundle\Entity\EntityType;
     use Bandaid\BandaidUserBundle\Entity\Genre;
     use Doctrine\Common\Persistence\ObjectManager;
@@ -24,29 +24,63 @@
             $em->persist($entityTypeVenue);
             $em->flush();
 
-            $this->addReference('entity-type-band', $entityTypeBand);
-            $this->addReference('entity-type-artist',$entityTypeArtist);
-            $this->addReference('entity-type-venue',$entityTypeVenue);
-
-            $entityExampleBand = new Entity();
-            $entityExampleBand->setEntityType($entityTypeBand);
-            $entityExampleBand->setDescription('Example Band #1');
             
-            $entityExampleArtist = new Entity();
-            $entityExampleArtist->setEntityType($entityTypeArtist);
-            $entityExampleArtist->setDescription('Example Artist #1');
+            $entityExampleBand1 = new Entity();
+            $entityExampleBand1->setEntityType($entityTypeBand);
+            $entityExampleBand1->setDescription('The Schmoozy Schmazz Band');
 
-            $em->persist($entityExampleArtist);
-            $em->persist($entityExampleBand);
+            $entityExampleBand2 = new Entity();
+            $entityExampleBand2->setEntityType($entityTypeBand);
+            $entityExampleBand2->setDescription('Rotten Dripping Demon Entrails');
+
+            
+            $entityExampleArtist1 = new Entity();
+            $entityExampleArtist1->setEntityType($entityTypeArtist);
+            $entityExampleArtist1->setDescription('Schmoozy Schmazz');
+
+            $entityExampleArtist2 = new Entity();
+            $entityExampleArtist2->setEntityType($entityTypeArtist);
+            $entityExampleArtist2->setDescription('Jimmy Jitters');
+
+            $entityExampleArtist3 = new Entity();
+            $entityExampleArtist3->setEntityType($entityTypeArtist);
+            $entityExampleArtist3->setDescription('Bloozy Blowz');
+
+            $entityExampleArtist4 = new Entity();
+            $entityExampleArtist4->setEntityType($entityTypeArtist);
+            $entityExampleArtist4->setDescription('Dagth the Abominable');
+
+
+            $em->persist($entityExampleArtist1);
+            $em->persist($entityExampleArtist2);
+            $em->persist($entityExampleArtist3);
+            $em->persist($entityExampleArtist4);
+            $em->persist($entityExampleBand1);
+            $em->persist($entityExampleBand2);
             $em->flush();
 
             $genreJazz = new Genre();
             $genreJazz->setGenreName('jazz');
+            
+            $genreDeathMetal = new Genre();
+            $genreDeathMetal->setGenreName('Death Metal');
 
-            $entityExampleBand->addGenre($genreJazz);
-            $entityExampleArtist->addGenre($genreJazz);
-            $em->persist($entityExampleArtist);
-            $em->persist($entityExampleBand);
+            $entityExampleBand1->addGenre($genreJazz);
+            $entityExampleBand2->addGenre($genreDeathMetal);
+
+            $entityExampleArtist1->addGenre($genreJazz);
+            $entityExampleArtist2->addGenre($genreJazz);
+            $entityExampleArtist3->addGenre($genreJazz);
+            $entityExampleArtist4->addGenre($genreDeathMetal);
+            
+            
+            $em->persist($entityExampleArtist1);
+            $em->persist($entityExampleArtist2);
+            $em->persist($entityExampleArtist3);
+            $em->persist($entityExampleArtist4);
+            $em->persist($entityExampleBand1);
+            $em->persist($entityExampleBand2);
+
             $em->flush();
 
         }

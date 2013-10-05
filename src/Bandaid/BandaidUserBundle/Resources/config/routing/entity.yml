@@ -1,0 +1,32 @@
+entity:
+    pattern:  /
+    defaults: { _controller: "BandaidBandaidUserBundle:Entity:index" }
+
+entity_show:
+    pattern:  /{id}/
+    defaults: { _controller: "BandaidBandaidUserBundle:Entity:show" }
+    requirements:
+      id: \d+
+
+entity_new:
+    pattern:  /new
+    defaults: { _controller: "BandaidBandaidUserBundle:Entity:new" }
+
+entity_create:
+    pattern:  /create
+    defaults: { _controller: "BandaidBandaidUserBundle:Entity:create" }
+    requirements: { _method: post }
+
+entity_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "BandaidBandaidUserBundle:Entity:edit" }
+
+entity_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "BandaidBandaidUserBundle:Entity:update" }
+    requirements: { _method: post|put }
+
+entity_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "BandaidBandaidUserBundle:Entity:delete" }
+    requirements: { _method: post|delete }

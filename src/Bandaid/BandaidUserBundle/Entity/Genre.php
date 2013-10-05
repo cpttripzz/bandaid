@@ -66,4 +66,9 @@ class Genre
     {
         return $this->genreName;
     }
+
+    public function __toString()
+    {
+        return $this->genreName;
+    }
 }

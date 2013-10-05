@@ -116,4 +116,15 @@ class Entity
     {
         return $this->entityType;
     }
+
+
+    /**
+     * Get entityType
+     *
+     * @return  \Doctrine\Common\Collections\ArrayCollection
+     */
+    public function getGenres()
+    {
+        return $this->genres;
+    }
 }
