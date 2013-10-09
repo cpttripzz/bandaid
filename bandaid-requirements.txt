@@ -1,0 +1,22 @@
+User Authentication
+  Login
+  Register
+  Change Password
+Artist
+  Post Profile
+  Edit Profile
+  Delete Profile
+  
+  Sound Recordings
+  Profile Picture
+  Other pictures
+  
+  Chat
+  Apply To Audition
+  Rate
+
+Band
+  Accept Audtion
+  Request Audition
+
+
