@@ -1,3 +1,20 @@
+1) Register creates role, goes to proper url
+2) main site template
+3) menus
+4) partials for popular/new bands, artists
+
+
+
+
+
+
+
+
+
+
+
+
+
 User Authentication
   Login
   Register
