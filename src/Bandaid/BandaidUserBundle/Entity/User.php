@@ -1,36 +1,26 @@
 <?php
 
-    namespace Bandaid\BandaidUserBundle\Entity;
+namespace Bandaid\BandaidUserBundle\Entity;
 
-    use FOS\UserBundle\Model\User as BaseUser;
-    use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\Mapping as ORM;
+use FOS\UserBundle\Model\User as BaseUser;
 
+/**
+ * FosUser
+ *
+ * @ORM\Table(name="fos_user")
+ * @ORM\Entity
+ */
+class User extends BaseUser
+{
     /**
-     * @ORM\Entity
-     * @ORM\Table(name="fos_user")
-     */
-    class User extends BaseUser
-    {
-        /**
-         * @ORM\Id
-         * @ORM\Column(type="integer")
-         * @ORM\GeneratedValue(strategy="AUTO")
-         */
-        protected $id;
-
-        public function __construct()
-        {
-            parent::__construct();
-            // your own logic
-        }
-    
-    /**
-     * Get id
+     * @var integer
      *
-     * @return integer 
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    public function getId()
-    {
-        return $this->id;
-    }
+    protected $id;
+
+
 }

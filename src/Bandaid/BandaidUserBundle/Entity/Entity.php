@@ -14,7 +14,6 @@ class Entity
 {
     /**
      * @ORM\ManyToMany(targetEntity="Genre",cascade={"persist"})
-     * @ORM\JoinTable(name="entity_genre",
      *      joinColumns={@ORM\JoinColumn(name="entity_id", referencedColumnName="id")},
      *      inverseJoinColumns={@ORM\JoinColumn(name="genre_id", referencedColumnName="id")}
      *      )
