@@ -61,13 +61,12 @@
 
 
                     if (null === $response = $event->getResponse()) {
-                        $entityTypeId = $request->query->get('type');
-                        $entityType = $this->getDoctrine()
-                            ->getRepository('BandaidBandaidUserBundle:EntityType')
-                            ->find('EntityType', $entityTypeId);
+                        $em = $this->getDoctrine()->getManager();
+                        $entityType = $em->getRepository('Bandaid\BandaidUserBundle\Entity\EntityType')->find($typeId);
                         $entity = new Entity();
                         $entity->setEntityType($entityType);
-
+                        $entity->setUser($user);
+                        $em->persist($entity);
                         $url = $this->container->get('router')->generate('fos_user_registration_confirmed');
                         $response = new RedirectResponse($url);
                     }

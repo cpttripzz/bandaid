@@ -12,12 +12,23 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Entity
 {
+
+    /**
+     * @ORM\OneToOne(targetEntity="User")
+     * JoinColumn(name="user_id", referencedColumnName="id")
+     **/
+
+    private $user;
     /**
      * @ORM\ManyToMany(targetEntity="Genre",cascade={"persist"})
      *      joinColumns={@ORM\JoinColumn(name="entity_id", referencedColumnName="id")},
      *      inverseJoinColumns={@ORM\JoinColumn(name="genre_id", referencedColumnName="id")}
      *      )
      **/
+
+    public function setUser(User $user){
+        $this->user = $user;
+    }
     private $genres;
 
 
