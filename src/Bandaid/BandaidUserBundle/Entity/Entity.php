@@ -21,9 +21,16 @@ class Entity
 
     private $user;
 
+
     public function setUser(User $user){
         $this->user = $user;
     }
+    /**
+     * @ORM\ManyToMany(targetEntity="Genre",cascade={"persist"})
+     *      joinColumns={@ORM\JoinColumn(name="entity_id", referencedColumnName="id")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="genre_id", referencedColumnName="id")}
+     *      )
+     **/
     private $genres;
 
 

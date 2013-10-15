@@ -65,13 +65,13 @@
             $genreDeathMetal = new Genre();
             $genreDeathMetal->setGenreName('Death Metal');
 
-            $entityExampleBand1->addGenre($genreJazz);
-            $entityExampleBand2->addGenre($genreDeathMetal);
+            $entityExampleBand1->setGenres($genreJazz);
+            $entityExampleBand2->setGenres($genreDeathMetal);
 
-            $entityExampleArtist1->addGenre($genreJazz);
-            $entityExampleArtist2->addGenre($genreJazz);
-            $entityExampleArtist3->addGenre($genreJazz);
-            $entityExampleArtist4->addGenre($genreDeathMetal);
+            $entityExampleArtist1->setGenres($genreJazz);
+            $entityExampleArtist2->setGenres($genreJazz);
+            $entityExampleArtist3->setGenres($genreJazz);
+            $entityExampleArtist4->setGenres($genreDeathMetal);
             
             
             $em->persist($entityExampleArtist1);
