@@ -237,7 +237,7 @@
             ],
             "authors": [
                 {
-                    "name": "Jonathan Wage",
+                    "name": "Jonathan H. Wage",
                     "email": "jonwage@gmail.com",
                     "homepage": "http://www.jwage.com/"
                 },
@@ -469,12 +469,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/DoctrineBundle.git",
-                "reference": "a41322d452354ee1e01b1e0f25c4f2ae3ca77ed3"
+                "reference": "ef6c4381a1d182f78b83bc3890cfab0fa08a89f9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/DoctrineBundle/zipball/a41322d452354ee1e01b1e0f25c4f2ae3ca77ed3",
-                "reference": "a41322d452354ee1e01b1e0f25c4f2ae3ca77ed3",
+                "url": "https://api.github.com/repos/doctrine/DoctrineBundle/zipball/ef6c4381a1d182f78b83bc3890cfab0fa08a89f9",
+                "reference": "ef6c4381a1d182f78b83bc3890cfab0fa08a89f9",
                 "shasum": ""
             },
             "require": {
@@ -530,7 +530,7 @@
                 "orm",
                 "persistence"
             ],
-            "time": "2013-09-18 11:44:15"
+            "time": "2013-10-12 16:02:36"
         },
         {
             "name": "doctrine/doctrine-fixtures-bundle",
@@ -1323,12 +1323,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Seldaek/monolog.git",
-                "reference": "79cafca80094f9a3718a0cf7dc979ca34ea14a8c"
+                "reference": "8e5a671eef6e1096d764e6f3524e6f732afa53b4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/79cafca80094f9a3718a0cf7dc979ca34ea14a8c",
-                "reference": "79cafca80094f9a3718a0cf7dc979ca34ea14a8c",
+                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/8e5a671eef6e1096d764e6f3524e6f732afa53b4",
+                "reference": "8e5a671eef6e1096d764e6f3524e6f732afa53b4",
                 "shasum": ""
             },
             "require": {
@@ -1378,7 +1378,7 @@
                 "logging",
                 "psr-3"
             ],
-            "time": "2013-10-11 03:31:42"
+            "time": "2013-10-11 16:18:40"
         },
         {
             "name": "psr/log",
@@ -1837,12 +1837,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/symfony.git",
-                "reference": "f3bd125aed5a78a6d06be588823e5e4feb636011"
+                "reference": "90b483aa440a0968d82ca7b84b13d4feac6be46b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/symfony/zipball/f3bd125aed5a78a6d06be588823e5e4feb636011",
-                "reference": "f3bd125aed5a78a6d06be588823e5e4feb636011",
+                "url": "https://api.github.com/repos/symfony/symfony/zipball/90b483aa440a0968d82ca7b84b13d4feac6be46b",
+                "reference": "90b483aa440a0968d82ca7b84b13d4feac6be46b",
                 "shasum": ""
             },
             "require": {
@@ -1937,7 +1937,7 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2013-10-10 14:16:40"
+            "time": "2013-10-13 06:32:10"
         },
         {
             "name": "twbs/bootstrap",
