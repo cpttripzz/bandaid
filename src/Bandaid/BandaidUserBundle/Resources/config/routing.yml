@@ -1,5 +1,5 @@
 bandaid_bandaid_user_homepage:
-    pattern:  /hello/{name}
+    pattern:  /
     defaults: { _controller: BandaidBandaidUserBundle:Default:index }
 
 

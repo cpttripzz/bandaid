@@ -705,7 +705,6 @@ $ip = $clientIps[0];
 foreach ($clientIps as $key => $clientIp) {
 if (IpUtils::checkIp($clientIp, $trustedProxies)) {
 unset($clientIps[$key]);
-continue;
 }
 }
 return $clientIps ? array_reverse($clientIps) : array($ip);
