@@ -14,7 +14,7 @@ class MenuBuilder extends ContainerAware
         $menu = $factory->createItem('root');
 
         $menu->addChild('Home', array('route' => 'bandaid_bandaid_user_homepage'));
-
+        $menu->addChild ('Login', array('route' => 'fos_user_security_login'));
         return $menu;
     }
 }
