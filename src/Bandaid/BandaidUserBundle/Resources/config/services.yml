@@ -1,12 +1,9 @@
-#services:
-#  bandaid_bandaid_user.menu_builder:
-#    class: Bandaid\BandaidUserBundle\Menu\MenuBuilder
-#    arguments: ["@knp_menu.factory"]
-#  bandaid_bandaid_user.menu.main:
-#    class: Knp\Menu\MenuItem # the service definition requires setting the class
-#    factory_service: bandaid_bandaid_user.menu_builder
-#    factory_method: createMainMenu
-#    arguments: ["@request"]
-#    scope: request # needed as we have the request as a dependency here
-#    tags:
-#        - { name: knp_menu.menu, alias: main } # The alias is what is used to retrieve the menu
+services:
+  bandaid.bandaiduserbundle.admin.entity:
+    class: Bandaid\BandaidUserBundle\Admin\EntityAdmin
+    tags:
+      - { name: sonata.admin, manager_type: orm, group: Bandaid, label: Entities}
+    arguments:
+      - ~
+      - Bandaid\BandaidUserBundle\Entity\Entity
+      - 'BandaidBandaidUserBundle:EntityAdmin'
