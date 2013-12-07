@@ -1,0 +1,15 @@
+# behat.yml
+default:
+    paths:
+        features: src/Bandaid/BandaidUserBundle/Features/
+        bootstrap: %behat.paths.features%/bootstrap
+    context:
+        class:  Bandaid\BandaidUserBundle\Features\Context\FeatureContext
+
+    extensions:
+        Behat\Symfony2Extension\Extension:
+            mink_driver: true
+
+        Behat\MinkExtension\Extension:
+            base_url:  'http://bandaid/app_dev.php'
+            default_session: 'symfony2'
