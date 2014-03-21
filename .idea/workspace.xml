@@ -1,0 +1,1557 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="0c5c0811-d582-4987-87dd-8c2c80ae6bdf" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/accept.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/add.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/ajax-loader.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/anchor.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/application.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/application_add.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/application_cascade.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/application_delete.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/application_double.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/application_edit.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/application_error.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/application_form.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/application_form_add.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/application_form_delete.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/application_form_edit.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/application_form_magnify.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/application_get.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/application_go.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/application_home.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/application_key.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/application_lightning.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/application_link.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/application_osx.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/application_osx_terminal.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/application_put.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/application_side_boxes.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/application_side_contract.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/application_side_expand.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/application_side_list.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/application_side_tree.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/application_split.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/application_tile_horizontal.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/application_tile_vertical.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/application_view_columns.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/application_view_detail.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/application_view_gallery.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/application_view_icons.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/application_view_list.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/application_view_tile.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/application_xp.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/application_xp_terminal.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/arrow_branch.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/arrow_divide.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/arrow_down.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/arrow_in.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/arrow_inout.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/arrow_join.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/arrow_left.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/arrow_merge.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/arrow_out.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/arrow_redo.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/arrow_refresh.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/arrow_refresh_small.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/arrow_right.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/arrow_rotate_anticlockwise.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/arrow_rotate_clockwise.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/arrow_switch.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/arrow_turn_left.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/arrow_turn_right.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/arrow_undo.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/arrow_up.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/asterisk_orange.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/asterisk_yellow.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/attach.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/award_star_add.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/award_star_bronze_1.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/award_star_bronze_2.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/award_star_bronze_3.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/award_star_delete.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/award_star_gold_1.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/award_star_gold_2.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/award_star_gold_3.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/award_star_silver_1.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/award_star_silver_2.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/award_star_silver_3.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/basket.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/basket_add.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/basket_delete.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/basket_edit.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/basket_error.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/basket_go.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/basket_put.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/basket_remove.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/bell.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/bell_add.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/bell_delete.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/bell_error.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/bell_go.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/bell_link.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/bin.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/bin_closed.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/bin_empty.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Acme/DemoBundle/Resources/public/images/blue-arrow.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/bomb.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/book.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/book_add.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/book_addresses.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/book_delete.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/book_edit.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/book_error.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/book_go.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/book_key.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/book_link.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/book_next.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/book_open.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/book_previous.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/box.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/brick.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/brick_add.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/brick_delete.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/brick_edit.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/brick_error.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/brick_go.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/brick_link.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/bricks.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/briefcase.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/bug.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/bug_add.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/bug_delete.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/bug_edit.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/bug_error.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/bug_go.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/bug_link.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/building.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/building_add.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/building_delete.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/building_edit.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/building_error.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/building_go.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/building_key.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/building_link.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/bullet_add.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/bullet_arrow_bottom.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/bullet_arrow_down.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/bullet_arrow_top.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/bullet_arrow_up.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/bullet_black.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/bullet_blue.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/bullet_delete.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/bullet_disk.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/bullet_error.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/bullet_feed.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/bullet_go.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/bullet_green.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/bullet_key.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/bullet_orange.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/bullet_picture.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/bullet_pink.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/bullet_purple.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/bullet_red.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/bullet_star.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/bullet_toggle_minus.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/bullet_toggle_plus.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/bullet_white.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/bullet_wrench.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/bullet_yellow.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/cake.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/calculator.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/calculator_add.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/calculator_delete.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/calculator_edit.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/calculator_error.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/calculator_link.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/calendar.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/calendar_add.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/calendar_delete.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/calendar_edit.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/calendar_link.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/calendar_view_day.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/calendar_view_month.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/calendar_view_week.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/camera.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/camera_add.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/camera_delete.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/camera_edit.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/camera_error.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/camera_go.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/camera_link.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/camera_small.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/cancel.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/car.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/car_add.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/car_delete.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/cart.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/cart_add.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/cart_delete.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/cart_edit.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/cart_error.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/cart_go.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/cart_put.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/cart_remove.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/cd.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/cd_add.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/cd_burn.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/cd_delete.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/cd_edit.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/cd_eject.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/cd_go.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/chart_bar.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/chart_bar_add.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/chart_bar_delete.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/chart_bar_edit.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/chart_bar_error.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/chart_bar_link.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/chart_curve.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/chart_curve_add.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/chart_curve_delete.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/chart_curve_edit.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/chart_curve_error.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/chart_curve_go.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/chart_curve_link.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/chart_line.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/chart_line_add.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/chart_line_delete.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/chart_line_edit.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/chart_line_error.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/chart_line_link.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/chart_organisation.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/chart_organisation_add.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/chart_organisation_delete.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/chart_pie.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/chart_pie_add.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/chart_pie_delete.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/chart_pie_edit.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/chart_pie_error.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/chart_pie_link.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/x-editable/img/clear.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/clock.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/clock_add.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/clock_delete.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/clock_edit.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/clock_error.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/clock_go.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/clock_link.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/clock_pause.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/clock_play.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/clock_red.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/clock_stop.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/cog.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/cog_add.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/cog_delete.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/cog_edit.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/cog_error.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/cog_go.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/coins.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/coins_add.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/coins_delete.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/color_swatch.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/color_wheel.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/comment.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/comment_add.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/comment_delete.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/comment_edit.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/comments.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/comments_add.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/comments_delete.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/compress.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/computer.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/computer_add.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/computer_delete.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/computer_edit.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/computer_error.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/computer_go.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/computer_key.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/computer_link.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/connect.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/contrast.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/contrast_decrease.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/contrast_high.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/contrast_increase.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/contrast_low.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/control_eject.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/control_eject_blue.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/control_end.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/control_end_blue.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/control_equalizer.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/control_equalizer_blue.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/control_fastforward.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/control_fastforward_blue.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/control_pause.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/control_pause_blue.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/control_play.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/control_play_blue.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/control_repeat.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/control_repeat_blue.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/control_rewind.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/control_rewind_blue.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/control_start.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/control_start_blue.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/control_stop.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/control_stop_blue.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/controller.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/controller_add.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/controller_delete.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/controller_error.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/creditcards.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/cross.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/css.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/css_add.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/css_delete.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/css_go.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/css_valid.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/cup.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/cup_add.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/cup_delete.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/cup_edit.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/cup_error.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/cup_go.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/cup_key.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/cup_link.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/cursor.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/cut.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/cut_red.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/database.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/database_add.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/database_connect.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/database_delete.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/database_edit.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/database_error.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/database_gear.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/database_go.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/database_key.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/database_lightning.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/database_link.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/database_refresh.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/database_save.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/database_table.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/date.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/date_add.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/date_delete.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/date_edit.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/date_error.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/date_go.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/date_link.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/date_magnify.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/date_next.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/date_previous.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/delete.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/disconnect.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/disk.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/disk_multiple.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/door.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/door_in.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/door_open.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/door_out.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/drink.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/drink_empty.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/drive.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/drive_add.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/drive_burn.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/drive_cd.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/drive_cd_empty.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/drive_delete.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/drive_disk.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/drive_edit.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/drive_error.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/drive_go.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/drive_key.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/drive_link.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/drive_magnify.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/drive_network.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/drive_rename.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/drive_user.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/drive_web.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/dvd.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/dvd_add.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/dvd_delete.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/dvd_edit.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/dvd_error.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/dvd_go.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/dvd_key.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/dvd_link.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/email.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/email_add.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/email_attach.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/email_delete.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/email_edit.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/email_error.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/email_go.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/email_link.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/email_open.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/email_open_image.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/emoticon_evilgrin.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/emoticon_grin.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/emoticon_happy.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/emoticon_smile.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/emoticon_surprised.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/emoticon_tongue.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/emoticon_unhappy.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/emoticon_waii.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/emoticon_wink.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/error.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/error_add.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/error_delete.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/error_go.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/exclamation.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/eye.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/feed.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/feed_add.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/feed_delete.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/feed_disk.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/feed_edit.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/feed_error.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/feed_go.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/feed_key.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/feed_link.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/feed_magnify.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/female.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Acme/DemoBundle/Resources/public/images/field-background.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/film.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/film_add.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/film_delete.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/film_edit.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/film_error.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/film_go.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/film_key.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/film_link.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/film_save.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/find.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/flag_blue.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/flag_green.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/flag_orange.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/flag_pink.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/flag_purple.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/flag_red.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/flag_yellow.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/folder.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/folder_add.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/folder_bell.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/folder_brick.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/folder_bug.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/folder_camera.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/folder_database.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/folder_delete.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/folder_edit.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/folder_error.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/folder_explore.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/folder_feed.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/folder_find.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/folder_go.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/folder_heart.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/folder_image.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/folder_key.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/folder_lightbulb.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/folder_link.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/folder_magnify.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/folder_page.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/folder_page_white.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/folder_palette.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/folder_picture.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/folder_star.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/folder_table.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/folder_user.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/folder_wrench.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/font.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/font_add.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/font_delete.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/font_go.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/bootstrap/img/glyphicons-halflings-white.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/bootstrap/img/glyphicons-halflings.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/group.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/group_add.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/group_delete.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/group_edit.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/group_error.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/group_gear.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/group_go.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/group_key.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/group_link.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/heart.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/heart_add.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/heart_delete.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/help.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/hourglass.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/hourglass_add.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/hourglass_delete.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/hourglass_go.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/hourglass_link.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/house.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/house_go.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/house_link.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/html.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/html_add.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/html_delete.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/html_go.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/html_valid.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/image.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/image_add.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/image_delete.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/image_edit.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/image_link.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/images.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/information.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/ipod.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/ipod_cast.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/ipod_cast_add.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/ipod_cast_delete.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/ipod_sound.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/joystick.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/joystick_add.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/joystick_delete.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/joystick_error.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/key.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/key_add.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/key_delete.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/key_go.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/keyboard.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/keyboard_add.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/keyboard_delete.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/keyboard_magnify.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/layers.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/layout.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/layout_add.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/layout_content.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/layout_delete.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/layout_edit.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/layout_error.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/layout_header.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/layout_link.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/layout_sidebar.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/lightbulb.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/lightbulb_add.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/lightbulb_delete.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/lightbulb_off.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/lightning.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/lightning_add.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/lightning_delete.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/lightning_go.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/link.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/link_add.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/link_break.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/link_delete.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/link_edit.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/link_error.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/link_go.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/x-editable/img/loading.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/lock.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/lock_add.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/lock_break.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/lock_delete.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/lock_edit.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/lock_go.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/lock_open.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Acme/DemoBundle/Resources/public/images/logo.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/logo_title.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/lorry.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/lorry_add.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/lorry_delete.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/lorry_error.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/lorry_flatbed.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/lorry_go.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/lorry_link.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/magifier_zoom_out.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/magnifier.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/magnifier_zoom_in.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/male.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/map.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/map_add.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/map_delete.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/map_edit.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/map_go.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/map_magnify.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/medal_bronze_1.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/medal_bronze_2.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/medal_bronze_3.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/medal_bronze_add.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/medal_bronze_delete.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/medal_gold_1.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/medal_gold_2.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/medal_gold_3.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/medal_gold_add.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/medal_gold_delete.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/medal_silver_1.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/medal_silver_2.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/medal_silver_3.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/medal_silver_add.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/medal_silver_delete.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/money.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/money_add.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/money_delete.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/money_dollar.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/money_euro.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/money_pound.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/money_yen.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/monitor.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/monitor_add.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/monitor_delete.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/monitor_edit.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/monitor_error.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/monitor_go.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/monitor_lightning.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/monitor_link.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/mouse.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/mouse_add.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/mouse_delete.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/mouse_error.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/music.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/new.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/newspaper.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/newspaper_add.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/newspaper_delete.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/newspaper_go.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/newspaper_link.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/note.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/note_add.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/note_delete.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/note_edit.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/note_error.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/note_go.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/overlays.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/package.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/package_add.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/package_delete.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/package_go.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/package_green.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/package_link.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/page.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/page_add.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/page_attach.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/page_code.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/page_copy.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/page_delete.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/page_edit.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/page_error.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/page_excel.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/page_find.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/page_gear.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/page_go.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/page_green.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/page_key.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/page_lightning.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/page_link.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/page_paintbrush.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/page_paste.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/page_red.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/page_refresh.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/page_save.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/page_white.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/page_white_acrobat.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/page_white_actionscript.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/page_white_add.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/page_white_c.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/page_white_camera.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/page_white_cd.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/page_white_code.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/page_white_code_red.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/page_white_coldfusion.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/page_white_compressed.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/page_white_copy.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/page_white_cplusplus.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/page_white_csharp.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/page_white_cup.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/page_white_database.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/page_white_delete.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/page_white_dvd.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/page_white_edit.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/page_white_error.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/page_white_excel.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/page_white_find.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/page_white_flash.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/page_white_freehand.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/page_white_gear.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/page_white_get.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/page_white_go.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/page_white_h.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/page_white_horizontal.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/page_white_key.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/page_white_lightning.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/page_white_link.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/page_white_magnify.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/page_white_medal.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/page_white_office.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/page_white_paint.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/page_white_paintbrush.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/page_white_paste.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/page_white_php.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/page_white_picture.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/page_white_powerpoint.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/page_white_put.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/page_white_ruby.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/page_white_stack.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/page_white_star.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/page_white_swoosh.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/page_white_text.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/page_white_text_width.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/page_white_tux.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/page_white_vector.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/page_white_visualstudio.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/page_white_width.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/page_white_word.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/page_white_world.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/page_white_wrench.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/page_white_zip.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/page_word.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/page_world.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/paintbrush.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/paintcan.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/palette.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/paste_plain.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/paste_word.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/pencil.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/pencil_add.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/pencil_delete.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/pencil_go.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/phone.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/phone_add.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/phone_delete.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/phone_sound.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/photo.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/photo_add.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/photo_delete.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/photo_link.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/photos.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/picture.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/picture_add.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/picture_delete.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/picture_edit.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/picture_empty.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/picture_error.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/picture_go.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/picture_key.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/picture_link.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/picture_save.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/pictures.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/pilcrow.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/pill.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/pill_add.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/pill_delete.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/pill_go.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/plugin.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/plugin_add.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/plugin_delete.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/plugin_disabled.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/plugin_edit.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/plugin_error.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/plugin_go.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/plugin_link.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/printer.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/printer_add.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/printer_delete.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/printer_empty.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/printer_error.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/rainbow.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/report.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/report_add.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/report_delete.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/report_disk.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/report_edit.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/report_go.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/report_key.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/report_link.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/report_magnify.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/report_picture.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/report_user.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/report_word.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/resultset_first.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/resultset_last.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/resultset_next.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/resultset_previous.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/rosette.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/rss.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/rss_add.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/rss_delete.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/rss_go.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/rss_valid.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/ruby.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/ruby_add.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/ruby_delete.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/ruby_gear.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/ruby_get.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/ruby_go.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/ruby_key.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/ruby_link.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/ruby_put.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/script.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/script_add.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/script_code.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/script_code_red.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/script_delete.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/script_edit.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/script_error.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/script_gear.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/script_go.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/script_key.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/script_lightning.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/script_link.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/script_palette.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/script_save.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Acme/DemoBundle/Resources/public/images/search.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/select2/select2-spinner.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonatacore/select2/select2-spinner.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/select2/select2.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonatacore/select2/select2.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/select2/select2x2.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonatacore/select2/select2x2.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/server.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/server_add.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/server_chart.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/server_compressed.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/server_connect.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/server_database.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/server_delete.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/server_edit.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/server_error.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/server_go.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/server_key.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/server_lightning.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/server_link.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/server_uncompressed.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/shading.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/shape_align_bottom.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/shape_align_center.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/shape_align_left.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/shape_align_middle.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/shape_align_right.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/shape_align_top.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/shape_flip_horizontal.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/shape_flip_vertical.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/shape_group.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/shape_handles.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/shape_move_back.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/shape_move_backwards.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/shape_move_forwards.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/shape_move_front.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/shape_rotate_anticlockwise.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/shape_rotate_clockwise.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/shape_square.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/shape_square_add.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/shape_square_delete.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/shape_square_edit.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/shape_square_error.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/shape_square_go.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/shape_square_key.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/shape_square_link.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/shape_ungroup.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/shield.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/shield_add.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/shield_delete.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/shield_go.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/sitemap.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/sitemap_color.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/sound.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/sound_add.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/sound_delete.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/sound_low.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/sound_mute.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/sound_none.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/spellcheck.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/sport_8ball.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/sport_basketball.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/sport_football.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/sport_golf.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/sport_raquet.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/sport_shuttlecock.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/sport_soccer.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/sport_tennis.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/star.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/status_away.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/status_busy.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/status_offline.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/status_online.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/stop.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/style.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/style_add.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/style_delete.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/style_edit.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/style_go.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/sum.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/tab.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/tab_add.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/tab_delete.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/tab_edit.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/tab_go.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/table.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/table_add.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/table_delete.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/table_edit.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/table_error.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/table_gear.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/table_go.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/table_key.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/table_lightning.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/table_link.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/table_multiple.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/table_refresh.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/table_relationship.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/table_row_delete.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/table_row_insert.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/table_save.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/table_sort.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/tag.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/tag_blue.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/tag_blue_add.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/tag_blue_delete.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/tag_blue_edit.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/tag_green.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/tag_orange.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/tag_pink.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/tag_purple.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/tag_red.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/tag_yellow.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/telephone.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/telephone_add.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/telephone_delete.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/telephone_edit.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/telephone_error.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/telephone_go.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/telephone_key.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/telephone_link.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/television.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/television_add.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/television_delete.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/text_align_center.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/text_align_justify.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/text_align_left.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/text_align_right.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/text_allcaps.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/text_bold.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/text_columns.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/text_dropcaps.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/text_heading_1.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/text_heading_2.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/text_heading_3.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/text_heading_4.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/text_heading_5.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/text_heading_6.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/text_horizontalrule.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/text_indent.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/text_indent_remove.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/text_italic.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/text_kerning.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/text_letter_omega.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/text_letterspacing.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/text_linespacing.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/text_list_bullets.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/text_list_numbers.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/text_lowercase.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/text_padding_bottom.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/text_padding_left.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/text_padding_right.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/text_padding_top.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/text_replace.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/text_signature.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/text_smallcaps.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/text_strikethrough.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/text_subscript.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/text_superscript.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/text_underline.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/text_uppercase.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/textfield.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/textfield_add.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/textfield_delete.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/textfield_key.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/textfield_rename.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/thumb_down.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/thumb_up.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/tick.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/time.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/time_add.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/time_delete.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/time_go.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/timeline_marker.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/transmit.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/transmit_add.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/transmit_blue.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/transmit_delete.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/transmit_edit.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/transmit_error.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/transmit_go.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/tux.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonatajquery/themes/base/images/ui-bg_flat_0_aaaaaa_40x100.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonatajquery/themes/flick/images/ui-bg_flat_0_aaaaaa_40x100.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonatajquery/themes/flick/images/ui-bg_flat_0_eeeeee_40x100.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonatajquery/themes/flick/images/ui-bg_flat_55_ffffff_40x100.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonatajquery/themes/base/images/ui-bg_flat_75_ffffff_40x100.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonatajquery/themes/flick/images/ui-bg_flat_75_ffffff_40x100.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonatajquery/themes/base/images/ui-bg_glass_55_fbf9ee_1x400.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonatajquery/themes/base/images/ui-bg_glass_65_ffffff_1x400.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonatajquery/themes/flick/images/ui-bg_glass_65_ffffff_1x400.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonatajquery/themes/base/images/ui-bg_glass_75_dadada_1x400.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonatajquery/themes/base/images/ui-bg_glass_75_e6e6e6_1x400.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonatajquery/themes/base/images/ui-bg_glass_95_fef1ec_1x400.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonatajquery/themes/flick/images/ui-bg_highlight-soft_100_f6f6f6_1x100.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonatajquery/themes/flick/images/ui-bg_highlight-soft_25_0073ea_1x100.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonatajquery/themes/flick/images/ui-bg_highlight-soft_50_dddddd_1x100.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonatajquery/themes/base/images/ui-bg_highlight-soft_75_cccccc_1x100.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonatajquery/themes/flick/images/ui-icons_0073ea_256x240.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonatajquery/themes/base/images/ui-icons_222222_256x240.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonatajquery/themes/base/images/ui-icons_2e83ff_256x240.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonatajquery/themes/base/images/ui-icons_454545_256x240.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonatajquery/themes/flick/images/ui-icons_454545_256x240.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonatajquery/themes/flick/images/ui-icons_666666_256x240.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonatajquery/themes/base/images/ui-icons_888888_256x240.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonatajquery/themes/base/images/ui-icons_cd0a0a_256x240.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonatajquery/themes/flick/images/ui-icons_ff0084_256x240.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonatajquery/themes/flick/images/ui-icons_ffffff_256x240.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/user.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/user_add.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/user_comment.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/user_delete.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/user_edit.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/user_female.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/user_go.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/user_gray.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/user_green.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/user_orange.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/user_red.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/user_suit.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/vcard.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/vcard_add.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/vcard_delete.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/vcard_edit.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/vector.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/vector_add.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/vector_delete.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/wand.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/weather_clouds.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/weather_cloudy.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/weather_lightning.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/weather_rain.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/weather_snow.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/weather_sun.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/webcam.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/webcam_add.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/webcam_delete.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/webcam_error.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Acme/DemoBundle/Resources/public/images/welcome-configure.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Acme/DemoBundle/Resources/public/images/welcome-demo.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Acme/DemoBundle/Resources/public/images/welcome-quick-tour.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/world.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/world_add.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/world_delete.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/world_edit.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/world_go.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/world_link.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/wrench.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/wrench_orange.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/xhtml.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/xhtml_add.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/xhtml_delete.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/xhtml_go.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/xhtml_valid.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/zoom.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/zoom_in.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/zoom_out.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Acme/DemoBundle/AcmeDemoBundle.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Acme/DemoBundle/DependencyInjection/AcmeDemoExtension.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Application/Sonata/UserBundle/ApplicationSonataUserBundle.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Acme/DemoBundle/Form/ContactType.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Acme/DemoBundle/EventListener/ControllerListener.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Acme/DemoBundle/Controller/DemoController.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Acme/DemoBundle/Tests/Controller/DemoControllerTest.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Acme/DemoBundle/Twig/Extension/DemoExtension.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Application/Sonata/UserBundle/Resources/config/serializer/Document.Group.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Application/Sonata/UserBundle/Resources/config/serializer/Document.User.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Application/Sonata/UserBundle/Resources/config/serializer/Entity.Group.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Application/Sonata/UserBundle/Resources/config/serializer/Entity.User.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Application/Sonata/UserBundle/Resources/config/doctrine/Group.mongodb.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Application/Sonata/UserBundle/Resources/config/doctrine/Group.orm.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Application/Sonata/UserBundle/Document/Group.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Application/Sonata/UserBundle/Entity/Group.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Acme/DemoBundle/Command/HelloWorldCommand.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/bootstrap/LICENSE" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/select2/LICENSE" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonatacore/select2/LICENSE" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/select2/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonatacore/select2/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Acme/DemoBundle/Controller/SecuredController.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/UPGRADE-2.3.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/UPGRADE-2.4.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Application/Sonata/UserBundle/Resources/config/doctrine/User.mongodb.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Application/Sonata/UserBundle/Resources/config/doctrine/User.orm.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Application/Sonata/UserBundle/Document/User.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Application/Sonata/UserBundle/Entity/User.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Acme/DemoBundle/Controller/WelcomeController.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/base.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonatacore/js/base.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bin/behat" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/x-editable/css/bootstrap-editable.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/x-editable/js/bootstrap-editable.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/bootstrap/css/bootstrap-responsive.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/bootstrap/css/bootstrap-responsive.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/bootstrap/css/bootstrap.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/bootstrap/js/bootstrap.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/bootstrap/css/bootstrap.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/bootstrap/js/bootstrap.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/select2/bower.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonatacore/select2/bower.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/css/colors.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Acme/DemoBundle/Resources/views/Demo/contact.html.twig" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Acme/DemoBundle/Resources/public/css/demo.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Acme/DemoBundle/Resources/views/Demo/hello.html.twig" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Acme/DemoBundle/Resources/views/Secured/hello.html.twig" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Acme/DemoBundle/Resources/views/Secured/helloadmin.html.twig" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Acme/DemoBundle/Resources/views/Demo/index.html.twig" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Acme/DemoBundle/Resources/views/Welcome/index.html.twig" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonatajquery/jquery-1.8.3.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonatajquery/themes/flick/jquery-ui-1.8.16.custom.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonatajquery/jquery-ui-1.8.23.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonatajquery/jquery-ui-i18n.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/jquery/jquery.confirmExit.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/jquery/jquery.form.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonatajquery/themes/base/jquery.ui.accordion.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonatajquery/themes/flick/jquery.ui.accordion.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonatajquery/themes/base/jquery.ui.all.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonatajquery/themes/flick/jquery.ui.all.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonatajquery/themes/base/jquery.ui.autocomplete.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonatajquery/themes/flick/jquery.ui.autocomplete.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonatajquery/themes/base/jquery.ui.base.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonatajquery/themes/flick/jquery.ui.base.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonatajquery/themes/base/jquery.ui.button.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonatajquery/themes/flick/jquery.ui.button.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonatajquery/themes/base/jquery.ui.core.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonatajquery/themes/flick/jquery.ui.core.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonatajquery/themes/base/jquery.ui.datepicker.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonatajquery/themes/flick/jquery.ui.datepicker.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonatajquery/themes/base/jquery.ui.dialog.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonatajquery/themes/flick/jquery.ui.dialog.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonatajquery/themes/base/jquery.ui.progressbar.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonatajquery/themes/flick/jquery.ui.progressbar.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonatajquery/themes/base/jquery.ui.resizable.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonatajquery/themes/flick/jquery.ui.resizable.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonatajquery/themes/base/jquery.ui.selectable.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonatajquery/themes/flick/jquery.ui.selectable.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonatajquery/themes/base/jquery.ui.slider.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonatajquery/themes/flick/jquery.ui.slider.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonatajquery/themes/base/jquery.ui.tabs.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonatajquery/themes/flick/jquery.ui.tabs.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonatajquery/themes/base/jquery.ui.theme.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonatajquery/themes/flick/jquery.ui.theme.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/css/layout.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Acme/DemoBundle/Resources/views/layout.html.twig" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Acme/DemoBundle/Resources/views/Secured/layout.html.twig" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Acme/DemoBundle/Resources/views/Secured/login.html.twig" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/config/parameters.yml.dist" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bin/phpunit" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/select2/release.sh" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonatacore/select2/release.sh" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Acme/DemoBundle/Resources/config/routing.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/select2/select2.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonatacore/select2/select2.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/select2/select2.jquery.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonatacore/select2/select2.jquery.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/select2/select2.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonatacore/select2/select2.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/select2/select2.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonatacore/select2/select2.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/select2/select2_locale_ar.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonatacore/select2/select2_locale_ar.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/select2/select2_locale_bg.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonatacore/select2/select2_locale_bg.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/select2/select2_locale_ca.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonatacore/select2/select2_locale_ca.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/select2/select2_locale_cs.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonatacore/select2/select2_locale_cs.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/select2/select2_locale_da.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonatacore/select2/select2_locale_da.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/select2/select2_locale_de.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonatacore/select2/select2_locale_de.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/select2/select2_locale_el.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonatacore/select2/select2_locale_el.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/select2/select2_locale_en.js.template" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonatacore/select2/select2_locale_en.js.template" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/select2/select2_locale_es.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonatacore/select2/select2_locale_es.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/select2/select2_locale_et.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonatacore/select2/select2_locale_et.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/select2/select2_locale_eu.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonatacore/select2/select2_locale_eu.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/select2/select2_locale_fa.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonatacore/select2/select2_locale_fa.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/select2/select2_locale_fi.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonatacore/select2/select2_locale_fi.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/select2/select2_locale_fr.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonatacore/select2/select2_locale_fr.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/select2/select2_locale_gl.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonatacore/select2/select2_locale_gl.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/select2/select2_locale_he.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonatacore/select2/select2_locale_he.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/select2/select2_locale_hr.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonatacore/select2/select2_locale_hr.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/select2/select2_locale_hu.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonatacore/select2/select2_locale_hu.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/select2/select2_locale_id.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonatacore/select2/select2_locale_id.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/select2/select2_locale_is.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonatacore/select2/select2_locale_is.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/select2/select2_locale_it.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonatacore/select2/select2_locale_it.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/select2/select2_locale_ja.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonatacore/select2/select2_locale_ja.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/select2/select2_locale_ko.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonatacore/select2/select2_locale_ko.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/select2/select2_locale_lt.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonatacore/select2/select2_locale_lt.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/select2/select2_locale_lv.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonatacore/select2/select2_locale_lv.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/select2/select2_locale_mk.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonatacore/select2/select2_locale_mk.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/select2/select2_locale_ms.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonatacore/select2/select2_locale_ms.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/select2/select2_locale_nl.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonatacore/select2/select2_locale_nl.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/select2/select2_locale_no.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonatacore/select2/select2_locale_no.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/select2/select2_locale_pl.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonatacore/select2/select2_locale_pl.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/select2/select2_locale_pt-BR.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonatacore/select2/select2_locale_pt-BR.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/select2/select2_locale_pt-PT.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonatacore/select2/select2_locale_pt-PT.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/select2/select2_locale_ro.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonatacore/select2/select2_locale_ro.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/select2/select2_locale_ru.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonatacore/select2/select2_locale_ru.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/select2/select2_locale_sk.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonatacore/select2/select2_locale_sk.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/select2/select2_locale_sv.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonatacore/select2/select2_locale_sv.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/select2/select2_locale_th.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonatacore/select2/select2_locale_th.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/select2/select2_locale_tr.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonatacore/select2/select2_locale_tr.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/select2/select2_locale_ua.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonatacore/select2/select2_locale_ua.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/select2/select2_locale_vi.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonatacore/select2/select2_locale_vi.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/select2/select2_locale_zh-CN.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonatacore/select2/select2_locale_zh-CN.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/select2/select2_locale_zh-TW.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonatacore/select2/select2_locale_zh-TW.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Acme/DemoBundle/Resources/config/services.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/.htaccess" afterPath="$PROJECT_DIR$/web/.htaccess" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/AppKernel.php" afterPath="$PROJECT_DIR$/app/AppKernel.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/SymfonyRequirements.php" afterPath="$PROJECT_DIR$/app/SymfonyRequirements.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/UPGRADE.md" afterPath="$PROJECT_DIR$/UPGRADE.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/app.php" afterPath="$PROJECT_DIR$/web/app.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/app_dev.php" afterPath="$PROJECT_DIR$/web/app_dev.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/autoload.php" afterPath="$PROJECT_DIR$/app/autoload.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/base.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/base.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/bundles/framework/css/body.css" afterPath="$PROJECT_DIR$/web/bundles/framework/css/body.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/bootstrap.php.cache" afterPath="$PROJECT_DIR$/app/bootstrap.php.cache" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/composer.json" afterPath="$PROJECT_DIR$/composer.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/composer.lock" afterPath="$PROJECT_DIR$/composer.lock" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/config.yml" afterPath="$PROJECT_DIR$/app/config/config.yml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/config_dev.yml" afterPath="$PROJECT_DIR$/app/config/config_dev.yml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/config_prod.yml" afterPath="$PROJECT_DIR$/app/config/config_prod.yml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/config_test.yml" afterPath="$PROJECT_DIR$/app/config/config_test.yml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/console" afterPath="$PROJECT_DIR$/app/console" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/frameworkRootSettings.xml" afterPath="$PROJECT_DIR$/.idea/frameworkRootSettings.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/parameters.yml" afterPath="$PROJECT_DIR$/app/config/parameters.yml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/routing.yml" afterPath="$PROJECT_DIR$/app/config/routing.yml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/routing_dev.yml" afterPath="$PROJECT_DIR$/app/config/routing_dev.yml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/security.yml" afterPath="$PROJECT_DIR$/app/config/security.yml" />
+    </list>
+    <ignored path="sf_bandaid.iws" />
+    <ignored path=".idea/workspace.xml" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="DaemonCodeAnalyzer">
+    <disable_hints />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="FavoritesManager">
+    <favorites_list name="sf_bandaid" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file leaf-file-name="nginx.conf" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/nginx/nginx.conf">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="858" max-vertical-offset="1908">
+              <caret line="61" column="0" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="default" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/nginx/default">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="486" max-vertical-offset="594">
+              <caret line="27" column="1" selection-start-line="27" selection-start-column="1" selection-end-line="27" selection-end-column="1" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="www.conf" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/nginx/www.conf">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.5463768" vertical-offset="415" max-vertical-offset="7164">
+              <caret line="44" column="24" selection-start-line="44" selection-start-column="24" selection-end-line="44" selection-end-column="24" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindManager">
+    <FindUsagesManager>
+      <setting name="OPEN_NEW_TAB" value="true" />
+    </FindUsagesManager>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
+  <component name="ProjectFrameBounds">
+    <option name="width" value="1920" />
+    <option name="height" value="1165" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
+    <OptionsSetting value="true" id="Add" />
+    <OptionsSetting value="true" id="Remove" />
+    <OptionsSetting value="true" id="Checkout" />
+    <OptionsSetting value="true" id="Update" />
+    <OptionsSetting value="true" id="Status" />
+    <OptionsSetting value="true" id="Edit" />
+    <ConfirmationsSetting value="0" id="Add" />
+    <ConfirmationsSetting value="0" id="Remove" />
+  </component>
+  <component name="ProjectReloadState">
+    <option name="STATE" value="0" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource ProjectPane="true" />
+      <autoscrollFromSource ProjectPane="true" />
+      <sortByType />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sf_bandaid" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sf_bandaid" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sf_bandaid" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sf_bandaid" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sf_bandaid" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sf_bandaid" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sf_bandaid" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Sonata" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="UserBundle" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sf_bandaid" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sf_bandaid" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="nginx" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../default-sonata" />
+  </component>
+  <component name="RunManager">
+    <list size="0" />
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="0c5c0811-d582-4987-87dd-8c2c80ae6bdf" name="Default" comment="" />
+      <created>1395407152186</created>
+      <updated>1395407152186</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="0" y="0" width="1920" height="1165" extended-state="4" />
+    <editor active="false" />
+    <layout>
+      <window_info id="Changes" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32990655" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32961932" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="Vcs.Log.UiProperties">
+    <option name="RECENTLY_FILTERED_USER_GROUPS">
+      <collection />
+    </option>
+    <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+      <collection />
+    </option>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="myTodoPanelSettings">
+      <TodoPanelSettings />
+    </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/nginx/nginx.conf">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="858" max-vertical-offset="1908">
+          <caret line="61" column="0" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nginx/default">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="486" max-vertical-offset="594">
+          <caret line="27" column="1" selection-start-line="27" selection-start-column="1" selection-end-line="27" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nginx/www.conf">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="684" max-vertical-offset="7164">
+          <caret line="38" column="32" selection-start-line="38" selection-start-column="32" selection-end-line="38" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nginx/default">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="594">
+          <caret line="27" column="1" selection-start-line="27" selection-start-column="1" selection-end-line="27" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nginx/nginx.conf">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="858" max-vertical-offset="1908">
+          <caret line="61" column="0" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/composer.lock">
+      <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.30088496" vertical-offset="540" max-vertical-offset="54972">
+          <caret line="13" column="42" selection-start-line="13" selection-start-column="42" selection-end-line="13" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nginx/www.conf">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5463768" vertical-offset="415" max-vertical-offset="7164">
+          <caret line="44" column="24" selection-start-line="44" selection-start-column="24" selection-end-line="44" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
+
