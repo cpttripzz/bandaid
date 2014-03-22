@@ -6,6 +6,7 @@
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/add.png" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/ajax-loader.gif" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/anchor.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/apple-touch-icon.png" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/application.png" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/application_add.png" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/application_cascade.png" />
@@ -95,6 +96,10 @@
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/bin_closed.png" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/bin_empty.png" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Acme/DemoBundle/Resources/public/images/blue-arrow.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/acmedemo/images/blue-arrow.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sensiodistribution/webconfigurator/images/blue-arrow.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/framework/images/blue_picto_less.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/framework/images/blue_picto_more.gif" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/bomb.png" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/book.png" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/book_add.png" />
@@ -399,6 +404,8 @@
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/error_go.png" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/exclamation.png" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/eye.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/favicon.ico" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sensiodistribution/webconfigurator/images/favicon.ico" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/feed.png" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/feed_add.png" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/feed_delete.png" />
@@ -411,6 +418,7 @@
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/feed_magnify.png" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/female.png" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Acme/DemoBundle/Resources/public/images/field-background.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/acmedemo/images/field-background.gif" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/film.png" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/film_add.png" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/film_delete.png" />
@@ -462,6 +470,7 @@
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/font_go.png" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/bootstrap/img/glyphicons-halflings-white.png" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/bootstrap/img/glyphicons-halflings.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/framework/images/grey_magnifier.png" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/group.png" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/group_add.png" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/group_delete.png" />
@@ -546,6 +555,8 @@
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/lock_go.png" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/lock_open.png" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Acme/DemoBundle/Resources/public/images/logo.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/acmedemo/images/logo.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/framework/images/logo_symfony.png" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/logo_title.png" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/lorry.png" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/lorry_add.png" />
@@ -611,6 +622,7 @@
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/note_edit.png" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/note_error.png" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/note_go.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sensiodistribution/webconfigurator/images/notification.gif" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/overlays.png" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/package.png" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/package_add.png" />
@@ -791,6 +803,7 @@
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/script_palette.png" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/script_save.png" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Acme/DemoBundle/Resources/public/images/search.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/acmedemo/images/search.png" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/select2/select2-spinner.gif" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonatacore/select2/select2-spinner.gif" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/select2/select2.png" />
@@ -1029,8 +1042,11 @@
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/webcam_delete.png" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/webcam_error.png" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Acme/DemoBundle/Resources/public/images/welcome-configure.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/acmedemo/images/welcome-configure.gif" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Acme/DemoBundle/Resources/public/images/welcome-demo.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/acmedemo/images/welcome-demo.gif" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Acme/DemoBundle/Resources/public/images/welcome-quick-tour.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/acmedemo/images/welcome-quick-tour.gif" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/world.png" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/world_add.png" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/world_delete.png" />
@@ -1047,11 +1063,19 @@
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/zoom.png" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/zoom_in.png" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/famfamfam/zoom_out.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/.htaccess" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/.htaccess" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/.htaccess" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Acme/DemoBundle/AcmeDemoBundle.php" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Acme/DemoBundle/DependencyInjection/AcmeDemoExtension.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/AppCache.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/AppKernel.php" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Application/Sonata/UserBundle/ApplicationSonataUserBundle.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/ZE/BABundle/DependencyInjection/Configuration.php" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Acme/DemoBundle/Form/ContactType.php" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Acme/DemoBundle/EventListener/ControllerListener.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/ZE/BABundle/Controller/DefaultController.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/ZE/BABundle/Tests/Controller/DefaultControllerTest.php" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Acme/DemoBundle/Controller/DemoController.php" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Acme/DemoBundle/Tests/Controller/DemoControllerTest.php" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Acme/DemoBundle/Twig/Extension/DemoExtension.php" />
@@ -1067,19 +1091,29 @@
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/bootstrap/LICENSE" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/select2/LICENSE" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonatacore/select2/LICENSE" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/README.md" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/select2/README.md" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonatacore/select2/README.md" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Acme/DemoBundle/Controller/SecuredController.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/SymfonyRequirements.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/UPGRADE-2.2.md" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/UPGRADE-2.3.md" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/UPGRADE-2.4.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/UPGRADE.md" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Application/Sonata/UserBundle/Resources/config/doctrine/User.mongodb.xml" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Application/Sonata/UserBundle/Resources/config/doctrine/User.orm.xml" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Application/Sonata/UserBundle/Document/User.php" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Application/Sonata/UserBundle/Entity/User.php" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Acme/DemoBundle/Controller/WelcomeController.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/ZE/BABundle/ZEBABundle.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/ZE/BABundle/DependencyInjection/ZEBAExtension.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/app.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/app_dev.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/autoload.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Resources/views/base.html.twig" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/base.js" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonatacore/js/base.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bin/behat" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/framework/css/body.css" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/x-editable/css/bootstrap-editable.css" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/x-editable/js/bootstrap-editable.min.js" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/bootstrap/css/bootstrap-responsive.css" />
@@ -1088,16 +1122,31 @@
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/bootstrap/js/bootstrap.js" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/bootstrap/css/bootstrap.min.css" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/bootstrap/js/bootstrap.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/bootstrap.php.cache" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/select2/bower.json" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonatacore/select2/bower.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/check.php" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/css/colors.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/config.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/config/config.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/config/config_dev.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/config/config_prod.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/config/config_test.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sensiodistribution/webconfigurator/css/configurator.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/console" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Acme/DemoBundle/Resources/views/Demo/contact.html.twig" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Acme/DemoBundle/Resources/public/css/demo.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/acmedemo/css/demo.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bin/doctrine.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bin/doctrine" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/framework/css/exception.css" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Acme/DemoBundle/Resources/views/Demo/hello.html.twig" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Acme/DemoBundle/Resources/views/Secured/hello.html.twig" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Acme/DemoBundle/Resources/views/Secured/helloadmin.html.twig" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Acme/DemoBundle/Resources/views/Demo/index.html.twig" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Acme/DemoBundle/Resources/views/Welcome/index.html.twig" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/ZE/BABundle/Resources/views/Default/index.html.twig" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sensiodistribution/webconfigurator/css/install.css" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonatajquery/jquery-1.8.3.js" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonatajquery/themes/flick/jquery-ui-1.8.16.custom.css" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonatajquery/jquery-ui-1.8.23.js" />
@@ -1137,10 +1186,15 @@
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Acme/DemoBundle/Resources/views/Secured/layout.html.twig" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Acme/DemoBundle/Resources/views/Secured/login.html.twig" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/config/parameters.yml.dist" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bin/phpunit" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/config/parameters.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/phpunit.xml.dist" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/select2/release.sh" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonatacore/select2/release.sh" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/robots.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/config/routing.yml" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Acme/DemoBundle/Resources/config/routing.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/config/routing_dev.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/config/security.yml" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/select2/select2.css" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonatacore/select2/select2.css" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/select2/select2.jquery.json" />
@@ -1234,30 +1288,10 @@
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/select2/select2_locale_zh-TW.js" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/sonatacore/select2/select2_locale_zh-TW.js" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Acme/DemoBundle/Resources/config/services.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/.htaccess" afterPath="$PROJECT_DIR$/web/.htaccess" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/AppKernel.php" afterPath="$PROJECT_DIR$/app/AppKernel.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/SymfonyRequirements.php" afterPath="$PROJECT_DIR$/app/SymfonyRequirements.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/UPGRADE.md" afterPath="$PROJECT_DIR$/UPGRADE.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/app.php" afterPath="$PROJECT_DIR$/web/app.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/app_dev.php" afterPath="$PROJECT_DIR$/web/app_dev.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/autoload.php" afterPath="$PROJECT_DIR$/app/autoload.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/base.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/base.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/bundles/framework/css/body.css" afterPath="$PROJECT_DIR$/web/bundles/framework/css/body.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/bootstrap.php.cache" afterPath="$PROJECT_DIR$/app/bootstrap.php.cache" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/composer.json" afterPath="$PROJECT_DIR$/composer.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/composer.lock" afterPath="$PROJECT_DIR$/composer.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/config.yml" afterPath="$PROJECT_DIR$/app/config/config.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/config_dev.yml" afterPath="$PROJECT_DIR$/app/config/config_dev.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/config_prod.yml" afterPath="$PROJECT_DIR$/app/config/config_prod.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/config_test.yml" afterPath="$PROJECT_DIR$/app/config/config_test.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/console" afterPath="$PROJECT_DIR$/app/console" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/frameworkRootSettings.xml" afterPath="$PROJECT_DIR$/.idea/frameworkRootSettings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/parameters.yml" afterPath="$PROJECT_DIR$/app/config/parameters.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/routing.yml" afterPath="$PROJECT_DIR$/app/config/routing.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/routing_dev.yml" afterPath="$PROJECT_DIR$/app/config/routing_dev.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/security.yml" afterPath="$PROJECT_DIR$/app/config/security.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/ZE/BABundle/Resources/config/services.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/framework/css/structure.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/sf_bandaid.iml" afterPath="$PROJECT_DIR$/.idea/sf_bandaid.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="sf_bandaid.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -1303,8 +1337,8 @@
       <file leaf-file-name="www.conf" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/nginx/www.conf">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5463768" vertical-offset="415" max-vertical-offset="7164">
-              <caret line="44" column="24" selection-start-line="44" selection-start-column="24" selection-end-line="44" selection-end-column="24" />
+            <state vertical-scroll-proportion="0.73770493" vertical-offset="792" max-vertical-offset="7164">
+              <caret line="69" column="28" selection-start-line="69" selection-start-column="28" selection-end-line="69" selection-end-column="28" />
               <folding />
             </state>
           </provider>
@@ -1327,8 +1361,8 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="width" value="1920" />
-    <option name="height" value="1165" />
+    <option name="width" value="1908" />
+    <option name="height" value="1045" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -1356,7 +1390,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -1403,34 +1436,17 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Application" />
+              <option name="myItemId" value="ZE" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Sonata" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="UserBundle" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sf_bandaid" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sf_bandaid" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="nginx" />
+              <option name="myItemId" value="BABundle" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1447,15 +1463,25 @@
       <created>1395407152186</created>
       <updated>1395407152186</updated>
     </task>
+    <task id="LOCAL-00001" summary="default sonata admin base">
+      <created>1395411965394</created>
+      <updated>1395411965394</updated>
+    </task>
+    <task id="LOCAL-00002" summary="default sonata admin base - add ZEBABundle">
+      <created>1395484746386</created>
+      <updated>1395484746386</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1920" height="1165" extended-state="4" />
+    <frame x="0" y="0" width="1908" height="1045" extended-state="4" />
     <editor active="false" />
     <layout>
-      <window_info id="Changes" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32990655" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32947367" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32961932" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1485,14 +1511,43 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_NEW_TODO" value="false" />
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
+    <MESSAGE value="default sonata admin base" />
+    <MESSAGE value="default sonata admin base - add ZEBABundle" />
+    <option name="LAST_COMMIT_MESSAGE" value="default sonata admin base - add ZEBABundle" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/nginx/nginx.conf">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1908">
+          <caret line="61" column="0" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nginx/default">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="486" max-vertical-offset="594">
+          <caret line="27" column="1" selection-start-line="27" selection-start-column="1" selection-end-line="27" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nginx/www.conf">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="792" max-vertical-offset="7164">
+          <caret line="44" column="24" selection-start-line="44" selection-start-column="24" selection-end-line="44" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/nginx/nginx.conf">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="858" max-vertical-offset="1908">
@@ -1540,14 +1595,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.30088496" vertical-offset="540" max-vertical-offset="54972">
           <caret line="13" column="42" selection-start-line="13" selection-start-column="42" selection-end-line="13" selection-end-column="42" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/nginx/www.conf">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5463768" vertical-offset="415" max-vertical-offset="7164">
-          <caret line="44" column="24" selection-start-line="44" selection-start-column="24" selection-end-line="44" selection-end-column="24" />
+        <state vertical-scroll-proportion="0.73770493" vertical-offset="792" max-vertical-offset="7164">
+          <caret line="69" column="28" selection-start-line="69" selection-start-column="28" selection-end-line="69" selection-end-column="28" />
           <folding />
         </state>
       </provider>
