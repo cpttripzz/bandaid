@@ -1,9 +1,0 @@
-services:
-  bandaid.bandaiduserbundle.admin.entity:
-    class: Bandaid\BandaidUserBundle\Admin\EntityAdmin
-    tags:
-      - { name: sonata.admin, manager_type: orm, group: Bandaid, label: Entities}
-    arguments:
-      - ~
-      - Bandaid\BandaidUserBundle\Entity\Entity
-      - 'BandaidBandaidUserBundle:EntityAdmin'
