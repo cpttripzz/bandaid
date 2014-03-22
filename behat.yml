@@ -1,10 +1,10 @@
 # behat.yml
 default:
     paths:
-        features: src/Bandaid/BandaidUserBundle/Features/
+        features: src/ZE/BABundle/Features/
         bootstrap: %behat.paths.features%/bootstrap
     context:
-        class:  Bandaid\BandaidUserBundle\Features\Context\FeatureContext
+        class:  ZE\BABundle\Features\Context\FeatureContext
 
     extensions:
         Behat\Symfony2Extension\Extension:
@@ -13,3 +13,8 @@ default:
         Behat\MinkExtension\Extension:
             base_url:  'http://bandaid/app_dev.php'
             default_session: 'symfony2'
+
+        VIPSoft\DoctrineDataFixturesExtension\Extension:
+                  lifetime: feature
+                  autoload: true
+                  fixtures: ~
