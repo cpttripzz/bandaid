@@ -7,8 +7,9 @@ useradmin:
     gender: m
     phone: +99999999999
     email: admin@example.com
-    plainPassword: admin
+    plainPassword: 123456
     isAdmin: true
+    group: admin
 
 useralice:
     username: alice
@@ -19,6 +20,7 @@ useralice:
     phone: +33675982044
     email: alice@example.com
     plainPassword: alice
+    group: band
 
 userbob:
     username: bob
@@ -29,3 +31,4 @@ userbob:
     phone: +33898982044
     email: bob@example.com
     plainPassword: bob
+    group: musician

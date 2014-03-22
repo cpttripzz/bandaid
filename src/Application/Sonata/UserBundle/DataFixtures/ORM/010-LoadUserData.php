@@ -2,6 +2,7 @@
 // src/Application/Sonata/UserBundle/DataFixtures/ORM/010-LoadUserData.php
 namespace Application\Sonata\UserBundle\DataFixtures\ORM;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\DataFixtures\FixtureInterface;
 use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
@@ -9,7 +10,7 @@ use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\DependencyInjection\ContainerAwareInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\Yaml\Yaml;
-
+use FOS\UserBundle\Entity\Group;
 use Application\Sonata\UserBundle\Entity\User;
 
 class LoadUserData extends AbstractFixture
@@ -35,7 +36,13 @@ class LoadUserData extends AbstractFixture
      */
     public function load(ObjectManager $manager)
     {
-
+        $groupManager = $this->container->get('fos_user.group_manager');
+        $filename = __DIR__ . DIRECTORY_SEPARATOR  . '011-LoadUserGroupData.yml';
+        $yml      = Yaml::parse(file_get_contents($filename));
+        foreach ($yml as $userReference => $data) {
+            $group = $groupManager->createGroup($data['name']);
+            $groupManager->updateGroup($group,true);
+        }
         $filename = __DIR__ . DIRECTORY_SEPARATOR  . '010-LoadUserData.yml';
         $yml      = Yaml::parse(file_get_contents($filename));
         $userManager = $this->container->get('fos_user.user_manager');
@@ -51,6 +58,7 @@ class LoadUserData extends AbstractFixture
             $user->setLastname($data['lastname']);
             $user->setGender($data['gender']);
             $user->setPhone($data['phone']);
+            $user->addGroup($groupManager->findGroupByName($data['group']));
             $user->setEnabled(true);
 
             if(isset($data['isAdmin']) && $data['isAdmin']){

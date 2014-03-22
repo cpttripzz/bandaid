@@ -4,17 +4,6 @@
 4) partials for popular/new bands, artists
 
 
-
-
-
-
-
-
-
-
-
-
-
 User Authentication
   Login
   Register
