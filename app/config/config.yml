@@ -168,3 +168,8 @@ services:
         tags:
           - { name: sonata.admin, manager_type: orm, group: BA, label: city }
         arguments: [null, ZE\BABundle\Entity\City, ZEBABundle:CityAdmin]
+    ZE.BABundle.admin.country:
+        class: ZE\BABundle\Admin\CountryAdmin
+        tags:
+          - { name: sonata.admin, manager_type: orm, group: BA, label: country }
+        arguments: [null, ZE\BABundle\Entity\Country, ZEBABundle:CountryAdmin]

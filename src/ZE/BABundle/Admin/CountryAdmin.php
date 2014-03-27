@@ -9,9 +9,9 @@ use Sonata\AdminBundle\Show\ShowMapper;
 
 use Knp\Menu\ItemInterface as MenuItemInterface;
 
-use ZE\BABundle\Entity\City;
+use ZE\BABundle\Entity\Country;
 
-class CityAdmin extends Admin
+class CountryAdmin extends Admin
 {
     /**
      * @param \Sonata\AdminBundle\Show\ShowMapper $showMapper
@@ -21,8 +21,7 @@ class CityAdmin extends Admin
     protected function configureShowField(ShowMapper $showMapper)
     {
         $showMapper
-            ->add('city')
-            ->add('countryCode');
+            ->add('countryName');
     }
 
     /**
@@ -34,11 +33,8 @@ class CityAdmin extends Admin
     {
         $formMapper
             ->with('General')
-            ->add('city')
-            ->add('countryCode')
-            ->end()
-
-        ;
+            ->add('countryName')
+            ->end();
     }
 
     /**
@@ -49,8 +45,7 @@ class CityAdmin extends Admin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-            ->add('city')
-            ->add('countryCode')
+            ->add('countryName')
             ->add('_action', 'actions', array(
                     'actions' => array(
                         'show' => array(),
@@ -61,6 +56,7 @@ class CityAdmin extends Admin
         ;
     }
 
+
     /**
      * @param \Sonata\AdminBundle\Datagrid\DatagridMapper $datagridMapper
      *
@@ -69,8 +65,7 @@ class CityAdmin extends Admin
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper
-            ->add('city', null)
-            ->add('countryCode', null)
+            ->add('countryName', null)
         ;
     }
 }

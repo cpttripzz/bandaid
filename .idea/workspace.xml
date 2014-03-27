@@ -2,21 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0c5c0811-d582-4987-87dd-8c2c80ae6bdf" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/ZE/BABundle/Admin/CityAdmin.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/ZE/BABundle/Controller/CityAdminController.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Application/Sonata/UserBundle/Resources/config/doctrine/Group.mongodb.xml" afterPath="$PROJECT_DIR$/nginx/doctrine/Group.mongodb.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Application/Sonata/UserBundle/Resources/config/doctrine/Group.orm.xml" afterPath="$PROJECT_DIR$/nginx/doctrine/Group.orm.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Application/Sonata/UserBundle/Resources/config/doctrine/User.mongodb.xml" afterPath="$PROJECT_DIR$/nginx/doctrine/User.mongodb.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Application/Sonata/UserBundle/Resources/config/doctrine/User.orm.xml" afterPath="$PROJECT_DIR$/nginx/doctrine/User.orm.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ZE/BABundle/Entity/City.php" afterPath="$PROJECT_DIR$/src/ZE/BABundle/Entity/City.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ZE/BABundle/Entity/Country.php" afterPath="$PROJECT_DIR$/src/ZE/BABundle/Entity/Country.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ZE/BABundle/Entity/Group.php" afterPath="$PROJECT_DIR$/src/ZE/BABundle/Entity/Group.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ZE/BABundle/Entity/User.php" afterPath="$PROJECT_DIR$/src/ZE/BABundle/Entity/User.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/ZE/BABundle/Admin/CountryAdmin.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/ZE/BABundle/Controller/CountryAdminController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ZE/BABundle/Admin/CityAdmin.php" afterPath="$PROJECT_DIR$/src/ZE/BABundle/Admin/CityAdmin.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ZE/BABundle/Admin/UserAdmin.php" afterPath="$PROJECT_DIR$/src/ZE/BABundle/Admin/UserAdmin.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/config.yml" afterPath="$PROJECT_DIR$/app/config/config.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/bundles/sonataadmin/jquery/jquery.confirmExit.js" afterPath="$PROJECT_DIR$/web/bundles/sonataadmin/jquery/jquery.confirmExit.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/parameters.yml" afterPath="$PROJECT_DIR$/app/config/parameters.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ZE/BABundle/Resources/config/services.xml" afterPath="$PROJECT_DIR$/src/ZE/BABundle/Resources/config/services.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="sf_bandaid.iws" />
@@ -52,7 +42,7 @@
       <file leaf-file-name="parameters.yml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/config/parameters.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="30" selection-start="382" selection-end="382" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="360">
+            <state line="13" column="30" selection-start="382" selection-end="382" vertical-scroll-proportion="0.0" vertical-offset="234" max-vertical-offset="360">
               <folding />
             </state>
           </provider>
@@ -61,7 +51,7 @@
       <file leaf-file-name="config.yml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/config/config.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="155" column="57" selection-start="5599" selection-end="5681" vertical-scroll-proportion="0.0" vertical-offset="2571" max-vertical-offset="3150">
+            <state line="165" column="27" selection-start="6187" selection-end="6187" vertical-scroll-proportion="0.0" vertical-offset="2594" max-vertical-offset="3240">
               <folding />
             </state>
           </provider>
@@ -70,7 +60,7 @@
       <file leaf-file-name="UserAdmin.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ZE/BABundle/Admin/UserAdmin.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="20" selection-start="387" selection-end="387" vertical-scroll-proportion="-8.666667" vertical-offset="0" max-vertical-offset="414">
+            <state line="15" column="46" selection-start="465" selection-end="465" vertical-scroll-proportion="-10.0" vertical-offset="0" max-vertical-offset="450">
               <folding>
                 <element signature="e#38#101#0" expanded="true" />
               </folding>
@@ -78,22 +68,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AppKernel.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/AppKernel.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="25" column="25" selection-start="1180" selection-end="1180" vertical-scroll-proportion="0.0" vertical-offset="450" max-vertical-offset="954">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="User.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ZE/BABundle/Entity/User.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="78" column="0" selection-start="1459" selection-end="1459" vertical-scroll-proportion="-2.7222223" vertical-offset="1167" max-vertical-offset="1692">
-              <folding>
-                <element signature="e#113#163#0" expanded="true" />
-              </folding>
+            <state line="78" column="0" selection-start="1459" selection-end="1459" vertical-scroll-proportion="-7.5925927" vertical-offset="1091" max-vertical-offset="1674">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -101,7 +80,7 @@
       <file leaf-file-name="User.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Model/User.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="565" column="20" selection-start="11152" selection-end="11152" vertical-scroll-proportion="-7.148148" vertical-offset="9833" max-vertical-offset="10548">
+            <state line="565" column="20" selection-start="11152" selection-end="11152" vertical-scroll-proportion="0.0" vertical-offset="10170" max-vertical-offset="10692">
               <folding />
             </state>
           </provider>
@@ -110,16 +89,25 @@
       <file leaf-file-name="City.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ZE/BABundle/Entity/City.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="28" column="18" selection-start="466" selection-end="466" vertical-scroll-proportion="18.222221" vertical-offset="996" max-vertical-offset="1962">
+            <state line="16" column="6" selection-start="180" selection-end="180" vertical-scroll-proportion="40.407406" vertical-offset="1379" max-vertical-offset="1962">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CityAdmin.php" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="CityAdmin.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/ZE/BABundle/Admin/CityAdmin.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="60" column="5" selection-start="1513" selection-end="1513" vertical-scroll-proportion="-7.7777777" vertical-offset="870" max-vertical-offset="1422">
+            <state line="35" column="29" selection-start="848" selection-end="848" vertical-scroll-proportion="0.7409949" vertical-offset="54" max-vertical-offset="1314">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CountryAdmin.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ZE/BABundle/Admin/CountryAdmin.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="68" column="9" selection-start="1613" selection-end="1677" vertical-scroll-proportion="-16.25926" vertical-offset="785" max-vertical-offset="1368">
               <folding>
                 <element signature="e#36#71#0" expanded="true" />
               </folding>
@@ -130,25 +118,25 @@
       <file leaf-file-name="CityAdminController.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ZE/BABundle/Controller/CityAdminController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="1" selection-start="154" selection-end="154" vertical-scroll-proportion="-4.6666665" vertical-offset="0" max-vertical-offset="234">
+            <state line="6" column="0" selection-start="152" selection-end="152" vertical-scroll-proportion="-4.0" vertical-offset="0" max-vertical-offset="234">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="User.orm.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/nginx/doctrine/User.orm.xml">
+      <file leaf-file-name="CountryAdminController.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ZE/BABundle/Controller/CountryAdminController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="0" selection-start="598" selection-end="598" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="378">
+            <state line="7" column="1" selection-start="157" selection-end="157" vertical-scroll-proportion="-4.6666665" vertical-offset="0" max-vertical-offset="234">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Country.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="Country.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ZE/BABundle/Entity/Country.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="62" column="34" selection-start="1050" selection-end="1050" vertical-scroll-proportion="1.0574913" vertical-offset="509" max-vertical-offset="1368">
+            <state line="17" column="37" selection-start="214" selection-end="226" vertical-scroll-proportion="-9.333333" vertical-offset="54" max-vertical-offset="1368">
               <folding />
             </state>
           </provider>
@@ -157,10 +145,8 @@
       <file leaf-file-name="Group.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ZE/BABundle/Entity/Group.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="21" column="2" selection-start="512" selection-end="512" vertical-scroll-proportion="-10.555555" vertical-offset="3" max-vertical-offset="810">
-              <folding>
-                <element signature="e#113#165#0" expanded="true" />
-              </folding>
+            <state line="21" column="2" selection-start="512" selection-end="512" vertical-scroll-proportion="0.0" vertical-offset="378" max-vertical-offset="900">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -201,21 +187,24 @@
         <option value="$PROJECT_DIR$/app/config/parameters.yml" />
         <option value="$PROJECT_DIR$/src/ZE/BABundle/Entity/Group.php" />
         <option value="$PROJECT_DIR$/src/Application/Sonata/UserBundle/Resources/config/doctrine/User.orm.xml" />
-        <option value="$PROJECT_DIR$/src/ZE/BABundle/Admin/UserAdmin.php" />
-        <option value="$PROJECT_DIR$/app/config/config.yml" />
         <option value="$PROJECT_DIR$/src/ZE/BABundle/Controller/CityAdminController.php" />
-        <option value="$PROJECT_DIR$/src/ZE/BABundle/Admin/CityAdmin.php" />
+        <option value="$PROJECT_DIR$/src/ZE/BABundle/Entity/User.php" />
+        <option value="$PROJECT_DIR$/src/ZE/BABundle/Controller/CountryAdminController.php" />
+        <option value="$PROJECT_DIR$/app/config/config.yml" />
         <option value="$PROJECT_DIR$/src/ZE/BABundle/Entity/Country.php" />
         <option value="$PROJECT_DIR$/src/ZE/BABundle/Entity/City.php" />
-        <option value="$PROJECT_DIR$/src/ZE/BABundle/Entity/User.php" />
+        <option value="$PROJECT_DIR$/src/ZE/BABundle/Admin/CountryAdmin.php" />
+        <option value="$PROJECT_DIR$/src/ZE/BABundle/Admin/UserAdmin.php" />
+        <option value="$PROJECT_DIR$/src/ZE/BABundle/Admin/CityAdmin.php" />
       </list>
     </option>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="1920" />
-    <option name="width" value="1914" />
-    <option name="height" value="1080" />
+    <option name="x" value="1919" />
+    <option name="y" value="-10" />
+    <option name="width" value="1922" />
+    <option name="height" value="1092" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -307,7 +296,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -740,6 +728,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -770,6 +759,8 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/ZE/BABundle/Admin" />
+      <recent name="$PROJECT_DIR$/src/ZE/BABundle/Controller" />
       <recent name="$PROJECT_DIR$/src/ZE/BABundle/Entity" />
       <recent name="$PROJECT_DIR$/src/Application/Sonata/UserBundle/DataFixtures/ORM" />
     </key>
@@ -842,20 +833,23 @@
       <created>1395509037501</created>
       <updated>1395509037501</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="add city admin">
+      <created>1395924547278</created>
+      <updated>1395924547278</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1920" y="0" width="1914" height="1080" extended-state="4" />
+    <frame x="1919" y="-10" width="1922" height="1092" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Changes" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.30481285" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.30411828" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32834226" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25828877" sideWeight="0.50153846" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25828877" sideWeight="0.4969231" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26091588" sideWeight="0.5022762" order="1" side_tool="true" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26091588" sideWeight="0.49620637" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24973147" sideWeight="0.50053936" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32961932" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -864,10 +858,11 @@
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32834226" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -888,7 +883,8 @@
     <MESSAGE value="default sonata admin base - add ZEBABundle" />
     <MESSAGE value="add admin login feature" />
     <MESSAGE value="add group to user load fixture function" />
-    <option name="LAST_COMMIT_MESSAGE" value="add group to user load fixture function" />
+    <MESSAGE value="add city admin" />
+    <option name="LAST_COMMIT_MESSAGE" value="add city admin" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -902,20 +898,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/composer.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1458">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/sonata-project/user-bundle/Model/User.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="10386">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/config/config.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2016">
@@ -935,9 +917,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/vendor/sonata-project/user-bundle/Model/User.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/config/config.yml">
@@ -1003,11 +983,11 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/composer.lock">
-      <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0" />
+      </provider>
+      <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/nginx/www.conf">
@@ -1092,30 +1072,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/vendor/sonata-project/user-bundle/Entity/BaseUser.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="32" selection-start="454" selection-end="454" vertical-scroll-proportion="0.0" vertical-offset="342" max-vertical-offset="1044">
-          <folding />
-        </state>
+        <state line="19" column="32" selection-start="454" selection-end="454" vertical-scroll-proportion="0.0" vertical-offset="342" max-vertical-offset="1044" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/AppKernel.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="25" selection-start="1180" selection-end="1180" vertical-scroll-proportion="0.0" vertical-offset="450" max-vertical-offset="954">
-          <folding />
-        </state>
+        <state line="25" column="25" selection-start="1180" selection-end="1180" vertical-scroll-proportion="0.0" vertical-offset="450" max-vertical-offset="954" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/vendor/sonata-project/admin-bundle/UPGRADE-2.1.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="601">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="601" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/vendor/sonata-project/user-bundle/Model/User.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="15" selection-start="428" selection-end="428" vertical-scroll-proportion="0.33221477" vertical-offset="0" max-vertical-offset="10242">
-          <folding />
-        </state>
+        <state line="19" column="15" selection-start="428" selection-end="428" vertical-scroll-proportion="0.33221477" vertical-offset="0" max-vertical-offset="10242" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/composer.json">
@@ -1127,16 +1099,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Model/User.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="565" column="20" selection-start="11152" selection-end="11152" vertical-scroll-proportion="-7.148148" vertical-offset="9833" max-vertical-offset="10548">
+        <state line="565" column="20" selection-start="11152" selection-end="11152" vertical-scroll-proportion="0.0" vertical-offset="10170" max-vertical-offset="10692">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/nginx/doctrine/User.orm.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="0" selection-start="598" selection-end="598" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="378">
-          <folding />
-        </state>
+        <state line="15" column="0" selection-start="598" selection-end="598" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="378" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/config/parameters.yml">
@@ -1146,66 +1116,76 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ZE/BABundle/Admin/UserAdmin.php">
+    <entry file="file://$PROJECT_DIR$/src/ZE/BABundle/Entity/Group.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="20" selection-start="387" selection-end="387" vertical-scroll-proportion="-8.666667" vertical-offset="0" max-vertical-offset="414">
-          <folding>
-            <element signature="e#38#101#0" expanded="true" />
-          </folding>
+        <state line="21" column="2" selection-start="512" selection-end="512" vertical-scroll-proportion="0.0" vertical-offset="378" max-vertical-offset="900">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/config/config.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="155" column="57" selection-start="5599" selection-end="5681" vertical-scroll-proportion="0.0" vertical-offset="2571" max-vertical-offset="3150">
+        <state line="165" column="27" selection-start="6187" selection-end="6187" vertical-scroll-proportion="0.0" vertical-offset="2594" max-vertical-offset="3240">
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ZE/BABundle/Controller/CityAdminController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="1" selection-start="154" selection-end="154" vertical-scroll-proportion="-4.6666665" vertical-offset="0" max-vertical-offset="234">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ZE/BABundle/Admin/CityAdmin.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="60" column="5" selection-start="1513" selection-end="1513" vertical-scroll-proportion="-7.7777777" vertical-offset="870" max-vertical-offset="1422">
-          <folding>
-            <element signature="e#36#71#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ZE/BABundle/Entity/Group.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="2" selection-start="512" selection-end="512" vertical-scroll-proportion="-10.555555" vertical-offset="3" max-vertical-offset="810">
-          <folding>
-            <element signature="e#113#165#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ZE/BABundle/Entity/User.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="78" column="0" selection-start="1459" selection-end="1459" vertical-scroll-proportion="-2.7222223" vertical-offset="1167" max-vertical-offset="1692">
-          <folding>
-            <element signature="e#113#163#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ZE/BABundle/Entity/City.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="18" selection-start="466" selection-end="466" vertical-scroll-proportion="18.222221" vertical-offset="996" max-vertical-offset="1962">
+        <state line="78" column="0" selection-start="1459" selection-end="1459" vertical-scroll-proportion="-7.5925927" vertical-offset="1091" max-vertical-offset="1674">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ZE/BABundle/Entity/Country.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="62" column="34" selection-start="1050" selection-end="1050" vertical-scroll-proportion="1.0574913" vertical-offset="509" max-vertical-offset="1368">
+        <state line="17" column="37" selection-start="214" selection-end="226" vertical-scroll-proportion="-9.333333" vertical-offset="54" max-vertical-offset="1368">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ZE/BABundle/Controller/CountryAdminController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="1" selection-start="157" selection-end="157" vertical-scroll-proportion="-4.6666665" vertical-offset="0" max-vertical-offset="234">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ZE/BABundle/Controller/CityAdminController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="0" selection-start="152" selection-end="152" vertical-scroll-proportion="-4.0" vertical-offset="0" max-vertical-offset="234">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ZE/BABundle/Entity/City.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="6" selection-start="180" selection-end="180" vertical-scroll-proportion="40.407406" vertical-offset="1379" max-vertical-offset="1962">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ZE/BABundle/Admin/CountryAdmin.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="68" column="9" selection-start="1613" selection-end="1677" vertical-scroll-proportion="-16.25926" vertical-offset="785" max-vertical-offset="1368">
+          <folding>
+            <element signature="e#36#71#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ZE/BABundle/Admin/UserAdmin.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="46" selection-start="465" selection-end="465" vertical-scroll-proportion="-10.0" vertical-offset="0" max-vertical-offset="450">
+          <folding>
+            <element signature="e#38#101#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ZE/BABundle/Admin/CityAdmin.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="35" column="29" selection-start="848" selection-end="848" vertical-scroll-proportion="0.7409949" vertical-offset="54" max-vertical-offset="1314">
           <folding />
         </state>
       </provider>
