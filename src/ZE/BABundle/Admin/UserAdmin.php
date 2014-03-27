@@ -11,12 +11,8 @@
      protected function configureFormFields(FormMapper $formMapper)
      {
          parent::configureFormFields($formMapper);
-
          $formMapper
-             ->with('new_section')
-             ->add(...)
-                // ...
-            ->end()
-     ;
+             ->with('Profile')
+             ->add('city','sonata_type_model');
     }
  }

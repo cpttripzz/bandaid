@@ -57,7 +57,10 @@ doctrine:
     orm:
         auto_generate_proxy_classes: %kernel.debug%
         auto_mapping: true
-        
+#        mappings:
+#            ApplicationSonataUserBundle:
+#                type: annotation
+
 
 # Swiftmailer Configuration
 swiftmailer:
@@ -84,7 +87,10 @@ sonata_block:
         sonata.block.service.text:
         sonata.block.service.action:
         sonata.block.service.rss:
-          
+sonata_user:
+    class:
+        user: ZE\BABundle\Entity\User
+        group: ZE\BABundle\Entity\Group
 sonata_admin:
     title:      Admin Panel
     title_logo: /bundles/sonataadmin/logo_title.png
@@ -154,3 +160,11 @@ sonata_doctrine_orm_admin:
                 bigint:     SonataAdminBundle:CRUD:base_show_field.html.twig
                 integer:    SonataAdminBundle:CRUD:base_show_field.html.twig
                 decimal:    SonataAdminBundle:CRUD:base_show_field.html.twig
+parameters:
+    sonata.user.admin.user.class: ZE\BABundle\Admin\UserAdmin
+services:
+    ZE.BABundle.admin.city:
+        class: ZE\BABundle\Admin\CityAdmin
+        tags:
+          - { name: sonata.admin, manager_type: orm, group: BA, label: city }
+        arguments: [null, ZE\BABundle\Entity\City, ZEBABundle:CityAdmin]
