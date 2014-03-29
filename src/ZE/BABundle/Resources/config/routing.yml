@@ -1,0 +1,4 @@
+home: 
+  defaults: 
+    _controller: "ZEBABundle:Home:index"
+  path: /
