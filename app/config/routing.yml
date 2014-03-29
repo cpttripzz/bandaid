@@ -1,6 +1,5 @@
 zeba:
-    resource: "@ZEBABundle/Controller/"
-    type:     annotation
+    resource: "@ZEBABundle/Resources/config/routing.yml"
     prefix:   /
 
 fos_user_security:
