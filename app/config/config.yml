@@ -193,13 +193,18 @@ services:
     ZE.BABundle.admin.city:
         class: ZE\BABundle\Admin\CityAdmin
         tags:
-          - { name: sonata.admin, manager_type: orm, group: BA, label: city }
+          - { name: sonata.admin, manager_type: orm, group: Users, label: city }
         arguments: [null, ZE\BABundle\Entity\City, ZEBABundle:CityAdmin]
     ZE.BABundle.admin.country:
         class: ZE\BABundle\Admin\CountryAdmin
         tags:
-          - { name: sonata.admin, manager_type: orm, group: BA, label: country }
+          - { name: sonata.admin, manager_type: orm, group: Users, label: country }
         arguments: [null, ZE\BABundle\Entity\Country, ZEBABundle:CountryAdmin]
+    ZE.BABundle.admin.document:
+        class: ZE\BABundle\Admin\DocumentAdmin
+        tags:
+          - { name: sonata.admin, manager_type: orm, group: Users, label: document }
+        arguments: [null, ZE\BABundle\Entity\Document, ZEBABundle:DocumentAdmin]
 mopa_bootstrap:
     form: ~  # Adds twig form theme  support
     menu: ~  # enables twig helpers for menu

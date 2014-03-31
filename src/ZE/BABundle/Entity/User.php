@@ -7,6 +7,7 @@
  */
 
 namespace ZE\BABundle\Entity;
+use Doctrine\Common\Collections\ArrayCollection;
 use Sonata\UserBundle\Entity\BaseUser as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -53,10 +54,17 @@ class User extends BaseUser
      */
     private $city;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="Document", inversedBy="Users", cascade={"persist"})
+     * @ORM\JoinTable(name="users_documents")
+     **/
+    private $documents;
+
 
     public function __construct()
     {
         parent::__construct();
+        $this->documents = new ArrayCollection();
     }
     /**
      * @var \Doctrine\Common\Collections\Collection
@@ -88,6 +96,40 @@ class User extends BaseUser
     public function getCity()
     {
         return $this->city;
+    }
+
+
+    /**
+     * Add documents
+     *
+     * @param \ZE\BABundle\Entity\Document $documents
+     * @return User
+     */
+    public function addDocument(\ZE\BABundle\Entity\Document $documents)
+    {
+        $this->documents[] = $documents;
+
+        return $this;
+    }
+
+    /**
+     * Remove documents
+     *
+     * @param \ZE\BABundle\Entity\Document $documents
+     */
+    public function removeDocument(\ZE\BABundle\Entity\Document $documents)
+    {
+        $this->documents->removeElement($documents);
+    }
+
+    /**
+     * Get documents
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getDocuments()
+    {
+        return $this->documents;
     }
 
 }

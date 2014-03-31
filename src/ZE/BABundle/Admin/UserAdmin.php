@@ -13,7 +13,12 @@
          parent::configureFormFields($formMapper);
          $formMapper
              ->with('Profile')
-             ->add('city','sonata_type_model');
+             ->add('city','sonata_type_model')
+             ->add('documents','sonata_type_collection', array(), array(
+                     'edit' => 'inline',
+                     'inline' => 'table',
+                     'sortable'  => 'position'
+                 ));
 
 
     }
