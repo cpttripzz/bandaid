@@ -104,6 +104,13 @@ fos_user:
     user_class: ZE\BABundle\Entity\User
     group:
         group_class: ZE\BABundle\Entity\Group
+    profile:  # Authentication Form
+        form:
+            type:               fos_user_profile
+            handler:            fos_user.profile.form.handler.default
+            name:               fos_user_profile_form
+            validation_groups:  [Authentication] # Please note : this is not the default value
+
 
 # Sonata Configuration
 sonata_block:
@@ -111,13 +118,22 @@ sonata_block:
     blocks:
         sonata.admin.block.admin_list:
             contexts:   [admin]
+        sonata.admin.block.search_result:
+            contexts: [admin]
         sonata.block.service.text:
         sonata.block.service.action:
         sonata.block.service.rss:
+        sonata.user.block.menu:
 sonata_user:
     class:
         user: ZE\BABundle\Entity\User
         group: ZE\BABundle\Entity\Group
+    profile:  # Profile Form (firstname, lastname, etc ...)
+        form:
+            type:               sonata_user_profile
+            handler:            sonata.user.profile.form.handler.default
+            name:               sonata_user_profile_form
+            validation_groups:  [Profile]
 sonata_admin:
     title:      Admin Panel
     title_logo: /bundles/sonataadmin/logo_title.png
