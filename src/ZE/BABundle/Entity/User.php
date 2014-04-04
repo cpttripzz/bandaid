@@ -72,7 +72,12 @@ class User extends BaseUser
     protected  $groups;
 
 
-
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="github_id", type="string", nullable=true)
+     */
+    private $githubID;
 
 
     /**
@@ -131,5 +136,30 @@ class User extends BaseUser
     {
         return $this->documents;
     }
+
+
+    /**
+     * Set githubID
+     *
+     * @param string $githubID
+     * @return User
+     */
+    public function setGithubID($githubID)
+    {
+        $this->githubID = $githubID;
+
+        return $this;
+    }
+
+    /**
+     * Get githubID
+     *
+     * @return string 
+     */
+    public function getGithubID()
+    {
+        return $this->githubID;
+    }
+
 
 }

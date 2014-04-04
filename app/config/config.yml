@@ -2,10 +2,18 @@ imports:
     - { resource: parameters.yml }
     - { resource: security.yml }      
 
+
+parameters:
+    sonata.user.admin.user.class: ZE\BABundle\Admin\UserAdmin
+    sonata.user.admin.user.entity: ZE\BABundle\Entity\User
+services:
+    sonata.user.admin.group:
+        abstract: true
+        public: false
+
 framework:
     #esi:             ~
-    #translator:      { fallback: %locale% }
-    translator: ~
+    translator:      { fallback: %locale% }
     secret:          %secret%
     router:
         resource: "%kernel.root_dir%/config/routing.yml"
@@ -20,6 +28,7 @@ framework:
     trusted_proxies: ~
     session:         ~
     fragments:       ~
+    http_method_override: true
 
 # Twig Configuration
 twig:
@@ -88,7 +97,6 @@ doctrine:
 #            ApplicationSonataUserBundle:
 #                type: annotation
 
-
 # Swiftmailer Configuration
 swiftmailer:
     transport: %mailer_transport%
@@ -100,8 +108,11 @@ swiftmailer:
 # FOS User Configuration
 fos_user:
     db_driver: orm
-    firewall_name: main
+    firewall_name: secure_area
     user_class: ZE\BABundle\Entity\User
+    registration:
+        confirmation:
+            enabled:    false # change to true for required email confirmation
     group:
         group_class: ZE\BABundle\Entity\Group
     profile:  # Authentication Form
@@ -112,19 +123,17 @@ fos_user:
             validation_groups:  [Authentication] # Please note : this is not the default value
 
 
-# Sonata Configuration
 sonata_block:
     default_contexts: [cms]
     blocks:
         sonata.admin.block.admin_list:
             contexts:   [admin]
-        sonata.admin.block.search_result:
-            contexts: [admin]
-        sonata.block.service.text:
-        sonata.block.service.action:
-        sonata.block.service.rss:
-        sonata.user.block.menu:
+
+sonata_admin:
+    title:      Your Project Admin
+
 sonata_user:
+    security_acl:           false
     class:
         user: ZE\BABundle\Entity\User
         group: ZE\BABundle\Entity\Group
@@ -137,74 +146,7 @@ sonata_user:
 sonata_admin:
     title:      Admin Panel
     title_logo: /bundles/sonataadmin/logo_title.png
-    templates:
-        # default global templates
-        layout:  SonataAdminBundle::standard_layout.html.twig
-        ajax:    SonataAdminBundle::ajax_layout.html.twig
- 
-        # default actions templates, should extend a global templates
-        list:    SonataAdminBundle:CRUD:list.html.twig
-        show:    SonataAdminBundle:CRUD:show.html.twig
-        edit:    SonataAdminBundle:CRUD:edit.html.twig
-    dashboard:
-        blocks:
-            # display a dashboard block
-            - { position: left, type: sonata.admin.block.admin_list }
-    security:
-        handler: sonata.admin.security.handler.acl
-        # acl security information
-        information:
-            GUEST:    [VIEW, LIST]
-            STAFF:    [EDIT, LIST, CREATE]
-            EDITOR:   [OPERATOR, EXPORT]
-            ADMIN:    [MASTER]
-        # permissions not related to an object instance and also to be available when objects do not exist
-        # the DELETE admin permission means the user is allowed to batch delete objects
-        admin_permissions: [CREATE, LIST, DELETE, UNDELETE, EXPORT, OPERATOR, MASTER]
-        # permission related to the objects
-        object_permissions: [VIEW, EDIT, DELETE, UNDELETE, OPERATOR, MASTER, OWNER]
 
-
-sonata_doctrine_orm_admin:
-    # default value is null, so doctrine uses the value defined in the configuration
-    entity_manager: ~
- 
-    templates:
-        form:
-            - SonataDoctrineORMAdminBundle:Form:form_admin_fields.html.twig
-        filter:
-            - SonataDoctrineORMAdminBundle:Form:filter_admin_fields.html.twig
-        types:
-            list:
-                array:      SonataAdminBundle:CRUD:list_array.html.twig
-                boolean:    SonataAdminBundle:CRUD:list_boolean.html.twig
-                date:       SonataAdminBundle:CRUD:list_date.html.twig
-                time:       SonataAdminBundle:CRUD:list_time.html.twig
-                datetime:   SonataAdminBundle:CRUD:list_datetime.html.twig
-                text:       SonataAdminBundle:CRUD:base_list_field.html.twig
-                trans:      SonataAdminBundle:CRUD:list_trans.html.twig
-                string:     SonataAdminBundle:CRUD:base_list_field.html.twig
-                smallint:   SonataAdminBundle:CRUD:base_list_field.html.twig
-                bigint:     SonataAdminBundle:CRUD:base_list_field.html.twig
-                integer:    SonataAdminBundle:CRUD:base_list_field.html.twig
-                decimal:    SonataAdminBundle:CRUD:base_list_field.html.twig
-                identifier: SonataAdminBundle:CRUD:base_list_field.html.twig
- 
-            show:
-                array:      SonataAdminBundle:CRUD:show_array.html.twig
-                boolean:    SonataAdminBundle:CRUD:show_boolean.html.twig
-                date:       SonataAdminBundle:CRUD:show_date.html.twig
-                time:       SonataAdminBundle:CRUD:show_time.html.twig
-                datetime:   SonataAdminBundle:CRUD:show_datetime.html.twig
-                text:       SonataAdminBundle:CRUD:base_show_field.html.twig
-                trans:      SonataAdminBundle:CRUD:show_trans.html.twig
-                string:     SonataAdminBundle:CRUD:base_show_field.html.twig
-                smallint:   SonataAdminBundle:CRUD:base_show_field.html.twig
-                bigint:     SonataAdminBundle:CRUD:base_show_field.html.twig
-                integer:    SonataAdminBundle:CRUD:base_show_field.html.twig
-                decimal:    SonataAdminBundle:CRUD:base_show_field.html.twig
-parameters:
-    sonata.user.admin.user.class: ZE\BABundle\Admin\UserAdmin
 services:
     ZE.BABundle.admin.city:
         class: ZE\BABundle\Admin\CityAdmin
@@ -224,3 +166,44 @@ services:
 mopa_bootstrap:
     form: ~  # Adds twig form theme  support
     menu: ~  # enables twig helpers for menu
+hwi_oauth:
+    # name of the firewall in which this bundle is active, this setting MUST be set
+    firewall_name: secure_area
+    connect:
+        confirmation: true
+        #account_connector: hwi_oauth.user.provider.fosub_bridge
+        #registration_form_handler: hwi_oauth.registration.form.handler.fosub_bridge
+        #registration_form: fos_user.registration.form
+
+    resource_owners:
+        github:
+            type:                github
+            client_id:           19a3e93bb28c7df99257
+            client_secret:       e294564e11f60bb0edda2c24d443b2f667c7aa7a
+            scope:               "user:email"
+         #twitter:
+            #type:                twitter
+            #client_id:           <client_id>
+            #client_secret:       <client_secret>
+        #facebook:
+            #type:                facebook
+            #client_id:           <client_id>
+            #client_secret:       <client_secret>
+            #options:
+                #display: popup
+        #google:
+            #type:                google
+            #client_id:           <client_id>
+            #client_secret:       <client_secret>
+            #scope:               "https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile"
+
+    fosub:
+        # try 30 times to check if a username is available (foo, foo1, foo2 etc)
+        username_iterations: 30
+
+        # mapping between resource owners (see below) and properties
+        properties:
+            github: githubID
+            #twitter: twitterID
+            #facebook: faecbookID
+            #google: googleID
