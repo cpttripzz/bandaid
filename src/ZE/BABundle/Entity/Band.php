@@ -39,24 +39,34 @@ class Band
         return $this->id;
     }
     /**
-     * @ORM\ManyToMany(targetEntity="City", inversedBy="Band", cascade={"persist"})
-     **/
+     * @ORM\ManyToMany(targetEntity="City")
+     * @ORM\JoinTable(name="bands_cities",
+     *      joinColumns={@ORM\JoinColumn(name="bands_id", referencedColumnName="id")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="city_id", referencedColumnName="id")}
+     *      )
+     */
     private $cities;
 
     /**
-     * @ORM\ManyToMany(targetEntity="Document", inversedBy="Band", cascade={"persist"})
-     **/
+     * @ORM\ManyToMany(targetEntity="Document")
+     * @ORM\JoinTable(name="bands_documents",
+     *      joinColumns={@ORM\JoinColumn(name="bands_id", referencedColumnName="id")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="document_id", referencedColumnName="id")}
+     *      )
+     */
     private $documents;
 
     /**
-     * @ORM\ManyToMany(targetEntity="Genre", inversedBy="Band", cascade={"persist"})
-     **/
-    private $genres;
+     * @ORM\ManyToMany(targetEntity="Genre")
+     * @ORM\JoinTable(name="bands_genres",
+     *      joinColumns={@ORM\JoinColumn(name="bands_id", referencedColumnName="id")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="genre_id", referencedColumnName="id")}
+     *      )
+     */
 
 
     public function __construct()
     {
-        parent::__construct();
         $this->documents = new ArrayCollection();
         $this->cities = new ArrayCollection();
         $this->genres = new ArrayCollection();

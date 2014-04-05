@@ -2,24 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0c5c0811-d582-4987-87dd-8c2c80ae6bdf" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/ZE/BABundle/Entity/Association.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/ZE/BABundle/Admin/AssociationAdmin.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/ZE/BABundle/Entity/Band.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/ZE/BABundle/Admin/BandAdmin.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/ZE/BABundle/Controller/BandAdminController.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/ZE/BABundle/Entity/Genre.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/ZE/BABundle/Admin/GenreAdmin.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/ZE/BABundle/Controller/GenreAdminController.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/ZE/BABundle/Entity/Musician.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/ZE/BABundle/Admin/MusicianAdmin.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/ZE/BABundle/Controller/MusicianAdminController.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bandaid1.sql" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ZE/BABundle/Entity/Document.php" afterPath="$PROJECT_DIR$/src/ZE/BABundle/Entity/Document.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ZE/BABundle/Entity/Band.php" afterPath="$PROJECT_DIR$/src/ZE/BABundle/Entity/Band.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ZE/BABundle/Admin/BandAdmin.php" afterPath="$PROJECT_DIR$/src/ZE/BABundle/Admin/BandAdmin.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ZE/BABundle/Entity/Musician.php" afterPath="$PROJECT_DIR$/src/ZE/BABundle/Entity/Musician.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ZE/BABundle/Entity/User.php" afterPath="$PROJECT_DIR$/src/ZE/BABundle/Entity/User.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ZE/BABundle/Admin/UserAdmin.php" afterPath="$PROJECT_DIR$/src/ZE/BABundle/Admin/UserAdmin.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/bootstrap.php.cache" afterPath="$PROJECT_DIR$/app/bootstrap.php.cache" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/config.yml" afterPath="$PROJECT_DIR$/app/config/config.yml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="sf_bandaid.iws" />
@@ -43,38 +29,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="UserAdmin.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ZE/BABundle/Admin/UserAdmin.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-3.3333333" vertical-offset="0" max-vertical-offset="612">
-              <caret line="5" column="40" selection-start-line="5" selection-start-column="40" selection-end-line="5" selection-end-column="40" />
-              <folding>
-                <element signature="e#38#101#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MusicianAdminController.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ZE/BABundle/Controller/MusicianAdminController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-4.6666665" vertical-offset="0" max-vertical-offset="234">
-              <caret line="7" column="1" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BandAdminController.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ZE/BABundle/Controller/BandAdminController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-4.6666665" vertical-offset="0" max-vertical-offset="234">
-              <caret line="7" column="1" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="GenreAdminController.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ZE/BABundle/Controller/GenreAdminController.php">
           <provider selected="true" editor-type-id="text-editor">
@@ -105,23 +59,37 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Association.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="Association.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ZE/BABundle/Entity/Association.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.31690142" vertical-offset="0" max-vertical-offset="3042">
-              <caret line="17" column="17" selection-start-line="17" selection-start-column="17" selection-end-line="17" selection-end-column="17" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3042">
+              <caret line="21" column="6" selection-start-line="21" selection-start-column="6" selection-end-line="21" selection-end-column="6" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Band.php" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="Band.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/ZE/BABundle/Entity/Band.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-4.6666665" vertical-offset="54" max-vertical-offset="3078">
-              <caret line="10" column="50" selection-start-line="10" selection-start-column="50" selection-end-line="10" selection-end-column="50" />
+            <state vertical-scroll-proportion="0.072164945" vertical-offset="721" max-vertical-offset="3258">
+              <caret line="42" column="42" selection-start-line="42" selection-start-column="42" selection-end-line="42" selection-end-column="42" />
               <folding>
                 <element signature="e#6#81#0" expanded="true" />
+                <element signature="e#113#161#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Musician.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ZE/BABundle/Entity/Musician.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-5.8433733" vertical-offset="595" max-vertical-offset="3276">
+              <caret line="60" column="38" selection-start-line="60" selection-start-column="38" selection-end-line="60" selection-end-column="38" />
+              <folding>
+                <element signature="e#6#81#0" expanded="true" />
+                <element signature="e#113#161#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -137,11 +105,31 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Genre.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ZE/BABundle/Entity/Genre.php">
+      <file leaf-file-name="User.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ZE/BABundle/Entity/User.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-8.666667" vertical-offset="0" max-vertical-offset="1296">
-              <caret line="13" column="19" selection-start-line="13" selection-start-column="19" selection-end-line="13" selection-end-column="19" />
+            <state vertical-scroll-proportion="-10.666667" vertical-offset="792" max-vertical-offset="5526">
+              <caret line="67" column="27" selection-start-line="67" selection-start-column="27" selection-end-line="67" selection-end-column="27" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BandAdmin.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ZE/BABundle/Admin/BandAdmin.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-10.0" vertical-offset="0" max-vertical-offset="1638">
+              <caret line="23" column="61" selection-start-line="23" selection-start-column="61" selection-end-line="23" selection-end-column="61" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MusicianAdmin.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ZE/BABundle/Admin/MusicianAdmin.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="20.62963" vertical-offset="1115" max-vertical-offset="1656">
+              <caret line="39" column="9" selection-start-line="22" selection-start-column="8" selection-end-line="39" selection-end-column="9" />
               <folding />
             </state>
           </provider>
@@ -200,19 +188,19 @@
         <option value="$PROJECT_DIR$/src/ZE/BABundle/Admin/GenreAdmin.php" />
         <option value="$PROJECT_DIR$/src/ZE/BABundle/Admin/AssociationAdmin.php" />
         <option value="$PROJECT_DIR$/src/ZE/BABundle/Entity/Association.php" />
-        <option value="$PROJECT_DIR$/src/ZE/BABundle/Admin/BandAdmin.php" />
-        <option value="$PROJECT_DIR$/src/ZE/BABundle/Entity/User.php" />
         <option value="$PROJECT_DIR$/src/ZE/BABundle/Controller/MusicianAdminController.php" />
         <option value="$PROJECT_DIR$/src/ZE/BABundle/Entity/Document.php" />
-        <option value="$PROJECT_DIR$/src/ZE/BABundle/Entity/Band.php" />
         <option value="$PROJECT_DIR$/src/ZE/BABundle/Entity/Genre.php" />
-        <option value="$PROJECT_DIR$/src/ZE/BABundle/Entity/Musician.php" />
         <option value="$PROJECT_DIR$/src/ZE/BABundle/Admin/MusicianAdmin.php" />
         <option value="$PROJECT_DIR$/bandaid1.sql" />
         <option value="$PROJECT_DIR$/src/ZE/BABundle/Admin/UserAdmin.php" />
         <option value="$PROJECT_DIR$/src/ZE/BABundle/Controller/BandAdminController.php" />
         <option value="$PROJECT_DIR$/src/ZE/BABundle/Controller/GenreAdminController.php" />
         <option value="$PROJECT_DIR$/app/config/config.yml" />
+        <option value="$PROJECT_DIR$/src/ZE/BABundle/Entity/Musician.php" />
+        <option value="$PROJECT_DIR$/src/ZE/BABundle/Entity/Band.php" />
+        <option value="$PROJECT_DIR$/src/ZE/BABundle/Entity/User.php" />
+        <option value="$PROJECT_DIR$/src/ZE/BABundle/Admin/BandAdmin.php" />
       </list>
     </option>
   </component>
@@ -571,7 +559,11 @@
       <created>1396701009371</created>
       <updated>1396701009371</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="add more entities and admin bindings">
+      <created>1396716609841</created>
+      <updated>1396716609841</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -626,7 +618,8 @@
     <MESSAGE value="add city/country admin&#10;next: http://stackoverflow.com/questions/10118868/how-to-use-ajax-within-sonata-admin-forms" />
     <MESSAGE value="add document admin" />
     <MESSAGE value="php app/console assets:install web" />
-    <option name="LAST_COMMIT_MESSAGE" value="php app/console assets:install web" />
+    <MESSAGE value="add more entities and admin bindings" />
+    <option name="LAST_COMMIT_MESSAGE" value="add more entities and admin bindings" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -874,28 +867,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ZE/BABundle/Admin/BandAdmin.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-15.333333" vertical-offset="0" max-vertical-offset="1530">
-          <caret line="23" column="22" selection-start-line="23" selection-start-column="22" selection-end-line="23" selection-end-column="22" />
-          <folding>
-            <element signature="e#36#71#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/ZE/BABundle/Entity/Group.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-11.296296" vertical-offset="235" max-vertical-offset="810">
           <caret line="36" column="13" selection-start-line="36" selection-start-column="13" selection-end-line="36" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ZE/BABundle/Entity/User.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.3333335" vertical-offset="54" max-vertical-offset="5364">
-          <caret line="21" column="35" selection-start-line="21" selection-start-column="35" selection-end-line="21" selection-end-column="35" />
           <folding />
         </state>
       </provider>
@@ -927,17 +902,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ZE/BABundle/Entity/Musician.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.0361445" vertical-offset="0" max-vertical-offset="3042">
-          <caret line="14" column="17" selection-start-line="14" selection-start-column="17" selection-end-line="14" selection-end-column="17" />
-          <folding>
-            <element signature="e#6#81#0" expanded="true" />
-            <element signature="e#113#161#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/ZE/BABundle/Entity/City.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.6666667" vertical-offset="0" max-vertical-offset="1962">
@@ -965,16 +929,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ZE/BABundle/Admin/MusicianAdmin.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.0" vertical-offset="198" max-vertical-offset="1800">
-          <caret line="23" column="28" selection-start-line="23" selection-start-column="28" selection-end-line="23" selection-end-column="28" />
-          <folding>
-            <element signature="e#36#71#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/ZE/BABundle/Entity/Genre.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-8.666667" vertical-offset="0" max-vertical-offset="1296">
@@ -988,7 +942,7 @@
         <state vertical-scroll-proportion="-3.3333333" vertical-offset="0" max-vertical-offset="612">
           <caret line="5" column="40" selection-start-line="5" selection-start-column="40" selection-end-line="5" selection-end-column="40" />
           <folding>
-            <element signature="e#38#101#0" expanded="true" />
+            <element signature="e#38#101#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1041,21 +995,57 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ZE/BABundle/Entity/Band.php">
+    <entry file="file://$PROJECT_DIR$/src/ZE/BABundle/Entity/Association.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.6666665" vertical-offset="54" max-vertical-offset="3078">
-          <caret line="10" column="50" selection-start-line="10" selection-start-column="50" selection-end-line="10" selection-end-column="50" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3042">
+          <caret line="21" column="6" selection-start-line="21" selection-start-column="6" selection-end-line="21" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ZE/BABundle/Entity/Musician.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.8433733" vertical-offset="595" max-vertical-offset="3276">
+          <caret line="60" column="38" selection-start-line="60" selection-start-column="38" selection-end-line="60" selection-end-column="38" />
           <folding>
             <element signature="e#6#81#0" expanded="true" />
+            <element signature="e#113#161#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ZE/BABundle/Entity/Association.php">
+    <entry file="file://$PROJECT_DIR$/src/ZE/BABundle/Entity/User.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.31690142" vertical-offset="0" max-vertical-offset="3042">
-          <caret line="17" column="17" selection-start-line="17" selection-start-column="17" selection-end-line="17" selection-end-column="17" />
+        <state vertical-scroll-proportion="-10.666667" vertical-offset="792" max-vertical-offset="5526">
+          <caret line="67" column="27" selection-start-line="67" selection-start-column="27" selection-end-line="67" selection-end-column="27" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ZE/BABundle/Admin/MusicianAdmin.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="20.62963" vertical-offset="1115" max-vertical-offset="1656">
+          <caret line="39" column="9" selection-start-line="22" selection-start-column="8" selection-end-line="39" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ZE/BABundle/Admin/BandAdmin.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-10.0" vertical-offset="0" max-vertical-offset="1638">
+          <caret line="23" column="61" selection-start-line="23" selection-start-column="61" selection-end-line="23" selection-end-column="61" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ZE/BABundle/Entity/Band.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.072164945" vertical-offset="721" max-vertical-offset="3258">
+          <caret line="42" column="42" selection-start-line="42" selection-start-column="42" selection-end-line="42" selection-end-column="42" />
+          <folding>
+            <element signature="e#6#81#0" expanded="true" />
+            <element signature="e#113#161#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

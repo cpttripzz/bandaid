@@ -39,18 +39,31 @@ class Musician
     }
 
     /**
-     * @ORM\ManyToMany(targetEntity="City", inversedBy="Musician", cascade={"persist"})
-     **/
+     * @ORM\ManyToMany(targetEntity="City")
+     * @ORM\JoinTable(name="musicians_cities",
+     *      joinColumns={@ORM\JoinColumn(name="musician_id", referencedColumnName="id")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="city_id", referencedColumnName="id")}
+     *      )
+     */
     private $cities;
 
     /**
-     * @ORM\ManyToMany(targetEntity="Document", inversedBy="Musician", cascade={"persist"})
-     **/
+     * @ORM\ManyToMany(targetEntity="Document")
+     * @ORM\JoinTable(name="musicians_documents",
+     *      joinColumns={@ORM\JoinColumn(name="musician_id", referencedColumnName="id")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="document_id", referencedColumnName="id")}
+     *      )
+     */
     private $documents;
 
     /**
-     * @ORM\ManyToMany(targetEntity="Genre", inversedBy="Musician", cascade={"persist"})
-     **/
+     * @ORM\ManyToMany(targetEntity="Genre")
+     * @ORM\JoinTable(name="musicians_genres",
+     *      joinColumns={@ORM\JoinColumn(name="musician_id", referencedColumnName="id")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="genre_id", referencedColumnName="id")}
+     *      )
+     */
+
     private $genres;
 
 

@@ -45,13 +45,22 @@ class User extends BaseUser
     }
 
     /**
-     * @ORM\ManyToMany(targetEntity="Band", inversedBy="users", cascade={"persist"})
-     **/
+     * @ORM\ManyToMany(targetEntity="Band",cascade={"persist"})
+     * @ORM\JoinTable(name="users_bands",
+     *      joinColumns={@ORM\JoinColumn(name="user_id", referencedColumnName="id")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="band_id", referencedColumnName="id")}
+     *      )
+     */
     private $bands;
 
     /**
-     * @ORM\ManyToMany(targetEntity="Musician", inversedBy="users", cascade={"persist"})
-     **/
+     * @ORM\ManyToMany(targetEntity="Musician",cascade={"persist"})
+     * @ORM\JoinTable(name="users_musicians",
+     *      joinColumns={@ORM\JoinColumn(name="user_id", referencedColumnName="id")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="musician_id", referencedColumnName="id")}
+     *      )
+     */
+
     private $musicians;
 
     public function __construct()
