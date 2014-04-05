@@ -178,6 +178,22 @@ services:
         tags:
           - { name: sonata.admin, manager_type: orm, group: Users, label: document }
         arguments: [null, ZE\BABundle\Entity\Document, ZEBABundle:DocumentAdmin]
+    ZE.BABundle.admin.musician:
+        class: ZE\BABundle\Admin\MusicianAdmin
+        tags:
+          - { name: sonata.admin, manager_type: orm, group: Associations, label: musician}
+        arguments: [null, ZE\BABundle\Entity\Musician, ZEBABundle:MusicianAdmin]
+    ZE.BABundle.admin.band:
+        class: ZE\BABundle\Admin\BandAdmin
+        tags:
+          - { name: sonata.admin, manager_type: orm, group: Associations, label: band}
+        arguments: [null, ZE\BABundle\Entity\Band, ZEBABundle:BandAdmin]
+    ZE.BABundle.admin.genre:
+        class: ZE\BABundle\Admin\GenreAdmin
+        tags:
+          - { name: sonata.admin, manager_type: orm, group: Associations, label: genre}
+        arguments: [null, ZE\BABundle\Entity\Genre, ZEBABundle:GenreAdmin]
+
 mopa_bootstrap:
     form: ~  # Adds twig form theme  support
     menu: ~  # enables twig helpers for menu

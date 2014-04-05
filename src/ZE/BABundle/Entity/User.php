@@ -45,31 +45,26 @@ class User extends BaseUser
     }
 
     /**
-     * @var \City
-     *
-     * @ORM\ManyToOne(targetEntity="City")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="city_id", referencedColumnName="id")
-     * })
-     */
-    private $city;
+     * @ORM\ManyToMany(targetEntity="Band", inversedBy="users", cascade={"persist"})
+     **/
+    private $bands;
 
     /**
-     * @ORM\ManyToMany(targetEntity="Document", inversedBy="Users", cascade={"persist"})
-     * @ORM\JoinTable(name="users_documents")
+     * @ORM\ManyToMany(targetEntity="Musician", inversedBy="users", cascade={"persist"})
      **/
-    private $documents;
-
+    private $musicians;
 
     public function __construct()
     {
         parent::__construct();
-        $this->documents = new ArrayCollection();
+        $this->bands = new ArrayCollection();
+        $this->musicians = new ArrayCollection();
     }
+
     /**
      * @var \Doctrine\Common\Collections\Collection
      */
-    protected  $groups;
+    protected $groups;
 
 
     /**
@@ -93,63 +88,6 @@ class User extends BaseUser
 
     /** @ORM\Column(name="google_access_token", type="string", length=255, nullable=true) */
     protected $google_access_token;
-    /**
-     * Set city
-     *
-     * @param \ZE\BABundle\Entity\City $city
-     * @return User
-     */
-    public function setCity(\ZE\BABundle\Entity\City $city = null)
-    {
-        $this->city = $city;
-
-        return $this;
-    }
-
-    /**
-     * Get city
-     *
-     * @return \ZE\BABundle\Entity\City 
-     */
-    public function getCity()
-    {
-        return $this->city;
-    }
-
-
-    /**
-     * Add documents
-     *
-     * @param \ZE\BABundle\Entity\Document $documents
-     * @return User
-     */
-    public function addDocument(\ZE\BABundle\Entity\Document $documents)
-    {
-        $this->documents[] = $documents;
-
-        return $this;
-    }
-
-    /**
-     * Remove documents
-     *
-     * @param \ZE\BABundle\Entity\Document $documents
-     */
-    public function removeDocument(\ZE\BABundle\Entity\Document $documents)
-    {
-        $this->documents->removeElement($documents);
-    }
-
-    /**
-     * Get documents
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getDocuments()
-    {
-        return $this->documents;
-    }
-
 
     /**
      * Set githubID
@@ -167,13 +105,12 @@ class User extends BaseUser
     /**
      * Get githubID
      *
-     * @return string 
+     * @return string
      */
     public function getGithubID()
     {
         return $this->githubID;
     }
-
 
 
     /**
@@ -192,13 +129,12 @@ class User extends BaseUser
     /**
      * Get github_access_token
      *
-     * @return string 
+     * @return string
      */
     public function getGithubAccessToken()
     {
         return $this->github_access_token;
     }
-
 
 
     /**
@@ -217,7 +153,7 @@ class User extends BaseUser
     /**
      * Get facebook_id
      *
-     * @return string 
+     * @return string
      */
     public function getFacebookId()
     {
@@ -240,7 +176,7 @@ class User extends BaseUser
     /**
      * Get facebook_access_token
      *
-     * @return string 
+     * @return string
      */
     public function getFacebookAccessToken()
     {
@@ -263,7 +199,7 @@ class User extends BaseUser
     /**
      * Get google_id
      *
-     * @return string 
+     * @return string
      */
     public function getGoogleId()
     {
@@ -286,12 +222,78 @@ class User extends BaseUser
     /**
      * Get google_access_token
      *
-     * @return string 
+     * @return string
      */
     public function getGoogleAccessToken()
     {
         return $this->google_access_token;
     }
 
+
+    /**
+     * Add bands
+     *
+     * @param \ZE\BABundle\Entity\Band $bands
+     * @return User
+     */
+    public function addBand(\ZE\BABundle\Entity\Band $bands)
+    {
+        $this->bands[] = $bands;
+
+        return $this;
+    }
+
+    /**
+     * Remove bands
+     *
+     * @param \ZE\BABundle\Entity\Band $bands
+     */
+    public function removeBand(\ZE\BABundle\Entity\Band $bands)
+    {
+        $this->bands->removeElement($bands);
+    }
+
+    /**
+     * Get bands
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getBands()
+    {
+        return $this->bands;
+    }
+
+    /**
+     * Add musicians
+     *
+     * @param \ZE\BABundle\Entity\Musician $musicians
+     * @return User
+     */
+    public function addMusician(\ZE\BABundle\Entity\Musician $musicians)
+    {
+        $this->musicians[] = $musicians;
+
+        return $this;
+    }
+
+    /**
+     * Remove musicians
+     *
+     * @param \ZE\BABundle\Entity\Musician $musicians
+     */
+    public function removeMusician(\ZE\BABundle\Entity\Musician $musicians)
+    {
+        $this->musicians->removeElement($musicians);
+    }
+
+    /**
+     * Get musicians
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getMusicians()
+    {
+        return $this->musicians;
+    }
 
 }
