@@ -1,40 +1,48 @@
 zeba:
-    resource: "@ZEBABundle/Resources/config/routing.yml"
-    prefix:   /
-
-fos_user_security:
-    resource: "@FOSUserBundle/Resources/config/routing/security.xml"
-
-fos_user_register:
-    resource: "@FOSUserBundle/Resources/config/routing/registration.xml"
-    prefix: /register
-
-fos_user_resetting:
-    resource: "@FOSUserBundle/Resources/config/routing/resetting.xml"
-    prefix: /resetting
-
-sonata_user:
-    resource: '@SonataUserBundle/Resources/config/routing/admin_security.xml'
-    prefix: /admin
-
-admin:
-    resource: '@SonataAdminBundle/Resources/config/routing/sonata_admin.xml'
-    prefix: /admin
-
-sonata_user_profile:
-    resource: "@SonataUserBundle/Resources/config/routing/sonata_profile_1.xml"
-    prefix: /profile
-
-sonata_user_change_password:
-    resource: "@SonataUserBundle/Resources/config/routing/sonata_change_password_1.xml"
-    prefix: /change-password
-
-
+  prefix: /
+  resource: "@ZEBABundle/Resources/config/routing.yml"
 _sonata_admin:
-    resource: .
-    type: sonata_admin
-    prefix: /admin
+  prefix: /admin
+  resource: "."
+  type: sonata_admin
+admin:
+  prefix: /admin
+  resource: "@SonataAdminBundle/Resources/config/routing/sonata_admin.xml"
+sonata_user:
+  prefix: /admin
+  resource: "@SonataUserBundle/Resources/config/routing/admin_security.xml"
+sonata_user_change_password:
+  prefix: /change-password
+  resource: "@SonataUserBundle/Resources/config/routing/sonata_change_password_1.xml"
+sonata_user_profile:
+  prefix: /profile
+  resource: "@SonataUserBundle/Resources/config/routing/sonata_profile_1.xml"
+fos_user_change_password:
+  prefix: /profile
+  resource: "@FOSUserBundle/Resources/config/routing/change_password.xml"
+fos_user_profile:
+  prefix: /profile
+  resource: "@FOSUserBundle/Resources/config/routing/profile.xml"
+fos_user_register:
+  prefix: /register
+  resource: "@FOSUserBundle/Resources/config/routing/registration.xml"
+fos_user_resetting:
+  prefix: /resetting
+  resource: "@FOSUserBundle/Resources/config/routing/resetting.xml"
+fos_user_security:
+  resource: "@FOSUserBundle/Resources/config/routing/security.xml"
+hwi_oauth_connect:
+  prefix: /login
+  resource: "@HWIOAuthBundle/Resources/config/routing/connect.xml"
+hwi_oauth_redirect:
+  prefix: /login
+  resource: "@HWIOAuthBundle/Resources/config/routing/redirect.xml"
+hwi_oauth_security:
+  prefix: /login
+  resource: "@HWIOAuthBundle/Resources/config/routing/login.xml"
+github_login:
+  pattern: /login/check-github
 
-# error-prevention
 homepage:
-    pattern: /
+  pattern: /
+

@@ -45,91 +45,264 @@ class User extends BaseUser
     }
 
     /**
-     * @var \City
-     *
-     * @ORM\ManyToOne(targetEntity="City")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="city_id", referencedColumnName="id")
-     * })
+     * @ORM\ManyToMany(targetEntity="Band",cascade={"persist"})
+     * @ORM\JoinTable(name="users_bands",
+     *      joinColumns={@ORM\JoinColumn(name="user_id", referencedColumnName="id")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="band_id", referencedColumnName="id")}
+     *      )
      */
-    private $city;
+    private $bands;
 
     /**
-     * @ORM\ManyToMany(targetEntity="Document", inversedBy="Users", cascade={"persist"})
-     * @ORM\JoinTable(name="users_documents")
-     **/
-    private $documents;
+     * @ORM\ManyToMany(targetEntity="Musician",cascade={"persist"})
+     * @ORM\JoinTable(name="users_musicians",
+     *      joinColumns={@ORM\JoinColumn(name="user_id", referencedColumnName="id")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="musician_id", referencedColumnName="id")}
+     *      )
+     */
 
+    private $musicians;
 
     public function __construct()
     {
         parent::__construct();
-        $this->documents = new ArrayCollection();
+        $this->bands = new ArrayCollection();
+        $this->musicians = new ArrayCollection();
     }
+
     /**
      * @var \Doctrine\Common\Collections\Collection
      */
-    protected  $groups;
-
-
-
+    protected $groups;
 
 
     /**
-     * Set city
+     * @var string
      *
-     * @param \ZE\BABundle\Entity\City $city
+     * @ORM\Column(name="github_id", type="string", nullable=true)
+     */
+    protected $githubID;
+    /** @ORM\Column(name="github_access_token", type="string", length=255, nullable=true) */
+
+    protected $github_access_token;
+
+    /** @ORM\Column(name="facebook_id", type="string", length=255, nullable=true) */
+    protected $facebook_id;
+
+    /** @ORM\Column(name="facebook_access_token", type="string", length=255, nullable=true) */
+    protected $facebook_access_token;
+
+    /** @ORM\Column(name="google_id", type="string", length=255, nullable=true) */
+    protected $google_id;
+
+    /** @ORM\Column(name="google_access_token", type="string", length=255, nullable=true) */
+    protected $google_access_token;
+
+    /**
+     * Set githubID
+     *
+     * @param string $githubID
      * @return User
      */
-    public function setCity(\ZE\BABundle\Entity\City $city = null)
+    public function setGithubID($githubID)
     {
-        $this->city = $city;
+        $this->githubID = $githubID;
 
         return $this;
     }
 
     /**
-     * Get city
+     * Get githubID
      *
-     * @return \ZE\BABundle\Entity\City 
+     * @return string
      */
-    public function getCity()
+    public function getGithubID()
     {
-        return $this->city;
+        return $this->githubID;
     }
 
 
     /**
-     * Add documents
+     * Set github_access_token
      *
-     * @param \ZE\BABundle\Entity\Document $documents
+     * @param string $githubAccessToken
      * @return User
      */
-    public function addDocument(\ZE\BABundle\Entity\Document $documents)
+    public function setGithubAccessToken($githubAccessToken)
     {
-        $this->documents[] = $documents;
+        $this->github_access_token = $githubAccessToken;
 
         return $this;
     }
 
     /**
-     * Remove documents
+     * Get github_access_token
      *
-     * @param \ZE\BABundle\Entity\Document $documents
+     * @return string
      */
-    public function removeDocument(\ZE\BABundle\Entity\Document $documents)
+    public function getGithubAccessToken()
     {
-        $this->documents->removeElement($documents);
+        return $this->github_access_token;
+    }
+
+
+    /**
+     * Set facebook_id
+     *
+     * @param string $facebookId
+     * @return User
+     */
+    public function setFacebookId($facebookId)
+    {
+        $this->facebook_id = $facebookId;
+
+        return $this;
     }
 
     /**
-     * Get documents
+     * Get facebook_id
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return string
      */
-    public function getDocuments()
+    public function getFacebookId()
     {
-        return $this->documents;
+        return $this->facebook_id;
+    }
+
+    /**
+     * Set facebook_access_token
+     *
+     * @param string $facebookAccessToken
+     * @return User
+     */
+    public function setFacebookAccessToken($facebookAccessToken)
+    {
+        $this->facebook_access_token = $facebookAccessToken;
+
+        return $this;
+    }
+
+    /**
+     * Get facebook_access_token
+     *
+     * @return string
+     */
+    public function getFacebookAccessToken()
+    {
+        return $this->facebook_access_token;
+    }
+
+    /**
+     * Set google_id
+     *
+     * @param string $googleId
+     * @return User
+     */
+    public function setGoogleId($googleId)
+    {
+        $this->google_id = $googleId;
+
+        return $this;
+    }
+
+    /**
+     * Get google_id
+     *
+     * @return string
+     */
+    public function getGoogleId()
+    {
+        return $this->google_id;
+    }
+
+    /**
+     * Set google_access_token
+     *
+     * @param string $googleAccessToken
+     * @return User
+     */
+    public function setGoogleAccessToken($googleAccessToken)
+    {
+        $this->google_access_token = $googleAccessToken;
+
+        return $this;
+    }
+
+    /**
+     * Get google_access_token
+     *
+     * @return string
+     */
+    public function getGoogleAccessToken()
+    {
+        return $this->google_access_token;
+    }
+
+
+    /**
+     * Add bands
+     *
+     * @param \ZE\BABundle\Entity\Band $bands
+     * @return User
+     */
+    public function addBand(\ZE\BABundle\Entity\Band $bands)
+    {
+        $this->bands[] = $bands;
+
+        return $this;
+    }
+
+    /**
+     * Remove bands
+     *
+     * @param \ZE\BABundle\Entity\Band $bands
+     */
+    public function removeBand(\ZE\BABundle\Entity\Band $bands)
+    {
+        $this->bands->removeElement($bands);
+    }
+
+    /**
+     * Get bands
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getBands()
+    {
+        return $this->bands;
+    }
+
+    /**
+     * Add musicians
+     *
+     * @param \ZE\BABundle\Entity\Musician $musicians
+     * @return User
+     */
+    public function addMusician(\ZE\BABundle\Entity\Musician $musicians)
+    {
+        $this->musicians[] = $musicians;
+
+        return $this;
+    }
+
+    /**
+     * Remove musicians
+     *
+     * @param \ZE\BABundle\Entity\Musician $musicians
+     */
+    public function removeMusician(\ZE\BABundle\Entity\Musician $musicians)
+    {
+        $this->musicians->removeElement($musicians);
+    }
+
+    /**
+     * Get musicians
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getMusicians()
+    {
+        return $this->musicians;
     }
 
 }

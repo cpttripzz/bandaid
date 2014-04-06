@@ -28,6 +28,7 @@ class AppKernel extends Kernel
             new Sonata\EasyExtendsBundle\SonataEasyExtendsBundle(),
             new \Sonata\CoreBundle\SonataCoreBundle(),
             new Mopa\Bundle\BootstrapBundle\MopaBootstrapBundle(),
+            new HWI\Bundle\OAuthBundle\HWIOAuthBundle(),
             new ZE\BABundle\ZEBABundle(),
         );
 
