@@ -32,14 +32,51 @@ class DocumentAdmin extends Admin
      */
     protected function configureFormFields(FormMapper $formMapper)
     {
-        $formMapper
-            ->with('General')
-            ->add('name')
-            ->add('path')
-            ->add('file', 'file', array('required' => false))
-            ->end()
+        if($this->hasParentFieldDescription()) { // this Admin is embedded
+            // $getter will be something like 'getlogoImage'
+            $getter = 'get' . $this->getParentFieldDescription()->getFieldName();
 
+            // get hold of the parent object
+            $parent = $this->getParentFieldDescription()->getAdmin()->getSubject();
+            if ($parent) {
+                $images = $parent->$getter();
+            } else {
+                $images = null;
+            }
+        } else {
+            $images = array($this->getSubject());
+        }
+
+        // use $fileFieldOptions so we can add other options to the field
+        $fileFieldOptions = array('required' => false);
+//        if ($images && ($webPath = $images->getWebPath())) {
+//            // get the container so the full path to the image can be set
+//            $container = $this->getConfigurationPool()->getContainer();
+//            $fullPath = $container->get('request')->getBasePath().'/'.$webPath;
+//
+//            // add a 'help' option containing the preview's img tag
+//            $fileFieldOptions['help'] = '<img src="'.$fullPath.'" class="admin-preview" />';
+//        }
+
+        if ($images) {
+            $imgPath = '';
+            foreach ($images as $image) {
+                if ($image && ($webPath = $image->getWebPath())) {
+                    $container = $this->getConfigurationPool()->getContainer();
+                    $fullPath = $container->get('request')->getBasePath().'/'.$webPath;
+                    // add a 'help' option containing the preview's img tag
+                    $imgPath .= '<img src="' . $fullPath . '" class="admin-preview" />';
+                }
+            }
+            $fileFieldOptions['help'] = $imgPath;
+        }
+
+        $formMapper
+            // ... other fields ...
+            ->add('file', 'file', $fileFieldOptions)
+            ->add('name')
         ;
+
     }
 
     /**
@@ -84,6 +121,6 @@ class DocumentAdmin extends Admin
     }
 
     private function manageFileUpload($image) {
-
+        $x = $image;
     }
 }
