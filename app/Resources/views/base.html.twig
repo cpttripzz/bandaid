@@ -44,16 +44,18 @@
 {% endblock body_start %}
 
 {% block body %}
+
 {% block navbar %}
-    {% embed '@MopaBootstrap/Navbar/navbar.html.twig' with { fixedTop: true, inverse: true, id: 'navbar-example' } %}
-{% block brand %}
-    <a class="navbar-brand" href="{{ path('_welcome') }}">Mopa Bootstrap</a>
-{% endblock %}
-
-    {% block menu %}
-
-    {% endblock %}
-    {% endembed %}
+    <div class="navbar navbar-fixed-top">
+        <div class="navbar-inner">
+            <a class="brand" href="#">Awesome!</a>
+            {{ knp_menu_render('ZEBABundle:MenuBuilder:mainMenu', {'currentClass': 'active', 'template': 'ZEBABundle:Menu:main_menu.html.twig'}) }}
+            {{ knp_menu_render('ZEBABundle:MenuBuilder:userMenu', {'currentClass': 'active', 'template': 'ZEBABundle:Menu:main_menu.html.twig'}) }}
+        </div>
+    </div>
+    <div class="content" style="margin-top: 60px;">
+        Content goes here!
+    </div>
 {% endblock navbar %}
 
 {% block container %}
