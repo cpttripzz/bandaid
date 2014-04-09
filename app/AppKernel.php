@@ -29,6 +29,8 @@ class AppKernel extends Kernel
             new \Sonata\CoreBundle\SonataCoreBundle(),
             new Mopa\Bundle\BootstrapBundle\MopaBootstrapBundle(),
             new HWI\Bundle\OAuthBundle\HWIOAuthBundle(),
+            new Ivory\GoogleMapBundle\IvoryGoogleMapBundle(),
+            new Bazinga\Bundle\GeocoderBundle\BazingaGeocoderBundle(),
             new ZE\BABundle\ZEBABundle(),
         );
 

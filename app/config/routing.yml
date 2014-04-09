@@ -43,6 +43,13 @@ hwi_oauth_security:
 github_login:
   pattern: /login/check-github
 
+location:
+  path: /location
+  defaults:  { _controller: ZEBABundle:Location:index }
+geocode:
+  path: /geocode
+  defaults:  { _controller: ZEBABundle:Location:geocode}
 homepage:
   pattern: /
+
 

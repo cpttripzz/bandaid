@@ -1,8 +1,4 @@
-{% from 'MopaBootstrapBundle::flash.html.twig' import session_flash %}
-
-<!DOCTYPE html>
-
-{% block html_tag %}
+{% from 'MopaBootstrapBundle::flash.html.twig' import session_flash %}<!DOCTYPE html>{% block html_tag %}
 <html>
 {% endblock html_tag %}
 
@@ -63,8 +59,10 @@
     {% block header %}
     {% endblock header %}
 
-{% block content_div_start %}<div class="content">{% endblock content_div_start %}
-
+{% block content_div_start %}
+    <div class="content">{% endblock content_div_start %}
+{% block navbar_div_start %}
+    <div class="content">{% endblock navbar_div_start %}
     <div class="container">
         <nav class="navbar navbar-default" role="navigation">
             <div class="navbar-header">
@@ -95,30 +93,15 @@
                 Specials
             </li>
         </ul>
-        <div class="row">
-            <div class="col-md-6">
-                <h3>
-                    Span 4
-                </h3>
-                <img src="https://s3.amazonaws.com/jetstrap-site/images/website/index/what_icon.png">
-                <img src="https://s3.amazonaws.com/jetstrap-site/images/website/index/what_icon.png">
-                <img src="https://s3.amazonaws.com/jetstrap-site/images/website/index/what_icon.png">
-                <img src="https://s3.amazonaws.com/jetstrap-site/images/website/index/what_icon.png">
 
-            </div>
-            <div class="col-md-6">
-                <h3>
-                    Span 4
-                </h3>
-                <img src="https://s3.amazonaws.com/jetstrap-site/images/website/index/what_icon.png">
-                <img src="https://s3.amazonaws.com/jetstrap-site/images/website/index/what_icon.png">
-                <img src="https://s3.amazonaws.com/jetstrap-site/images/website/index/what_icon.png">
-                <img src="https://s3.amazonaws.com/jetstrap-site/images/website/index/what_icon.png">
-            </div>
-        </div>
     </div>
+{% block navbar_div_end %}</div>{% endblock navbar_div_end %}
 
-{% block content_div_end %}</div>{% endblock content_div_end %}
+{% block content_body_div_start %}
+    <div class="content">{% endblock content_body_div_start %}
+    {% block content_body %}
+    {% endblock content_body %}
+{% block content_body_div_end %}</div>{% endblock content_body_div_end %}
 
 {% block footer_tag_start %}
     <footer>

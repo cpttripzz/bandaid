@@ -12,7 +12,7 @@ services:
         public: false
 
 framework:
-    #esi:             ~
+    trusted_proxies: ['127.0.0.1']
     translator:      { fallback: %locale% }
     secret:          %secret%
     router:
@@ -237,3 +237,35 @@ hwi_oauth:
             #twitter: twitterID
             #facebook: faecbookID
             #google: googleID
+
+ivory_google_map:
+    map:
+        width: "1024px"
+        height: "760px"
+    geocoder:
+        # Enable the service
+        enabled: true
+
+        # Geocoder class
+        class: "Ivory\GoogleMap\Services\Geocoding\Geocoder"
+        provider:
+#            fake_ip: "123.345.567.123"
+            class: Bazinga\Bundle\GeocoderBundle\BazingaGeocoderBundle
+#            api_key: "apikey"
+            locale: "en"
+        adapter: "Geocoder\HttpAdapter\BuzzHttpAdapter"
+bazinga_geocoder:
+    #fake_ip:    123.345.643.133
+    #fake_ip:    192.114.71.13
+    fake_ip:    72.229.28.185
+    providers:
+        free_geo_ip:          []
+#        yandex:
+#            locale:               ~
+#            toponym:              ~
+#        google_maps:
+#            locale:               ~
+#            region:               ~
+#            use_ssl:              false
+#        openstreetmap:
+#            locale:               ~

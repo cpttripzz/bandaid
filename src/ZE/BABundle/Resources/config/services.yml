@@ -12,3 +12,4 @@ services:
             - @service_container
         tags:
             - { name: knp_menu.voter }
+
