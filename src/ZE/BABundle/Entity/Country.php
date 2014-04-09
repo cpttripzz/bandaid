@@ -13,14 +13,19 @@ use Doctrine\ORM\Mapping as ORM;
 class Country
 {
     /**
-     * @var string
+     * @var integer
      *
-     * @ORM\Column(name="country_code", type="string", length=2, nullable=false)
+     * @ORM\Column(name="id", type="integer", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
+    private $id;
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="country_code", type="string", length=2, nullable=false)
+     */
     private $countryCode;
-
     /**
      * @var string
      *
@@ -54,6 +59,20 @@ class Country
     }
 
     /**
+     * Set countryName
+     *
+     * @param $countryCode
+     *
+     * @internal param string $countryName
+     * @return Country
+     */
+    public function setCountryCode($countryCode)
+    {
+        $this->countryCode = $countryCode;
+
+        return $this;
+    }
+    /**
      * Get countryName
      *
      * @return string
@@ -66,5 +85,15 @@ class Country
     public function __toString()
     {
         return $this->countryName;
+    }
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
     }
 }

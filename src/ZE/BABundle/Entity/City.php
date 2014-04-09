@@ -26,17 +26,17 @@ class City
      *
      * @ORM\Column(name="city", type="string", length=50, nullable=false)
      */
-    private $city;
+    private $name;
 
     /**
      * @var \Country
      *
      * @ORM\ManyToOne(targetEntity="Country")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="country_code", referencedColumnName="country_code")
+     *   @ORM\JoinColumn(name="country_id", referencedColumnName="id")
      * })
      */
-    private $countryCode;
+    private $country;
 
 
 
@@ -50,54 +50,59 @@ class City
         return $this->id;
     }
 
-    /**
-     * Set city
-     *
-     * @param string $city
-     * @return City
-     */
-    public function setCity($city)
-    {
-        $this->city = $city;
 
-        return $this;
-    }
 
-    /**
-     * Get city
-     *
-     * @return string
-     */
-    public function getCity()
-    {
-        return $this->city;
-    }
-
-    /**
-     * Set countryCode
-     *
-     * @param \ZE\BABundle\Entity\Country $countryCode
-     * @return City
-     */
-    public function setCountryCode(\ZE\BABundle\Entity\Country $countryCode = null)
-    {
-        $this->countryCode = $countryCode;
-
-        return $this;
-    }
-
-    /**
-     * Get countryCode
-     *
-     * @return \ZE\BABundle\Entity\Country
-     */
-    public function getCountryCode()
-    {
-        return $this->countryCode;
-    }
 
     public function __toString()
     {
-        return $this->city;
+        return $this->name;
+    }
+
+    /**
+     * Set country
+     *
+     * @param \ZE\BABundle\Entity\Country $country
+     *
+     * @return City
+     */
+    public function setCountry(\ZE\BABundle\Entity\Country $country = null)
+    {
+        $this->country = $country;
+
+        return $this;
+    }
+
+    /**
+     * Get country
+     *
+     * @return \ZE\BABundle\Entity\Country 
+     */
+    public function getCountry()
+    {
+        return $this->country;
+    }
+
+    /**
+     * Set name
+     *
+     * @param string $name
+     *
+     * @return City
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * Get name
+     *
+     * @return string 
+     */
+    public function getName()
+    {
+        return $this->name;
     }
 }

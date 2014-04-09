@@ -1,0 +1,31 @@
+
+useralice:
+    username: alice
+    bands:
+        band1:
+            name: The Good Minus
+            description: "Some good grooves"
+            genres: Jazz, Rock
+            cities: Toronto,Ottawa
+        band2:
+            name: "Satan Made Me Eat My Baby"
+            description: "Brutal death metal"
+            genres: Death Metal
+            cities: Toronto,New York
+    musicians:
+        m1:
+            name: Alice Bonnon
+            description: "I am a good guitarist"
+            instruments: Guitar
+            cities: Toronto,New York
+            genres: Jazz, Rock
+
+user2:
+    username: bob
+    musicians:
+        m1:
+            name: Bob Schmuck
+            description: "I play bass guitar, mostly bar mitzvahs"
+            instruments: Bass
+            cities: Toronto,Ottawa
+            genres: Jazz, Rock, Death Metal

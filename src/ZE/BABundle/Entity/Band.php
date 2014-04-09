@@ -38,6 +38,20 @@ class Band
     {
         return $this->id;
     }
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="name", type="string", length=50, nullable=false)
+     */
+    private $name;
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="description", type="text", length=500, nullable=true)
+     */
+    private $description;
+
     /**
      * @ORM\ManyToMany(targetEntity="City")
      * @ORM\JoinTable(name="bands_cities",
@@ -171,5 +185,53 @@ class Band
     public function getGenres()
     {
         return $this->genres;
+    }
+
+    /**
+     * Set name
+     *
+     * @param string $name
+     *
+     * @return Band
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * Get name
+     *
+     * @return string 
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * Set description
+     *
+     * @param string $description
+     *
+     * @return Band
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * Get description
+     *
+     * @return string 
+     */
+    public function getDescription()
+    {
+        return $this->description;
     }
 }

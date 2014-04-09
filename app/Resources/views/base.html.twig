@@ -46,7 +46,7 @@
 {% block body %}
 
 {% block navbar %}
-    <div class="navbar navbar-fixed-top">
+    <div class="navbar navbar-default" role="navigation">
         <div class="navbar-inner">
             <a class="brand" href="#">Awesome!</a>
             {{ knp_menu_render('ZEBABundle:MenuBuilder:mainMenu', {'currentClass': 'active', 'template': 'ZEBABundle:Menu:main_menu.html.twig'}) }}

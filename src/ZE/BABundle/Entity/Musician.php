@@ -39,6 +39,27 @@ class Musician
     }
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="name", type="string", length=50, nullable=false)
+     */
+    private $name;
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="description", type="text", length=500, nullable=true)
+     */
+    private $description;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="City")
+     * @ORM\JoinTable(name="bands_cities",
+     *      joinColumns={@ORM\JoinColumn(name="bands_id", referencedColumnName="id")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="city_id", referencedColumnName="id")}
+     *      )
+     */
+
+    /**
      * @ORM\ManyToMany(targetEntity="City")
      * @ORM\JoinTable(name="musicians_cities",
      *      joinColumns={@ORM\JoinColumn(name="musician_id", referencedColumnName="id")},
@@ -65,6 +86,16 @@ class Musician
      */
 
     private $genres;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="Instrument")
+     * @ORM\JoinTable(name="musicians_instruments",
+     *      joinColumns={@ORM\JoinColumn(name="musician_id", referencedColumnName="id")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="instrument_id", referencedColumnName="id")}
+     *      )
+     */
+
+    private $instruments;
 
 
     public function __construct()
@@ -172,5 +203,87 @@ class Musician
     public function getGenres()
     {
         return $this->genres;
+    }
+
+    /**
+     * Set name
+     *
+     * @param string $name
+     *
+     * @return Musician
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * Get name
+     *
+     * @return string 
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * Set description
+     *
+     * @param string $description
+     *
+     * @return Musician
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * Get description
+     *
+     * @return string 
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * Add instruments
+     *
+     * @param \ZE\BABundle\Entity\Instrument $instruments
+     *
+     * @return Musician
+     */
+    public function addInstrument(\ZE\BABundle\Entity\Instrument $instruments)
+    {
+        $this->instruments[] = $instruments;
+
+        return $this;
+    }
+
+    /**
+     * Remove instruments
+     *
+     * @param \ZE\BABundle\Entity\Instrument $instruments
+     */
+    public function removeInstrument(\ZE\BABundle\Entity\Instrument $instruments)
+    {
+        $this->instruments->removeElement($instruments);
+    }
+
+    /**
+     * Get instruments
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getInstruments()
+    {
+        return $this->instruments;
     }
 }
