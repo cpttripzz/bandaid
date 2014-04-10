@@ -12,3 +12,12 @@ services:
             - @service_container
         tags:
             - { name: knp_menu.voter }
+    sonata.user.admin.group:
+        abstract: true
+        public: false
+    geocoder.listener:
+        class:  ZE\BABundle\Doctrine\Listener\GeocoderEventListener
+        arguments:
+            - @service_container
+        tags:
+            - { name: doctrine.event_listener, event: prePersist }

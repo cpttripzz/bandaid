@@ -6,7 +6,6 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Address
- * @ORM\EntityListeners({"ZE\BABundle\Doctrine\Listener\GeocoderEventListener"})
  * @ORM\Table(name="address")
  * @ORM\Entity
  */

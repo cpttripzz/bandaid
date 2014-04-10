@@ -6,15 +6,7 @@ imports:
 parameters:
     sonata.user.admin.user.class: ZE\BABundle\Admin\UserAdmin
     sonata.user.admin.user.entity: ZE\BABundle\Entity\User
-services:
-    sonata.user.admin.group:
-        abstract: true
-        public: false
-    geocoder.listener:
-        class:  ZE\BABundle\Doctrine\Event\GeocoderEventSubscriber
-        arguments: [@geocoder.address]
-        tags:
-          - { name: doctrine.event_subscriber }
+
 framework:
     trusted_proxies: ['127.0.0.1']
     translator:      { fallback: %locale% }
@@ -167,11 +159,6 @@ sonata_admin:
     title_logo: /bundles/sonataadmin/logo_title.png
 
 services:
-    geocoder_listener
-        class: ZE\BABundle\Doctrine\Listener\GeocoderEventListener
-        arguments: ["@security.context"]
-        tags:
-            - { name: doctrine.event_listener, event: prePersist }
     ZE.BABundle.admin.city:
         class: ZE\BABundle\Admin\CityAdmin
         tags:
@@ -272,9 +259,9 @@ bazinga_geocoder:
 #        yandex:
 #            locale:               ~
 #            toponym:              ~
-#        google_maps:
-#            locale:               ~
-#            region:               ~
-#            use_ssl:              false
-        openstreetmap:
+        google_maps:
             locale:               ~
+            region:               ~
+            use_ssl:              false
+#        openstreetmap:
+#            locale:               ~

@@ -57,7 +57,9 @@ class AddAssociationsToUsers extends AbstractFixture
                         $c = $manager->getRepository('ZE\BABundle\Entity\City')->findOneByName(trim($addressData['city']));
                         $address->setCity($c);
                         $address->setAddress($addressData['address']);
+                        $manager->persist($address);
                         $band->addAddress($address);
+
                     }
 
                     $manager->persist($band);

@@ -681,7 +681,7 @@
             ],
             "authors": [
                 {
-                    "name": "Jonathan Wage",
+                    "name": "Jonathan H. Wage",
                     "email": "jonwage@gmail.com",
                     "homepage": "http://www.jwage.com/",
                     "role": "Creator"
@@ -2451,12 +2451,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Seldaek/monolog.git",
-                "reference": "607f20d4f9757e28e762f71d4a89d49f6900c564"
+                "reference": "03000a7fcd4072bd7e1f99c8ce4328621c5773b9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/607f20d4f9757e28e762f71d4a89d49f6900c564",
-                "reference": "607f20d4f9757e28e762f71d4a89d49f6900c564",
+                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/03000a7fcd4072bd7e1f99c8ce4328621c5773b9",
+                "reference": "03000a7fcd4072bd7e1f99c8ce4328621c5773b9",
                 "shasum": ""
             },
             "require": {
@@ -2511,7 +2511,7 @@
                 "logging",
                 "psr-3"
             ],
-            "time": "2014-04-08 08:59:38"
+            "time": "2014-04-10 15:52:42"
         },
         {
             "name": "mopa/bootstrap-bundle",
@@ -3700,12 +3700,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonata-project/SonataAdminBundle.git",
-                "reference": "af42321fb637fb136cbb5c5683da4e097ab4b4fc"
+                "reference": "691715df4784ce4f313e1d68290b422f4b9c3609"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataAdminBundle/zipball/af42321fb637fb136cbb5c5683da4e097ab4b4fc",
-                "reference": "af42321fb637fb136cbb5c5683da4e097ab4b4fc",
+                "url": "https://api.github.com/repos/sonata-project/SonataAdminBundle/zipball/691715df4784ce4f313e1d68290b422f4b9c3609",
+                "reference": "691715df4784ce4f313e1d68290b422f4b9c3609",
                 "shasum": ""
             },
             "require": {
@@ -3716,7 +3716,6 @@
                 "sonata-project/block-bundle": "~2.2,>=2.2.7",
                 "sonata-project/core-bundle": "~2.2",
                 "sonata-project/exporter": "~1.0",
-                "sonata-project/jquery-bundle": "1.10.2",
                 "symfony/class-loader": "~2.3",
                 "symfony/config": "~2.3",
                 "symfony/console": "~2.3",
@@ -3772,7 +3771,7 @@
                 "bootstrap",
                 "sonata"
             ],
-            "time": "2014-04-09 08:15:59"
+            "time": "2014-04-10 17:40:43"
         },
         {
             "name": "sonata-project/block-bundle",
@@ -4650,12 +4649,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/symfony.git",
-                "reference": "648ce6a3d92deabd83635a647cd2006f6a8692d6"
+                "reference": "a45e464bc32085d9374d84821b57f0a55299ce27"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/symfony/zipball/648ce6a3d92deabd83635a647cd2006f6a8692d6",
-                "reference": "648ce6a3d92deabd83635a647cd2006f6a8692d6",
+                "url": "https://api.github.com/repos/symfony/symfony/zipball/a45e464bc32085d9374d84821b57f0a55299ce27",
+                "reference": "a45e464bc32085d9374d84821b57f0a55299ce27",
                 "shasum": ""
             },
             "require": {
@@ -4758,7 +4757,7 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2014-04-09 13:36:21"
+            "time": "2014-04-10 13:01:02"
         },
         {
             "name": "twbs/bootstrap",

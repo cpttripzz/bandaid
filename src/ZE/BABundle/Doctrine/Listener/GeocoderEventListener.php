@@ -4,20 +4,23 @@ namespace ZE\BABundle\Doctrine\Listener;
 use Doctrine\ORM\Event\PreUpdateEventArgs;
 use Doctrine\ORM\Event\LifecycleEventArgs;
 use Doctrine\ORM\Mapping as ORM;
+use \Symfony\Component\DependencyInjection\ContainerAware;
+use Symfony\Component\DependencyInjection\Container;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 use ZE\BABundle\Entity\Address;
 
 
 class GeocoderEventListener
 {
-    private $container;
+    protected  $container;
 
-    public function __construct(ContainerInterface $container)
+    public function __construct(ContainerInterface $container = null)
     {
         $this->container = $container;
     }
 
     /** @ORM\PrePersist */
-    public function prePersistHandler(Address $address, LifecycleEventArgs $eventArgs) {
+    public function prePersist(LifecycleEventArgs $eventArgs) {
         if(($address = $eventArgs->getEntity()) instanceof Address){
             if( !$address->getLatitude() || !$address->getLongitude()){
                 $this->geocodeAddress($address);
@@ -25,7 +28,7 @@ class GeocoderEventListener
         }
     }
     /** @ORM\PreUpdate */
-    public function preUpdate(Address $address, PreUpdateEventArgs $eventArgs){
+    public function preUpdate(PreUpdateEventArgs $eventArgs){
         if(($address = $eventArgs->getEntity()) instanceof Address){
             if( !$address->latitude || !$address->longitude
                 || $eventArgs->hasChangedField('address')){
@@ -42,11 +45,15 @@ class GeocoderEventListener
 
 
     private function geocodeAddress($address){
-        $result = $this->container
-            ->get('bazinga_geocoder.geocoder')
-            ->geocode($address->__toString());
-        $address->latitude = $result['latitude'];
-        $address->longitude = $result['longitude'];
-    }
+        try {
+            $result = $this->container
+                ->get('bazinga_geocoder.geocoder')
+                ->geocode($address->__toString());
+            $address->setLatitude($result['latitude']);
+            $address->setLongitude($result['longitude']);
+        } catch (\Exception $e){
+            return false;
+        }
 
+    }
 }

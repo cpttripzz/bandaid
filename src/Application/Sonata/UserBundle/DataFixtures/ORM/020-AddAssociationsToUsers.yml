@@ -20,7 +20,7 @@ useralice:
             addresses:
               1:
                 city: Toronto
-                address: 20 West Lodge Blvd
+                address: 20 West Lodge Boulevard
               2:
                 city: Ottawa
                 address: 490 Sussex Drive
@@ -33,7 +33,7 @@ useralice:
             addresses:
               1:
                 city: Tel Aviv
-                address: 5 Rothschild Blvd
+                address: 5 Rothschild Boulevard
               2:
                 city: Haifa
                 address: 85-87 Hanassi Avenue
