@@ -52,12 +52,15 @@ class AddAssociationsToUsers extends AbstractFixture
                         $g = $manager->getRepository('ZE\BABundle\Entity\Genre')->findOneByName(trim($genre));
                         $band->addGenre($g);
                     }
-                    $manager->persist($band);
-                    $cities = explode(',', $bandData['cities']);
-                    foreach ($cities as $city) {
-                        $c = $manager->getRepository('ZE\BABundle\Entity\City')->findOneByName(trim($city));
-                        $band->addCity($c);
+                    foreach ($bandData['addresses'] as $addressData) {
+                        $address = new Entity\Address();
+                        $c = $manager->getRepository('ZE\BABundle\Entity\City')->findOneByName(trim($addressData['city']));
+                        $address->setCity($c);
+                        $address->setAddress($addressData['address']);
+                        $band->addAddress($address);
                     }
+
+                    $manager->persist($band);
                     $user->addBand($band);
                 }
             }
@@ -71,17 +74,20 @@ class AddAssociationsToUsers extends AbstractFixture
                         $g = $manager->getRepository('ZE\BABundle\Entity\Genre')->findOneByName(trim($genre));
                         $musician->addGenre($g);
                     }
-                    $manager->persist($musician);
-                    $cities = explode(',', $musicianData['cities']);
-                    foreach ($cities as $city) {
-                        $c = $manager->getRepository('ZE\BABundle\Entity\City')->findOneByName(trim($city));
-                        $musician->addCity($c);
+
+                    foreach ($musicianData['addresses'] as $addressData) {
+                        $address = new Entity\Address();
+                        $c = $manager->getRepository('ZE\BABundle\Entity\City')->findOneByName(trim($addressData['city']));
+                        $address->setCity($c);
+                        $address->setAddress($addressData['address']);
+                        $musician->addAddress($address);
                     }
                     $instruments = explode(',', $musicianData['instruments']);
                     foreach ($instruments as $instrument) {
                         $g = $manager->getRepository('ZE\BABundle\Entity\Instrument')->findOneByName(trim($instrument));
                         $musician->addInstrument($g);
                     }
+                    $manager->persist($musician);
                     $user->addmusician($musician);
                 }
             }

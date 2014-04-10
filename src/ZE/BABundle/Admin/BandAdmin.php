@@ -21,7 +21,7 @@ class BandAdmin extends Admin
     protected function configureShowField(ShowMapper $showMapper)
     {
         $showMapper
-            ->add('cities','sonata_type_collection', array(), array(
+            ->add('addresses','sonata_type_collection', array(), array(
                 'edit' => 'inline',
                 'inline' => 'table',
                 'sortable'  => 'position'
@@ -32,7 +32,7 @@ class BandAdmin extends Admin
                 'inline' => 'table',
                 'sortable'  => 'position'
             ))
-            ->add('genres','sonata_type_collection', array(), array(
+            ->add('genre','sonata_type_collection', array(), array(
                 'edit' => 'inline',
                 'inline' => 'table',
                 'sortable'  => 'position'
@@ -48,8 +48,8 @@ class BandAdmin extends Admin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->with('General')
-            ->add('cities')
+            ->with('Associations')
+            ->add('addresses')
             ->add('documents')
             ->add('genres')
             ->end()
@@ -65,7 +65,7 @@ class BandAdmin extends Admin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-            ->add('cities')
+            ->add('addresses')
             ->add('documents')
             ->add('genres')
             ->add('_action', 'actions', array(
@@ -86,7 +86,7 @@ class BandAdmin extends Admin
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper
-            ->add('cities')
+            ->add('addresses')
             ->add('documents')
             ->add('genres')
         ;

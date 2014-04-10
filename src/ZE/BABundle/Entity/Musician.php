@@ -52,21 +52,13 @@ class Musician
     private $description;
 
     /**
-     * @ORM\ManyToMany(targetEntity="City")
-     * @ORM\JoinTable(name="bands_cities",
-     *      joinColumns={@ORM\JoinColumn(name="bands_id", referencedColumnName="id")},
-     *      inverseJoinColumns={@ORM\JoinColumn(name="city_id", referencedColumnName="id")}
-     *      )
-     */
-
-    /**
-     * @ORM\ManyToMany(targetEntity="City")
-     * @ORM\JoinTable(name="musicians_cities",
+     * @ORM\ManyToMany(targetEntity="Address",cascade={"persist"})
+     * @ORM\JoinTable(name="musicians_addresses",
      *      joinColumns={@ORM\JoinColumn(name="musician_id", referencedColumnName="id")},
-     *      inverseJoinColumns={@ORM\JoinColumn(name="city_id", referencedColumnName="id")}
+     *      inverseJoinColumns={@ORM\JoinColumn(name="address_id", referencedColumnName="id")}
      *      )
      */
-    private $cities;
+    private $addresses;
 
     /**
      * @ORM\ManyToMany(targetEntity="Document")
@@ -101,44 +93,12 @@ class Musician
     public function __construct()
     {
         $this->documents = new ArrayCollection();
-        $this->cities = new ArrayCollection();
+        $this->addresses = new ArrayCollection();
         $this->genres = new ArrayCollection();
     }
 
 
-    /**
-     * Add cities
-     *
-     * @param \ZE\BABundle\Entity\City $cities
-     * @return Musician
-     */
-    public function addCity(\ZE\BABundle\Entity\City $cities)
-    {
-        $this->cities[] = $cities;
-
-        return $this;
-    }
-
-    /**
-     * Remove cities
-     *
-     * @param \ZE\BABundle\Entity\City $cities
-     */
-    public function removeCity(\ZE\BABundle\Entity\City $cities)
-    {
-        $this->cities->removeElement($cities);
-    }
-
-    /**
-     * Get cities
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getCities()
-    {
-        return $this->cities;
-    }
-
+   
     /**
      * Add documents
      *
@@ -285,5 +245,42 @@ class Musician
     public function getInstruments()
     {
         return $this->instruments;
+    }
+
+   
+
+
+    /**
+     * Get addresses
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getAddresses()
+    {
+        return $this->addresses;
+    }
+
+    /**
+     * Add addresses
+     *
+     * @param \ZE\BABundle\Entity\Address $addresses
+     *
+     * @return Musician
+     */
+    public function addAddress(\ZE\BABundle\Entity\Address $addresses)
+    {
+        $this->addresses[] = $addresses;
+
+        return $this;
+    }
+
+    /**
+     * Remove addresses
+     *
+     * @param \ZE\BABundle\Entity\Address $addresses
+     */
+    public function removeAddress(\ZE\BABundle\Entity\Address $addresses)
+    {
+        $this->addresses->removeElement($addresses);
     }
 }

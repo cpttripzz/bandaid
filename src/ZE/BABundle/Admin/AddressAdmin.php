@@ -9,9 +9,9 @@ use Sonata\AdminBundle\Show\ShowMapper;
 
 use Knp\Menu\ItemInterface as MenuItemInterface;
 
-use ZE\BABundle\Entity\Musician;
+use ZE\BABundle\Entity\City;
 
-class MusicianAdmin extends Admin
+class AddressAdmin extends Admin
 {
     /**
      * @param \Sonata\AdminBundle\Show\ShowMapper $showMapper
@@ -21,24 +21,8 @@ class MusicianAdmin extends Admin
     protected function configureShowField(ShowMapper $showMapper)
     {
         $showMapper
-            ->add('addresses','sonata_type_collection', array(), array(
-                'edit' => 'inline',
-                'inline' => 'table',
-                'sortable'  => 'position'
-            ))
-
-            ->add('documents','sonata_type_collection', array(), array(
-                'edit' => 'inline',
-                'inline' => 'table',
-                'sortable'  => 'position'
-            ))
-            ->add('genres','sonata_type_collection', array(), array(
-                'edit' => 'inline',
-                'inline' => 'table',
-                'sortable'  => 'position'
-            ))
-        ;
-        
+            ->add('city')
+            ->add('countryCode');
     }
 
     /**
@@ -49,10 +33,9 @@ class MusicianAdmin extends Admin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->with('Associations')
-            ->add('addresses')
-            ->add('documents')
-            ->add('genres')
+            ->with('General')
+            ->add('city')
+            ->add('countryCode')
             ->end()
 
         ;
@@ -66,9 +49,8 @@ class MusicianAdmin extends Admin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-            ->add('addresses')
-            ->add('documents')
-            ->add('genres')
+            ->add('city')
+            ->add('countryCode')
             ->add('_action', 'actions', array(
                     'actions' => array(
                         'show' => array(),
@@ -87,9 +69,8 @@ class MusicianAdmin extends Admin
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper
-            ->add('addresses')
-            ->add('documents')
-            ->add('genres')
+            ->add('city', null)
+            ->add('countryCode', null)
         ;
     }
 }

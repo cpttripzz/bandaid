@@ -8,7 +8,6 @@
 
 namespace ZE\BABundle\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
-use Sonata\UserBundle\Entity\BaseUser as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
 
 
@@ -53,18 +52,18 @@ class Band
     private $description;
 
     /**
-     * @ORM\ManyToMany(targetEntity="City")
-     * @ORM\JoinTable(name="bands_cities",
-     *      joinColumns={@ORM\JoinColumn(name="bands_id", referencedColumnName="id")},
-     *      inverseJoinColumns={@ORM\JoinColumn(name="city_id", referencedColumnName="id")}
+     * @ORM\ManyToMany(targetEntity="Address", cascade={"persist"})
+     * @ORM\JoinTable(name="bands_addresses",
+     *      joinColumns={@ORM\JoinColumn(name="band_id", referencedColumnName="id")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="address_id", referencedColumnName="id")}
      *      )
      */
-    private $cities;
+    private $addresses;
 
     /**
      * @ORM\ManyToMany(targetEntity="Document")
      * @ORM\JoinTable(name="bands_documents",
-     *      joinColumns={@ORM\JoinColumn(name="bands_id", referencedColumnName="id")},
+     *      joinColumns={@ORM\JoinColumn(name="band_id", referencedColumnName="id")},
      *      inverseJoinColumns={@ORM\JoinColumn(name="document_id", referencedColumnName="id")}
      *      )
      */
@@ -73,52 +72,53 @@ class Band
     /**
      * @ORM\ManyToMany(targetEntity="Genre")
      * @ORM\JoinTable(name="bands_genres",
-     *      joinColumns={@ORM\JoinColumn(name="bands_id", referencedColumnName="id")},
+     *      joinColumns={@ORM\JoinColumn(name="band_id", referencedColumnName="id")},
      *      inverseJoinColumns={@ORM\JoinColumn(name="genre_id", referencedColumnName="id")}
      *      )
      */
+    private $genres;
 
 
     public function __construct()
     {
         $this->documents = new ArrayCollection();
-        $this->cities = new ArrayCollection();
+        $this->addresses = new ArrayCollection();
         $this->genres = new ArrayCollection();
     }
 
 
 
     /**
-     * Add cities
+     * Add addresses
      *
-     * @param \ZE\BABundle\Entity\City $cities
+     * @param \ZE\BABundle\Entity\City $addresses
      * @return Band
      */
-    public function addCity(\ZE\BABundle\Entity\City $cities)
+    public function addCity(\ZE\BABundle\Entity\City $addresses)
     {
-        $this->cities[] = $cities;
+        $this->addresses[] = $addresses;
 
         return $this;
     }
 
     /**
-     * Remove cities
+     * Remove addresses
      *
-     * @param \ZE\BABundle\Entity\City $cities
+     * @param \ZE\BABundle\Entity\City $addresses
      */
-    public function removeCity(\ZE\BABundle\Entity\City $cities)
+    public function removeCity(\ZE\BABundle\Entity\City $addresses)
     {
-        $this->cities->removeElement($cities);
+        $this->addresses->removeElement($addresses);
     }
 
     /**
-     * Get cities
+     * Get addresses
      *
      * @return \Doctrine\Common\Collections\Collection 
      */
     public function getCities()
     {
-        return $this->cities;
+        return $this->addresses;
     }
 
     /**
@@ -233,5 +233,39 @@ class Band
     public function getDescription()
     {
         return $this->description;
+    }
+
+    /**
+     * Add addresses
+     *
+     * @param \ZE\BABundle\Entity\Address $addresses
+     *
+     * @return Band
+     */
+    public function addAddress(\ZE\BABundle\Entity\Address $addresses)
+    {
+        $this->addresses[] = $addresses;
+
+        return $this;
+    }
+
+    /**
+     * Remove addresses
+     *
+     * @param \ZE\BABundle\Entity\Address $addresses
+     */
+    public function removeAddress(\ZE\BABundle\Entity\Address $addresses)
+    {
+        $this->addresses->removeElement($addresses);
+    }
+
+    /**
+     * Get addresses
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getAddresses()
+    {
+        return $this->addresses;
     }
 }

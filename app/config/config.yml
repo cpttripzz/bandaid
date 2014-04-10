@@ -10,7 +10,11 @@ services:
     sonata.user.admin.group:
         abstract: true
         public: false
-
+    geocoder.listener:
+        class:  ZE\BABundle\Doctrine\Event\GeocoderEventSubscriber
+        arguments: [@geocoder.address]
+        tags:
+          - { name: doctrine.event_subscriber }
 framework:
     trusted_proxies: ['127.0.0.1']
     translator:      { fallback: %locale% }
@@ -163,6 +167,11 @@ sonata_admin:
     title_logo: /bundles/sonataadmin/logo_title.png
 
 services:
+    geocoder_listener
+        class: ZE\BABundle\Doctrine\Listener\GeocoderEventListener
+        arguments: ["@security.context"]
+        tags:
+            - { name: doctrine.event_listener, event: prePersist }
     ZE.BABundle.admin.city:
         class: ZE\BABundle\Admin\CityAdmin
         tags:
@@ -259,7 +268,7 @@ bazinga_geocoder:
     #fake_ip:    192.114.71.13
     fake_ip:    72.229.28.185
     providers:
-        free_geo_ip:          []
+#        free_geo_ip:          []
 #        yandex:
 #            locale:               ~
 #            toponym:              ~
@@ -267,5 +276,5 @@ bazinga_geocoder:
 #            locale:               ~
 #            region:               ~
 #            use_ssl:              false
-#        openstreetmap:
-#            locale:               ~
+        openstreetmap:
+            locale:               ~

@@ -5,12 +5,12 @@ namespace ZE\BABundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * City
- *
- * @ORM\Table(name="city")
+ * Address
+ * @ORM\EntityListeners({"ZE\BABundle\Doctrine\Listener\GeocoderEventListener"})
+ * @ORM\Table(name="address")
  * @ORM\Entity
  */
-class City
+class Address
 {
     /**
      * @var integer
@@ -24,10 +24,11 @@ class City
     /**
      * @var string
      *
-     * @ORM\Column(name="name", type="string", length=50, nullable=false)
+     * @ORM\Column(name="address", type="string", length=256, nullable=true)
      */
-    private $name;
+    private $address;
 
+    
     /**
      * @var string
      *
@@ -43,14 +44,14 @@ class City
     private $longitude;
 
     /**
-     * @var \Country
+     * @var \City
      *
-     * @ORM\ManyToOne(targetEntity="Country")
+     * @ORM\ManyToOne(targetEntity="City")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="country_id", referencedColumnName="id")
+     *   @ORM\JoinColumn(name="city_id", referencedColumnName="id")
      * })
      */
-    private $country;
+    private $city;
 
 
 
@@ -66,58 +67,28 @@ class City
 
 
 
-
-    public function __toString()
-    {
-        return $this->name;
-    }
-
     /**
-     * Set country
+     * Set address
      *
-     * @param \ZE\BABundle\Entity\Country $country
+     * @param string $address
      *
-     * @return City
+     * @return Address
      */
-    public function setCountry(\ZE\BABundle\Entity\Country $country = null)
+    public function setAddress($address)
     {
-        $this->country = $country;
+        $this->address = $address;
 
         return $this;
     }
 
     /**
-     * Get country
-     *
-     * @return \ZE\BABundle\Entity\Country 
-     */
-    public function getCountry()
-    {
-        return $this->country;
-    }
-
-    /**
-     * Set name
-     *
-     * @param string $name
-     *
-     * @return City
-     */
-    public function setName($name)
-    {
-        $this->name = $name;
-
-        return $this;
-    }
-
-    /**
-     * Get name
+     * Get address
      *
      * @return string 
      */
-    public function getName()
+    public function getAddress()
     {
-        return $this->name;
+        return $this->address;
     }
 
     /**
@@ -125,7 +96,7 @@ class City
      *
      * @param string $latitude
      *
-     * @return City
+     * @return Address
      */
     public function setLatitude($latitude)
     {
@@ -149,7 +120,7 @@ class City
      *
      * @param string $longitude
      *
-     * @return City
+     * @return Address
      */
     public function setLongitude($longitude)
     {
@@ -166,5 +137,34 @@ class City
     public function getLongitude()
     {
         return $this->longitude;
+    }
+
+    /**
+     * Set city
+     *
+     * @param \ZE\BABundle\Entity\City $city
+     *
+     * @return Address
+     */
+    public function setCity(\ZE\BABundle\Entity\City $city = null)
+    {
+        $this->city = $city;
+
+        return $this;
+    }
+
+    /**
+     * Get city
+     *
+     * @return \ZE\BABundle\Entity\City 
+     */
+    public function getCity()
+    {
+        return $this->city;
+    }
+
+    public function __toString()
+    {
+        return $this->address . ' ' .$this->getCity()->getName();
     }
 }

@@ -12,16 +12,11 @@
      {
          parent::configureFormFields($formMapper);
          $formMapper
-             ->with('General')
+             ->with('Associations')
              ->add('bands','sonata_type_collection', array(), array(
-                 'edit' => 'inline',
-                 'inline' => 'table',
-                 'sortable'  => 'position'
+
              ))
              ->add('musicians','sonata_type_collection', array(), array(
-                     'edit' => 'inline',
-                     'inline' => 'table',
-                     'sortable'  => 'position'
                  ));
 
 
