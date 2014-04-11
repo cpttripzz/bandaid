@@ -21,7 +21,8 @@ class MusicianAdmin extends Admin
     protected function configureShowField(ShowMapper $showMapper)
     {
         $showMapper
-            ->add('addresses','sonata_type_collection', array(), array(
+            ->add('addresses','sonata_type_collection', array(
+                'allow_add' => true,
                 'edit' => 'inline',
                 'inline' => 'table',
                 'sortable'  => 'position'
@@ -32,7 +33,8 @@ class MusicianAdmin extends Admin
                 'inline' => 'table',
                 'sortable'  => 'position'
             ))
-            ->add('genres','sonata_type_collection', array(), array(
+            ->add('genres','sonata_type_collection', array(
+                'allow_add' => true,
                 'edit' => 'inline',
                 'inline' => 'table',
                 'sortable'  => 'position'
@@ -49,11 +51,24 @@ class MusicianAdmin extends Admin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->with('Associations')
-            ->add('addresses')
-            ->add('documents')
-            ->add('genres')
-            ->end()
+            ->add('addresses','sonata_type_collection', array(),array(
+                'allow_add' => true,
+                'edit' => 'inline',
+                'inline' => 'table',
+                'sortable'  => 'position'
+            ))
+
+            ->add('documents','sonata_type_collection', array(), array(
+                'edit' => 'inline',
+                'inline' => 'table',
+                'sortable'  => 'position'
+            ))
+            ->add('genres','sonata_type_collection', array(),array(
+                'allow_add' => true,
+                'edit' => 'inline',
+                'inline' => 'table',
+                'sortable'  => 'position'
+            ));
 
         ;
     }

@@ -3,11 +3,12 @@
 namespace ZE\BABundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Address
  * @ORM\Table(name="address")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="ZE\BABundle\Entity\Repository\Address")
  */
 class Address
 {
@@ -31,14 +32,14 @@ class Address
     /**
      * @var string
      *
-     * @ORM\Column(name="latitude", type="string", length=50, nullable=true)
+     * @ORM\Column(name="latitude", type="float", precision=7, nullable=true)
      */
     private $latitude;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="longitude", type="string", length=50, nullable=true)
+     * @ORM\Column(name="longitude", type="float", precision=7, nullable=true)
      */
     private $longitude;
 

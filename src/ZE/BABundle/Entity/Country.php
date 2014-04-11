@@ -23,68 +23,68 @@ class Country
     /**
      * @var string
      *
-     * @ORM\Column(name="country_code", type="string", length=2, nullable=false)
+     * @ORM\Column(name="code", type="string", length=2, nullable=false)
      */
-    private $countryCode;
+    private $code;
     /**
      * @var string
      *
-     * @ORM\Column(name="country_name", type="string", length=50, nullable=false)
+     * @ORM\Column(name="name", type="string", length=50, nullable=false)
      */
-    private $countryName;
+    private $name;
 
 
 
     /**
-     * Get countryCode
+     * Get code
      *
      * @return string
      */
-    public function getCountryCode()
+    public function getcode()
     {
-        return $this->countryCode;
+        return $this->code;
     }
 
     /**
-     * Set countryName
+     * Set name
      *
-     * @param string $countryName
+     * @param string $name
      * @return Country
      */
-    public function setCountryName($countryName)
+    public function setname($name)
     {
-        $this->countryName = $countryName;
+        $this->name = $name;
 
         return $this;
     }
 
     /**
-     * Set countryName
+     * Set name
      *
-     * @param $countryCode
+     * @param $code
      *
-     * @internal param string $countryName
+     * @internal param string $name
      * @return Country
      */
-    public function setCountryCode($countryCode)
+    public function setcode($code)
     {
-        $this->countryCode = $countryCode;
+        $this->code = $code;
 
         return $this;
     }
     /**
-     * Get countryName
+     * Get name
      *
      * @return string
      */
-    public function getCountryName()
+    public function getname()
     {
-        return $this->countryName;
+        return $this->name;
     }
 
     public function __toString()
     {
-        return $this->countryName;
+        return $this->name;
     }
 
     /**

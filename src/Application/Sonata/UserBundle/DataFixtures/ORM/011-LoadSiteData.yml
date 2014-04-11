@@ -1,52 +1,52 @@
 # src/Application/Sonata/UserBundle/DataFixtures/ORM/010-LoadUserData.yml
 cities:
     tel_aviv:
-        country_code: "IL"
+        code: "IL"
         city: "Tel Aviv"
     toronto:
-        country_code: "CA"
+        code: "CA"
         city: "Toronto"
     3:
-        country_code: "CA"
+        code: "CA"
         city: "Vancouver"
     4:
-        country_code: "IL"
+        code: "IL"
         city: "Jerusalem"
     5:
-        country_code: "IL"
+        code: "IL"
         city: "Haifa"
     7:
-        country_code: "GB"
+        code: "GB"
         city: "London"
     8:
-        country_code: "US"
+        code: "US"
         city: "New York"
     9:
-        country_code: "US"
+        code: "US"
         city: "Detroit"
     10:
-        country_code: "US"
+        code: "US"
         city: "Los Angeles"
     11:
-        country_code: "CA"
+        code: "CA"
         city: "Newmarket"
     12:
-        country_code: "CA"
+        code: "CA"
         city: "Ottawa"
 
 countries:
     1:
-        country_code: "CA"
-        country_name: "Canada"
+        code: "CA"
+        name: "Canada"
     2:
-        country_code: "GB"
-        country_name: "United Kingdom"
+        code: "GB"
+        name: "United Kingdom"
     3:
-        country_code: "IL"
-        country_name: "Israel"
+        code: "IL"
+        name: "Israel"
     4:
-        country_code: "US"
-        country_name: "United States"
+        code: "US"
+        name: "United States"
 genres:
     1:
         id: 1

@@ -21,7 +21,7 @@ class CountryAdmin extends Admin
     protected function configureShowField(ShowMapper $showMapper)
     {
         $showMapper
-            ->add('countryName');
+            ->add('name');
     }
 
     /**
@@ -33,7 +33,7 @@ class CountryAdmin extends Admin
     {
         $formMapper
             ->with('General')
-            ->add('countryName')
+            ->add('name')
             ->end();
     }
 
@@ -45,7 +45,7 @@ class CountryAdmin extends Admin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-            ->add('countryName')
+            ->add('name')
             ->add('_action', 'actions', array(
                     'actions' => array(
                         'show' => array(),
@@ -65,7 +65,7 @@ class CountryAdmin extends Admin
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper
-            ->add('countryName', null)
+            ->add('name', null)
         ;
     }
 }

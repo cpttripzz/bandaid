@@ -21,11 +21,7 @@ class BandAdmin extends Admin
     protected function configureShowField(ShowMapper $showMapper)
     {
         $showMapper
-            ->add('addresses','sonata_type_collection', array(), array(
-                'edit' => 'inline',
-                'inline' => 'table',
-                'sortable'  => 'position'
-            ))
+            ->add('addresses','sonata_type_collection', array(), array())
 
             ->add('documents','sonata_type_collection', array(), array(
                 'edit' => 'inline',
@@ -68,13 +64,7 @@ class BandAdmin extends Admin
             ->add('addresses')
             ->add('documents')
             ->add('genres')
-            ->add('_action', 'actions', array(
-                    'actions' => array(
-                        'show' => array(),
-                        'edit' => array(),
-                        'delete' => array(),
-                    )
-                ))
+
         ;
     }
 

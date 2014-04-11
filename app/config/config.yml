@@ -140,8 +140,6 @@ sonata_user:
             handler:            sonata.user.profile.form.handler.default
             name:               sonata_user_profile_form
             validation_groups:  [Profile]
-sonata_admin:
-    title:      Your Project Admin
 
 sonata_user:
     security_acl:           false
@@ -157,7 +155,8 @@ sonata_user:
 sonata_admin:
     title:      Admin Panel
     title_logo: /bundles/sonataadmin/logo_title.png
-
+    options:
+        use_select2:  true
 services:
     ZE.BABundle.admin.city:
         class: ZE\BABundle\Admin\CityAdmin
@@ -189,6 +188,11 @@ services:
         tags:
           - { name: sonata.admin, manager_type: orm, group: Associations, label: genre}
         arguments: [null, ZE\BABundle\Entity\Genre, ZEBABundle:GenreAdmin]
+    ZE.BABundle.admin.address:
+        class: ZE\BABundle\Admin\AddressAdmin
+        tags:
+          - { name: sonata.admin, manager_type: orm, group: Associations, label: address}
+        arguments: [null, ZE\BABundle\Entity\Address, ZEBABundle:AddressAdmin]
 
 mopa_bootstrap:
     form: ~  # Adds twig form theme  support

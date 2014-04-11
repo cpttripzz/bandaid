@@ -22,7 +22,7 @@ class AddressAdmin extends Admin
     {
         $showMapper
             ->add('city')
-            ->add('countryCode');
+            ->add('address');
     }
 
     /**
@@ -35,7 +35,7 @@ class AddressAdmin extends Admin
         $formMapper
             ->with('General')
             ->add('city')
-            ->add('countryCode')
+            ->add('address')
             ->end()
 
         ;
@@ -50,7 +50,7 @@ class AddressAdmin extends Admin
     {
         $listMapper
             ->add('city')
-            ->add('countryCode')
+            ->add('address')
             ->add('_action', 'actions', array(
                     'actions' => array(
                         'show' => array(),
@@ -70,7 +70,7 @@ class AddressAdmin extends Admin
     {
         $datagridMapper
             ->add('city', null)
-            ->add('countryCode', null)
+            ->add('address', null)
         ;
     }
 }

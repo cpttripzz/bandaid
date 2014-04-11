@@ -21,8 +21,8 @@ class CityAdmin extends Admin
     protected function configureShowField(ShowMapper $showMapper)
     {
         $showMapper
-            ->add('city')
-            ->add('countryCode');
+            ->add('country')
+            ->add('name');
     }
 
     /**
@@ -34,8 +34,8 @@ class CityAdmin extends Admin
     {
         $formMapper
             ->with('General')
-            ->add('city')
-            ->add('countryCode')
+            ->add('country')
+            ->add('name')
             ->end()
 
         ;
@@ -49,8 +49,8 @@ class CityAdmin extends Admin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-            ->add('city')
-            ->add('countryCode')
+            ->add('country')
+            ->add('name')
             ->add('_action', 'actions', array(
                     'actions' => array(
                         'show' => array(),
@@ -69,8 +69,8 @@ class CityAdmin extends Admin
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper
-            ->add('city', null)
-            ->add('countryCode', null)
+            ->add('country', null)
+            ->add('name', null)
         ;
     }
 }

@@ -41,8 +41,8 @@ class LoadSiteData extends AbstractFixture
         $yml      = Yaml::parse(file_get_contents($filename));
         foreach ( $yml['countries'] as $key => $data) {
             $country = new Entity\Country();
-            $country->setCountryName($data['country_name']);
-            $country->setCountryCode($data['country_code']);
+            $country->setname($data['name']);
+            $country->setcode($data['code']);
 
             $manager->persist($country);
             $manager->flush();
@@ -50,7 +50,7 @@ class LoadSiteData extends AbstractFixture
         foreach ( $yml['cities'] as $key => $data) {
             $city = new Entity\City();
             $city->setName($data['city']);
-            $country = $manager->getRepository('ZE\BABundle\Entity\Country')->findOneByCountryCode(trim($data['country_code']));
+            $country = $manager->getRepository('ZE\BABundle\Entity\Country')->findOneBycode(trim($data['code']));
             $city->setCountry($country);
             $manager->persist($city);
             $manager->flush();
