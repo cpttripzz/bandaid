@@ -215,8 +215,20 @@ class Document
     {
         return $this->name;
     }
-    /**ORM\@ManyToOne(targetEntity="Association", inversedBy="document")
-     * @ORM\JoinColumn(name="association_id", referencedColumnName="id")
+    /**
+     * @ORM\ManyToOne(targetEntity="Association", inversedBy="documents")
      **/
+
     protected $association;
+
+    public function setAssociation(Association $association)
+    {
+        $this->association = $association;
+    }
+
+    public function getAssociation()
+    {
+        return $this->association;
+    }
+
 }

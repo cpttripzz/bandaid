@@ -37,14 +37,18 @@ class Association
      */
     protected $description;
 
-    /** @ORM\OneToMany(targetEntity="Address",mappedBy="association",cascade={"persist"}) */
+    /**
+     * @ORM\OneToMany(targetEntity="Address", mappedBy="association",cascade={"persist"})
+     */
     protected $addresses;
 
-    /** @ORM\OneToMany(targetEntity="Document",mappedBy="association",cascade={"persist"}) */
+    /**
+     * @ORM\OneToMany(targetEntity="Document", mappedBy="association", cascade={"persist"})
+     */
     protected $documents;
 
     /**
-     * @ORM\ManyToMany(targetEntity="Genre", inversedBy="genres")
+     * @ORM\ManyToMany(targetEntity="Genre", inversedBy="associations")
      * @ORM\JoinTable(name="association_genre",
      *   joinColumns={@ORM\JoinColumn(name="association_id", referencedColumnName="id")},
      *   inverseJoinColumns={@ORM\JoinColumn(name="genre_id", referencedColumnName="id")}
@@ -86,43 +90,10 @@ class Association
     {
         $this->documents = new ArrayCollection();
         $this->addresses = new ArrayCollection();
-        $this->cities = new ArrayCollection();
         $this->genres = new ArrayCollection();
     }
 
 
-    /**
-     * Add cities
-     *
-     * @param \ZE\BABundle\Entity\City $cities
-     * @return Association
-     */
-    public function addCity(\ZE\BABundle\Entity\City $cities)
-    {
-        $this->cities[] = $cities;
-
-        return $this;
-    }
-
-    /**
-     * Remove cities
-     *
-     * @param \ZE\BABundle\Entity\City $cities
-     */
-    public function removeCity(\ZE\BABundle\Entity\City $cities)
-    {
-        $this->cities->removeElement($cities);
-    }
-
-    /**
-     * Get cities
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getCities()
-    {
-        return $this->cities;
-    }
 
     /**
      * Add documents
