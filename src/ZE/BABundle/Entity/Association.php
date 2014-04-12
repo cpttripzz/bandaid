@@ -13,15 +13,53 @@ use Doctrine\ORM\Mapping as ORM;
 
 
     /**
-    * An item a user can have a many to many relationship with, ie: band, artist
+    * An item a user can have a many to many relationship with, ie: Association, artist
     *
     * @ORM\Entity
+    * @ORM\Table(name="association")
     * @ORM\InheritanceType("SINGLE_TABLE")
-    * @ORM\DiscriminatorColumn(name="discr", type="string")
-    * @ORM\DiscriminatorMap({"band" = "Band", "musician" = "Musician"})
+    * @ORM\DiscriminatorColumn(name="type", type="string")
+    * @ORM\DiscriminatorMap({"association" = "Association", "musician" = "Musician", "band" = "Band"})
     */
 class Association
 {
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="name", type="string", length=50, nullable=false)
+     */
+    protected $name;
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="description", type="text", length=500, nullable=true)
+     */
+    protected $description;
+
+    /** @ORM\OneToMany(targetEntity="Address",mappedBy="association",cascade={"persist"}) */
+    protected $addresses;
+
+    /** @ORM\OneToMany(targetEntity="Document",mappedBy="association",cascade={"persist"}) */
+    protected $documents;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="Genre", inversedBy="genres")
+     * @ORM\JoinTable(name="association_genre",
+     *   joinColumns={@ORM\JoinColumn(name="association_id", referencedColumnName="id")},
+     *   inverseJoinColumns={@ORM\JoinColumn(name="genre_id", referencedColumnName="id")}
+     * )
+     */
+    protected $genres;
+
+
+
+
+    /**
+     * @ORM\ManyToOne(targetEntity="User", inversedBy="associations")
+     */
+    protected $user;
+
     /**
      * @var integer $id
      *
@@ -41,29 +79,13 @@ class Association
         return $this->id;
     }
 
-    /**
-     * @ORM\ManyToMany(targetEntity="City", inversedBy="Association", cascade={"persist"})
-     * @ORM\JoinTable(name="associations_cities")
-     **/
-    private $cities;
 
-    /**
-     * @ORM\ManyToMany(targetEntity="Document", inversedBy="Association", cascade={"persist"})
-     * @ORM\JoinTable(name="associations_documents")
-     **/
-    private $documents;
-
-    /**
-     * @ORM\ManyToMany(targetEntity="Genre", inversedBy="Association", cascade={"persist"})
-     * @ORM\JoinTable(name="associations_genres")
-     **/
-    private $genres;
 
 
     public function __construct()
     {
-        parent::__construct();
         $this->documents = new ArrayCollection();
+        $this->addresses = new ArrayCollection();
         $this->cities = new ArrayCollection();
         $this->genres = new ArrayCollection();
     }
@@ -95,7 +117,7 @@ class Association
     /**
      * Get cities
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getCities()
     {
@@ -126,22 +148,54 @@ class Association
     }
 
     /**
+     * Get addresss
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getAddresses()
+    {
+        return $this->addresses;
+    }
+
+    /**
+     * Add addresss
+     *
+     * @param \ZE\BABundle\Entity\Address $addresss
+     * @return Association
+     */
+    public function addAddress(\ZE\BABundle\Entity\Address $addresss)
+    {
+        $this->addresses[] = $addresss;
+
+        return $this;
+    }
+
+    /**
+     * Remove addresss
+     *
+     * @param \ZE\BABundle\Entity\Address $addresss
+     */
+    public function removeAddress(\ZE\BABundle\Entity\Address $addresss)
+    {
+        $this->addresses->removeElement($addresss);
+    }
+
+    /**
      * Get documents
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getDocuments()
     {
         return $this->documents;
     }
-
     /**
      * Add genres
      *
-     * @param \ZE\BABundle\Entity\Genres $genres
+     * @param \ZE\BABundle\Entity\Genre $genres
      * @return Association
      */
-    public function addGenre(\ZE\BABundle\Entity\Genres $genres)
+    public function addGenre(\ZE\BABundle\Entity\Genre $genres)
     {
         $this->genres[] = $genres;
 
@@ -151,9 +205,9 @@ class Association
     /**
      * Remove genres
      *
-     * @param \ZE\BABundle\Entity\Genres $genres
+     * @param \ZE\BABundle\Entity\Genre $genres
      */
-    public function removeGenre(\ZE\BABundle\Entity\Genres $genres)
+    public function removeGenre(\ZE\BABundle\Entity\Genre $genres)
     {
         $this->genres->removeElement($genres);
     }
@@ -161,10 +215,69 @@ class Association
     /**
      * Get genres
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getGenres()
     {
         return $this->genres;
     }
+
+    /**
+     * Set name
+     *
+     * @param string $name
+     *
+     * @return Association
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * Get name
+     *
+     * @return string 
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * Set description
+     *
+     * @param string $description
+     *
+     * @return Association
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * Get description
+     *
+     * @return string 
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    public function setUser(User $user)
+    {
+        $this->user = $user;
+    }
+
+    public function getUser()
+    {
+        return $this->user;
+    }
+
 }

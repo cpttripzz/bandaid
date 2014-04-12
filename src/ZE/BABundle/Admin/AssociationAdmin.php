@@ -21,8 +21,7 @@ class AssociationAdmin extends Admin
     protected function configureShowField(ShowMapper $showMapper)
     {
         $showMapper
-            ->add('cities')
-            ->add('documents')
+            ->add('addresses')
             ->add('genres');
     }
 
@@ -35,9 +34,30 @@ class AssociationAdmin extends Admin
     {
         $formMapper
             ->with('General')
-            ->add('cities')
-            ->add('documents')
-            ->add('genres')
+            ->add('addresses','sonata_type_collection',   array(
+                    'label' => 'addresses',
+                    'by_reference' => false,
+                    'cascade_validation' => true
+                ),
+                array(
+                    'edit' => 'inline',
+                    'inline' => 'table',
+                    'allow_delete' => true,
+                    'allow_add' => true,
+                )
+            )
+            ->add('genres','sonata_type_collection',   array(
+                    'label' => 'genres',
+                    'by_reference' => false,
+                    'cascade_validation' => true
+                ),
+                array(
+                    'edit' => 'inline',
+                    'inline' => 'table',
+                    'allow_delete' => true,
+                    'allow_add' => true,
+                )
+            )
             ->end()
 
         ;
@@ -51,9 +71,8 @@ class AssociationAdmin extends Admin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-            ->add('cities')
-            ->add('documents')
             ->add('genres')
+            ->add('addresses')
             ->add('_action', 'actions', array(
                     'actions' => array(
                         'show' => array(),
@@ -72,8 +91,6 @@ class AssociationAdmin extends Admin
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper
-            ->add('cities')
-            ->add('documents')
             ->add('genres')
         ;
     }

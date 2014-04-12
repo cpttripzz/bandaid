@@ -59,11 +59,12 @@ class AddAssociationsToUsers extends AbstractFixture
                         $address->setAddress($addressData['address']);
                         $manager->persist($address);
                         $band->addAddress($address);
-
+                        $address->setAssociation($band);
                     }
 
                     $manager->persist($band);
-                    $user->addBand($band);
+                    $band->setUser($user);
+                    $user->addAssociation($band);
                 }
             }
             if (!empty($data['musicians'])) {
@@ -83,6 +84,7 @@ class AddAssociationsToUsers extends AbstractFixture
                         $address->setCity($c);
                         $address->setAddress($addressData['address']);
                         $musician->addAddress($address);
+                        $address->setAssociation($musician);
                     }
                     $instruments = explode(',', $musicianData['instruments']);
                     foreach ($instruments as $instrument) {
@@ -90,7 +92,8 @@ class AddAssociationsToUsers extends AbstractFixture
                         $musician->addInstrument($g);
                     }
                     $manager->persist($musician);
-                    $user->addmusician($musician);
+                    $musician->setUser($user);
+                    $user->addAssociation($musician);
                 }
             }
             $userManager->updateUser($user, true);

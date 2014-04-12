@@ -34,59 +34,6 @@ class Country
     private $name;
 
 
-
-    /**
-     * Get code
-     *
-     * @return string
-     */
-    public function getcode()
-    {
-        return $this->code;
-    }
-
-    /**
-     * Set name
-     *
-     * @param string $name
-     * @return Country
-     */
-    public function setname($name)
-    {
-        $this->name = $name;
-
-        return $this;
-    }
-
-    /**
-     * Set name
-     *
-     * @param $code
-     *
-     * @internal param string $name
-     * @return Country
-     */
-    public function setcode($code)
-    {
-        $this->code = $code;
-
-        return $this;
-    }
-    /**
-     * Get name
-     *
-     * @return string
-     */
-    public function getname()
-    {
-        return $this->name;
-    }
-
-    public function __toString()
-    {
-        return $this->name;
-    }
-
     /**
      * Get id
      *
@@ -95,5 +42,58 @@ class Country
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * Set code
+     *
+     * @param string $code
+     *
+     * @return Country
+     */
+    public function setCode($code)
+    {
+        $this->code = $code;
+
+        return $this;
+    }
+
+    /**
+     * Get code
+     *
+     * @return string 
+     */
+    public function getCode()
+    {
+        return $this->code;
+    }
+
+    /**
+     * Set name
+     *
+     * @param string $name
+     *
+     * @return Country
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * Get name
+     *
+     * @return string 
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    public function __toString()
+    {
+        return $this->name;
     }
 }

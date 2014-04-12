@@ -44,30 +44,14 @@ class User extends BaseUser
         return $this->id;
     }
 
-    /**
-     * @ORM\ManyToMany(targetEntity="Band",cascade={"persist"})
-     * @ORM\JoinTable(name="users_bands",
-     *      joinColumns={@ORM\JoinColumn(name="user_id", referencedColumnName="id")},
-     *      inverseJoinColumns={@ORM\JoinColumn(name="band_id", referencedColumnName="id")}
-     *      )
-     */
-    private $bands;
 
-    /**
-     * @ORM\ManyToMany(targetEntity="Musician",cascade={"persist"})
-     * @ORM\JoinTable(name="users_musicians",
-     *      joinColumns={@ORM\JoinColumn(name="user_id", referencedColumnName="id")},
-     *      inverseJoinColumns={@ORM\JoinColumn(name="musician_id", referencedColumnName="id")}
-     *      )
-     */
-
-    private $musicians;
+    /** @ORM\OneToMany(targetEntity="Association",mappedBy="user") */
+    protected  $associations;
 
     public function __construct()
     {
         parent::__construct();
-        $this->bands = new ArrayCollection();
-        $this->musicians = new ArrayCollection();
+        $this->associations = new ArrayCollection();
     }
 
     /**
@@ -240,69 +224,36 @@ class User extends BaseUser
 
 
     /**
-     * Add bands
+     * Get associations
      *
-     * @param \ZE\BABundle\Entity\Band $bands
-     * @return User
+     * @return \Doctrine\Common\Collections\Collection
      */
-    public function addBand(\ZE\BABundle\Entity\Band $bands)
+    public function getAssociations()
     {
-        $this->bands[] = $bands;
+        return $this->associations;
+    }
+
+    /**
+     * Add associations
+     *
+     * @param \ZE\BABundle\Entity\Association $associations
+     * @return Association
+     */
+    public function addAssociation(\ZE\BABundle\Entity\Association $associations)
+    {
+        $this->associations[] = $associations;
 
         return $this;
     }
 
     /**
-     * Remove bands
+     * Remove associations
      *
-     * @param \ZE\BABundle\Entity\Band $bands
+     * @param \ZE\BABundle\Entity\Association $associations
      */
-    public function removeBand(\ZE\BABundle\Entity\Band $bands)
+    public function removeAssociation(\ZE\BABundle\Entity\Association $associations)
     {
-        $this->bands->removeElement($bands);
-    }
-
-    /**
-     * Get bands
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getBands()
-    {
-        return $this->bands;
-    }
-
-    /**
-     * Add musicians
-     *
-     * @param \ZE\BABundle\Entity\Musician $musicians
-     * @return User
-     */
-    public function addMusician(\ZE\BABundle\Entity\Musician $musicians)
-    {
-        $this->musicians[] = $musicians;
-
-        return $this;
-    }
-
-    /**
-     * Remove musicians
-     *
-     * @param \ZE\BABundle\Entity\Musician $musicians
-     */
-    public function removeMusician(\ZE\BABundle\Entity\Musician $musicians)
-    {
-        $this->musicians->removeElement($musicians);
-    }
-
-    /**
-     * Get musicians
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getMusicians()
-    {
-        return $this->musicians;
+        $this->associations->removeElement($associations);
     }
 
 }

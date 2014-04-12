@@ -13,8 +13,8 @@
          parent::configureFormFields($formMapper);
          $formMapper
              ->with('Associations')
-             ->add('bands','sonata_type_collection',   array(
-                     'label' => 'Bands',
+             ->add('associations','sonata_type_collection',   array(
+                     'label' =>false,
                      'by_reference' => false,
                      'cascade_validation' => true
                  ),
@@ -24,19 +24,6 @@
                      'allow_delete' => true,
                      'allow_add' => true,
                  )
-             )
-             ->add('musicians','sonata_type_collection',   array(
-                     'label' => 'Musicians',
-                     'by_reference' => false,
-                     'cascade_validation' => true
-                 ),
-                 array(
-                     'edit' => 'inline',
-                     'inline' => 'table',
-                     'allow_delete' => true,
-                     'allow_add' => true,
-                 )
-
              );
 
 

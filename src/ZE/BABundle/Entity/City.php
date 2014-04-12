@@ -28,14 +28,9 @@ class City
      */
     private $name;
 
-
     /**
-     * @var \Country
-     *
      * @ORM\ManyToOne(targetEntity="Country")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="country_id", referencedColumnName="id")
-     * })
+     * @ORM\JoinColumn(name="country_id", referencedColumnName="id")
      */
     private $country;
 

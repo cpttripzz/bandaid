@@ -63,4 +63,6 @@ class Genre
     {
         return $this->name;
     }
+    /** @ORM\ManyToMany(targetEntity="Association", mappedBy="genres") **/
+    protected $associations;
 }

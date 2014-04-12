@@ -62,4 +62,13 @@ class Instrument
     {
         return $this->name;
     }
+
+    /** @ORM\ManyToMany(targetEntity="Musician", mappedBy="instruments") **/
+    private $musicians;
+
+    public function setMusician(Musician $musician)
+    {
+        $this->musician = $musician;
+    }
+
 }

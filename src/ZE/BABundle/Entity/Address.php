@@ -28,7 +28,7 @@ class Address
      */
     private $address;
 
-    
+
     /**
      * @var string
      *
@@ -47,12 +47,9 @@ class Address
      * @var \City
      *
      * @ORM\ManyToOne(targetEntity="City")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="city_id", referencedColumnName="id")
-     * })
+     * @ORM\JoinColumn(name="city_id", referencedColumnName="id")
      */
     private $city;
-
 
 
     /**
@@ -64,7 +61,6 @@ class Address
     {
         return $this->id;
     }
-
 
 
     /**
@@ -84,7 +80,7 @@ class Address
     /**
      * Get address
      *
-     * @return string 
+     * @return string
      */
     public function getAddress()
     {
@@ -108,7 +104,7 @@ class Address
     /**
      * Get latitude
      *
-     * @return string 
+     * @return string
      */
     public function getLatitude()
     {
@@ -132,7 +128,7 @@ class Address
     /**
      * Get longitude
      *
-     * @return string 
+     * @return string
      */
     public function getLongitude()
     {
@@ -156,7 +152,7 @@ class Address
     /**
      * Get city
      *
-     * @return \ZE\BABundle\Entity\City 
+     * @return \ZE\BABundle\Entity\City
      */
     public function getCity()
     {
@@ -165,6 +161,18 @@ class Address
 
     public function __toString()
     {
-        return $this->address . ' ' .$this->getCity()->getName();
+        return $this->address . ' ' . $this->getCity()->getName();
     }
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Association", inversedBy="addresses")
+     **/
+    protected $association;
+
+    public function setAssociation(Association $association)
+    {
+        $this->association = $association;
+    }
+
+
 }
