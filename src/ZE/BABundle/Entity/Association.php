@@ -251,4 +251,9 @@ class Association
         return $this->user;
     }
 
+    public function getType()
+    {
+        return get_class($this);
+    }
+
 }

@@ -71,4 +71,9 @@ class Instrument
         $this->musician = $musician;
     }
 
+    public function __toString()
+    {
+        return $this->name;
+    }
+
 }

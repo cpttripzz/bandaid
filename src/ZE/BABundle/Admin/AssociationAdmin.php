@@ -21,6 +21,7 @@ class AssociationAdmin extends Admin
     protected function configureShowField(ShowMapper $showMapper)
     {
         $showMapper
+            ->add('type')
             ->add('addresses')
             ->add('genres');
     }
@@ -34,6 +35,7 @@ class AssociationAdmin extends Admin
     {
         $formMapper
             ->with('General')
+            ->add('type')
             ->add('addresses','sonata_type_collection',   array(
                     'label' => 'addresses',
                     'by_reference' => false,
@@ -73,6 +75,7 @@ class AssociationAdmin extends Admin
         $listMapper
             ->add('genres')
             ->add('addresses')
+            ->add('type')
             ->add('_action', 'actions', array(
                     'actions' => array(
                         'show' => array(),
