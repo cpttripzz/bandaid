@@ -76,4 +76,45 @@ class Instrument
         return $this->name;
     }
 
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->musicians = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add musicians
+     *
+     * @param \ZE\BABundle\Entity\Musician $musicians
+     *
+     * @return Instrument
+     */
+    public function addMusician(\ZE\BABundle\Entity\Musician $musicians)
+    {
+        $this->musicians[] = $musicians;
+
+        return $this;
+    }
+
+    /**
+     * Remove musicians
+     *
+     * @param \ZE\BABundle\Entity\Musician $musicians
+     */
+    public function removeMusician(\ZE\BABundle\Entity\Musician $musicians)
+    {
+        $this->musicians->removeElement($musicians);
+    }
+
+    /**
+     * Get musicians
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getMusicians()
+    {
+        return $this->musicians;
+    }
 }

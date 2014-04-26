@@ -41,7 +41,8 @@
         "knplabs/knp-menu-bundle": "dev-master",
         "egeloen/google-map-bundle": "~2.1",
         "willdurand/geocoder": "*",
-        "willdurand/geocoder-bundle": "3.0.*@dev"
+        "willdurand/geocoder-bundle": "3.0.*@dev",
+        "stof/doctrine-extensions-bundle": "*"
     },
     "scripts": {
         "post-install-cmd": [

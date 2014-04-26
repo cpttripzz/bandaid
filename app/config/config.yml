@@ -173,11 +173,16 @@ services:
         tags:
           - { name: sonata.admin, manager_type: orm, group: Users, label: document }
         arguments: [null, ZE\BABundle\Entity\Document, ZEBABundle:DocumentAdmin]
-    ZE.BABundle.admin.association:
-        class: ZE\BABundle\Admin\AssociationAdmin
+    ZE.BABundle.admin.musician:
+        class: ZE\BABundle\Admin\MusicianAdmin
         tags:
-          - { name: sonata.admin, manager_type: orm, group: Associations, label: association}
-        arguments: [null, ZE\BABundle\Entity\Association, ZEBABundle:AssociationAdmin]
+          - { name: sonata.admin, manager_type: orm, group: Associations, label: musician}
+        arguments: [null, ZE\BABundle\Entity\Musician, ZEBABundle:MusicianAdmin]
+    ZE.BABundle.admin.band:
+        class: ZE\BABundle\Admin\BandAdmin
+        tags:
+          - { name: sonata.admin, manager_type: orm, group: Associations, label: band}
+        arguments: [null, ZE\BABundle\Entity\Band, ZEBABundle:BandAdmin]
     ZE.BABundle.admin.genre:
         class: ZE\BABundle\Admin\GenreAdmin
         tags:
@@ -264,3 +269,8 @@ bazinga_geocoder:
             use_ssl:              false
 #        openstreetmap:
 #            locale:               ~
+stof_doctrine_extensions:
+    default_locale: en_US
+    orm:
+        default:
+            sluggable: true

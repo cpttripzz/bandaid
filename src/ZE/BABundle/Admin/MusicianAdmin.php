@@ -10,6 +10,7 @@ use Sonata\AdminBundle\Show\ShowMapper;
 use Knp\Menu\ItemInterface as MenuItemInterface;
 
 use ZE\BABundle\Entity\City;
+use ZE\BABundle\Entity\Musician;
 
 class MusicianAdmin extends Admin
 {
@@ -22,7 +23,6 @@ class MusicianAdmin extends Admin
     {
         $showMapper
             ->add('addresses')
-            ->add('instruments')
             ->add('genres');
     }
 
@@ -33,6 +33,7 @@ class MusicianAdmin extends Admin
      */
     protected function configureFormFields(FormMapper $formMapper)
     {
+        var_dump($this->getSubClasses());
         $formMapper
             ->with('General')
             ->add('addresses','sonata_type_collection',   array(
@@ -59,21 +60,23 @@ class MusicianAdmin extends Admin
                     'allow_add' => true,
                 )
             )
-            ->add('instruments','sonata_type_collection',   array(
-                    'label' => 'genres',
-                    'by_reference' => false,
-                    'cascade_validation' => true
-                ),
-                array(
-                    'edit' => 'inline',
-                    'inline' => 'table',
-                    'allow_delete' => true,
-                    'allow_add' => true,
-                )
-            )
-            ->end()
+            ->end();
+//            if($this->getSubject() instanceof Musician){
+//                $formMapper
+//                    ->add('instruments','sonata_type_collection',   array(
+//                            'label' => 'instruments',
+//                            'by_reference' => false,
+//                            'cascade_validation' => true
+//                        ),
+//                        array(
+//                            'edit' => 'inline',
+//                            'inline' => 'table',
+//                            'allow_delete' => true,
+//                            'allow_add' => true,
+//                        )
+//                    );
+//            }
 
-        ;
     }
 
     /**

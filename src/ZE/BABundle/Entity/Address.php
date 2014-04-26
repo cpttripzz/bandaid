@@ -175,4 +175,14 @@ class Address
     }
 
 
+
+    /**
+     * Get association
+     *
+     * @return \ZE\BABundle\Entity\Association 
+     */
+    public function getAssociation()
+    {
+        return $this->association;
+    }
 }

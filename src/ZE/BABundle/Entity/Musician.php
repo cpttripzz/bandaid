@@ -11,6 +11,54 @@ use Doctrine\ORM\Mapping as ORM;
 class Musician extends Association
 {
     /**
+     * @var integer $id
+     *
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    protected $id;
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="name", type="string", length=50, nullable=false)
+     */
+    protected $name;
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="description", type="text", length=500, nullable=true)
+     */
+    protected $description;
+
+    /**
+     * @ORM\OneToMany(targetEntity="Address", mappedBy="musician",cascade={"persist"})
+     */
+    protected $addresses;
+
+    /**
+     * @ORM\OneToMany(targetEntity="Document", mappedBy="musician", cascade={"persist"})
+     */
+    protected $documents;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="Genre", inversedBy="musicians")
+     * @ORM\JoinTable(name="musician_genre",
+     *   joinColumns={@ORM\JoinColumn(name="musician_id", referencedColumnName="id")},
+     *   inverseJoinColumns={@ORM\JoinColumn(name="genre_id", referencedColumnName="id")}
+     * )
+     */
+    protected $genres;
+
+
+
+
+    /**
+     * @ORM\ManyToOne(targetEntity="User", inversedBy="musicians")
+     */
+    protected $user;
+
+    /**
      * @ORM\ManyToMany(targetEntity="Instrument", inversedBy="musicians")
      * @ORM\JoinTable(name="musician_instrument",
      *   joinColumns={@ORM\JoinColumn(name="musician_id", referencedColumnName="id")},
@@ -21,7 +69,6 @@ class Musician extends Association
 
     public function __construct()
     {
-        parent::__construct();
         $this->instruments = new ArrayCollection();
     }
 
@@ -62,4 +109,188 @@ class Musician extends Association
     }
 
 
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set name
+     *
+     * @param string $name
+     *
+     * @return Musician
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * Get name
+     *
+     * @return string 
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * Set description
+     *
+     * @param string $description
+     *
+     * @return Musician
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * Get description
+     *
+     * @return string 
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * Add addresses
+     *
+     * @param \ZE\BABundle\Entity\Address $addresses
+     *
+     * @return Musician
+     */
+    public function addAddress(\ZE\BABundle\Entity\Address $addresses)
+    {
+        $this->addresses[] = $addresses;
+
+        return $this;
+    }
+
+    /**
+     * Remove addresses
+     *
+     * @param \ZE\BABundle\Entity\Address $addresses
+     */
+    public function removeAddress(\ZE\BABundle\Entity\Address $addresses)
+    {
+        $this->addresses->removeElement($addresses);
+    }
+
+    /**
+     * Get addresses
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getAddresses()
+    {
+        return $this->addresses;
+    }
+
+    /**
+     * Add documents
+     *
+     * @param \ZE\BABundle\Entity\Document $documents
+     *
+     * @return Musician
+     */
+    public function addDocument(\ZE\BABundle\Entity\Document $documents)
+    {
+        $this->documents[] = $documents;
+
+        return $this;
+    }
+
+    /**
+     * Remove documents
+     *
+     * @param \ZE\BABundle\Entity\Document $documents
+     */
+    public function removeDocument(\ZE\BABundle\Entity\Document $documents)
+    {
+        $this->documents->removeElement($documents);
+    }
+
+    /**
+     * Get documents
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getDocuments()
+    {
+        return $this->documents;
+    }
+
+    /**
+     * Add genres
+     *
+     * @param \ZE\BABundle\Entity\Genre $genres
+     *
+     * @return Musician
+     */
+    public function addGenre(\ZE\BABundle\Entity\Genre $genres)
+    {
+        $this->genres[] = $genres;
+
+        return $this;
+    }
+
+    /**
+     * Remove genres
+     *
+     * @param \ZE\BABundle\Entity\Genre $genres
+     */
+    public function removeGenre(\ZE\BABundle\Entity\Genre $genres)
+    {
+        $this->genres->removeElement($genres);
+    }
+
+    /**
+     * Get genres
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getGenres()
+    {
+        return $this->genres;
+    }
+
+    /**
+     * Set user
+     *
+     * @param \ZE\BABundle\Entity\User $user
+     *
+     * @return Musician
+     */
+    public function setUser(\ZE\BABundle\Entity\User $user = null)
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * Get user
+     *
+     * @return \ZE\BABundle\Entity\User 
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
 }

@@ -65,4 +65,45 @@ class Genre
     }
     /** @ORM\ManyToMany(targetEntity="Association", mappedBy="genres") **/
     protected $associations;
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->associations = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add associations
+     *
+     * @param \ZE\BABundle\Entity\Association $associations
+     *
+     * @return Genre
+     */
+    public function addAssociation(\ZE\BABundle\Entity\Association $associations)
+    {
+        $this->associations[] = $associations;
+
+        return $this;
+    }
+
+    /**
+     * Remove associations
+     *
+     * @param \ZE\BABundle\Entity\Association $associations
+     */
+    public function removeAssociation(\ZE\BABundle\Entity\Association $associations)
+    {
+        $this->associations->removeElement($associations);
+    }
+
+    /**
+     * Get associations
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getAssociations()
+    {
+        return $this->associations;
+    }
 }

@@ -10,8 +10,9 @@ use Sonata\AdminBundle\Show\ShowMapper;
 use Knp\Menu\ItemInterface as MenuItemInterface;
 
 use ZE\BABundle\Entity\City;
+use ZE\BABundle\Entity\Musician;
 
-class AssociationAdmin extends Admin
+class BandAdmin extends Admin
 {
     /**
      * @param \Sonata\AdminBundle\Show\ShowMapper $showMapper
@@ -21,7 +22,6 @@ class AssociationAdmin extends Admin
     protected function configureShowField(ShowMapper $showMapper)
     {
         $showMapper
-            ->add('type')
             ->add('addresses')
             ->add('genres');
     }
@@ -35,7 +35,6 @@ class AssociationAdmin extends Admin
     {
         $formMapper
             ->with('General')
-            ->add('type')
             ->add('addresses','sonata_type_collection',   array(
                     'label' => 'addresses',
                     'by_reference' => false,
@@ -60,9 +59,23 @@ class AssociationAdmin extends Admin
                     'allow_add' => true,
                 )
             )
-            ->end()
+            ->end();
+//            if($this->getSubject() instanceof Musician){
+//                $formMapper
+//                    ->add('instruments','sonata_type_collection',   array(
+//                            'label' => 'instruments',
+//                            'by_reference' => false,
+//                            'cascade_validation' => true
+//                        ),
+//                        array(
+//                            'edit' => 'inline',
+//                            'inline' => 'table',
+//                            'allow_delete' => true,
+//                            'allow_add' => true,
+//                        )
+//                    );
+//            }
 
-        ;
     }
 
     /**
@@ -75,7 +88,6 @@ class AssociationAdmin extends Admin
         $listMapper
             ->add('genres')
             ->add('addresses')
-            ->add('type')
             ->add('_action', 'actions', array(
                     'actions' => array(
                         'show' => array(),
