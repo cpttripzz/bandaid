@@ -12,7 +12,7 @@ use Knp\Menu\ItemInterface as MenuItemInterface;
 use ZE\BABundle\Entity\City;
 use ZE\BABundle\Entity\Musician;
 
-class BandAdmin extends Admin
+class AssociationAdmin extends Admin
 {
     /**
      * @param \Sonata\AdminBundle\Show\ShowMapper $showMapper
@@ -22,6 +22,7 @@ class BandAdmin extends Admin
     protected function configureShowField(ShowMapper $showMapper)
     {
         $showMapper
+            ->add('type')
             ->add('addresses')
             ->add('genres');
     }
@@ -34,47 +35,15 @@ class BandAdmin extends Admin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->with('General')
-            ->add('addresses','sonata_type_collection',   array(
-                    'label' => 'addresses',
-                    'by_reference' => false,
-                    'cascade_validation' => true
-                ),
-                array(
-                    'edit' => 'inline',
-                    'inline' => 'table',
-                    'allow_delete' => true,
-                    'allow_add' => true,
-                )
-            )
-            ->add('genres','sonata_type_collection',   array(
-                    'label' => 'genres',
-                    'by_reference' => false,
-                    'cascade_validation' => true
-                ),
-                array(
-                    'edit' => 'inline',
-                    'inline' => 'table',
-                    'allow_delete' => true,
-                    'allow_add' => true,
-                )
-            )
+            ->add('name')
+            ->add('addresses','sonata_type_model', array('by_reference' => false, 'multiple' => true))
+            ->add('genres','sonata_type_model', array('by_reference' => false, 'multiple' => true))
             ->end();
-//            if($this->getSubject() instanceof Musician){
-//                $formMapper
-//                    ->add('instruments','sonata_type_collection',   array(
-//                            'label' => 'instruments',
-//                            'by_reference' => false,
-//                            'cascade_validation' => true
-//                        ),
-//                        array(
-//                            'edit' => 'inline',
-//                            'inline' => 'table',
-//                            'allow_delete' => true,
-//                            'allow_add' => true,
-//                        )
-//                    );
-//            }
+            $subject = $this->getSubject();
+            if($subject  instanceof Musician){
+                $formMapper
+                    ->add('instruments','sonata_type_model', array('by_reference' => false, 'multiple' => true));
+            }
 
     }
 
