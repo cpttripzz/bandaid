@@ -1,6 +1,9 @@
 app/cache/*
 app/logs/*
+app/bootstrap.php.cache
+components
 vendor/
 web/bundles/
 app/bootstrap*
-.idea/workspace.xml
+.idea/*
+web/*

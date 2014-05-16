@@ -42,7 +42,8 @@
         "egeloen/google-map-bundle": "~2.1",
         "willdurand/geocoder": "*",
         "willdurand/geocoder-bundle": "3.0.*@dev",
-        "stof/doctrine-extensions-bundle": "*"
+        "stof/doctrine-extensions-bundle": "*",
+        "genemu/form-bundle": "2.2.*"
     },
     "scripts": {
         "post-install-cmd": [
