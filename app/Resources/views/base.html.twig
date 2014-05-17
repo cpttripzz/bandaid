@@ -9,7 +9,8 @@
 
 
             {% block stylesheets %}
-                {% stylesheets '@bootstrap_less' combine=true %}
+                {% stylesheets '@bootstrap_less' '@jquery_querybuilder_css' '@bootstrap_slider_css' '@selectize_css' '@bootstrap_datepicker_css'
+                    combine=true filter='cssrewrite' %}
                 <link href="{{ asset_url }}" type="text/css" rel="stylesheet" />
                 {% endstylesheets %}
             {% endblock %}
@@ -19,8 +20,13 @@
 
         {% block head_script %}
             {% block javascripts %}
-                {% javascripts '@jquery_js' '@bootstrap_js' filter='?yui_js' combine=true %}
+                {% javascripts
+                    '@jquery_js' '@bootstrap_js' '@bootstrap_slider' '@selectize' '@bootstrap_datepicker' '@jquery_querybuilder'
+                %}
                 <script src="{{ asset_url }}"></script>
+                <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
+                <script src="{{ path('fos_js_routing_js', {"callback": "fos.Router.setData"}) }}"></script>
+
                 {% endjavascripts %}
             {% endblock %}
         {% endblock head_script %}
@@ -139,5 +145,6 @@
 
 {% block body_end %}
 {% endblock body_end %}
+
 </body>
 </html>

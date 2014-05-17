@@ -26,13 +26,6 @@
         "sonata-project/doctrine-orm-admin-bundle": "dev-master",
         "sonata-project/core-bundle": "~2.2@dev",
         "phpunit/phpunit": "*",
-        "behat/behat":  "*",
-        "behat/mink":   "*",
-        "behat/symfony2-extension":      "*",
-        "behat/mink-extension":          "*",
-        "behat/mink-browserkit-driver":  "*",
-        "behat/mink-selenium2-driver":   "*",
-        "vipsoft/doctrine-data-fixtures-extension": "*",
         "mopa/bootstrap-bundle": "v3.0.0-beta3",
         "twbs/bootstrap": "v3.0.0",
         "components/jquery": "1.9.*",
@@ -43,8 +36,47 @@
         "willdurand/geocoder": "*",
         "willdurand/geocoder-bundle": "3.0.*@dev",
         "stof/doctrine-extensions-bundle": "*",
-        "genemu/form-bundle": "2.2.*"
-    },
+        "genemu/form-bundle": "2.2.*",
+        "eternicode/bootstrap-datepicker": "dev-master",
+        "brianreavis/selectize.js": "dev-master",
+        "seiyria/bootstrap-slider": "dev-master",
+        "mistic100/jQuery-QueryBuilder": "dev-master",
+        "friendsofsymfony/jsrouting-bundle": "2.0.*@dev"
+    },"repositories": [
+        {
+            "type": "package",
+            "package": {
+                "name": "seiyria/bootstrap-slider",
+                "version": "dev-master",
+                "dist": {
+                    "url": "https://github.com/seiyria/bootstrap-slider/archive/master.zip",
+                    "type": "zip"
+                }
+            }
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "brianreavis/selectize.js",
+                "version": "dev-master",
+                "dist": {
+                    "url": "https://github.com/brianreavis/selectize.js/archive/master.zip",
+                    "type": "zip"
+                }
+            }
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "mistic100/jQuery-QueryBuilder",
+                "version": "dev-master",
+                "dist": {
+                    "url": "https://github.com/mistic100/jQuery-QueryBuilder/archive/master.zip",
+                    "type": "zip"
+                }
+            }
+        }
+    ],
     "scripts": {
         "post-install-cmd": [
             "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",

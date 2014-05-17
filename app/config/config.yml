@@ -33,6 +33,7 @@ twig:
 
 # Assetic Configuration
 assetic:
+
     filters:
         less:
             node: /usr/bin/nodejs
@@ -71,6 +72,36 @@ assetic:
                 inputs:
                     - '%kernel.root_dir%/../vendor/twbs/bootstrap/less/bootstrap.less'
                 filters: [less,cssembed]
+            jquery_querybuilder:
+                inputs:
+                    - '%kernel.root_dir%/../vendor/mistic100/jQuery-QueryBuilder/query-builder.js'
+            jquery_querybuilder_css:
+                inputs:
+                    - '%kernel.root_dir%/../vendor/mistic100/jQuery-QueryBuilder/query-builder.css'
+            bootstrap_slider:
+                inputs:
+                    - '%kernel.root_dir%/../vendor/seiyria/bootstrap-slider/js/bootstrap-slider.js'
+            bootstrap_slider_css:
+                inputs:
+                    - '%kernel.root_dir%/../vendor/seiyria/bootstrap-slider/css/bootstrap-slider.css'
+            selectize:
+                inputs:
+                    - '%kernel.root_dir%/../vendor/brianreavis/selectize.js/dist/js/standalone/selectize.js'
+            selectize_css:
+                inputs:
+                    - '%kernel.root_dir%/../vendor/brianreavis/selectize.js/dist/css/selectize.bootstrap3.css'
+            bootstrap_datepicker:
+                inputs:
+                    - '%kernel.root_dir%/../vendor/eternicode/bootstrap-datepicker/js/bootstrap-datepicker.js'
+            bootstrap_datepicker_css:
+                inputs:
+                    - '%kernel.root_dir%/../vendor/eternicode/bootstrap-datepicker/css/datepicker3.css'
+            builder:
+                inputs:
+                    - '%kernel.root_dir%/Resources/public/js/builder.js'
+
+
+
 # Doctrine Configuration
 doctrine:
     dbal:
