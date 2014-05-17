@@ -2,7 +2,6 @@
 
 namespace ZE\BABundle\Controller;
 
-use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
@@ -104,11 +103,11 @@ class MusicianController extends Controller
     /**
      * Finds and displays a Musician entity.
      *
-     * @Route("/{id}", name="musician_show", options={"expose"=true})
+     * @Route("/{id}", name="musician_show")
      * @Method("GET")
      * @Template()
      */
-    public function showAction(Request $request,$id)
+    public function showAction($id)
     {
         $em = $this->getDoctrine()->getManager();
 
@@ -117,9 +116,7 @@ class MusicianController extends Controller
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find Musician entity.');
         }
-        if ($request->isXmlHttpRequest()){
-            return  new JsonResponse($entity);
-        }
+
         $deleteForm = $this->createDeleteForm($id);
 
         return array(

@@ -15,12 +15,12 @@ class MusicianType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('id')
             ->add('name')
-            ->add('description', 'hidden')
+            ->add('description')
             ->add('instruments')
             ->add('genres')
-            ->add('user');
+            ->add('user')
+        ;
     }
     
 //    /**
