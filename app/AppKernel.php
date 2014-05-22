@@ -31,7 +31,6 @@ class AppKernel extends Kernel
             new Ivory\GoogleMapBundle\IvoryGoogleMapBundle(),
             new Bazinga\Bundle\GeocoderBundle\BazingaGeocoderBundle(),
             new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
-            new FOS\JsRoutingBundle\FOSJsRoutingBundle(),
             new ZE\BABundle\ZEBABundle(),
         );
 
