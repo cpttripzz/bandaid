@@ -45,13 +45,17 @@ class User extends BaseUser
     }
 
 
-    /** @ORM\OneToMany(targetEntity="Association",mappedBy="user") */
-    protected  $associations;
+    /** @ORM\OneToMany(targetEntity="Musician",mappedBy="user") */
+    protected  $musicians;
+
+    /** @ORM\OneToMany(targetEntity="Band",mappedBy="user") */
+    protected  $bands;
 
     public function __construct()
     {
         parent::__construct();
-        $this->associations = new ArrayCollection();
+        $this->musicians = new ArrayCollection();
+        $this->bands = new ArrayCollection();
     }
 
     /**
@@ -255,5 +259,75 @@ class User extends BaseUser
     {
         $this->associations->removeElement($associations);
     }
+
+
+    /**
+     * Add musicians
+     *
+     * @param \ZE\BABundle\Entity\Musician $musicians
+     *
+     * @return User
+     */
+    public function addMusician(\ZE\BABundle\Entity\Musician $musicians)
+    {
+        $this->musicians[] = $musicians;
+
+        return $this;
+    }
+
+    /**
+     * Remove musicians
+     *
+     * @param \ZE\BABundle\Entity\Musician $musicians
+     */
+    public function removeMusician(\ZE\BABundle\Entity\Musician $musicians)
+    {
+        $this->musicians->removeElement($musicians);
+    }
+
+    /**
+     * Get musicians
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getMusicians()
+    {
+        return $this->musicians;
+    }
+
+    /**
+     * Add bands
+     *
+     * @param \ZE\BABundle\Entity\Band $bands
+     *
+     * @return User
+     */
+    public function addBand(\ZE\BABundle\Entity\Band $bands)
+    {
+        $this->bands[] = $bands;
+
+        return $this;
+    }
+
+    /**
+     * Remove bands
+     *
+     * @param \ZE\BABundle\Entity\Band $bands
+     */
+    public function removeBand(\ZE\BABundle\Entity\Band $bands)
+    {
+        $this->bands->removeElement($bands);
+    }
+
+    /**
+     * Get bands
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getBands()
+    {
+        return $this->bands;
+    }
+
 
 }

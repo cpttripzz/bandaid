@@ -3,6 +3,9 @@ imports:
     - { resource: security.yml }      
 
 
+parameters:
+    sonata.user.admin.user.class: ZE\BABundle\Admin\UserAdmin
+    sonata.user.admin.user.entity: ZE\BABundle\Entity\User
 
 framework:
     trusted_proxies: ['127.0.0.1']
@@ -158,6 +161,16 @@ sonata_block:
         sonata.block.service.action:
         sonata.block.service.rss:
         sonata.user.block.menu:
+sonata_user:
+    class:
+        user: ZE\BABundle\Entity\User
+        group: ZE\BABundle\Entity\Group
+    profile:  # Profile Form (firstname, lastname, etc ...)
+        form:
+            type:               sonata_user_profile
+            handler:            sonata.user.profile.form.handler.default
+            name:               sonata_user_profile_form
+            validation_groups:  [Profile]
 
 sonata_user:
     security_acl:           false
@@ -191,13 +204,16 @@ services:
         tags:
           - { name: sonata.admin, manager_type: orm, group: Users, label: document }
         arguments: [null, ZE\BABundle\Entity\Document, ZEBABundle:DocumentAdmin]
-    ZE.BABundle.admin.association:
-        class: ZE\BABundle\Admin\AssociationAdmin
+    ZE.BABundle.admin.musician:
+        class: ZE\BABundle\Admin\MusicianAdmin
         tags:
-          - { name: sonata.admin, manager_type: orm, group: Associations, label: association}
-        arguments: [null, ZE\BABundle\Entity\Association, ZEBABundle:AssociationAdmin]
-        calls:
-          - [setSubClasses, [{musician: "ZE\BABundle\Entity\Musician", band: "ZE\BABundle\Entity\Band"}]]
+          - { name: sonata.admin, manager_type: orm, group: Associations, label: musician}
+        arguments: [null, ZE\BABundle\Entity\Musician, ZEBABundle:MusicianAdmin]
+    ZE.BABundle.admin.band:
+        class: ZE\BABundle\Admin\BandAdmin
+        tags:
+          - { name: sonata.admin, manager_type: orm, group: Associations, label: band}
+        arguments: [null, ZE\BABundle\Entity\Band, ZEBABundle:BandAdmin]
     ZE.BABundle.admin.genre:
         class: ZE\BABundle\Admin\GenreAdmin
         tags:

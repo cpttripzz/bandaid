@@ -20,7 +20,7 @@ use Gedmo\Mapping\Annotation as Gedmo;
     * @ORM\Table(name="association")
     * @ORM\InheritanceType("SINGLE_TABLE")
     * @ORM\DiscriminatorColumn(name="type", type="string")
-    * @ORM\DiscriminatorMap({"association" = "Association", "association" = "association", "band" = "Band"})
+    * @ORM\DiscriminatorMap({"association" = "Association", "musician" = "Musician", "band" = "Band"})
     */
 class Association
 {
@@ -75,6 +75,12 @@ class Association
     protected $id;
 
     /**
+     * @Gedmo\Slug(fields={"name", "id"})
+     * @ORM\Column(length=128, unique=true)
+     */
+    private $slug;
+
+    /**
      * Get id
      *
      * @return integer $id
@@ -85,58 +91,13 @@ class Association
     }
 
 
-    /**
-     * @ORM\ManyToMany(targetEntity="Instrument", inversedBy="associations")
-     * @ORM\JoinTable(name="association_instrument",
-     *   joinColumns={@ORM\JoinColumn(name="association_id", referencedColumnName="id")},
-     *   inverseJoinColumns={@ORM\JoinColumn(name="instrument_id", referencedColumnName="id")}
-     * )
-     */
-    protected $instruments;
 
-    
-
-
-    /**
-     * Add instruments
-     *
-     * @param \ZE\BABundle\Entity\Instrument $instruments
-     *
-     * @return association
-     */
-    public function addInstrument(Instrument $instruments)
-    {
-        $this->instruments[] = $instruments;
-
-        return $this;
-    }
-
-    /**
-     * Remove instruments
-     *
-     * @param \ZE\BABundle\Entity\Instrument $instruments
-     */
-    public function removeInstrument(Instrument $instruments)
-    {
-        $this->instruments->removeElement($instruments);
-    }
-
-    /**
-     * Get instruments
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getInstruments()
-    {
-        return $this->instruments;
-    }
 
     public function __construct()
     {
         $this->documents = new ArrayCollection();
         $this->addresses = new ArrayCollection();
         $this->genres = new ArrayCollection();
-        $this->instruments = new ArrayCollection();
     }
 
 
@@ -297,4 +258,27 @@ class Association
         return $this->user;
     }
 
+    public function getType()
+    {
+        return get_class($this);
+    }
+
+    public function getSlug()
+    {
+        return $this->slug;
+    }
+
+    /**
+     * Set slug
+     *
+     * @param string $slug
+     *
+     * @return Association
+     */
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
+
+        return $this;
+    }
 }

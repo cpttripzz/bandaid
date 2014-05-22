@@ -9,6 +9,7 @@ use Sonata\AdminBundle\Show\ShowMapper;
 
 use Knp\Menu\ItemInterface as MenuItemInterface;
 
+use ZE\BABundle\Entity\City;
 use ZE\BABundle\Entity\Musician;
 
 class MusicianAdmin extends Admin
@@ -21,26 +22,8 @@ class MusicianAdmin extends Admin
     protected function configureShowField(ShowMapper $showMapper)
     {
         $showMapper
-            ->add('addresses','sonata_type_collection', array(
-                'allow_add' => true,
-                'edit' => 'inline',
-                'inline' => 'table',
-                'sortable'  => 'position'
-            ))
-
-            ->add('documents','sonata_type_collection', array(), array(
-                'edit' => 'inline',
-                'inline' => 'table',
-                'sortable'  => 'position'
-            ))
-            ->add('genres','sonata_type_collection', array(
-                'allow_add' => true,
-                'edit' => 'inline',
-                'inline' => 'table',
-                'sortable'  => 'position'
-            ))
-        ;
-        
+            ->add('addresses')
+            ->add('genres');
     }
 
     /**
@@ -50,27 +33,50 @@ class MusicianAdmin extends Admin
      */
     protected function configureFormFields(FormMapper $formMapper)
     {
+        var_dump($this->getSubClasses());
         $formMapper
-            ->add('addresses','sonata_type_collection', array(),array(
-                'allow_add' => true,
-                'edit' => 'inline',
-                'inline' => 'table',
-                'sortable'  => 'position'
-            ))
+            ->with('General')
+            ->add('addresses','sonata_type_collection',   array(
+                    'label' => 'addresses',
+                    'by_reference' => false,
+                    'cascade_validation' => true
+                ),
+                array(
+                    'edit' => 'inline',
+                    'inline' => 'table',
+                    'allow_delete' => true,
+                    'allow_add' => true,
+                )
+            )
+            ->add('genres','sonata_type_collection',   array(
+                    'label' => 'genres',
+                    'by_reference' => false,
+                    'cascade_validation' => true
+                ),
+                array(
+                    'edit' => 'inline',
+                    'inline' => 'table',
+                    'allow_delete' => true,
+                    'allow_add' => true,
+                )
+            )
+            ->end();
+//            if($this->getSubject() instanceof Musician){
+//                $formMapper
+//                    ->add('instruments','sonata_type_collection',   array(
+//                            'label' => 'instruments',
+//                            'by_reference' => false,
+//                            'cascade_validation' => true
+//                        ),
+//                        array(
+//                            'edit' => 'inline',
+//                            'inline' => 'table',
+//                            'allow_delete' => true,
+//                            'allow_add' => true,
+//                        )
+//                    );
+//            }
 
-            ->add('documents','sonata_type_collection', array(), array(
-                'edit' => 'inline',
-                'inline' => 'table',
-                'sortable'  => 'position'
-            ))
-            ->add('genres','sonata_type_collection', array(),array(
-                'allow_add' => true,
-                'edit' => 'inline',
-                'inline' => 'table',
-                'sortable'  => 'position'
-            ));
-
-        ;
     }
 
     /**
@@ -81,9 +87,8 @@ class MusicianAdmin extends Admin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-            ->add('addresses')
-            ->add('documents')
             ->add('genres')
+            ->add('addresses')
             ->add('_action', 'actions', array(
                     'actions' => array(
                         'show' => array(),
@@ -102,8 +107,6 @@ class MusicianAdmin extends Admin
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper
-            ->add('addresses')
-            ->add('documents')
             ->add('genres')
         ;
     }
