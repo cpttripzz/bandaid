@@ -20,3 +20,8 @@ services:
             - @service_container
         tags:
             - { name: doctrine.event_listener, event: prePersist }
+    security.access.post_voter:
+        class:      ZE\BABundle\Security\Authorization\Voter\AssociationVoter
+        public:     false
+        tags:
+            - { name: security.voter }

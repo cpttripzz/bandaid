@@ -7,6 +7,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 use ZE\BABundle\Entity;
 
 use ZE\BABundle\Form\MusicianType;
@@ -138,6 +139,9 @@ class MusicianController extends Controller
 
         $entity = $em->getRepository('ZE\BABundle\Entity\Musician')->find($id);
 
+        if (false === $this->get('security.context')->isGranted('view', $entity)) {
+            throw new AccessDeniedException('Unauthorised access!');
+        }
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find Musician entity.');
         }
@@ -161,6 +165,10 @@ class MusicianController extends Controller
     */
     private function createEditForm(Entity\Musician $entity)
     {
+
+        if (false === $this->get('security.context')->isGranted('edit', $entity)) {
+            throw new AccessDeniedException('Unauthorised access!');
+        }
         $form = $this->createForm(new MusicianType(), $entity, array(
             'action' => $this->generateUrl('musician_update', array('id' => $entity->getId())),
             'method' => 'PUT',

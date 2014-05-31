@@ -1,8 +1,0 @@
-bandaid_demo_userrest:
-    resource: Bandaid\BandaidUserBundle\Controller\UserRestController
-    type: rest
-
-bandaid_demo_userrolrest:
-    resource: Bandaid\BandaidUserBundle\Controller\UserRoleRestController
-    type: rest
-    parent: bandaid_demo_userrest
