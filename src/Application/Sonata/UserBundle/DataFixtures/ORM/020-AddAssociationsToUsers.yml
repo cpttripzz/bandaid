@@ -1,0 +1,56 @@
+
+useralice:
+    username: alice
+    bands:
+        band1:
+            name: The Good Minus
+            description: "Some good grooves"
+            genres: Jazz, Rock
+            addresses:
+              1:
+                city: Toronto
+                address: 128 High Park Boulevard
+              2:
+                city: Toronto
+                address: 2468 Eglinton Ave W.
+        band2:
+            name: "Satan Made Me Eat My Baby"
+            description: "Brutal death metal"
+            genres: Death Metal
+            addresses:
+              1:
+                city: Toronto
+                address: 20 West Lodge Boulevard
+              2:
+                city: Ottawa
+                address: 490 Sussex Drive
+
+    musicians:
+        m1:
+            name: Alice Bonnon
+            description: "I am a good guitarist"
+            instruments: Guitar
+            addresses:
+              1:
+                city: Tel Aviv
+                address: 5 Rothschild Boulevard
+              2:
+                city: Haifa
+                address: 85-87 Hanassi Avenue
+            genres: Jazz, Rock
+
+user2:
+    username: bob
+    musicians:
+        m1:
+            name: Bob Schmuck
+            description: "I play bass guitar, mostly bar mitzvahs"
+            instruments: Bass
+            addresses:
+              1:
+                city: Toronto
+                address: 2685 Kingston Rd
+              2:
+                city: New York
+                address: 1121 Bedford Avenue
+            genres: Jazz, Rock, Death Metal

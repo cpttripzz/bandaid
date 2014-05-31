@@ -1,0 +1,28 @@
+1) Register creates role, goes to proper url
+2) main site template
+3) menus
+4) partials for popular/new bands, artists
+
+
+User Authentication
+  Login
+  Register
+  Change Password
+Artist
+  Post Profile
+  Edit Profile
+  Delete Profile
+  
+  Sound Recordings
+  Profile Picture
+  Other pictures
+  
+  Chat
+  Apply To Audition
+  Rate
+
+Band
+  Accept Audtion
+  Request Audition
+
+

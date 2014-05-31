@@ -1,3 +1,11 @@
 app/cache/*
 app/logs/*
+app/bootstrap.php.cache
+components
 vendor/
+web/bundles/
+web/assetic/*
+web/css/*
+web/js/*
+app/bootstrap*
+.idea/*

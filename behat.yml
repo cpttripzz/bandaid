@@ -1,0 +1,20 @@
+# behat.yml
+default:
+    paths:
+        features: src/ZE/BABundle/Features/
+        bootstrap: %behat.paths.features%/bootstrap
+    context:
+        class:  ZE\BABundle\Features\Context\FeatureContext
+
+    extensions:
+        Behat\Symfony2Extension\Extension:
+            mink_driver: true
+
+        Behat\MinkExtension\Extension:
+            base_url:  'http://bandaid/app_dev.php'
+            default_session: 'symfony2'
+
+        VIPSoft\DoctrineDataFixturesExtension\Extension:
+                  lifetime: feature
+                  autoload: true
+                  fixtures: ~

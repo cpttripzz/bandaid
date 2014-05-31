@@ -1,0 +1,7 @@
+# src/Application/Sonata/UserBundle/DataFixtures/ORM/010-LoadUserData.yml
+admin:
+    name: admin
+musician:
+    name: musician
+band:
+    name: band

@@ -1,40 +1,80 @@
 imports:
     - { resource: parameters.yml }
-    - { resource: security.yml }
+    - { resource: security.yml }      
+
+
+parameters:
+    sonata.user.admin.user.class: ZE\BABundle\Admin\UserAdmin
+    sonata.user.admin.user.entity: ZE\BABundle\Entity\User
 
 framework:
-    #esi:             ~
+    trusted_proxies: ['127.0.0.1']
     translator:      { fallback: %locale% }
     secret:          %secret%
     router:
         resource: "%kernel.root_dir%/config/routing.yml"
-        strict_requirements: %kernel.debug%
-    form:            true
-    csrf_protection: true
+        strict_requirements: ~
+    form:            ~
+    csrf_protection: ~
     validation:      { enable_annotations: true }
-    templating:      { engines: ['twig'] } #assets_version: SomeVersionScheme
-    default_locale:  %locale%
-    trust_proxy_headers: false # Should Request object should trust proxy headers (X_FORWARDED_FOR/HTTP_CLIENT_IP)
+    templating:
+        engines: ['twig']
+        #assets_version: SomeVersionScheme
+    default_locale:  "%locale%"
+    trusted_proxies: ~
     session:         ~
+    fragments:       ~
+    http_method_override: true
 
 # Twig Configuration
 twig:
     debug:            %kernel.debug%
     strict_variables: %kernel.debug%
-    exception_controller: 'FOS\RestBundle\Controller\ExceptionController::showAction'
 
 # Assetic Configuration
 assetic:
-    debug:          %kernel.debug%
-    use_controller: false
-    bundles:        [  ]
-    #java: /usr/bin/java
+
     filters:
+        less:
+            node: /usr/bin/nodejs
+            node_paths: [/opt/lessc/lib, /usr/lib/node_modules, /usr/local/lib/node_modules]
+            apply_to: "\.less$"
         cssrewrite: ~
-        #closure:
-        #    jar: %kernel.root_dir%/Resources/java/compiler.jar
-        #yui_css:
-        #    jar: %kernel.root_dir%/Resources/java/yuicompressor-2.4.7.jar
+        cssembed:
+            jar: %kernel.root_dir%/Resources/java/cssembed-0.4.5.jar
+            apply_to: "\.css$|\.less$"
+        yui_css:
+            jar: %kernel.root_dir%/Resources/java/yuicompressor-2.4.8.jar
+            apply_to: "\.css$"
+        yui_js:
+            jar: %kernel.root_dir%/Resources/java/yuicompressor-2.4.8.jar
+    assets:
+            jquery_js:
+                inputs:
+                    - '%kernel.root_dir%/../components/jquery/jquery.min.js'
+                filters: [?yui_js]
+            bootstrap_js:
+                inputs:
+                    - '%kernel.root_dir%/../vendor/twbs/bootstrap/js/transition.js'
+                    - '%kernel.root_dir%/../vendor/twbs/bootstrap/js/alert.js'
+                    - '%kernel.root_dir%/../vendor/twbs/bootstrap/js/modal.js'
+                    - '%kernel.root_dir%/../vendor/twbs/bootstrap/js/dropdown.js'
+                    - '%kernel.root_dir%/../vendor/twbs/bootstrap/js/scrollspy.js'
+                    - '%kernel.root_dir%/../vendor/twbs/bootstrap/js/tab.js'
+                    - '%kernel.root_dir%/../vendor/twbs/bootstrap/js/tooltip.js'
+                    - '%kernel.root_dir%/../vendor/twbs/bootstrap/js/popover.js'
+                    - '%kernel.root_dir%/../vendor/twbs/bootstrap/js/button.js'
+                    - '%kernel.root_dir%/../vendor/twbs/bootstrap/js/collapse.js'
+                    - '%kernel.root_dir%/../vendor/twbs/bootstrap/js/carousel.js'
+                    - '%kernel.root_dir%/../vendor/twbs/bootstrap/js/affix.js'
+                filters: [?yui_js]
+            bootstrap_less:
+                inputs:
+                    - '%kernel.root_dir%/../vendor/twbs/bootstrap/less/bootstrap.less'
+                filters: [less,cssembed]
+
+
+
 
 # Doctrine Configuration
 doctrine:
@@ -46,26 +86,17 @@ doctrine:
         user:     %database_user%
         password: %database_password%
         charset:  UTF8
-
+        # if using pdo_sqlite as your database driver, add the path in parameters.yml
+        # e.g. database_path: %kernel.root_dir%/data/data.db3
+        # path:     %database_path%
+        types:
+            json: Sonata\Doctrine\Types\JsonType
     orm:
         auto_generate_proxy_classes: %kernel.debug%
         auto_mapping: true
-        mappings:
-            translatable:
-                type: annotation
-                alias: Gedmo
-                prefix: Gedmo\Translatable\Entity
-                dir: "%kernel.root_dir%/../vendor/gedmo/doctrine-extensions/lib/Gedmo/Translatable/Entity"
-            loggable:
-                type: annotation
-                alias: Gedmo
-                prefix: Gedmo\Loggable\Entity
-                dir: "%kernel.root_dir%/../vendor/gedmo/doctrine-extensions/lib/Gedmo/Loggable/Entity"
-            tree:
-                type: annotation
-                alias: Gedmo
-                prefix: Gedmo\Tree\Entity
-                dir: "%kernel.root_dir%/../vendor/gedmo/doctrine-extensions/lib/Gedmo/Tree/Entity"
+#        mappings:
+#            ApplicationSonataUserBundle:
+#                type: annotation
 
 # Swiftmailer Configuration
 swiftmailer:
@@ -75,57 +106,176 @@ swiftmailer:
     password:  %mailer_password%
     spool:     { type: memory }
 
-
-jms_security_extra:
-    secure_all_services: false
-    enable_iddqd_attribute: false
-    expressions: true
-
-jms_serializer:
-    handlers:
-
-
-sensio_framework_extra:
-    router:  { annotations: true }
-    request: { converters: true }
-    view:    { annotations: false }  # More info at https://github.com/FriendsOfSymfony/FOSRestBundle/issues/95
-    cache:   { annotations: true }
-
-jms_aop:
-    cache_dir: %kernel.cache_dir%/jms_aop
-
+# FOS User Configuration
 fos_user:
     db_driver: orm
-    firewall_name: wsse_secured #fos_secured
-    user_class: Bandaid\BandaidUserBundle\Entity\User
-fos_rest:
-    view:
-        view_response_listener: true
-        failed_validation: HTTP_BAD_REQUEST
-        default_engine: php
-        formats:
-            json: true
-            xml: true
-            rss: false
-    format_listener:
-        prefer_extension: true
-    body_listener:
-        decoders:
-            json: fos_rest.decoder.json
-    param_fetcher_listener: true
-    allowed_methods_listener: true
+    firewall_name: secure_area
+    user_class: ZE\BABundle\Entity\User
+    registration:
+        confirmation:
+            enabled:    false # change to true for required email confirmation
+    group:
+        group_class: ZE\BABundle\Entity\Group
+    profile:  # Authentication Form
+        form:
+            type:               fos_user_profile
+            handler:            fos_user.profile.form.handler.default
+            name:               fos_user_profile_form
+            validation_groups:  [Authentication] # Please note : this is not the default value
 
-mopa_wsse_authentication:
-    provider_class: Mopa\Bundle\WSSEAuthenticationBundle\Security\Authentication\Provider\WsseAuthenticationProvider
-    listener_class: Mopa\Bundle\WSSEAuthenticationBundle\Security\Firewall\WsseListener
-    factory_class: Mopa\Bundle\WSSEAuthenticationBundle\Security\Factory\WsseFactory
 
+sonata_block:
+    default_contexts: [cms]
+    blocks:
+        sonata.admin.block.admin_list:
+            contexts:   [admin]
+        sonata.admin.block.search_result:
+            contexts: [admin]
+        sonata.block.service.text:
+        sonata.block.service.action:
+        sonata.block.service.rss:
+        sonata.user.block.menu:
+sonata_user:
+    class:
+        user: ZE\BABundle\Entity\User
+        group: ZE\BABundle\Entity\Group
+    profile:  # Profile Form (firstname, lastname, etc ...)
+        form:
+            type:               sonata_user_profile
+            handler:            sonata.user.profile.form.handler.default
+            name:               sonata_user_profile_form
+            validation_groups:  [Profile]
+
+sonata_user:
+    security_acl:           false
+    class:
+        user: ZE\BABundle\Entity\User
+        group: ZE\BABundle\Entity\Group
+    profile:  # Profile Form (firstname, lastname, etc ...)
+        form:
+            type:               sonata_user_profile
+            handler:            sonata.user.profile.form.handler.default
+            name:               sonata_user_profile_form
+            validation_groups:  [Profile]
+sonata_admin:
+    title:      Admin Panel
+    title_logo: /bundles/sonataadmin/logo_title.png
+    options:
+        use_select2:  true
+services:
+    ZE.BABundle.admin.city:
+        class: ZE\BABundle\Admin\CityAdmin
+        tags:
+          - { name: sonata.admin, manager_type: orm, group: Users, label: city }
+        arguments: [null, ZE\BABundle\Entity\City, ZEBABundle:CityAdmin]
+    ZE.BABundle.admin.country:
+        class: ZE\BABundle\Admin\CountryAdmin
+        tags:
+          - { name: sonata.admin, manager_type: orm, group: Users, label: country }
+        arguments: [null, ZE\BABundle\Entity\Country, ZEBABundle:CountryAdmin]
+    ZE.BABundle.admin.document:
+        class: ZE\BABundle\Admin\DocumentAdmin
+        tags:
+          - { name: sonata.admin, manager_type: orm, group: Users, label: document }
+        arguments: [null, ZE\BABundle\Entity\Document, ZEBABundle:DocumentAdmin]
+    ZE.BABundle.admin.musician:
+        class: ZE\BABundle\Admin\MusicianAdmin
+        tags:
+          - { name: sonata.admin, manager_type: orm, group: Associations, label: musician}
+        arguments: [null, ZE\BABundle\Entity\Musician, ZEBABundle:MusicianAdmin]
+    ZE.BABundle.admin.band:
+        class: ZE\BABundle\Admin\BandAdmin
+        tags:
+          - { name: sonata.admin, manager_type: orm, group: Associations, label: band}
+        arguments: [null, ZE\BABundle\Entity\Band, ZEBABundle:BandAdmin]
+    ZE.BABundle.admin.genre:
+        class: ZE\BABundle\Admin\GenreAdmin
+        tags:
+          - { name: sonata.admin, manager_type: orm, group: Associations, label: genre}
+        arguments: [null, ZE\BABundle\Entity\Genre, ZEBABundle:GenreAdmin]
+    ZE.BABundle.admin.address:
+        class: ZE\BABundle\Admin\AddressAdmin
+        tags:
+          - { name: sonata.admin, manager_type: orm, group: Associations, label: address}
+        arguments: [null, ZE\BABundle\Entity\Address, ZEBABundle:AddressAdmin]
+
+mopa_bootstrap:
+    form: ~  # Adds twig form theme  support
+    menu: ~  # enables twig helpers for menu
+hwi_oauth:
+    connect:
+        account_connector: my_user_provider
+        confirmation: true
+        registration_form_handler: hwi_oauth.registration.form.handler.fosub_bridge
+        registration_form: fos_user.registration.form
+    firewall_name: main
+
+    resource_owners:
+        github:
+            type:                github
+            client_id:           19a3e93bb28c7df99257
+            client_secret:       e294564e11f60bb0edda2c24d443b2f667c7aa7a
+            scope:               "user:email"
+         #twitter:
+            #type:                twitter
+            #client_id:           <client_id>
+            #client_secret:       <client_secret>
+        #facebook:
+            #type:                facebook
+            #client_id:           <client_id>
+            #client_secret:       <client_secret>
+            #options:
+                #display: popup
+        #google:
+            #type:                google
+            #client_id:           <client_id>
+            #client_secret:       <client_secret>
+            #scope:               "https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile"
+
+    fosub:
+        # try 30 times to check if a username is available (foo, foo1, foo2 etc)
+        username_iterations: 30
+
+        # mapping between resource owners (see below) and properties
+        properties:
+            github: githubID
+            #twitter: twitterID
+            #facebook: faecbookID
+            #google: googleID
+
+ivory_google_map:
+    map:
+        width: "1024px"
+        height: "760px"
+    geocoder:
+        # Enable the service
+        enabled: true
+
+        # Geocoder class
+        class: "Ivory\GoogleMap\Services\Geocoding\Geocoder"
+        provider:
+#            fake_ip: "123.345.567.123"
+            class: Bazinga\Bundle\GeocoderBundle\BazingaGeocoderBundle
+#            api_key: "apikey"
+            locale: "en"
+        adapter: "Geocoder\HttpAdapter\BuzzHttpAdapter"
+bazinga_geocoder:
+    #fake_ip:    123.345.643.133
+    #fake_ip:    192.114.71.13
+    fake_ip:    72.229.28.185
+    providers:
+#        free_geo_ip:          []
+#        yandex:
+#            locale:               ~
+#            toponym:              ~
+        google_maps:
+            locale:               ~
+            region:               ~
+            use_ssl:              false
+#        openstreetmap:
+#            locale:               ~
 stof_doctrine_extensions:
-    default_locale: %locale%
+    default_locale: en_US
     orm:
         default:
-            translatable: true
-            timestampable: true
             sluggable: true
-            loggable: true
-            tree: true

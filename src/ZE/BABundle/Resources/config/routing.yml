@@ -1,0 +1,6 @@
+home:
+  path: /
+  defaults: { _controller: "ZEBABundle:Home:index" }
+musician:
+    resource: "@ZEBABundle/Controller"
+    type:     annotation
