@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "f9f5dee32c213ee2a5163143a2825728",
+    "hash": "3cabef5c395bf98d7c55edcbdb3ad127",
     "packages": [
         {
             "name": "components/jquery",
@@ -835,12 +835,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/doctrine2.git",
-                "reference": "a851dd68fbb591ff85ebef29bf4315dfea07a0e9"
+                "reference": "2101a8fdc640ce3df640181f83a7d2aa1eee04c1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/doctrine2/zipball/a851dd68fbb591ff85ebef29bf4315dfea07a0e9",
-                "reference": "a851dd68fbb591ff85ebef29bf4315dfea07a0e9",
+                "url": "https://api.github.com/repos/doctrine/doctrine2/zipball/2101a8fdc640ce3df640181f83a7d2aa1eee04c1",
+                "reference": "2101a8fdc640ce3df640181f83a7d2aa1eee04c1",
                 "shasum": ""
             },
             "require": {
@@ -904,7 +904,7 @@
                 "database",
                 "orm"
             ],
-            "time": "2014-05-30 13:11:34"
+            "time": "2014-05-31 11:37:50"
         },
         {
             "name": "egeloen/google-map",

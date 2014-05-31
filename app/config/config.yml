@@ -72,6 +72,9 @@ assetic:
                 inputs:
                     - '%kernel.root_dir%/../vendor/twbs/bootstrap/less/bootstrap.less'
                 filters: [less,cssembed]
+            font_awesome_css:
+                inputs:
+                    - '%kernel.root_dir%/../vendor/components/font-awesome/css/font-awesome.css'
 
 
 

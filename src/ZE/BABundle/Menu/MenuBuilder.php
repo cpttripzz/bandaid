@@ -9,14 +9,15 @@ class MenuBuilder extends ContainerAware
 {
     public function mainMenu(FactoryInterface $factory, array $options)
     {
+
         $menu = $factory->createItem('root');
-        $menu->setChildrenAttribute('class', 'nav');
+        $menu->setChildrenAttribute('class', 'nav navbar-nav');
 
-        $menu->addChild('Projects', array('route' => 'homepage'))
-            ->setAttribute('icon', 'icon-list');
+        $menu->addChild('Home', array('route' => 'homepage'))
+            ->setAttribute('icon', 'fa fa-list');
 
-        $menu->addChild('Employees', array('route' => 'homepage'))
-            ->setAttribute('icon', 'icon-group');
+        $menu->addChild('Musicians', array('route' => 'musician'))
+            ->setAttribute('icon', 'fa fa-group');
 
         return $menu;
     }
@@ -25,20 +26,25 @@ class MenuBuilder extends ContainerAware
     {
         $menu = $factory->createItem('root');
         $menu->setChildrenAttribute('class', 'nav pull-right');
+        if($this->container->get('security.context')->isGranted(array('ROLE_ADMIN', 'ROLE_USER'))) {
+            $username = $this->container->get('security.context')->getToken()->getUser()->getUsername();
 
-        /*
-        You probably want to show user specific information such as the username here. That's possible! Use any of the below methods to do this.
+            $menu->addChild('User', array('label' => 'Hi ' . $username))
+                ->setAttribute('dropdown', true)
+                ->setAttribute('icon', 'icon-user');
 
-        if($this->container->get('security.context')->isGranted(array('ROLE_ADMIN', 'ROLE_USER'))) {} // Check if the visitor has any authenticated roles
-        $username = $this->container->get('security.context')->getToken()->getUser()->getUsername(); // Get username of the current logged in user
+            $menu['User']->addChild('Edit profile', array('route' => 'fos_user_profile_edit'))
+                ->setAttribute('icon', 'icon-edit');
+            $menu['User']->addChild('Logout', array('route' => 'fos_user_security_logout'))
+                ->setAttribute('icon', 'fa fa-sign-out');
+        } else {
+            $menu->addChild('User', array('label' => 'Hi Visitor' ))
+                ->setAttribute('dropdown', true)
+                ->setAttribute('icon', 'icon-user');
+            $menu['User']->addChild('Login', array('route' => 'sonata_user_admin_security_login'))
+                ->setAttribute('icon', 'fa fa-sign-in');
+        }
 
-        */
-        $menu->addChild('User', array('label' => 'Hi visitor'))
-            ->setAttribute('dropdown', true)
-            ->setAttribute('icon', 'icon-user');
-
-        $menu['User']->addChild('Edit profile', array('route' => 'fos_user_profile_edit'))
-            ->setAttribute('icon', 'icon-edit');
 
         return $menu;
     }

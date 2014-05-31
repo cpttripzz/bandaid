@@ -25,7 +25,7 @@ class AppKernel extends Kernel
             new Sonata\UserBundle\SonataUserBundle('FOSUserBundle'),
             new Application\Sonata\UserBundle\ApplicationSonataUserBundle(),
             new Sonata\EasyExtendsBundle\SonataEasyExtendsBundle(),
-            new \Sonata\CoreBundle\SonataCoreBundle(),
+            new Sonata\CoreBundle\SonataCoreBundle(),
             new Mopa\Bundle\BootstrapBundle\MopaBootstrapBundle(),
             new HWI\Bundle\OAuthBundle\HWIOAuthBundle(),
             new Ivory\GoogleMapBundle\IvoryGoogleMapBundle(),

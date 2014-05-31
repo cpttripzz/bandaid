@@ -1,28 +1,22 @@
-{% from 'MopaBootstrapBundle::flash.html.twig' import session_flash %}<!DOCTYPE html>{% block html_tag %}
+<!DOCTYPE html>
 <html>
-{% endblock html_tag %}
-
 {% block head %}
     <head>
-        <meta charset="UTF-8" />
-        {% block head_style %}
+        <meta charset="UTF-8"/>
+        {% block stylesheets %}
+            {% stylesheets '@bootstrap_less'
+            combine=true filter='cssrewrite' %}
+            <link href="{{ asset_url }}" type="text/css" rel="stylesheet"/>
+            {% endstylesheets %}
+        {% endblock %}
 
-
-            {% block stylesheets %}
-                {% stylesheets '@bootstrap_less'
-                    combine=true filter='cssrewrite' %}
-                <link href="{{ asset_url }}" type="text/css" rel="stylesheet" />
-                {% endstylesheets %}
-            {% endblock %}
-        {% endblock head_style %}
 
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
         {% block head_script %}
             {% block javascripts %}
                 {% javascripts
-                    '@jquery_js' '@bootstrap_js'
-                %}
+                '@jquery_js' '@bootstrap_js' %}
                 <script src="{{ asset_url }}"></script>
 
                 {% endjavascripts %}
@@ -30,119 +24,34 @@
         {% endblock head_script %}
 
         <title>{% block title %}Mopa Bootstrap Bundle{% endblock title %}</title>
-        <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" />
-        {% block head_bottom %}
-        {% endblock head_bottom %}
+        <link rel="shortcut icon" href="{{ asset('favicon.ico') }}"/>
+        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+
     </head>
 {% endblock head %}
 
-{% block body_tag %}
-<body>
-{% endblock body_tag %}
 
-{% block body_start %}
-{% endblock body_start %}
+
 
 {% block body %}
-
-{% block navbar %}
-    <div class="navbar navbar-default" role="navigation">
-        <div class="navbar-inner">
-            <a class="brand" href="#">Awesome!</a>
-            {{ knp_menu_render('ZEBABundle:MenuBuilder:mainMenu', {'currentClass': 'active', 'template': 'ZEBABundle:Menu:main_menu.html.twig'}) }}
-            {{ knp_menu_render('ZEBABundle:MenuBuilder:userMenu', {'currentClass': 'active', 'template': 'ZEBABundle:Menu:main_menu.html.twig'}) }}
-        </div>
-    </div>
-    <div class="content" style="margin-top: 60px;">
-        Content goes here!
-    </div>
-{% endblock navbar %}
-
-{% block container %}
-{% block container_div_start %}<div class="{% block container_class %}container{% endblock container_class %}">{% endblock container_div_start %}
-    {% block header %}
-    {% endblock header %}
-
-{% block content_div_start %}
-    <div class="content">{% endblock content_div_start %}
-{% block navbar_div_start %}
-    <div class="content">{% endblock navbar_div_start %}
-    <div class="container">
-        <nav class="navbar navbar-default" role="navigation">
-            <div class="navbar-header">
-                <a class="navbar-brand" href="#">Brand</a>
+    <body>
+        {% block navbar %}
+            <div class="navbar navbar-default" role="navigation">
+                <div class="navbar-inner">
+                    {{ knp_menu_render('ZEBABundle:MenuBuilder:mainMenu', {'currentClass': 'active', 'template': 'ZEBABundle:Menu:main_menu.html.twig'}) }}
+                    {{ knp_menu_render('ZEBABundle:MenuBuilder:userMenu', {'currentClass': 'active', 'template': 'ZEBABundle:Menu:main_menu.html.twig'}) }}
+                </div>
             </div>
-            <div class="collapse navbar-collapse navbar-ex1-collapse">
-                <ul class="nav navbar-nav">
-                    <li class="active">
-                        <a href="#">Home</a>
-                    </li>
-                    <li>
-                        <a href="#">Link</a>
-                    </li>
-                    <li>
-                        <a href="#">Link</a>
-                    </li>
-                </ul>
+
+        {% endblock navbar %}
+
+        {% block container %}
+
+            <div class="{% block container_class %}container{% endblock container_class %}">
+                {% block header %}{% endblock header %}
+                <div class="content"></div>
             </div>
-        </nav>
-        <ul class="breadcrumb">
-            <li>
-                <a href="#">Home</a>
-            </li>
-            <li>
-                <a href="#">Products</a>
-            </li>
-            <li class="active">
-                Specials
-            </li>
-        </ul>
-
-    </div>
-{% block navbar_div_end %}</div>{% endblock navbar_div_end %}
-
-{% block content_body_div_start %}
-    <div class="content">{% endblock content_body_div_start %}
-    {% block content_body %}
-    {% endblock content_body %}
-{% block content_body_div_end %}</div>{% endblock content_body_div_end %}
-
-{% block footer_tag_start %}
-    <footer>
-{% endblock footer_tag_start %}
-
-    {% block footer %}
-
-    {% endblock footer %}
-
-{% block footer_tag_end %}
-    </footer>
-{% endblock footer_tag_end %}
-{% block container_div_end %}</div><!-- /container -->{% endblock container_div_end %}
-{% endblock container %}
-
-    {% block body_end_before_js %}
-    {% endblock body_end_before_js %}
-
-{% block foot_script %}
-    {# To only use a subset or add more js overwrite and copy paste this block
-    To speed up page loads save a copy of jQuery in your project and override this block to include the correct path
-    Otherwise the regeneration is done on every load in dev more with use_controller: true
-     #}
-    {% block foot_script_assetic %}
-    {% endblock foot_script_assetic %}
-
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $('[data-toggle="tooltip"]').tooltip();
-            $('[data-toggle="popover"]').popover();
-        });
-    </script>
-{% endblock foot_script %}
+        {% endblock container %}
+    </body>
 {% endblock body %}
-
-{% block body_end %}
-{% endblock body_end %}
-
-</body>
 </html>
