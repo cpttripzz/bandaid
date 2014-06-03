@@ -66,8 +66,7 @@ class AssociationVoter implements VoterInterface
                 break;
 
             case 'edit':
-                // we assume that our data object has a method getOwner() to
-                // get the current owner user entity for this data object
+
                 if ($user->getId() === $association->getUser()->getId() || $user->hasRole('ROLE_ADMIN') || $user->hasRole('ROLE_SUPER_ADMIN') ) {
                     return VoterInterface::ACCESS_GRANTED;
                 }

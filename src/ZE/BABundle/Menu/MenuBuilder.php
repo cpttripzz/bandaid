@@ -17,8 +17,10 @@ class MenuBuilder extends ContainerAware
             ->setAttribute('icon', 'fa fa-list');
 
         $menu->addChild('Musicians', array('route' => 'musician'))
-            ->setAttribute('icon', 'fa fa-group');
+            ->setAttribute('icon', 'fa fa-music');
 
+        $menu->addChild('Bands', array('route' => 'band'))
+            ->setAttribute('icon', 'fa fa-group');
         return $menu;
     }
 
