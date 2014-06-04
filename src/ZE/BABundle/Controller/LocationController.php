@@ -7,7 +7,8 @@ use Symfony\Component\HttpFoundation\Response;
 use Ivory\GoogleMap\Overlays\Animation;
 use Ivory\GoogleMap\Overlays\Marker;
 use ZE\BABundle\Entity\Region;
-
+use Faker;
+require_once '/home/z/Projects/sf_bandaid/vendor/fzaninotto/faker/src/autoload.php';
 class LocationController extends Controller
 {
     public function indexAction(Request $request){

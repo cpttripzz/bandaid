@@ -24,7 +24,7 @@ class Address
     /**
      * @var string
      *
-     * @ORM\Column(name="address", type="string", length=256, nullable=true)
+     * @ORM\Column(name="address", type="string",  nullable=true)
      */
     private $address;
 
@@ -51,6 +51,12 @@ class Address
      */
     private $city;
 
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Region")
+     * @ORM\JoinColumn(name="region_id", referencedColumnName="id")
+     */
+    private $region;
 
     /**
      * Get id
@@ -184,5 +190,29 @@ class Address
     public function getAssociation()
     {
         return $this->association;
+    }
+
+    /**
+     * Set region
+     *
+     * @param \ZE\BABundle\Entity\Region $region
+     *
+     * @return Address
+     */
+    public function setRegion(\ZE\BABundle\Entity\Region $region = null)
+    {
+        $this->region = $region;
+
+        return $this;
+    }
+
+    /**
+     * Get region
+     *
+     * @return \ZE\BABundle\Entity\Region
+     */
+    public function getRegion()
+    {
+        return $this->region;
     }
 }

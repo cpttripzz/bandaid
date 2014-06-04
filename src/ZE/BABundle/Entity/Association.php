@@ -28,13 +28,13 @@ class Association
     /**
      * @var string
      *
-     * @ORM\Column(name="name", type="string", length=50, nullable=false)
+     * @ORM\Column(name="name", type="string",  nullable=false)
      */
     protected $name;
     /**
      * @var string
      *
-     * @ORM\Column(name="description", type="text", length=500, nullable=true)
+     * @ORM\Column(name="description", type="text", nullable=true)
      */
     protected $description;
 
@@ -76,7 +76,7 @@ class Association
 
     /**
      * @Gedmo\Slug(fields={"name", "id"})
-     * @ORM\Column(length=128, unique=true)
+     * @ORM\Column(unique=true)
      */
     private $slug;
 

@@ -45,11 +45,9 @@ class User extends BaseUser
     }
 
 
-    /** @ORM\OneToMany(targetEntity="Musician",mappedBy="user") */
-    protected  $musicians;
+    /** @ORM\OneToMany(targetEntity="Association",mappedBy="user") */
+    protected  $associations;
 
-    /** @ORM\OneToMany(targetEntity="Band",mappedBy="user") */
-    protected  $bands;
 
     public function __construct()
     {

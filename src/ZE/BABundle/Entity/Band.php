@@ -30,7 +30,7 @@ class Band extends Association
     /**
      * @var string
      *
-     * @ORM\Column(name="description", type="text", length=500, nullable=true)
+     * @ORM\Column(name="description", type="text", nullable=true)
      */
     protected $description;
 

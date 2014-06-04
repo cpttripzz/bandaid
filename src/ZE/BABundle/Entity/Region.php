@@ -24,14 +24,14 @@ class Region
     /**
      * @var string
      *
-     * @ORM\Column(name="short_name", type="string", length=255)
+     * @ORM\Column(name="short_name", type="string")
      */
     private $shortName;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="long_name", type="string", length=255)
+     * @ORM\Column(name="long_name", type="string")
      */
     private $longName;
 

@@ -52,7 +52,10 @@
         "willdurand/faker-bundle": "*",
         "doctrine/migrations": "dev-master",
         "doctrine/doctrine-migrations-bundle": "*",
-        "dsyph3r/google-geolocation-bundle": "dev-master"
+        "dsyph3r/google-geolocation-bundle": "dev-master",
+        "hautelook/alice-bundle": "dev-master",
+        "jcroll/foursquare-api-bundle": "1.0.*",
+        "knplabs/knp-paginator-bundle": "~2.4"
         },
     "scripts": {
         "post-install-cmd": [
