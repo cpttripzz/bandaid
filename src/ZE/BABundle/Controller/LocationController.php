@@ -6,6 +6,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Ivory\GoogleMap\Overlays\Animation;
 use Ivory\GoogleMap\Overlays\Marker;
+use ZE\BABundle\Entity\Region;
 
 class LocationController extends Controller
 {
@@ -47,17 +48,65 @@ class LocationController extends Controller
     }
     public function geocodeAction(Request $request)
     {
-        $result = $this->container
-            ->get('bazinga_geocoder.geocoder')
-            ->geocode($request->server->get('REMOTE_ADDR'));
+//        $result = $this->container
+//            ->get('bazinga_geocoder.geocoder')
+//            ->geocode($request->server->get('Toronto, Canada'));
+        $geo = $this->get('google_geolocation.geolocation_api');
 
-        $body = $this->container
-            ->get('bazinga_geocoder.dumper_manager')
-            ->get('geojson')
-            ->dump($result);
+//        $body = $this->container
+//            ->get('bazinga_geocoder.dumper_manager')
+//            ->get('geojson')
+//            ->dump($result);
+
+        try{
+            $em = $this->getDoctrine()->getManager();
+            $cities = $em->getRepository('ZE\BABundle\Entity\City')->findAll();
+            foreach($cities as $city){
+                $cityName = $city->getName() . ', ' .$city->getCountry()->getName();
+
+                $location = $geo->locateAddress($cityName);
+                $result = json_decode($location->getResult(),true);
+                if (!empty($result[0]['geometry']['location'])){
+                    $cityLatitude = $result[0]['geometry']['location']['lat'];
+                    $cityLongitude = $result[0]['geometry']['location']['lng'];
+                    $city->setLatitude($cityLatitude);
+                    $city->setLongitude($cityLongitude);
+                    $em->flush();
+                }
+                foreach ($result[0]['address_components'] as $addressComponent){
+                    if (!isset($addressComponent['types'][0])){
+                        continue 2;
+                    }
+                    $type = $addressComponent['types'][0];
+                    if ($type == 'administrative_area_level_1'){
+                        $regionShortName = $addressComponent['short_name'];
+                        $regionLongName = $addressComponent['long_name'];
+
+                        $region = $em->getRepository('ZE\BABundle\Entity\Region')->findOneByLongName($regionLongName);
+                        if (!$region){
+                            $region = new Region();
+                            $region->setCountry($city->getCountry());
+                            $region->setShortName($regionShortName);
+                            $region->setLongName($regionLongName);
+                            $em->persist($region);
+
+                        }
+                        $city->setRegion($region);
+                        $em->flush();
+                    }
+
+                }
+            }
+
+        } catch (\Exception $e){
+            $response = new Response();
+            $response->setContent($e->getMessage());
+
+            return $response;
+        }
 
         $response = new Response();
-        $response->setContent($body);
+        $response->setContent($location->getResult());
 
         return $response;
     }

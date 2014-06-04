@@ -102,21 +102,21 @@ class BandController extends Controller
     /**
      * Finds and displays a Band entity.
      *
-     * @Route("/{id}", name="band_show")
+     * @Route("/{slug}", name="band_show")
      * @Method("GET")
      * @Template()
      */
-    public function showAction($id)
+    public function showAction($slug)
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('ZEBABundle:Band')->find($id);
+        $entity = $em->getRepository('ZEBABundle:Band')->findBySlug($slug);
 
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find Band entity.');
         }
 
-        $deleteForm = $this->createDeleteForm($id);
+        $deleteForm = $this->createDeleteForm($slug);
 
         return array(
             'entity'      => $entity,
@@ -208,9 +208,9 @@ class BandController extends Controller
      * @Route("/{id}", name="band_delete")
      * @Method("DELETE")
      */
-    public function deleteAction(Request $request, $id)
+    public function deleteAction(Request $request, $slug)
     {
-        $form = $this->createDeleteForm($id);
+        $form = $this->createDeleteForm($slug);
         $form->handleRequest($request);
 
         if ($form->isValid()) {
@@ -235,10 +235,10 @@ class BandController extends Controller
      *
      * @return \Symfony\Component\Form\Form The form
      */
-    private function createDeleteForm($id)
+    private function createDeleteForm($slug)
     {
         return $this->createFormBuilder()
-            ->setAction($this->generateUrl('band_delete', array('id' => $id)))
+            ->setAction($this->generateUrl('band_delete', array('slug' => $slug)))
             ->setMethod('DELETE')
             ->add('submit', 'submit', array('label' => 'Delete'))
             ->getForm()

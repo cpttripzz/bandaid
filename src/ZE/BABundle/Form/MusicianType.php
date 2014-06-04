@@ -24,15 +24,15 @@ class MusicianType extends AbstractType
         ;
     }
     
-//    /**
-//     * @param OptionsResolverInterface $resolver
-//     */
-//    public function setDefaultOptions(OptionsResolverInterface $resolver)
-//    {
-//        $resolver->setDefaults(array(
-//            'data_class' => 'ZE\BABundle\Entity\Musician'
-//        ));
-//    }
+    /**
+     * @param OptionsResolverInterface $resolver
+     */
+    public function setDefaultOptions(OptionsResolverInterface $resolver)
+    {
+        $resolver->setDefaults(array(
+            'data_class' => 'ZE\BABundle\Entity\Musician'
+        ));
+    }
 
     /**
      * @return string

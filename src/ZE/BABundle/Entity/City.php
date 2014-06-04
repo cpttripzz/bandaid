@@ -34,8 +34,25 @@ class City
      */
     private $country;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="Region")
+     * @ORM\JoinColumn(name="region_id", referencedColumnName="id")
+     */
+    private $region;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="latitude", type="float", precision=7, nullable=true)
+     */
+    private $latitude;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="longitude", type="float", precision=7, nullable=true)
+     */
+    private $longitude;
     /**
      * Get id
      *
@@ -102,4 +119,76 @@ class City
         return $this->name;
     }
 
+
+    /**
+     * Set region
+     *
+     * @param \ZE\BABundle\Entity\Region $region
+     *
+     * @return City
+     */
+    public function setRegion(\ZE\BABundle\Entity\Region $region = null)
+    {
+        $this->region = $region;
+
+        return $this;
+    }
+
+    /**
+     * Get region
+     *
+     * @return \ZE\BABundle\Entity\Region
+     */
+    public function getRegion()
+    {
+        return $this->region;
+    }
+
+    /**
+     * Set latitude
+     *
+     * @param float $latitude
+     *
+     * @return City
+     */
+    public function setLatitude($latitude)
+    {
+        $this->latitude = $latitude;
+
+        return $this;
+    }
+
+    /**
+     * Get latitude
+     *
+     * @return float
+     */
+    public function getLatitude()
+    {
+        return $this->latitude;
+    }
+
+    /**
+     * Set longitude
+     *
+     * @param float $longitude
+     *
+     * @return City
+     */
+    public function setLongitude($longitude)
+    {
+        $this->longitude = $longitude;
+
+        return $this;
+    }
+
+    /**
+     * Get longitude
+     *
+     * @return float
+     */
+    public function getLongitude()
+    {
+        return $this->longitude;
+    }
 }

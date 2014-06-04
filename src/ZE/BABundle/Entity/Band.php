@@ -11,7 +11,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /** @ORM\Entity */
-class Band
+class Band extends Association
 {
     /**
      * @var integer $id
