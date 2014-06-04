@@ -18,8 +18,17 @@ class MusicianType extends AbstractType
             ->add('id')
             ->add('name')
             ->add('description', 'hidden')
-            ->add('instruments')
-            ->add('genres')
+            ->add('instruments', 'genemu_jqueryselect2_entity', array(
+                'multiple' => true,
+                'class' => 'ZE\BABundle\Entity\Instrument',
+                'property' => 'name',
+            ))
+            ->add('genres', 'genemu_jqueryselect2_entity', array(
+                'multiple' => true,
+                'class' => 'ZE\BABundle\Entity\Genre',
+                'property' => 'name',
+            ))
+
             ->add('user')
         ;
     }

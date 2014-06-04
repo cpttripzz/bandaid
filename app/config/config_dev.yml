@@ -1,8 +1,11 @@
 imports:
     - { resource: config.yml }
-assetic:
-    debug:          %kernel.debug%
-    use_controller: true
+
+framework:
+    router:
+        resource: "%kernel.root_dir%/config/routing_dev.yml"
+        strict_requirements: true
+    profiler: { only_exceptions: false }
 
 web_profiler:
     toolbar: true
@@ -26,6 +29,5 @@ monolog:
         #    type:   chromephp
         #    level:  info
 
-
-#swiftmailer:
-#    delivery_address: me@example.com
+assetic:
+    use_controller: false

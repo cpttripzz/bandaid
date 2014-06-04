@@ -1,5 +1,14 @@
 {% extends '::base.html.twig' %}
 
+{% block stylesheets %}
+    {{ parent() }}
+    {{ form_stylesheet(edit_form) }}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    {{ form_javascript(edit_form) }}
+{% endblock %}
 {% block container %}
     <h1>Musician edit</h1>
 

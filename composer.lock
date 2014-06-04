@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "b8cc963ca869ffdda77a5b1c6762a867",
+    "hash": "3de17f15d15e6908f171a9e12f10de0e",
     "packages": [
         {
             "name": "components/jquery",
@@ -1512,6 +1512,76 @@
             "time": "2014-05-09 19:18:50"
         },
         {
+            "name": "genemu/form-bundle",
+            "version": "dev-master",
+            "target-dir": "Genemu/Bundle/FormBundle",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/genemu/GenemuFormBundle.git",
+                "reference": "9fecbe7a12fba1761228909e843301c4d1a11e7c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/genemu/GenemuFormBundle/zipball/9fecbe7a12fba1761228909e843301c4d1a11e7c",
+                "reference": "9fecbe7a12fba1761228909e843301c4d1a11e7c",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.2",
+                "symfony/form": "~2.3",
+                "symfony/framework-bundle": "~2.3"
+            },
+            "require-dev": {
+                "doctrine/doctrine-bundle": "1.*",
+                "doctrine/mongodb-odm-bundle": "*",
+                "doctrine/orm": "2.*",
+                "propel/propel-bundle": "*",
+                "symfony/doctrine-bridge": "~2.3",
+                "symfony/finder": "2.*"
+            },
+            "suggest": {
+                "symfony/doctrine-bundle": "In order to use some form types with Doctrine",
+                "symfony/finder": "For an image type",
+                "symfony/mongodb-odm-bundle": "For MongoDB integration",
+                "symfony/twig-bridge": "For integration into Twig templates"
+            },
+            "type": "symfony-bundle",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.2-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Genemu\\Bundle\\FormBundle": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Olivier Chauvel",
+                    "email": "olivier@generation-multiple.com"
+                },
+                {
+                    "name": "Community contributions",
+                    "homepage": "https://github.com/genemu/GenemuFormBundle/contributors"
+                },
+                {
+                    "name": "Bilal Amarni",
+                    "email": "bilal.amarni@gmail.com"
+                }
+            ],
+            "description": "Extra form types for your Symfony2 projects",
+            "keywords": [
+                "extra form",
+                "form"
+            ],
+            "time": "2014-03-23 12:12:05"
+        },
+        {
             "name": "guzzle/guzzle",
             "version": "v3.9.1",
             "source": {
@@ -2199,6 +2269,67 @@
             "time": "2014-02-09 12:04:09"
         },
         {
+            "name": "knplabs/knp-components",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/KnpLabs/knp-components.git",
+                "reference": "ec65f549d46e9a7b7f9872a3ed63db743e077dc0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/KnpLabs/knp-components/zipball/ec65f549d46e9a7b7f9872a3ed63db743e077dc0",
+                "reference": "ec65f549d46e9a7b7f9872a3ed63db743e077dc0",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.2"
+            },
+            "suggest": {
+                "doctrine/common": "to allow usage pagination with Doctrine ArrayCollection",
+                "doctrine/mongodb-odm": "to allow usage pagination with Doctrine ODM MongoDB",
+                "doctrine/orm": "to allow usage pagination with Doctrine ORM",
+                "propel/propel1": "to allow usage pagination with Propel ORM",
+                "ruflin/Elastica": "to allow usage pagination with ElasticSearch Client",
+                "solarium/solarium": "to allow usage pagination with Solarium Client"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.2.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Knp\\Component": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "KnpLabs Team",
+                    "homepage": "http://knplabs.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "http://github.com/KnpLabs/knp-components/contributors"
+                }
+            ],
+            "description": "Knplabs component library",
+            "homepage": "http://github.com/KnpLabs/knp-components",
+            "keywords": [
+                "components",
+                "knp",
+                "knplabs",
+                "pager",
+                "paginator"
+            ],
+            "time": "2014-01-21 11:19:41"
+        },
+        {
             "name": "knplabs/knp-menu",
             "version": "dev-master",
             "source": {
@@ -2315,6 +2446,65 @@
                 "menu"
             ],
             "time": "2014-05-17 17:25:37"
+        },
+        {
+            "name": "knplabs/knp-paginator-bundle",
+            "version": "dev-master",
+            "target-dir": "Knp/Bundle/PaginatorBundle",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/KnpLabs/KnpPaginatorBundle.git",
+                "reference": "8067a1b46260c619ae8f3ffa3c32a612ff04924c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/KnpLabs/KnpPaginatorBundle/zipball/8067a1b46260c619ae8f3ffa3c32a612ff04924c",
+                "reference": "8067a1b46260c619ae8f3ffa3c32a612ff04924c",
+                "shasum": ""
+            },
+            "require": {
+                "knplabs/knp-components": "~1.2",
+                "php": ">=5.3.3",
+                "symfony/framework-bundle": "~2.0",
+                "twig/twig": "~1.5"
+            },
+            "type": "symfony-bundle",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.4.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Knp\\Bundle\\PaginatorBundle": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "KnpLabs Team",
+                    "homepage": "http://knplabs.com"
+                },
+                {
+                    "name": "Symfony2 Community",
+                    "homepage": "http://github.com/KnpLabs/KnpPaginatorBundle/contributors"
+                }
+            ],
+            "description": "Paginator bundle for Symfony2 to automate pagination and simplify sorting and other features",
+            "homepage": "http://github.com/KnpLabs/KnpPaginatorBundle",
+            "keywords": [
+                "Symfony2",
+                "bundle",
+                "knp",
+                "knplabs",
+                "pager",
+                "pagination",
+                "paginator"
+            ],
+            "time": "2014-05-13 07:26:35"
         },
         {
             "name": "kriswallsmith/assetic",
@@ -2437,6 +2627,56 @@
                 "http client"
             ],
             "time": "2013-05-19 03:41:15"
+        },
+        {
+            "name": "liip/search-bundle",
+            "version": "dev-master",
+            "target-dir": "Liip/SearchBundle",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/liip/LiipSearchBundle.git",
+                "reference": "3632fc9ae1bb8d85e1f3155de8b541c7db5ba5f7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/liip/LiipSearchBundle/zipball/3632fc9ae1bb8d85e1f3155de8b541c7db5ba5f7",
+                "reference": "3632fc9ae1bb8d85e1f3155de8b541c7db5ba5f7",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3",
+                "symfony/framework-bundle": "~2.1"
+            },
+            "type": "symfony-bundle",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Liip\\SearchBundle": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Liip AG",
+                    "homepage": "http://www.liip.ch/"
+                },
+                {
+                    "name": "Community contributions",
+                    "homepage": "https://github.com/liip/LiipSearchBundle/contributors"
+                }
+            ],
+            "description": "This bundles provides some basic infrastructure for creating a search UI in Symfony2 applications along with integration with Google's search API",
+            "keywords": [
+                "Symfony2"
+            ],
+            "time": "2013-07-31 21:02:27"
         },
         {
             "name": "michelf/php-markdown",
@@ -3280,6 +3520,50 @@
                 "xunit"
             ],
             "time": "2014-05-26 09:56:12"
+        },
+        {
+            "name": "pinano/select2-bundle",
+            "version": "dev-master",
+            "target-dir": "Pinano/Select2Bundle",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/pinano/select2-bundle.git",
+                "reference": "bc455caebc9f6ae534466befd6cd93e713b51bd6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/pinano/select2-bundle/zipball/bc455caebc9f6ae534466befd6cd93e713b51bd6",
+                "reference": "bc455caebc9f6ae534466befd6cd93e713b51bd6",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.2",
+                "symfony/framework-bundle": "2.*"
+            },
+            "type": "symfony-bundle",
+            "autoload": {
+                "psr-0": {
+                    "Pinano\\Select2Bundle": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fernando Arroyo",
+                    "email": "farroyo@gmail.com"
+                }
+            ],
+            "description": "Symfony2 bundle for wrapping the famous select2 jquery plugin by @ivaynberg",
+            "homepage": "http://github.com/pinano/select2-bundle",
+            "keywords": [
+                "bundle",
+                "jquery",
+                "select2"
+            ],
+            "time": "2013-11-18 07:22:42"
         },
         {
             "name": "psr/log",
@@ -5346,7 +5630,9 @@
         "willdurand/geocoder-bundle": 20,
         "doctrine/migrations": 20,
         "dsyph3r/google-geolocation-bundle": 20,
-        "hautelook/alice-bundle": 20
+        "hautelook/alice-bundle": 20,
+        "pinano/select2-bundle": 20,
+        "liip/search-bundle": 20
     },
     "platform": {
         "php": ">=5.3.3"

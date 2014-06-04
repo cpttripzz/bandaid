@@ -42,10 +42,10 @@ assetic:
         cssrewrite: ~
         cssembed:
             jar: %kernel.root_dir%/Resources/java/cssembed-0.4.5.jar
-            apply_to: "\.css$|\.less$"
+
         yui_css:
             jar: %kernel.root_dir%/Resources/java/yuicompressor-2.4.8.jar
-            apply_to: "\.css$"
+
         yui_js:
             jar: %kernel.root_dir%/Resources/java/yuicompressor-2.4.8.jar
     assets:
@@ -72,9 +72,6 @@ assetic:
                 inputs:
                     - '%kernel.root_dir%/../vendor/twbs/bootstrap/less/bootstrap.less'
                 filters: [less,cssembed]
-            font_awesome_css:
-                inputs:
-                    - '%kernel.root_dir%/../vendor/components/font-awesome/css/font-awesome.css'
 
 
 
@@ -285,5 +282,6 @@ stof_doctrine_extensions:
 jcroll_foursquare_api:
     client_id:  NOP0Q1ZIA1E11J5EDO54GYTKNJUHTXB4DLUCFXTDKOOYGMSW
     client_secret:    SIYPSKTPUEEAUSVRZKFFN21F5O0EPQ4OU3STX5AFVGD52VI5
-bazinga_faker:
-    orm: doctrine
+
+genemu_form:
+    select2: ~

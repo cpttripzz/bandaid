@@ -4,11 +4,16 @@
     <head>
         <meta charset="UTF-8"/>
         {% block stylesheets %}
-            {% stylesheets '@bootstrap_less'
-            combine=true filter='cssrewrite' %}
+            {% stylesheets filter="cssembed,cssrewrite,yui_css"
+            '%kernel.root_dir%/../vendor/sonata-project/core-bundle/Resources/public/select2/select2.css'
+            '@bootstrap_less'
+            %}
             <link href="{{ asset_url }}" type="text/css" rel="stylesheet"/>
             {% endstylesheets %}
+
+
         {% endblock %}
+
 
 
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,7 +21,10 @@
         {% block head_script %}
             {% block javascripts %}
                 {% javascripts
-                '@jquery_js' '@bootstrap_js' %}
+
+                '@jquery_js' '@bootstrap_js'
+                '%kernel.root_dir%/../vendor/sonata-project/core-bundle/Resources/public/select2/select2.min.js'
+                %}
                 <script src="{{ asset_url }}"></script>
 
                 {% endjavascripts %}

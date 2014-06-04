@@ -34,6 +34,8 @@ class AppKernel extends Kernel
             new Doctrine\Bundle\MigrationsBundle\DoctrineMigrationsBundle(),
             new Google\GeolocationBundle\GoogleGeolocationBundle(),
             new Jcroll\FoursquareApiBundle\JcrollFoursquareApiBundle(),
+            new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
+            new Genemu\Bundle\FormBundle\GenemuFormBundle(),
             new ZE\BABundle\ZEBABundle(),
         );
 

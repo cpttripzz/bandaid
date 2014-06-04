@@ -17,6 +17,16 @@
                 <th>Id</th>
                 <td>{{ entity.id }}</td>
             </tr>
+            <tr>
+                <th>Genres</th>
+                <ul>
+                    {% for genre in entity.genres %}
+                        <li>
+                            {{ genre.name }}
+                        </li>
+                    {% endfor %}
+                </ul>
+            </tr>
         </tbody>
     </table>
 

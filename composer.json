@@ -55,7 +55,10 @@
         "dsyph3r/google-geolocation-bundle": "dev-master",
         "hautelook/alice-bundle": "dev-master",
         "jcroll/foursquare-api-bundle": "1.0.*",
-        "knplabs/knp-paginator-bundle": "~2.4"
+        "knplabs/knp-paginator-bundle": "~2.4",
+        "genemu/form-bundle": "2.2.*",
+        "liip/search-bundle": "1.0.*@dev",
+        "components/underscore": "dev-master"
         },
     "scripts": {
         "post-install-cmd": [
