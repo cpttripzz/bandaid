@@ -4,11 +4,15 @@ namespace ZE\BABundle\Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Form\FormInterface;
+use Symfony\Component\Form\FormView;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 class MusicianType extends AbstractType
 {
-        /**
+    private $optionalVars = array('editId', 'existing_files', 'isNew');
+
+    /**
      * @param FormBuilderInterface $builder
      * @param array $options
      */
@@ -28,11 +32,19 @@ class MusicianType extends AbstractType
                 'class' => 'ZE\BABundle\Entity\Genre',
                 'property' => 'name',
             ))
-
-            ->add('user')
-        ;
+            ->add('user');
     }
-    
+
+    public function buildView(FormView $view, FormInterface $form, array $options)
+    {
+        parent::buildView($view, $form, $options);
+        foreach ($this->optionalVars as $optVar) {
+            if (isset($options[$optVar])) {
+                $view->$optVar = $options[$optVar];
+            }
+        }
+    }
+
     /**
      * @param OptionsResolverInterface $resolver
      */
@@ -41,6 +53,7 @@ class MusicianType extends AbstractType
         $resolver->setDefaults(array(
             'data_class' => 'ZE\BABundle\Entity\Musician'
         ));
+        $resolver->setOptional($this->optionalVars);
     }
 
     /**

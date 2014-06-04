@@ -72,8 +72,15 @@ assetic:
                 inputs:
                     - '%kernel.root_dir%/../vendor/twbs/bootstrap/less/bootstrap.less'
                 filters: [less,cssembed]
-
-
+            jquery_ui_js:
+                inputs:
+                    - '%kernel.root_dir%/../vendor/sonata-project/admin-bundle/Resources/public/vendor/jqueryui/ui/minified/jquery-ui.min.js'
+            jquery_ui_css:
+                inputs:
+                    - '%kernel.root_dir%/../vendor/sonata-project/admin-bundle/Resources/public/vendor/jqueryui/themes/base/minified/jquery-ui.min.css'
+            underscore_js:
+                inputs:
+                    - '%kernel.root_dir%/../components/underscore/underscore-min.js'
 
 
 # Doctrine Configuration

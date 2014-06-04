@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "3de17f15d15e6908f171a9e12f10de0e",
+    "hash": "96a8b0e05d86b75861ee51af805aa9ba",
     "packages": [
         {
             "name": "components/jquery",
@@ -50,6 +50,59 @@
             "description": "jQuery JavaScript Library",
             "homepage": "http://jquery.com",
             "time": "2013-07-16 10:41:05"
+        },
+        {
+            "name": "components/underscore",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/components/underscore.git",
+                "reference": "5319dd48d877d8c1ad217ec7851e840d0065c25f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/components/underscore/zipball/5319dd48d877d8c1ad217ec7851e840d0065c25f",
+                "reference": "5319dd48d877d8c1ad217ec7851e840d0065c25f",
+                "shasum": ""
+            },
+            "require": {
+                "robloach/component-installer": "*"
+            },
+            "type": "component",
+            "extra": {
+                "component": {
+                    "scripts": [
+                        "underscore.js"
+                    ],
+                    "files": [
+                        "underscore-min.js",
+                        "underscore-min.map"
+                    ],
+                    "shim": {
+                        "exports": "_"
+                    }
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jeremy Ashkenas",
+                    "email": "jeremy@documentcloud.org"
+                }
+            ],
+            "description": "JavaScript's functional programming helper library.",
+            "homepage": "http://underscorejs.org",
+            "keywords": [
+                "browser",
+                "client",
+                "functional",
+                "server",
+                "util"
+            ],
+            "time": "2014-01-13 12:26:44"
         },
         {
             "name": "doctrine/annotations",
@@ -3609,6 +3662,68 @@
             "time": "2014-01-18 15:33:09"
         },
         {
+            "name": "punkave/symfony2-file-uploader-bundle",
+            "version": "dev-master",
+            "target-dir": "PunkAve/FileUploaderBundle",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/punkave/symfony2-file-uploader-bundle.git",
+                "reference": "628faf157ff90761993b9767ca1a5642dc15c1c4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/punkave/symfony2-file-uploader-bundle/zipball/628faf157ff90761993b9767ca1a5642dc15c1c4",
+                "reference": "628faf157ff90761993b9767ca1a5642dc15c1c4",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.2",
+                "symfony/framework-bundle": "2.*"
+            },
+            "type": "symfony-bundle",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "PunkAve\\FileUploaderBundle": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Thomas Boutell",
+                    "email": "tom@punkave.com"
+                },
+                {
+                    "name": "Wes John-Alder",
+                    "email": "wes@punkave.com"
+                }
+            ],
+            "description": "Multiple file uploads for Symfony2 with the BlueImp uploader. Also scales uploaded images",
+            "homepage": "https://github.com/punkave/symfony2-file-uploader-bundle",
+            "keywords": [
+                "Image transform",
+                "Symfony Bundle",
+                "blueimp",
+                "bundle",
+                "file",
+                "multiple file upload",
+                "punkave",
+                "symfony",
+                "symfony-2.0",
+                "symfony-2.1",
+                "upload",
+                "uploader"
+            ],
+            "time": "2014-05-15 14:34:33"
+        },
+        {
             "name": "robloach/component-installer",
             "version": "dev-master",
             "source": {
@@ -5631,8 +5746,9 @@
         "doctrine/migrations": 20,
         "dsyph3r/google-geolocation-bundle": 20,
         "hautelook/alice-bundle": 20,
-        "pinano/select2-bundle": 20,
-        "liip/search-bundle": 20
+        "liip/search-bundle": 20,
+        "components/underscore": 20,
+        "punkave/symfony2-file-uploader-bundle": 20
     },
     "platform": {
         "php": ">=5.3.3"

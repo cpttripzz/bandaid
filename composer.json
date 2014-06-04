@@ -58,7 +58,8 @@
         "knplabs/knp-paginator-bundle": "~2.4",
         "genemu/form-bundle": "2.2.*",
         "liip/search-bundle": "1.0.*@dev",
-        "components/underscore": "dev-master"
+        "components/underscore": "dev-master",
+        "punkave/symfony2-file-uploader-bundle": "1.0.*@dev"
         },
     "scripts": {
         "post-install-cmd": [

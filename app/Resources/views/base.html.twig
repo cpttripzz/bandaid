@@ -7,15 +7,13 @@
             {% stylesheets filter="cssembed,cssrewrite,yui_css"
             '%kernel.root_dir%/../vendor/sonata-project/core-bundle/Resources/public/select2/select2.css'
             '@bootstrap_less'
+            '@jquery_ui_css'
             %}
             <link href="{{ asset_url }}" type="text/css" rel="stylesheet"/>
             {% endstylesheets %}
 
 
         {% endblock %}
-
-
-
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
         {% block head_script %}
@@ -24,6 +22,10 @@
 
                 '@jquery_js' '@bootstrap_js'
                 '%kernel.root_dir%/../vendor/sonata-project/core-bundle/Resources/public/select2/select2.min.js'
+                '@jquery_ui_js' '@underscore_js'
+                '@PunkAveFileUploaderBundle/Resources/public/js/jquery.fileupload.js'
+                '@PunkAveFileUploaderBundle/Resources/public/js/jquery.iframe-transport.js'
+                '@PunkAveFileUploaderBundle/Resources/public/js/FileUploader.js'
                 %}
                 <script src="{{ asset_url }}"></script>
 
@@ -39,7 +41,7 @@
 {% endblock head %}
 
 
-
+{% include "PunkAveFileUploaderBundle:Default:templates.html.twig" %}
 
 {% block body %}
     <body>

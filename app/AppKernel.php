@@ -36,6 +36,7 @@ class AppKernel extends Kernel
             new Jcroll\FoursquareApiBundle\JcrollFoursquareApiBundle(),
             new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
             new Genemu\Bundle\FormBundle\GenemuFormBundle(),
+            new PunkAve\FileUploaderBundle\PunkAveFileUploaderBundle(),
             new ZE\BABundle\ZEBABundle(),
         );
 

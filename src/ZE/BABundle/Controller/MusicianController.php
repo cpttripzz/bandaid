@@ -73,9 +73,16 @@ class MusicianController extends Controller
      */
     private function createCreateForm(Entity\Musician $entity)
     {
+        $editId = sprintf('%09d', mt_rand(0, 1999999999));
+
+        $existingFiles = $this->get('punk_ave.file_uploader')->getFiles(array('folder' => 'tmp/attachments/' . $editId));
+
         $form = $this->createForm(new MusicianType(), $entity, array(
             'action' => $this->generateUrl('musician_create'),
             'method' => 'POST',
+            'editId' => $editId,
+            'isNew' => false,
+            'existing_files' =>$existingFiles
         ));
 
         $form->add('submit', 'submit', array('label' => 'Create'));
@@ -83,6 +90,21 @@ class MusicianController extends Controller
         return $form;
     }
 
+    /**
+     *
+     * @Route("/upload", name="musician_upload")
+     * @Template()
+     */
+    public function uploadAction(Request $request)
+    {
+        $editId = $request->get('editId');
+        if (!preg_match('/^\d+$/', $editId))
+        {
+            throw new Exception("Bad edit id");
+        }
+
+        $this->get('punk_ave.file_uploader')->handleFileUpload(array('folder' => 'tmp/attachments/' . $editId));
+    }
     /**
      * Displays a form to create a new Musician entity.
      *
@@ -133,7 +155,7 @@ class MusicianController extends Controller
      * @Method("GET")
      * @Template()
      */
-    public function editAction($id)
+    public function editAction($id, Request $request)
     {
         $em = $this->getDoctrine()->getManager();
 
@@ -146,7 +168,7 @@ class MusicianController extends Controller
             throw $this->createNotFoundException('Unable to find Musician entity.');
         }
 
-        $editForm = $this->createEditForm($entity);
+        $editForm = $this->createEditForm($entity, $request);
         $deleteForm = $this->createDeleteForm($id);
 
         return array(
@@ -163,15 +185,32 @@ class MusicianController extends Controller
     *
     * @return \Symfony\Component\Form\Form The form
     */
-    private function createEditForm(Entity\Musician $entity)
+    private function createEditForm(Entity\Musician $entity, Request $request)
     {
 
+        $editId = $request->get('editId');
+        if (!preg_match('/^\d+$/', $editId))
+        {
+            $editId = sprintf('%09d', mt_rand(0, 1999999999));
+            if ($entity->getId())
+            {
+                $this->get('punk_ave.file_uploader')->syncFiles(
+                    array('from_folder' => 'attachments/' . $entity->getId(),
+                        'to_folder' => 'tmp/attachments/' . $editId,
+                        'create_to_folder' => true));
+            }
+        }
         if (false === $this->get('security.context')->isGranted('edit', $entity)) {
             throw new AccessDeniedException('Unauthorised access!');
         }
+        $existingFiles = $this->get('punk_ave.file_uploader')->getFiles(array('folder' => 'tmp/attachments/' . $editId));
+
         $form = $this->createForm(new MusicianType(), $entity, array(
             'action' => $this->generateUrl('musician_update', array('id' => $entity->getId())),
             'method' => 'PUT',
+            'editId' => $editId,
+            'isNew' => false,
+            'existing_files' =>$existingFiles
         ));
 
         $form->add('submit', 'submit', array('label' => 'Update'));
@@ -196,12 +235,17 @@ class MusicianController extends Controller
         }
 
         $deleteForm = $this->createDeleteForm($id);
-        $editForm = $this->createEditForm($entity);
+        $editForm = $this->createEditForm($entity, $request);
         $editForm->handleRequest($request);
-
+        $editId = $request->get('editId');
         if ($editForm->isValid()) {
             $em->flush();
-
+            $fileUploader = $this->get('punk_ave.file_uploader');
+            $fileUploader->syncFiles(
+                array('from_folder' => '/tmp/attachments/' . $editId,
+                    'to_folder' => '/attachments/' . $entity->getId(),
+                    'remove_from_folder' => true,
+                    'create_to_folder' => true));
             return $this->redirect($this->generateUrl('musician_edit', array('id' => $id)));
         }
 
