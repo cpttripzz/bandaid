@@ -8,7 +8,8 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\Security\Core\Exception\AccessDeniedException;
-use ZE\BABundle\Entity;
+use ZE\BABundle\Entity\Document;
+use ZE\BABundle\Entity\Musician;
 
 use ZE\BABundle\Form\MusicianType;
 
@@ -46,7 +47,7 @@ class MusicianController extends Controller
      */
     public function createAction(Request $request)
     {
-        $entity = new Entity\Musician();
+        $entity = new Musician();
         $form = $this->createCreateForm($entity);
         $form->handleRequest($request);
 
@@ -71,7 +72,7 @@ class MusicianController extends Controller
      *
      * @return \Symfony\Component\Form\Form The form
      */
-    private function createCreateForm(Entity\Musician $entity)
+    private function createCreateForm(Musician $entity)
     {
         $editId = sprintf('%09d', mt_rand(0, 1999999999));
 
@@ -97,13 +98,33 @@ class MusicianController extends Controller
      */
     public function uploadAction(Request $request)
     {
-        $editId = $request->get('editId');
+        try {
+            $editId = $request->get('editId');
+            $id = $request->get('id');
+            $em = $this->getDoctrine()->getManager();
+            $entity = $em->getRepository('ZE\BABundle\Entity\Musician')->find($id);
+            $document = new Document();
+
+            $document->setAssociation($entity);
+            $em->persist($document);
+            $em->flush();
+        } catch (\Exception $e){
+            print_r($e);
+        }
+        if (false === $this->get('security.context')->isGranted('view', $entity)) {
+            throw new AccessDeniedException('Unauthorised access!');
+        }
+
         if (!preg_match('/^\d+$/', $editId))
         {
             throw new Exception("Bad edit id");
         }
+        try {
+            $this->get('punk_ave.file_uploader')->handleFileUpload(array('folder' => 'tmp/attachments/' . $editId));
+        } catch (\Exception $e) {
+            
+        }
 
-        $this->get('punk_ave.file_uploader')->handleFileUpload(array('folder' => 'tmp/attachments/' . $editId));
     }
     /**
      * Displays a form to create a new Musician entity.
@@ -114,7 +135,7 @@ class MusicianController extends Controller
      */
     public function newAction()
     {
-        $entity = new Entity\Musician();
+        $entity = new Musician();
         $form   = $this->createCreateForm($entity);
 
         return array(
@@ -185,7 +206,7 @@ class MusicianController extends Controller
     *
     * @return \Symfony\Component\Form\Form The form
     */
-    private function createEditForm(Entity\Musician $entity, Request $request)
+    private function createEditForm(Musician $entity, Request $request)
     {
 
         $editId = $request->get('editId');

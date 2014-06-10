@@ -73,6 +73,7 @@ class Document
     public function setFile( $file = null)
     {
         $this->file = $file;
+        $this-> name = $file->getClientOriginalName();
         // check if we have an old image path
         if (isset($this->path)) {
             // store the old name to delete after the update
@@ -90,7 +91,7 @@ class Document
     public function preUpload()
     {
         if (null !== $this->getFile()) {
-            // do whatever you want to generate a unique name
+//            $this->name = $this->getFile();
             $filename = sha1(uniqid(mt_rand(), true));
             $this->path = $filename.'.'.$this->getFile()->guessExtension();
         }
@@ -121,13 +122,7 @@ class Document
         // the entity from being persisted to the database on error
         $this->getFile()->move($this->getUploadRootDir(), $this->path);
 
-        // check if we have an old image
-        if (isset($this->temp)) {
-            // delete the old image
-            unlink($this->getUploadRootDir().'/'.$this->temp);
-            // clear the temp image path
-            $this->temp = null;
-        }
+
         $this->file = null;
     }
 

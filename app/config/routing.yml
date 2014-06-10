@@ -51,3 +51,7 @@ geocode:
   defaults:  { _controller: ZEBABundle:Location:geocode}
 homepage:
   pattern: /
+
+ZEBABundle_document:
+  resource: "@ZEBABundle/Resources/config/routing/document.yml"
+  prefix:   /document

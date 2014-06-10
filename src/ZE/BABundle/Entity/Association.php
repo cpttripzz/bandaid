@@ -90,7 +90,10 @@ class Association
         return $this->id;
     }
 
-
+    public function __toString()
+    {
+        return $this->name;
+    }
 
 
     public function __construct()

@@ -7,5 +7,6 @@ web/bundles/
 web/assetic/*
 web/css/*
 web/js/*
+web/uploads/*
 app/bootstrap*
 .idea/*

@@ -11,15 +11,17 @@
 {% endblock %}
 {% block container %}
     <h1>Musician edit</h1>
-    {{ dump(edit_form.isNew) }}
+    {#{{ dump(edit_form.vars.value.documents) }}#}
     {{ form(edit_form) }}
-
-    {# Hydrated by javascript #}
-    <div class="file-uploader"></div>
-
-    <button class="btn btn-primary" type="submit">{{ edit_form.isNew ? "Save New Listing" : "Save Changes" }}</button>
-
-        <ul class="record_actions">
+    <div class="row" style="text-align: center">
+        {% for document in edit_form.vars.value.documents%}
+        <div class="col-lg-2 col-sm-3 col-xs-4">
+            <a href="#">
+                <img src="/{{  document.getWebPath() }}" class="thumbnail img-responsive">
+            </a>
+        </div>
+        {% endfor %}
+    </div>
     <li>
         <a href="{{ path('musician') }}">
             Back to the list
@@ -28,18 +30,5 @@
     <li>{{ form(delete_form) }}</li>
 </ul>
 
-    <script type="text/javascript">
-        {% set viewUrl =  "/uploads/tmp/attachments/" ~ edit_form.editId  %}
-        // Enable the file uploader
 
-        $(function() {
-            new PunkAveFileUploader({
-                'uploadUrl': {{ path('musician_upload', { editId: edit_form.editId }) | json_encode | raw }},
-                'viewUrl': "{{ viewUrl }}",
-                'el': '.file-uploader',
-                'existingFiles': {{ punkave_get_files('tmp/attachments/' ~ edit_form.editId) | json_encode | raw }},
-                'delaySubmitWhileUploading': '.edit-form'
-            });
-        });
-    </script>
 {% endblock %}
