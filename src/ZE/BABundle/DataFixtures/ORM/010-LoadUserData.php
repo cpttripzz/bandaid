@@ -15,6 +15,10 @@ use Application\Sonata\UserBundle\Entity\User;
 use Faker;
 use ZE\BABundle\Entity\Address;
 use ZE\BABundle\Entity\Band;
+use ZE\BABundle\Entity\City;
+use ZE\BABundle\Entity\Country;
+use ZE\BABundle\Entity\Genre;
+use ZE\BABundle\Entity\Instrument;
 use ZE\BABundle\Entity\Item;
 use ZE\BABundle\Entity\Musician;
 use ZE\BABundle\Entity\Region;
@@ -32,7 +36,7 @@ class LoadUserData extends AbstractFixture
     private $cities;
     private $genres;
     private $faker;
-    private  $manager;
+    private $manager;
     private $instruments;
 
     /**
@@ -52,7 +56,48 @@ class LoadUserData extends AbstractFixture
     {
         return $this->instruments[rand(0, count($this->instruments) - 1)];
     }
+    public function loadCountries()
+    {
+        $filename = __DIR__ . DIRECTORY_SEPARATOR  . '001-countries.yml';
+        $yml      = Yaml::parse(file_get_contents($filename));
+        foreach ($yml['countries'] as $row => $data) {
+            $country = new Country();
+            $country->setName($data['l']);
+            $country->setCode($data['s']);
+            $this->manager->persist($country);
+        }
+        $this->manager->flush();
 
+    }
+
+    public function loadInstruments()
+    {
+        $filename = __DIR__ . DIRECTORY_SEPARATOR  . '003-instruments.yml';
+        $yml      = Yaml::parse(file_get_contents($filename));
+        foreach ($yml['instrument'] as $row => $data) {
+            $instrument = new Instrument();
+            $instrument->setName($data['name']);
+            $this->manager->persist($instrument);
+        }
+        $this->manager->flush();
+
+    }
+    public function loadCities()
+    {
+        $filename = __DIR__ . DIRECTORY_SEPARATOR  . '002-cities.yml';
+        $yml      = Yaml::parse(file_get_contents($filename));
+        foreach ($yml['city'] as $row => $data) {
+            $city = new City();
+            $city->setName($data['name']);
+            $city->setLatitude($data['latitude']);
+            $city->setLongitude($data['longitude']);
+            $country = $this->manager->getRepository('ZE\BABundle\Entity\Country')->findOneByCode($data['country_id']);
+            $city->setCountry($country);
+            $this->manager->persist($city);
+        }
+        $this->manager->flush();
+
+    }
     public function createRandomAddress()
     {
         $city = $this->cities[rand(0, count($this->cities) - 1)];
@@ -130,44 +175,110 @@ class LoadUserData extends AbstractFixture
 
     public function createRandomBand()
     {
-        $band = new Band();
-        $band->setName($this->faker->sentence($nbWords = rand(1, 5)));
-        $band->setDescription($this->faker->text($maxNbChars = 200));
+        $assoc = new Band();
+        $assoc->setName(str_replace('.','',$this->faker->sentence($nbWords = rand(1, 5))));
+        $assoc->setDescription($this->faker->text($maxNbChars = 200));
         for ($i = 0; $i < rand(1, 3); $i++) {
-            $band->addGenre($this->getRandomGenre());
+            $genre = $this->getRandomGenre();
+            $gs = $assoc->getGenres();
+            $arrGenres = array();
+            if(!empty($gs)) {
+                foreach ($gs as $g) {
+                    $arrGenres[] = $g->getName();
+                }
+            }
+            if (!in_array($genre->getName(), $arrGenres)){
+                $assoc->addGenre($genre);
+            } else {
+                continue;
+            }
         }
         for ($i = 0; $i < rand(1, 2); $i++) {
-            $band->addAddress($this->createRandomAddress());
+            $address = $this->createRandomAddress();
+            $address->setAssociation($assoc);
+            $assoc->addAddress($address);
         }
-        $this->manager->persist($band);
-        return $band;
+        $this->manager->persist($assoc);
+        return $assoc;
     }
 
     public function createRandomMusician()
     {
-        $musician = new Musician();
-        $musician->setName($this->faker->sentence($nbWords = rand(1, 5)));
-        $musician->setDescription($this->faker->text($maxNbChars = 200));
-
+        $assoc = new Musician();
+        $assoc->setName(str_replace('.','',$this->faker->sentence($nbWords = rand(1, 5))));
+        $assoc->setDescription($this->faker->text($maxNbChars = 200));
+        $arrGenres = array();
+        $arrInstruments = array();
         for ($i = 0; $i < rand(1, 3); $i++) {
-            $musician->addGenre($this->getRandomGenre());
+            $genre = $this->getRandomGenre();
+            $gs = $assoc->getGenres();
+
+            if (!in_array($genre->getName(), $arrGenres)){
+                $assoc->addGenre($genre);
+                $arrGenres[] = $genre->getName();
+            } else {
+                continue;
+            }
+
         }
         for ($i = 0; $i < rand(1, 2); $i++) {
-            $musician->addAddress($this->createRandomAddress());
+            $address = $this->createRandomAddress();
+            $address->setAssociation($assoc);
+            $assoc->addAddress($address);
         }
         for ($i = 0; $i < rand(1, 2); $i++) {
-            $musician->addInstrument($this->getRandomInstrument());
+            $instrument = $this->getRandomInstrument();
+            if(!in_array($instrument->getName(), $arrInstruments)) {
+                $assoc->addInstrument($instrument);
+                $arrInstruments[] = $instrument->getName();
+            }
         }
-        $this->manager->persist($musician);
-        return $musician;
+        $this->manager->persist($assoc);
+        return $assoc;
     }
 
+    public function loadGenres()
+    {
+        $genres = array('Avant Garde', 'Blues', 'Country', 'Folk', 'Funk', 'Heavy Metal', 'Jazz', 'Punk Rock', 'Rap', 'Rock', 'Reggae');
+        foreach ($genres as $genre) {
+            $g = new Genre();
+            $g->setName($genre);
+            $this->manager->persist($g);
+        }
+        $this->manager->flush();
+
+    }
 
     /**
      * {@inheritDoc}
      */
-    public function load(ObjectManager  $manager)
+    public function load(ObjectManager $manager)
     {
+        $this->manager = $manager;
+
+        $countries = $this->manager->getRepository('ZE\BABundle\Entity\Country')->findAll();
+        if(empty($countries)) {
+            $this->loadCountries();
+        }
+
+        $this->cities = $this->manager->getRepository('ZE\BABundle\Entity\City')->findAll();
+        if(empty($this->cities)){
+            $this->loadCities();
+            $this->cities = $this->manager->getRepository('ZE\BABundle\Entity\City')->findAll();
+        }
+
+        $this->instruments = $this->manager->getRepository('ZE\BABundle\Entity\Instrument')->findAll();
+        if(empty($this->instruments)) {
+            $this->loadInstruments();
+            $this->instruments = $this->manager->getRepository('ZE\BABundle\Entity\Instrument')->findAll();
+        }
+
+        $this->genres = $this->manager->getRepository('ZE\BABundle\Entity\Genre')->findAll();
+        if(empty($this->genres)){
+            $this->loadGenres();
+            $this->genres = $this->manager->getRepository('ZE\BABundle\Entity\Genre')->findAll();
+        }
+        $associations = $this->manager->getRepository('ZE\BABundle\Entity\Association')->findAll();
 
         $userManager = $this->container->get('fos_user.user_manager');
         $groupManager = $this->container->get('fos_user.group_manager');
@@ -177,13 +288,8 @@ class LoadUserData extends AbstractFixture
             $groupManager->updateGroup($userGroup, true);
         }
         $this->faker = Faker\Factory::create();
-        $this->manager =  $manager;
-        $this->cities =  $this->manager->getRepository('ZE\BABundle\Entity\City')->findAll();
-        $this->genres =  $this->manager->getRepository('ZE\BABundle\Entity\Genre')->findAll();
-        $this->instruments =  $this->manager->getRepository('ZE\BABundle\Entity\Instrument')->findAll();
-       
 
-        for ($x = 0; $x < 10; $x++) {
+        for ($x = 0; $x < 100; $x++) {
             try {
                 $user = $userManager->createUser();
                 $user->setUsername($this->faker->userName);
@@ -217,10 +323,10 @@ class LoadUserData extends AbstractFixture
                     }
                 }
                 $userManager->updateUser($user, true);
-                 $this->manager->flush();
+                $this->manager->flush();
                 echo("\n user created:" . $user->getUsername());
             } catch (\Exception $e) {
-                echo ($e->getMessage());
+                echo($e->getMessage());
                 $this->manager = $this->container->get('doctrine')->resetManager();
                 continue;
             }

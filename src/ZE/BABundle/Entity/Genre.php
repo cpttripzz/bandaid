@@ -3,7 +3,7 @@
 namespace ZE\BABundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
+use Gedmo\Mapping\Annotation as Gedmo;
 /**
  * @ORM\Entity
  * @ORM\Table(name="genre")
@@ -25,7 +25,13 @@ class Genre
      * @ORM\Column(name="name", type="string", length=50, nullable=false)
      */
     private $name;
-    
+
+
+    /**
+     * @Gedmo\Slug(fields={"name" })
+     * @ORM\Column(unique=true)
+     */
+    private $slug;
     public function __toString()
     {
         return $this->name;
@@ -105,5 +111,29 @@ class Genre
     public function getAssociations()
     {
         return $this->associations;
+    }
+
+    /**
+     * Set slug
+     *
+     * @param string $slug
+     *
+     * @return Genre
+     */
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
+
+        return $this;
+    }
+
+    /**
+     * Get slug
+     *
+     * @return string
+     */
+    public function getSlug()
+    {
+        return $this->slug;
     }
 }

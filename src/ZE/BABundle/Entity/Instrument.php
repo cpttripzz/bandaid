@@ -7,8 +7,7 @@
  */
 
 namespace ZE\BABundle\Entity;
-use Doctrine\Common\Collections\ArrayCollection;
-use Sonata\UserBundle\Entity\BaseUser as BaseUser;
+use Gedmo\Mapping\Annotation as Gedmo;
 use Doctrine\ORM\Mapping as ORM;
 
 
@@ -45,6 +44,13 @@ class Instrument
      * @ORM\Column(name="name", type="string", length=50, nullable=false)
      */
     private $name;
+
+
+    /**
+     * @Gedmo\Slug(fields={"name"})
+     * @ORM\Column(unique=true)
+     */
+    private $slug;
 
     public function setName($name)
     {
@@ -116,5 +122,29 @@ class Instrument
     public function getMusicians()
     {
         return $this->musicians;
+    }
+
+    /**
+     * Set slug
+     *
+     * @param string $slug
+     *
+     * @return Instrument
+     */
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
+
+        return $this;
+    }
+
+    /**
+     * Get slug
+     *
+     * @return string
+     */
+    public function getSlug()
+    {
+        return $this->slug;
     }
 }

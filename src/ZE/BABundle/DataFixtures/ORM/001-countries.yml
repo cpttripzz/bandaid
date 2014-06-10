@@ -1,0 +1,31 @@
+countries:
+  1:
+    s: 'CA'
+    l: 'Canada'
+  2:
+    s: 'GB'
+    l: 'United Kingdom'
+  3:
+    s: 'IL'
+    l: 'Israel'
+  4:
+    s: 'US'
+    l: 'United States'
+  5:
+    s: 'ES'
+    l: 'Spain'
+  6:
+    s: 'CN'
+    l: 'China'
+  7:
+    s: 'FR'
+    l: 'France'
+  8:
+    s: 'EG'
+    l: 'Egypt'
+  9:
+    s: 'MX'
+    l: 'Mexico'
+  10:
+    s: 'JP'
+    l: 'Japan'

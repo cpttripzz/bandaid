@@ -3,7 +3,7 @@
 namespace ZE\BABundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
+use Gedmo\Mapping\Annotation as Gedmo;
 /**
  * Country
  *
@@ -29,10 +29,21 @@ class Country
     /**
      * @var string
      *
-     * @ORM\Column(name="name", type="string", length=50, nullable=false)
+     * @ORM\Column(name="name", length=256, nullable=false)
      */
     private $name;
 
+    /**
+     * @Gedmo\Slug(handlers={
+     *      @Gedmo\SlugHandler(class="Gedmo\Sluggable\Handler\InversedRelativeSlugHandler", options={
+     *          @Gedmo\SlugHandlerOption(name="relationClass", value="ZE\BABundle\Entity\City"),
+     *          @Gedmo\SlugHandlerOption(name="mappedBy", value="country"),
+     *          @Gedmo\SlugHandlerOption(name="inverseSlugField", value="slug")
+     *      })
+     * }, fields={"name"})
+     * @ORM\Column(length=64, unique=true)
+     */
+    private $slug;
 
     /**
      * Get id
@@ -95,5 +106,29 @@ class Country
     public function __toString()
     {
         return $this->name;
+    }
+
+    /**
+     * Set slug
+     *
+     * @param string $slug
+     *
+     * @return Country
+     */
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
+
+        return $this;
+    }
+
+    /**
+     * Get slug
+     *
+     * @return string
+     */
+    public function getSlug()
+    {
+        return $this->slug;
     }
 }

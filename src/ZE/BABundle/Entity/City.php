@@ -3,7 +3,7 @@
 namespace ZE\BABundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
+use Gedmo\Mapping\Annotation as Gedmo;
 /**
  * City
  *
@@ -58,6 +58,17 @@ class City
      *
      * @return integer
      */
+
+    /**
+     * @Gedmo\Slug(handlers={
+     *      @Gedmo\SlugHandler(class="Gedmo\Sluggable\Handler\RelativeSlugHandler", options={
+     *          @Gedmo\SlugHandlerOption(name="relationField", value="country"),
+     *          @Gedmo\SlugHandlerOption(name="relationSlugField", value="slug")
+     *      })
+     * }, separator="-", updatable=true, fields={"name"})
+     * @ORM\Column(length=64, unique=true)
+     */
+    private $slug;
     public function getId()
     {
         return $this->id;
@@ -190,5 +201,29 @@ class City
     public function getLongitude()
     {
         return $this->longitude;
+    }
+
+    /**
+     * Set slug
+     *
+     * @param string $slug
+     *
+     * @return City
+     */
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
+
+        return $this;
+    }
+
+    /**
+     * Get slug
+     *
+     * @return string
+     */
+    public function getSlug()
+    {
+        return $this->slug;
     }
 }

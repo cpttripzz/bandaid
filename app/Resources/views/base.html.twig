@@ -41,8 +41,6 @@
 {% endblock head %}
 
 
-{% include "PunkAveFileUploaderBundle:Default:templates.html.twig" %}
-
 {% block body %}
     <body>
         {% block navbar %}
@@ -54,14 +52,11 @@
             </div>
 
         {% endblock navbar %}
-
+        <div class="{% block container_class %}container{% endblock container_class %}">
         {% block container %}
-
-            <div class="{% block container_class %}container{% endblock container_class %}">
-                {% block header %}{% endblock header %}
                 <div class="content"></div>
-            </div>
         {% endblock container %}
+        </div>
     </body>
 {% endblock body %}
 </html>

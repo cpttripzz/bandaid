@@ -3,7 +3,7 @@
 namespace ZE\BABundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
+use Gedmo\Mapping\Annotation as Gedmo;
 /**
  * Region
  *
@@ -42,6 +42,12 @@ class Region
      */
     private $country;
 
+
+    /**
+     * @Gedmo\Slug(fields={"longName", "id"})
+     * @ORM\Column(unique=true)
+     */
+    private $slug;
     /**
      * Get id
      *
@@ -122,5 +128,29 @@ class Region
     public function getCountry()
     {
         return $this->country;
+    }
+
+    /**
+     * Set slug
+     *
+     * @param string $slug
+     *
+     * @return Region
+     */
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
+
+        return $this;
+    }
+
+    /**
+     * Get slug
+     *
+     * @return string
+     */
+    public function getSlug()
+    {
+        return $this->slug;
     }
 }
