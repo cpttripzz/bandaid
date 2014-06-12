@@ -10,9 +10,10 @@ namespace ZE\BABundle\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
+use Gedmo\Timestampable\Traits\TimestampableEntity;
 
 
-    /**
+/**
     * An item a user can have a many to many relationship with, ie: Association, artist
     *
     * @ORM\Entity
@@ -24,6 +25,7 @@ use Gedmo\Mapping\Annotation as Gedmo;
 class Association
 {
 
+    use TimestampableEntity;
     /**
      * @var string
      *

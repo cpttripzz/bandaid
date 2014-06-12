@@ -4,8 +4,10 @@ namespace ZE\BABundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
-
-
+use Imagine\Gd;
+use Imagine\Gd\Imagine;
+use Imagine\Image\Box;
+use Imagine\Image\Point;
 /**
  * @ORM\Entity
  * @ORM\Table(name="document")
@@ -30,6 +32,10 @@ class Document
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     protected $path;
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    protected $cropParams;
 
     public function getAbsolutePath()
     {
@@ -73,7 +79,7 @@ class Document
     public function setFile( $file = null)
     {
         $this->file = $file;
-        $this-> name = $file->getClientOriginalName();
+        $this->name = $file->getClientOriginalName();
         // check if we have an old image path
         if (isset($this->path)) {
             // store the old name to delete after the update
@@ -116,12 +122,21 @@ class Document
         if (null === $this->getFile()) {
             return;
         }
-
-        // if there is an error when moving the file, an exception will
-        // be automatically thrown by move(). This will properly prevent
-        // the entity from being persisted to the database on error
-        $this->getFile()->move($this->getUploadRootDir(), $this->path);
-
+        if(!empty($this->cropParams)) {
+            $path = $this->getUploadRootDir() . '/' .$this->path;
+            $arrCropParams = json_decode($this->cropParams,true);
+            $imagine = new  Imagine();
+            $image = $imagine->open($this->getFile());
+            $image
+                ->crop(new Point($arrCropParams['x1'], $arrCropParams['y1']),
+                    new Box($arrCropParams['w'], $arrCropParams['h']))
+                ->save($path);
+        } else {
+            // if there is an error when moving the file, an exception will
+            // be automatically thrown by move(). This will properly prevent
+            // the entity from being persisted to the database on error
+            $this->getFile()->move($this->getUploadRootDir(), $this->path);
+        }
 
         $this->file = null;
     }
@@ -226,4 +241,28 @@ class Document
         return $this->association;
     }
 
+
+    /**
+     * Set cropParams
+     *
+     * @param string $cropParams
+     *
+     * @return Document
+     */
+    public function setCropParams($cropParams)
+    {
+        $this->cropParams = $cropParams;
+
+        return $this;
+    }
+
+    /**
+     * Get cropParams
+     *
+     * @return string
+     */
+    public function getCropParams()
+    {
+        return $this->cropParams;
+    }
 }

@@ -1,9 +1,38 @@
-{% block item_container %}
-    {% container_div_class  | default("row") %}
-    {% content_div_class | default("col-lg-3 col-sm-4 col-xs-6" %}
-    <div class="{{ container_div_class }}">
-    {% for item in items %}
 
-    {% endfor %}
+
+    {% block item_container %}
+        {% if container_div_class  is not defined %} {% set container_div_class = "row multi-columns-row"  %} {% endif %}
+        {% if content_div_class is not defined  %} {% set content_div_class="col-xs-6 col-sm-4 col-md-3 col-lg-3" %}  {% endif %}
+
+    <div class="{{ container_div_class }} ">
+        {% for entity in pagination %}
+            {% set entity_show_path= path('musician_show', { 'slug': entity.slug }) %}
+            <div class="{{ content_div_class }}">
+                <div class="association-item">
+                    <div class="association-image">
+                        <a href="{{ entity_show_path }}">
+                            {% if entity.documents[0] is defined %}
+                                <img src="/{{ entity.documents[0].getWebPath }}" alt="">
+                            {% else %}
+                                <img src="http://placehold.it/600x360" alt="Project Name">
+                            {% endif %}
+                        </a>
+                    </div>
+                    <div class="association-info">
+                        <ul>
+                            <li class="association-project-name">{{ entity.name }}</li>
+
+                            {% include 'ZEBABundle::genres.html.twig'  %}
+                            <li class="read-more"><a href="entity_show_path" class="btn">Read more</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        {% endfor %}
+
+    </div>
+    <div class="navigation">
+        {{ knp_pagination_render(pagination) }}
     </div>
 {% endblock item_container %}

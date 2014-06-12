@@ -8,6 +8,8 @@
             '%kernel.root_dir%/../vendor/sonata-project/core-bundle/Resources/public/select2/select2.css'
             '@bootstrap_less'
             '@jquery_ui_css'
+            '../app/Resources/public/css/main.css'
+            '%kernel.root_dir%/../vendor/tapmodo/Jcrop/css/jquery.Jcrop.min.css'
             %}
             <link href="{{ asset_url }}" type="text/css" rel="stylesheet"/>
             {% endstylesheets %}
@@ -22,10 +24,8 @@
 
                 '@jquery_js' '@bootstrap_js'
                 '%kernel.root_dir%/../vendor/sonata-project/core-bundle/Resources/public/select2/select2.min.js'
-                '@jquery_ui_js' '@underscore_js'
-                '@PunkAveFileUploaderBundle/Resources/public/js/jquery.fileupload.js'
-                '@PunkAveFileUploaderBundle/Resources/public/js/jquery.iframe-transport.js'
-                '@PunkAveFileUploaderBundle/Resources/public/js/FileUploader.js'
+                '@jquery_ui_js'
+                '%kernel.root_dir%/../vendor/tapmodo/Jcrop/js/jquery.Jcrop.min.js'
                 %}
                 <script src="{{ asset_url }}"></script>
 
@@ -52,11 +52,13 @@
             </div>
 
         {% endblock navbar %}
-        <div class="{% block container_class %}container{% endblock container_class %}">
-        {% block container %}
-                <div class="content"></div>
-        {% endblock container %}
-        </div>
+        {% block pre_container %}
+            <div class="{% block container_class %}container{% endblock container_class %}">
+            {% block container %}
+                    <div class="{% block content_class %}content{% endblock content_class %}"></div>
+            {% endblock container %}
+            </div>
+        {% endblock pre_container %}
     </body>
 {% endblock body %}
 </html>

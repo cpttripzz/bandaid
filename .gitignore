@@ -8,5 +8,6 @@ web/assetic/*
 web/css/*
 web/js/*
 web/uploads/*
+web/media/*
 app/bootstrap*
 .idea/*

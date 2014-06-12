@@ -30,7 +30,8 @@ framework:
 twig:
     debug:            %kernel.debug%
     strict_variables: %kernel.debug%
-
+    globals:
+        root_path: %kernel.root_dir%/../web
 # Assetic Configuration
 assetic:
 
@@ -78,9 +79,7 @@ assetic:
             jquery_ui_css:
                 inputs:
                     - '%kernel.root_dir%/../vendor/sonata-project/admin-bundle/Resources/public/vendor/jqueryui/themes/base/minified/jquery-ui.min.css'
-            underscore_js:
-                inputs:
-                    - '%kernel.root_dir%/../components/underscore/underscore-min.js'
+
 
 
 # Doctrine Configuration
@@ -292,3 +291,24 @@ jcroll_foursquare_api:
 
 genemu_form:
     select2: ~
+liip_imagine:
+    driver:               gd
+
+    resolvers:
+        default:
+          web_path:
+            web_root: %kernel.root_dir%/../web
+
+            # %kernel.root_dir%/../web/img is the folder where filtered images will be created!
+            cache_prefix: media/cache
+            # media/cache the prefix of folder where the cached images will be created
+    filter_sets:
+        cache: ~
+        thumb:
+            quality: 75
+            filters:
+                thumbnail: { size: [25, 20], mode: outbound }
+        assoc:
+            quality: 75
+            filters:
+                thumbnail: { size: [120, 90], mode: outbound }

@@ -1,7 +1,7 @@
 <?php
 // src/Application/Sonata/UserBundle/DataFixtures/ORM/010-LoadUserData.php
 namespace Application\Sonata\UserBundle\DataFixtures\ORM;
-
+use Symfony\Component\HttpFoundation\File;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\DataFixtures\FixtureInterface;
 use Doctrine\Common\DataFixtures\AbstractFixture;
@@ -17,6 +17,7 @@ use ZE\BABundle\Entity\Address;
 use ZE\BABundle\Entity\Band;
 use ZE\BABundle\Entity\City;
 use ZE\BABundle\Entity\Country;
+use ZE\BABundle\Entity\Document;
 use ZE\BABundle\Entity\Genre;
 use ZE\BABundle\Entity\Instrument;
 use ZE\BABundle\Entity\Item;
@@ -198,6 +199,9 @@ class LoadUserData extends AbstractFixture
             $address->setAssociation($assoc);
             $assoc->addAddress($address);
         }
+
+        $document = $this->createRandomImage('nightlife');
+        $document->setAssociation($assoc);
         $this->manager->persist($assoc);
         return $assoc;
     }
@@ -289,7 +293,7 @@ class LoadUserData extends AbstractFixture
         }
         $this->faker = Faker\Factory::create();
 
-        for ($x = 0; $x < 100; $x++) {
+        for ($x = 0; $x < 10; $x++) {
             try {
                 $user = $userManager->createUser();
                 $user->setUsername($this->faker->userName);
@@ -341,6 +345,23 @@ class LoadUserData extends AbstractFixture
     public function getOrder()
     {
         return 1; // the order in which fixtures will be loaded
+    }
+
+    /**
+     * @param $assoc
+     */
+    public function createRandomImage($imagePath= 'people')
+    {
+        $document = new Document();
+        $file = file_get_contents('http://lorempixel.com/100/75/' . $imagePath);
+        $pwd = getcwd();
+        $filename = sha1(uniqid(mt_rand(), true));
+        $document->setName($filename);
+        $document->setPath($filename . '.jpeg');
+        $filename = $pwd . '/web/uploads/documents/' . $filename . '.jpeg';
+        file_put_contents($filename, $file);
+        $this->manager->persist($document);
+        return $document;
     }
 
 }

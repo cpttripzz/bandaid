@@ -17,6 +17,17 @@
                     "type": "zip"
                 }
             }
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "tapmodo/Jcrop",
+                "version": "dev-master",
+                "dist": {
+                    "url": "https://github.com/tapmodo/Jcrop/archive/master.zip",
+                    "type": "zip"
+                }
+            }
         }
     ],
     "require": {
@@ -58,8 +69,8 @@
         "knplabs/knp-paginator-bundle": "~2.4",
         "genemu/form-bundle": "2.2.*",
         "liip/search-bundle": "1.0.*@dev",
-        "components/underscore": "dev-master",
-        "punkave/symfony2-file-uploader-bundle": "1.0.*@dev"
+        "liip/imagine-bundle": "dev-master",
+        "tapmodo/Jcrop": "dev-master"
         },
     "scripts": {
         "post-install-cmd": [
