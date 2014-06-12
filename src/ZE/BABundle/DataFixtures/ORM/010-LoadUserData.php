@@ -258,81 +258,83 @@ class LoadUserData extends AbstractFixture
      */
     public function load(ObjectManager $manager)
     {
-        $this->manager = $manager;
+        if (false) {
+            $this->manager = $manager;
 
-        $countries = $this->manager->getRepository('ZE\BABundle\Entity\Country')->findAll();
-        if(empty($countries)) {
-            $this->loadCountries();
-        }
+            $countries = $this->manager->getRepository('ZE\BABundle\Entity\Country')->findAll();
+            if (empty($countries)) {
+                $this->loadCountries();
+            }
 
-        $this->cities = $this->manager->getRepository('ZE\BABundle\Entity\City')->findAll();
-        if(empty($this->cities)){
-            $this->loadCities();
             $this->cities = $this->manager->getRepository('ZE\BABundle\Entity\City')->findAll();
-        }
+            if (empty($this->cities)) {
+                $this->loadCities();
+                $this->cities = $this->manager->getRepository('ZE\BABundle\Entity\City')->findAll();
+            }
 
-        $this->instruments = $this->manager->getRepository('ZE\BABundle\Entity\Instrument')->findAll();
-        if(empty($this->instruments)) {
-            $this->loadInstruments();
             $this->instruments = $this->manager->getRepository('ZE\BABundle\Entity\Instrument')->findAll();
-        }
+            if (empty($this->instruments)) {
+                $this->loadInstruments();
+                $this->instruments = $this->manager->getRepository('ZE\BABundle\Entity\Instrument')->findAll();
+            }
 
-        $this->genres = $this->manager->getRepository('ZE\BABundle\Entity\Genre')->findAll();
-        if(empty($this->genres)){
-            $this->loadGenres();
             $this->genres = $this->manager->getRepository('ZE\BABundle\Entity\Genre')->findAll();
-        }
-        $associations = $this->manager->getRepository('ZE\BABundle\Entity\Association')->findAll();
+            if (empty($this->genres)) {
+                $this->loadGenres();
+                $this->genres = $this->manager->getRepository('ZE\BABundle\Entity\Genre')->findAll();
+            }
+            $associations = $this->manager->getRepository('ZE\BABundle\Entity\Association')->findAll();
 
-        $userManager = $this->container->get('fos_user.user_manager');
-        $groupManager = $this->container->get('fos_user.group_manager');
-        $userGroup = $groupManager->findGroupByName('user');
-        if (!$userGroup) {
-            $userGroup = $groupManager->createGroup('user');
-            $groupManager->updateGroup($userGroup, true);
-        }
-        $this->faker = Faker\Factory::create();
+            $userManager = $this->container->get('fos_user.user_manager');
+            $groupManager = $this->container->get('fos_user.group_manager');
+            $userGroup = $groupManager->findGroupByName('user');
+            if (!$userGroup) {
+                $userGroup = $groupManager->createGroup('user');
+                $groupManager->updateGroup($userGroup, true);
+            }
+            $this->faker = Faker\Factory::create();
 
-        for ($x = 0; $x < 10; $x++) {
-            try {
-                $user = $userManager->createUser();
-                $user->setUsername($this->faker->userName);
-                $user->setEmail($this->faker->email);
-                $user->setPlainPassword('123456');
+            for ($x = 0; $x < 10; $x++) {
+                try {
+                    $user = $userManager->createUser();
+                    $user->setUsername($this->faker->userName);
+                    $user->setEmail($this->faker->email);
+                    $user->setPlainPassword('123456');
 
-                $user->setDateOfBirth($this->faker->dateTimeBetween($startDate = '-80 years', $endDate = '-20 years'));
-                $user->setFirstname($this->faker->firstName);
-                $user->setLastname($this->faker->lastName);
-                $gender = (rand(0, 1) == 1 ? 'm' : 'f');
-                $user->setGender($gender);
-                $user->setPhone($this->faker->phoneNumber);
-                $user->addGroup($userGroup);
-                $user->setEnabled(true);
-                $user ->setRoles(array('ROLE_USER'));
+                    $user->setDateOfBirth($this->faker->dateTimeBetween($startDate = '-80 years', $endDate = '-20 years'));
+                    $user->setFirstname($this->faker->firstName);
+                    $user->setLastname($this->faker->lastName);
+                    $gender = (rand(0, 1) == 1 ? 'm' : 'f');
+                    $user->setGender($gender);
+                    $user->setPhone($this->faker->phoneNumber);
+                    $user->addGroup($userGroup);
+                    $user->setEnabled(true);
+                    $user ->setRoles(array('ROLE_USER'));
 
-                $randomAssociation = rand(1, 100);
-                if ($randomAssociation > 90 || $randomAssociation > 50) {
-                    for ($j = 0; $j < rand(1, 2); $j++) {
-                        $band = $this->createRandomBand();
-                        $user->addBand($band);
-                        $band->setUser($user);
+                    $randomAssociation = rand(1, 100);
+                    if ($randomAssociation > 90 || $randomAssociation > 50) {
+                        for ($j = 0; $j < rand(1, 2); $j++) {
+                            $band = $this->createRandomBand();
+                            $user->addBand($band);
+                            $band->setUser($user);
+                        }
                     }
-                }
 
-                if ($randomAssociation > 90 || $randomAssociation < 50) {
-                    for ($j = 0; $j < rand(1, 2); $j++) {
-                        $musician = $this->createRandomMusician();
-                        $user->addMusician($musician);
-                        $musician->setUser($user);
+                    if ($randomAssociation > 90 || $randomAssociation < 50) {
+                        for ($j = 0; $j < rand(1, 2); $j++) {
+                            $musician = $this->createRandomMusician();
+                            $user->addMusician($musician);
+                            $musician->setUser($user);
+                        }
                     }
+                    $userManager->updateUser($user, true);
+                    $this->manager->flush();
+                    echo("\n user created:" . $user->getUsername());
+                } catch (\Exception $e) {
+                    echo($e->getMessage());
+                    $this->manager = $this->container->get('doctrine')->resetManager();
+                    continue;
                 }
-                $userManager->updateUser($user, true);
-                $this->manager->flush();
-                echo("\n user created:" . $user->getUsername());
-            } catch (\Exception $e) {
-                echo($e->getMessage());
-                $this->manager = $this->container->get('doctrine')->resetManager();
-                continue;
             }
         }
 

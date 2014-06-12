@@ -55,11 +55,15 @@ class Band extends Association
 
 
 
-
     /**
      * @ORM\ManyToOne(targetEntity="User", inversedBy="bands")
      */
     protected $user;
+
+    /**
+     * @ORM\OneToMany(targetEntity="BandMusician", mappedBy="bands", cascade={"persist"})
+     */
+    protected $musicians;
 
     public function __construct()
     {
@@ -249,5 +253,39 @@ class Band extends Association
     public function getUser()
     {
         return $this->user;
+    }
+
+    /**
+     * Add musicians
+     *
+     * @param \ZE\BABundle\Entity\BandMusician $musicians
+     *
+     * @return Band
+     */
+    public function addMusician(\ZE\BABundle\Entity\BandMusician $musicians)
+    {
+        $this->musicians[] = $musicians;
+
+        return $this;
+    }
+
+    /**
+     * Remove musicians
+     *
+     * @param \ZE\BABundle\Entity\BandMusician $musicians
+     */
+    public function removeMusician(\ZE\BABundle\Entity\BandMusician $musicians)
+    {
+        $this->musicians->removeElement($musicians);
+    }
+
+    /**
+     * Get musicians
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getMusicians()
+    {
+        return $this->musicians;
     }
 }

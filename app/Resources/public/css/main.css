@@ -187,5 +187,39 @@
     -moz-box-shadow: #B3B3B3 5px 5px 5px;
     box-shadow: #B3B3B3 5px 5px 5px;
     padding: 5px;
+    display:inline-block;
+}
 
+.instrument{
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    border: 1px solid #B3B3B3;
+    background: rgba(238, 238, 238, 0.6);
+    -webkit-box-shadow: #B3B3B3 5px 5px 5px;
+    -moz-box-shadow: #B3B3B3 5px 5px 5px;
+    box-shadow: #B3B3B3 5px 5px 5px;
+    padding: 5px;
+    display:inline-block;
+}
+
+.flag {
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    border: 1px solid #B3B3B3;
+    background: rgba(238, 238, 238, 0.6);
+    -webkit-box-shadow: #B3B3B3 5px 5px 5px;
+    -moz-box-shadow: #B3B3B3 5px 5px 5px;
+    box-shadow: #B3B3B3 5px 5px 5px;
+    padding-left: 2px;
+    padding-right: 2px;
+
+}
+
+.text-left{
+    text-align: left;
+}
+.float-left{
+    float: left;
 }

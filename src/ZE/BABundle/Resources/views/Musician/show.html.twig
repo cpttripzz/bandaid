@@ -1,46 +1,17 @@
 {% extends '::base.html.twig' %}
 
 {% block container %}
-    <h1>Musician</h1>
-
-    <table class="record_properties">
-        <tbody>
-            <tr>
-                <th>Name</th>
-                <td>{{ entity.name }}</td>
-            </tr>
-            <tr>
-                <th>Description</th>
-                <td>{{ entity.description }}</td>
-            </tr>
-            <tr>
-                <th>Id</th>
-                <td>{{ entity.id }}</td>
-            </tr>
-            <tr>
-                <th>Genres</th>
-                <ul>
-                    {% for genre in entity.genres %}
-                        <li>
-                            {{ genre.name }}
-                        </li>
-                    {% endfor %}
-                </ul>
-            </tr>
-        </tbody>
-    </table>
-
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('musician') }}">
-            Back to the list
-        </a>
-    </li>
-    <li>
-        <a href="{{ path('musician_edit', { 'id': entity.id }) }}">
-            Edit
-        </a>
-    </li>
-    <li>{{ form(delete_form) }}</li>
-</ul>
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <h1>{{ entity.name }}</h1>
+            {% embed 'ZEBABundle::locations.html.twig' %}
+                {% block location_text %}
+                    {{ address.city.name  }}, {{ address.region.longName }}, {{ address.city.country.name }}
+                {% endblock location_text %}
+            {% endembed %}
+            {% include 'ZEBABundle::genres.html.twig' %}
+            {% include 'ZEBABundle::instruments.html.twig' %}
+            <p>Description: {{ entity.description }}</p>
+        </div>
+    </div>
 {% endblock %}

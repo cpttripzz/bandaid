@@ -1,0 +1,13 @@
+
+{% block addresses_container %}
+    {% if entity.addresses is defined %}
+        <div class="float-left text-left">Locations:
+                {% for address in entity.addresses %}
+                    {% set flag_path = '/img/flags/' ~ address.city.country.code |lower ~ '.png' %}
+                    {% block location_text %}{% endblock location_text %}
+                        <img class="flag" src="{{  flag_path  }}" />
+                    {% block location_suffix %}{% endblock location_suffix %}
+                {% endfor %}
+        </div>
+    {% endif %}
+{% endblock addresses_container%}

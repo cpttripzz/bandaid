@@ -67,6 +67,9 @@ class Musician extends Association
      */
     protected $instruments;
 
+    /** @ORM\OneToMany(targetEntity="BandMusician",mappedBy="musician") */
+    protected $bands;
+
     public function __construct()
     {
         $this->instruments = new ArrayCollection();
@@ -75,45 +78,9 @@ class Musician extends Association
 
 
     /**
-     * Add instruments
-     *
-     * @param \ZE\BABundle\Entity\Instrument $instruments
-     *
-     * @return Musician
-     */
-    public function addInstrument(Instrument $instruments)
-    {
-        $this->instruments[] = $instruments;
-
-        return $this;
-    }
-
-    /**
-     * Remove instruments
-     *
-     * @param \ZE\BABundle\Entity\Instrument $instruments
-     */
-    public function removeInstrument(Instrument $instruments)
-    {
-        $this->instruments->removeElement($instruments);
-    }
-
-    /**
-     * Get instruments
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getInstruments()
-    {
-        return $this->instruments;
-    }
-
-
-
-    /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -137,7 +104,7 @@ class Musician extends Association
     /**
      * Get name
      *
-     * @return string 
+     * @return string
      */
     public function getName()
     {
@@ -161,7 +128,7 @@ class Musician extends Association
     /**
      * Get description
      *
-     * @return string 
+     * @return string
      */
     public function getDescription()
     {
@@ -195,7 +162,7 @@ class Musician extends Association
     /**
      * Get addresses
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getAddresses()
     {
@@ -229,7 +196,7 @@ class Musician extends Association
     /**
      * Get documents
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getDocuments()
     {
@@ -263,7 +230,7 @@ class Musician extends Association
     /**
      * Get genres
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getGenres()
     {
@@ -287,10 +254,78 @@ class Musician extends Association
     /**
      * Get user
      *
-     * @return \ZE\BABundle\Entity\User 
+     * @return \ZE\BABundle\Entity\User
      */
     public function getUser()
     {
         return $this->user;
+    }
+
+    /**
+     * Add instruments
+     *
+     * @param \ZE\BABundle\Entity\Instrument $instruments
+     *
+     * @return Musician
+     */
+    public function addInstrument(\ZE\BABundle\Entity\Instrument $instruments)
+    {
+        $this->instruments[] = $instruments;
+
+        return $this;
+    }
+
+    /**
+     * Remove instruments
+     *
+     * @param \ZE\BABundle\Entity\Instrument $instruments
+     */
+    public function removeInstrument(\ZE\BABundle\Entity\Instrument $instruments)
+    {
+        $this->instruments->removeElement($instruments);
+    }
+
+    /**
+     * Get instruments
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getInstruments()
+    {
+        return $this->instruments;
+    }
+
+    /**
+     * Add bands
+     *
+     * @param \ZE\BABundle\Entity\BandMusician $bands
+     *
+     * @return Musician
+     */
+    public function addBand(\ZE\BABundle\Entity\BandMusician $bands)
+    {
+        $this->bands[] = $bands;
+
+        return $this;
+    }
+
+    /**
+     * Remove bands
+     *
+     * @param \ZE\BABundle\Entity\BandMusician $bands
+     */
+    public function removeBand(\ZE\BABundle\Entity\BandMusician $bands)
+    {
+        $this->bands->removeElement($bands);
+    }
+
+    /**
+     * Get bands
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getBands()
+    {
+        return $this->bands;
     }
 }

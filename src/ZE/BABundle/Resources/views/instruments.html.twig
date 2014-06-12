@@ -1,0 +1,13 @@
+
+{% block instruments_container %}
+    {% if entity.instruments is defined %}
+        <div class="text-left ">Instruments:
+                {% for instrument in entity.instruments %}
+                    {% set instrument_folder = 'img/instruments/' ~ instrument.slug ~ '.png' %}
+                    <span class="instrument">{{ instrument.name }}
+                        <img src="{{  instrument_folder | imagine_filter('thumb') }}" />
+                    </span>
+                {% endfor %}
+        </div>
+    {% endif %}
+{% endblock instruments_container%}
