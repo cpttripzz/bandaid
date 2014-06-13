@@ -223,3 +223,22 @@
 .float-left{
     float: left;
 }
+
+.text-right{
+    text-align: right;
+}
+.float-right{
+    float: right;
+}
+
+.assoc-wrapper-row .assoc-image {
+    padding-top: 15px;
+    text-align: center;
+}
+
+.assoc-wrapper-row {
+    padding: 10px 0;
+}
+.assoc-text {
+    padding-left: 40px;
+}

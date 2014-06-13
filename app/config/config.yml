@@ -298,7 +298,6 @@ liip_imagine:
         default:
           web_path:
             web_root: %kernel.root_dir%/../web
-
             # %kernel.root_dir%/../web/img is the folder where filtered images will be created!
             cache_prefix: media/cache
             # media/cache the prefix of folder where the cached images will be created
@@ -311,4 +310,4 @@ liip_imagine:
         assoc:
             quality: 75
             filters:
-                thumbnail: { size: [120, 90], mode: outbound }
+                thumbnail: { size: [200, 120], mode: outbound }

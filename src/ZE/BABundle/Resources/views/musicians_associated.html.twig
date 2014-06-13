@@ -1,0 +1,5 @@
+{% extends 'ZEBABundle::_associated_group.html.twig' %}
+{% block assoc_loop %}
+    {% set entity_show_path= path( type ~'_show', { 'slug': assoc.musician.slug }) %}
+    {% include 'ZEBABundle::_associated_row.html.twig' with {'assoc' : assoc.musician} %}
+{% endblock assoc_loop %}

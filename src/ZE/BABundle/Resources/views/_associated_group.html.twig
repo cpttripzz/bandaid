@@ -1,0 +1,19 @@
+{% block _associated_container %}
+    {% if assocs is defined %}
+        <div class="panel panel-default">
+            <div class="panel-heading">{{ type |capitalize }}s Associated With:</div>
+            <div class="panel-body">
+                <div class="row assoc-wrapper-row">
+
+                    {% for assoc in assocs %}
+                        {% block assoc_loop %}
+                            {% set entity_show_path= path( type ~'_show', { 'slug': assoc.band.slug }) %}
+                            {% include 'ZEBABundle::_associated_row.html.twig' with {'assoc' : assoc.band} %}
+                        {% endblock assoc_loop %}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    {% endif %}
+
+{% endblock _associated_container %}

@@ -37,6 +37,11 @@ class Document
      */
     protected $cropParams;
 
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    protected $type;
+
     public function getAbsolutePath()
     {
         return null === $this->path

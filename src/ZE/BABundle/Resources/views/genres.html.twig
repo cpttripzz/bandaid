@@ -4,7 +4,7 @@
         <div class="text-left ">Genres:
                 {% for genre in entity.genres %}
                     {% set genre_folder = 'img/genres/' ~ genre.slug ~ '.jpg' %}
-                    <span class="genre">{{ genre.name }}
+                    <span class="genre" >{{ genre.name }}
                         <img src="{{  genre_folder | imagine_filter('thumb') }}" />
                     </span>
                 {% endfor %}

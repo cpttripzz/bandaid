@@ -1,42 +1,4 @@
 {% extends '::base.html.twig' %}
-
-{% block container -%}
-    <h1>Band list</h1>
-
-    <table class="records_list">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Description</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for entity in entities %}
-            <tr>
-                <td><a href="{{ path('band_show', { 'slug': entity.slug }) }}">{{ entity.name }}</a></td>
-                <td>{{ entity.description }}</td>
-                <td>
-                <ul>
-                    <li>
-                        <a href="{{ path('band_show', { 'slug': entity.slug }) }}">show</a>
-                    </li>
-                    <li>
-                        <a href="{{ path('band_edit', { 'slug': entity.slug }) }}">edit</a>
-                    </li>
-                </ul>
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-        <ul>
-        <li>
-            <a href="{{ path('band_new') }}">
-                Create a new entry
-            </a>
-        </li>
-    </ul>
-    {% endblock %}
+{% block container %}
+    {% include 'ZEBABundle::item_container.html.twig' %}
+{% endblock container%}

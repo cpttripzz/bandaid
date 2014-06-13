@@ -42,7 +42,7 @@ class MusicianController extends Controller
             $this->get('request')->query->get('page', 1),16
         );
         $pagination->setTemplate('KnpPaginatorBundle:Pagination:twitter_bootstrap_v3_pagination.html.twig');
-        return $this->render('ZEBABundle:Musician:index.html.twig' , array('pagination' => $pagination));
+        return $this->render('ZEBABundle:Musician:index.html.twig' , array('pagination' => $pagination, 'entity_type' => 'musician'));
     }
     /**
      * Creates a new Musician entity.

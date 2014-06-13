@@ -1,0 +1,28 @@
+{% extends '::base.html.twig' %}
+
+{% block container %}
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <h1>{{ entity.name }}</h1>
+
+            {% embed 'ZEBABundle::locations.html.twig' %}
+                {% block location_text %}
+                    {{ address.city.name  }},
+                    {% if address.region.longName is defined %}{{ address.region.longName }},{% endif %}
+                    {{ address.city.country.name }}
+                {% endblock location_text %}
+            {% endembed %}
+            <br>
+            <p>{% include 'ZEBABundle::genres.html.twig' %}</p>
+            <p>{% include 'ZEBABundle::instruments.html.twig' %}</p>
+            <p>Description: {{ entity.description }}</p>
+            {% if entity.bands is defined %}
+                {% include 'ZEBABundle::bands_associated.html.twig' with {'assocs': entity.bands, 'type' : 'band'} %}
+            {% endif %}
+            {% if entity.musicians is defined %}
+                {% include 'ZEBABundle::musicians_associated.html.twig' with {'assocs': entity.musicians, 'type' : 'musician'} %}
+            {% endif %}
+
+        </div>
+    </div>
+{% endblock %}

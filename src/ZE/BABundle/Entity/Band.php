@@ -61,7 +61,7 @@ class Band extends Association
     protected $user;
 
     /**
-     * @ORM\OneToMany(targetEntity="BandMusician", mappedBy="bands", cascade={"persist"})
+     * @ORM\OneToMany(targetEntity="BandMusician", mappedBy="band", cascade={"persist"})
      */
     protected $musicians;
 

@@ -1,12 +1,9 @@
-
-
-    {% block item_container %}
-        {% if container_div_class  is not defined %} {% set container_div_class = "row multi-columns-row"  %} {% endif %}
-        {% if content_div_class is not defined  %} {% set content_div_class="col-xs-6 col-sm-4 col-md-3 col-lg-3" %}  {% endif %}
-
+{% block item_container %}
+    {% if container_div_class  is not defined %} {% set container_div_class = "row multi-columns-row" %} {% endif %}
+    {% if content_div_class is not defined %} {% set content_div_class="col-xs-6 col-sm-4 col-md-3 col-lg-3" %}  {% endif %}
     <div class="{{ container_div_class }} ">
         {% for entity in pagination %}
-            {% set entity_show_path= path('musician_show', { 'slug': entity.slug }) %}
+            {% set entity_show_path= path( entity_type ~'_show', { 'slug': entity.slug }) %}
             <div class="{{ content_div_class }}">
                 <div class="association-item">
                     <div class="association-image">
@@ -22,9 +19,10 @@
                         <ul>
                             <li class="association-project-name">{{ entity.name }}</li>
 
-                            {% include 'ZEBABundle::genres.html.twig'  %}
+                            {% include 'ZEBABundle::genres.html.twig' %}
                             {% include 'ZEBABundle::locations.html.twig' %}
-                            <li class="read-more"><a href="entity_show_path" class="btn">Read more</a></li>
+
+                            <li class="read-more"><a href="{{ entity_show_path }}" class="btn">Read more</a></li>
                         </ul>
                     </div>
                 </div>

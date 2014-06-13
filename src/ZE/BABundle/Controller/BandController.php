@@ -29,12 +29,19 @@ class BandController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entities = $em->getRepository('ZEBABundle:Band')->findAll();
+        $dql   = "SELECT b FROM ZEBABundle:Band b";
+        $query = $em->createQuery($dql);
 
-        return array(
-            'entities' => $entities,
+        $paginator  = $this->get('knp_paginator');
+
+        $pagination = $paginator->paginate(
+            $query,
+            $this->get('request')->query->get('page', 1),16
         );
+        $pagination->setTemplate('KnpPaginatorBundle:Pagination:twitter_bootstrap_v3_pagination.html.twig');
+        return $this->render('ZEBABundle:Band:index.html.twig' , array('pagination' => $pagination, 'entity_type' => 'band'));
     }
+
     /**
      * Creates a new Band entity.
      *
@@ -110,13 +117,13 @@ class BandController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('ZEBABundle:Band')->findBySlug($slug);
+        $entity = $em->getRepository('ZE\BABundle\Entity\Band')->findOneBySlug($slug);
 
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find Band entity.');
         }
 
-        $deleteForm = $this->createDeleteForm($slug);
+        $deleteForm = $this->createDeleteForm($entity->getId());
 
         return array(
             'entity'      => $entity,
@@ -160,6 +167,9 @@ class BandController extends Controller
     */
     private function createEditForm(Band $entity)
     {
+     if (false === $this->get('security.context')->isGranted('edit', $entity)) {
+            throw new AccessDeniedException('Unauthorised access!');
+        }
         $form = $this->createForm(new BandType(), $entity, array(
             'action' => $this->generateUrl('band_update', array('id' => $entity->getId())),
             'method' => 'PUT',
@@ -235,10 +245,10 @@ class BandController extends Controller
      *
      * @return \Symfony\Component\Form\Form The form
      */
-    private function createDeleteForm($slug)
+    private function createDeleteForm($id)
     {
         return $this->createFormBuilder()
-            ->setAction($this->generateUrl('band_delete', array('slug' => $slug)))
+            ->setAction($this->generateUrl('band_delete', array('id' => $id)))
             ->setMethod('DELETE')
             ->add('submit', 'submit', array('label' => 'Delete'))
             ->getForm()

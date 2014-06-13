@@ -67,12 +67,14 @@ class Musician extends Association
      */
     protected $instruments;
 
-    /** @ORM\OneToMany(targetEntity="BandMusician",mappedBy="musician") */
+
+    /** @ORM\OneToMany(targetEntity="BandMusician",mappedBy="musician", cascade={"persist"}) */
     protected $bands;
 
     public function __construct()
     {
         $this->instruments = new ArrayCollection();
+        $this->bands = new ArrayCollection();
     }
 
 
