@@ -6,14 +6,14 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
-class DefaultController extends Controller
+class ApiController extends Controller
 {
     /**
-     * @Route("/hello/{name}")
+     * @Route("/BandJoinRequest/{bandId}")
      * @Template()
      */
-    public function indexAction($name)
+    public function bandJoinRequestAction($bandId)
     {
-        return array('name' => $name);
+
     }
 }
