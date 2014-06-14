@@ -18,13 +18,7 @@ use ZE\BABundle\Form\BandType;
 class BandController extends Controller
 {
 
-    /**
-     * Lists all Band entities.
-     *
-     * @Route("/", name="band")
-     * @Method("GET")
-     * @Template()
-     */
+
     public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
@@ -42,13 +36,6 @@ class BandController extends Controller
         return $this->render('ZEBABundle:Band:index.html.twig' , array('pagination' => $pagination, 'entity_type' => 'band'));
     }
 
-    /**
-     * Creates a new Band entity.
-     *
-     * @Route("/", name="band_create")
-     * @Method("POST")
-     * @Template("ZEBABundle:Band:new.html.twig")
-     */
     public function createAction(Request $request)
     {
         $entity = new Band();
@@ -88,13 +75,7 @@ class BandController extends Controller
         return $form;
     }
 
-    /**
-     * Displays a form to create a new Band entity.
-     *
-     * @Route("/new", name="band_new")
-     * @Method("GET")
-     * @Template()
-     */
+
     public function newAction()
     {
         $entity = new Band();
@@ -106,38 +87,22 @@ class BandController extends Controller
         );
     }
 
-    /**
-     * Finds and displays a Band entity.
-     *
-     * @Route("/{slug}", name="band_show")
-     * @Method("GET")
-     * @Template()
-     */
-    public function showAction($slug)
+
+    public function showAction(Band $entity)
     {
-        $em = $this->getDoctrine()->getManager();
-
-        $entity = $em->getRepository('ZE\BABundle\Entity\Band')->findOneBySlug($slug);
-
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find Band entity.');
         }
 
-        $deleteForm = $this->createDeleteForm($entity->getId());
+        return $this->render('ZEBABundle:Band:show.html.twig', array(
+            'entity'      => $entity,
+        ));
 
         return array(
-            'entity'      => $entity,
-            'delete_form' => $deleteForm->createView(),
+            'entity'      => $entity
         );
     }
 
-    /**
-     * Displays a form to edit an existing Band entity.
-     *
-     * @Route("/{slug}/edit", name="band_edit")
-     * @Method("GET")
-     * @Template()
-     */
     public function editAction($id)
     {
         $em = $this->getDoctrine()->getManager();
@@ -151,11 +116,11 @@ class BandController extends Controller
         $editForm = $this->createEditForm($entity);
         $deleteForm = $this->createDeleteForm($id);
 
-        return array(
+        return $this->render('ZEBABundle:Band:edit.html.twig',array(
             'entity'      => $entity,
             'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
-        );
+        ));
     }
 
     /**
@@ -179,13 +144,7 @@ class BandController extends Controller
 
         return $form;
     }
-    /**
-     * Edits an existing Band entity.
-     *
-     * @Route("/{id}", name="band_update")
-     * @Method("PUT")
-     * @Template("ZEBABundle:Band:edit.html.twig")
-     */
+
     public function updateAction(Request $request, $id)
     {
         $em = $this->getDoctrine()->getManager();
@@ -212,12 +171,7 @@ class BandController extends Controller
             'delete_form' => $deleteForm->createView(),
         );
     }
-    /**
-     * Deletes a Band entity.
-     *
-     * @Route("/{id}", name="band_delete")
-     * @Method("DELETE")
-     */
+
     public function deleteAction(Request $request, $slug)
     {
         $form = $this->createDeleteForm($slug);

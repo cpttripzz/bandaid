@@ -1,0 +1,30 @@
+musician:
+    path:     /
+    defaults: { _controller: "ZEBABundle:Musician:index" }
+
+musician_show:
+    path:     /{slug}
+    defaults: { _controller: "ZEBABundle:Musician:show" }
+
+musician_new:
+    path:     /new
+    defaults: { _controller: "ZEBABundle:Musician:new" }
+
+musician_create:
+    path:     /create
+    defaults: { _controller: "ZEBABundle:Musician:create" }
+    requirements: { _method: post }
+
+musician_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "ZEBABundle:Musician:edit" }
+
+musician_update:
+    path:     /{id}/update
+    defaults: { _controller: "ZEBABundle:Musician:update" }
+    requirements: { _method: post|put }
+
+musician_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "ZEBABundle:Musician:delete" }
+    requirements: { _method: post|delete }

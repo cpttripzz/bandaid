@@ -8,49 +8,31 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\Security\Core\Exception\AccessDeniedException;
-use ZE\BABundle\Entity\Document;
 use ZE\BABundle\Entity\Musician;
 
 use ZE\BABundle\Form\MusicianType;
 
-/**
- * Musician controller.
- *
- * @Route("/musician")
- */
+
 class MusicianController extends Controller
 {
 
-    /**
-     * Lists all Musician entities.
-     *
-     * @Route("/", name="musician")
-     * @Method("GET")
-     * @Template()
-     */
     public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
 
-        $dql   = "SELECT m FROM ZEBABundle:Musician m";
+        $dql = "SELECT m FROM ZEBABundle:Musician m";
         $query = $em->createQuery($dql);
 
-        $paginator  = $this->get('knp_paginator');
+        $paginator = $this->get('knp_paginator');
 
         $pagination = $paginator->paginate(
             $query,
-            $this->get('request')->query->get('page', 1),16
+            $this->get('request')->query->get('page', 1), 16
         );
         $pagination->setTemplate('KnpPaginatorBundle:Pagination:twitter_bootstrap_v3_pagination.html.twig');
-        return $this->render('ZEBABundle:Musician:index.html.twig' , array('pagination' => $pagination, 'entity_type' => 'musician'));
+        return $this->render('ZEBABundle:Musician:index.html.twig', array('pagination' => $pagination, 'entity_type' => 'musician'));
     }
-    /**
-     * Creates a new Musician entity.
-     *
-     * @Route("/", name="musician_create")
-     * @Method("POST")
-     * @Template("ZEBABundle:Musician:new.html.twig")
-     */
+
     public function createAction(Request $request)
     {
         $entity = new Musician();
@@ -65,19 +47,12 @@ class MusicianController extends Controller
             return $this->redirect($this->generateUrl('musician_show', array('id' => $entity->getId())));
         }
 
-        return array(
+        return $this->render('ZEBABundle:Musician:new.html.twig', array(
             'entity' => $entity,
-            'form'   => $form->createView(),
-        );
+            'form' => $form->createView(),
+        ));
     }
 
-    /**
-     * Creates a form to create a Musician entity.
-     *
-     * @param Musician $entity The entity
-     *
-     * @return \Symfony\Component\Form\Form The form
-     */
     private function createCreateForm(Entity\Musician $entity)
     {
         $form = $this->createForm(new MusicianType(), $entity, array(
@@ -90,31 +65,17 @@ class MusicianController extends Controller
         return $form;
     }
 
-    /**
-     * Displays a form to create a new Musician entity.
-     *
-     * @Route("/new", name="musician_new")
-     * @Method("GET")
-     * @Template()
-     */
     public function newAction()
     {
         $entity = new Musician();
-        $form   = $this->createCreateForm($entity);
+        $form = $this->createCreateForm($entity);
 
         return array(
             'entity' => $entity,
-            'form'   => $form->createView(),
+            'form' => $form->createView(),
         );
     }
 
-    /**
-     * Finds and displays a Musician entity.
-     *
-     * @Route("/{slug}", name="musician_show")
-     * @Method("GET")
-     * @Template()
-     */
     public function showAction($slug)
     {
         $em = $this->getDoctrine()->getManager();
@@ -127,28 +88,21 @@ class MusicianController extends Controller
 
         $deleteForm = $this->createDeleteForm($entity->getId());
 
-        return array(
-            'entity'      => $entity,
+        return  $this->render('ZEBABundle:Musician:show.html.twig',array(
+            'entity' => $entity,
             'delete_form' => $deleteForm->createView(),
-        );
+        ));
     }
 
-    /**
-     * Displays a form to edit an existing Musician entity.
-     *
-     * @Route("/{id}/edit", name="musician_edit")
-     * @Method("GET")
-     * @Template()
-     */
     public function editAction($id, Request $request)
     {
         $em = $this->getDoctrine()->getManager();
 
         $entity = $em->getRepository('ZE\BABundle\Entity\Musician')->find($id);
 
-        if (false === $this->get('security.context')->isGranted('view', $entity)) {
+        /*if (false === $this->get('security.context')->isGranted('view', $entity)) {
             throw new AccessDeniedException('Unauthorised access!');
-        }
+        }*/
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find Musician entity.');
         }
@@ -156,20 +110,20 @@ class MusicianController extends Controller
         $editForm = $this->createEditForm($entity, $request);
         $deleteForm = $this->createDeleteForm($id);
 
-        return array(
-            'entity'      => $entity,
-            'edit_form'   => $editForm->createView(),
+        return $this->render('ZEBABundle:Musician:edit.html.twig', array(
+            'entity' => $entity,
+            'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
-        );
+        ));
     }
 
     /**
-    * Creates a form to edit a Musician entity.
-    *
-    * @param Musician $entity The entity
-    *
-    * @return \Symfony\Component\Form\Form The form
-    */
+     * Creates a form to edit a Musician entity.
+     *
+     * @param Musician $entity The entity
+     *
+     * @return \Symfony\Component\Form\Form The form
+     */
     private function createEditForm(Musician $entity)
     {
 
@@ -185,13 +139,7 @@ class MusicianController extends Controller
 
         return $form;
     }
-    /**
-     * Edits an existing Musician entity.
-     *
-     * @Route("/{id}", name="musician_update")
-     * @Method("PUT")
-     * @Template("ZEBABundle:Musician:edit.html.twig")
-     */
+
     public function updateAction(Request $request, $id)
     {
         $em = $this->getDoctrine()->getManager();
@@ -212,18 +160,13 @@ class MusicianController extends Controller
             return $this->redirect($this->generateUrl('musician_edit', array('id' => $id)));
         }
 
-        return array(
-            'entity'      => $entity,
-            'edit_form'   => $editForm->createView(),
+        return $this->render('ZEBABundle:Musician:edit.html.twig', array(
+            'entity' => $entity,
+            'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
-        );
+        ));
     }
-    /**
-     * Deletes a Musician entity.
-     *
-     * @Route("/{id}", name="musician_delete")
-     * @Method("DELETE")
-     */
+
     public function deleteAction(Request $request, $id)
     {
         $form = $this->createDeleteForm($id);
@@ -257,7 +200,6 @@ class MusicianController extends Controller
             ->setAction($this->generateUrl('musician_delete', array('id' => $id)))
             ->setMethod('DELETE')
             ->add('submit', 'submit', array('label' => 'Delete'))
-            ->getForm()
-        ;
+            ->getForm();
     }
 }

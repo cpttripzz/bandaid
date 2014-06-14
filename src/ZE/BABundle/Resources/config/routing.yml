@@ -4,3 +4,15 @@ home:
 musician:
     resource: "@ZEBABundle/Controller"
     type:     annotation
+ZEBABundle_document:
+  resource: "@ZEBABundle/Resources/config/routing/document.yml"
+  prefix:   /document
+ZEBABundle_band:
+  resource: "@ZEBABundle/Resources/config/routing/band.yml"
+  prefix:   /band
+ZEBABundle_musician:
+  resource: "@ZEBABundle/Resources/config/routing/musician.yml"
+  prefix:   /musician  
+ZEBABundle_api:
+  resource: "@ZEBABundle/Resources/config/routing/api.yml"
+  prefix:   /api

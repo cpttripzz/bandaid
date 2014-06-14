@@ -1,0 +1,4 @@
+api_joinBandRequestAction:
+    path:     /joinBandRequestAction/{bandId}
+    defaults: { _controller: "ZEBABundle:Api:joinBandRequest" }
+

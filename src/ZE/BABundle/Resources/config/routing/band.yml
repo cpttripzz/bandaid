@@ -1,0 +1,30 @@
+band:
+    path:     /
+    defaults: { _controller: "ZEBABundle:Band:index" }
+
+band_show:
+    path:     /{slug}
+    defaults: { _controller: "ZEBABundle:Band:show" }
+
+band_new:
+    path:     /new
+    defaults: { _controller: "ZEBABundle:Band:new" }
+
+band_create:
+    path:     /create
+    defaults: { _controller: "ZEBABundle:Band:create" }
+    requirements: { _method: post }
+
+band_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "ZEBABundle:Band:edit" }
+
+band_update:
+    path:     /{id}/update
+    defaults: { _controller: "ZEBABundle:Band:update" }
+    requirements: { _method: post|put }
+
+band_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "ZEBABundle:Band:delete" }
+    requirements: { _method: post|delete }
