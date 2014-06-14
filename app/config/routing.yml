@@ -52,8 +52,6 @@ geocode:
 homepage:
   pattern: /
 
-ZEBABundle_document:
-  resource: "@ZEBABundle/Resources/config/routing/document.yml"
-  prefix:   /document
+
 _liip_imagine:
     resource: "@LiipImagineBundle/Resources/config/routing.xml"

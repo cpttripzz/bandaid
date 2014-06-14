@@ -70,7 +70,8 @@
         "genemu/form-bundle": "2.2.*",
         "liip/search-bundle": "1.0.*@dev",
         "liip/imagine-bundle": "dev-master",
-        "tapmodo/Jcrop": "dev-master"
+        "tapmodo/Jcrop": "dev-master",
+        "oldsound/rabbitmq-bundle": "1.3.*"
         },
     "scripts": {
         "post-install-cmd": [

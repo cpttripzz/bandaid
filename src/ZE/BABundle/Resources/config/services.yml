@@ -29,3 +29,14 @@ services:
         class: ZE\BABundle\Twig\Extension\FileExistsExtension
         tags:
             - { name: twig.extension" }
+
+    zeba.listener.JoinBandRequestEvent:
+        class: ZE\BABundle\EventListener\JoinBandRequestEventListener
+        arguments:
+            ['@service_container']
+        tags:
+            - { name: kernel.event_listener, event: zeba.band.join_request, method: onJoinBandRequestEvent }
+    rabbitmq.callback.join_band_service:
+        class: ZE\BABundle\Consumer\JoinBandRequestConsumer
+        arguments:
+            ['@service_container']

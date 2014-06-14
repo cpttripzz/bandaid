@@ -1,26 +1,36 @@
 <div class="panel ">
-<div class="col-sm-4 col-md-4">
-    <div class="assoc-image">
-        <a href="{{ entity_show_path }}">
-            {% if assoc.documents[0] is defined %}
-                <img src="{{ assoc.documents[0].getWebPath  | imagine_filter('assoc') }}"
-                     alt="">
-            {% else %}
-                <img src="http://placehold.it/200x120" alt="Project Name">
-            {% endif %}
-        </a>
+    <div class="col-sm-4 col-md-4">
+        <div class="assoc-image">
+            <a href="{{ entity_show_path }}">
+                {% if assoc.documents[0] is defined %}
+                    <img src="{{ assoc.documents[0].getWebPath  | imagine_filter('assoc') }}"
+                         alt="">
+                {% else %}
+                    <img src="http://placehold.it/200x120" alt="Project Name">
+                {% endif %}
+            </a>
+        </div>
     </div>
-</div>
-<div class="col-sm-8 col-md-8 assoc-text">
-    <h3>{{ assoc.name }}</h3>
+    <div class="col-sm-8 col-md-8 assoc-text">
+        <h3>{{ assoc.name }}</h3>
 
-    <p>
-        {{ assoc.description }}
-    </p>
+        <p>
+            {{ assoc.description }}
+        </p>
 
-    <p>
-        {% include 'ZEBABundle::genres.html.twig' with {'entity': assoc  } %}
-        {% include 'ZEBABundle::locations.html.twig' with {'entity':assoc } %}
-    </p>
-</div>
+        <p>
+            {% include 'ZEBABundle::genres.html.twig' with {'entity': assoc  } %}
+            {% include 'ZEBABundle::locations.html.twig' with {'entity':assoc } %}
+            {% block assoc_actions %}
+            {% if type == 'band' and is_granted('ROLE_USER') %}
+        <br>
+        <div>
+            <button href="{{ path('api_joinBandRequestAction', {'bandId': assoc.id} ) }}" type="button"
+                    class="btn btn-primary">Request Audition
+            </button>
+        </div>
+        {% endif %}
+        {% endblock assoc_actions %}
+        </p>
+    </div>
 </div>
