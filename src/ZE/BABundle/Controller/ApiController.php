@@ -23,4 +23,11 @@ class ApiController extends Controller
             return new JsonResponse(array("Not Logged In"),401);
         }
     }
+
+    public function getAllImagesByAssociationIdAction($associationId)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $images = $em->getRepository('ZE\BABundle\Entity\Document')->getAllImagesByAssociationId($associationId);
+        return new JsonResponse($images);
+    }
 }

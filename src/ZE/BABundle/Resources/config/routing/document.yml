@@ -25,6 +25,6 @@ document_update:
     requirements: { _method: post|put }
 
 document_delete:
-    path:     /{id}/delete
+    path:     /{id}/{associationId}/delete
     defaults: { _controller: "ZEBABundle:Document:delete" }
-    requirements: { _method: post|delete }
+

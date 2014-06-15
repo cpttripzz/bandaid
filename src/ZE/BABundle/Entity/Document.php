@@ -12,9 +12,11 @@ use Imagine\Image\Point;
  * @ORM\Entity
  * @ORM\Table(name="document")
  * @ORM\HasLifecycleCallbacks
+ * @ORM\Entity(repositoryClass="ZE\BABundle\Entity\Repository\Document")
  */
 class Document
 {
+    const DOCUMENT_TYPE_IMAGE = 1;
     /**
      * @ORM\Id
      * @ORM\Column(type="integer")
@@ -33,7 +35,7 @@ class Document
      */
     protected $path;
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\Column(name="crop_params", type="string", length=255, nullable=true)
      */
     protected $cropParams;
 
@@ -41,6 +43,11 @@ class Document
      * @ORM\Column(type="integer", nullable=true)
      */
     protected $type;
+
+    /**
+     * @ORM\Column(name="is_default", type="boolean", nullable=true)
+     */
+    protected $isDefault;
 
     public function getAbsolutePath()
     {
@@ -228,7 +235,7 @@ class Document
 
     public function __toString()
     {
-        return $this->name;
+        return $this->getWebPath();
     }
     /**
      * @ORM\ManyToOne(targetEntity="Association", inversedBy="documents")
@@ -262,12 +269,63 @@ class Document
     }
 
     /**
-     * Get cropParams
-     *
      * @return string
      */
     public function getCropParams()
     {
         return $this->cropParams;
+    }
+
+
+
+    /**
+     * Set type
+     *
+     * @param integer $type
+     *
+     * @return Document
+     */
+    public function setType($type)
+    {
+        $this->type = $type;
+
+        return $this;
+    }
+
+    /**
+     * Get type
+     *
+     * @return integer
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
+
+    /**
+     * Set isDefault
+     *
+     * @param boolean $isDefault
+     *
+     * @return Document
+     */
+    public function setIsDefault($isDefault)
+    {
+        foreach($this->getAssociation()->getDocuments as $doc){
+            $doc->setIsDefault(false);
+        }
+        $this->isDefault = $isDefault;
+
+        return $this;
+    }
+
+    /**
+     * Get isDefault
+     *
+     * @return boolean
+     */
+    public function getIsDefault()
+    {
+        return $this->isDefault;
     }
 }

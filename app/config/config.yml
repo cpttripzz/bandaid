@@ -330,3 +330,6 @@ old_sound_rabbit_mq:
             exchange_options: {name: 'join_band', type: direct}
             queue_options:    {name: 'join_band'}
             callback:         rabbitmq.callback.join_band_service
+
+fos_js_routing:
+    routes_to_expose: [ document_delete ]

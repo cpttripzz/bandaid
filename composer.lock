@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "59956ca9aef7300fd84e93f10532daef",
+    "hash": "d0516cbc829d018c62a38a9fd698368a",
     "packages": [
         {
             "name": "components/jquery",
@@ -1288,6 +1288,63 @@
             "time": "2014-05-28 20:10:05"
         },
         {
+            "name": "friendsofsymfony/jsrouting-bundle",
+            "version": "dev-master",
+            "target-dir": "FOS/JsRoutingBundle",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/FriendsOfSymfony/FOSJsRoutingBundle.git",
+                "reference": "9b956552a55e180a83824a59cc3aff6dde32b656"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSJsRoutingBundle/zipball/9b956552a55e180a83824a59cc3aff6dde32b656",
+                "reference": "9b956552a55e180a83824a59cc3aff6dde32b656",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.2",
+                "symfony/console": "~2.3",
+                "symfony/framework-bundle": "~2.3",
+                "symfony/serializer": "~2.0",
+                "willdurand/jsonp-callback-validator": "~1.0"
+            },
+            "type": "symfony-bundle",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "FOS\\JsRoutingBundle": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "William Durand",
+                    "email": "william.durand1@gmail.com",
+                    "homepage": "http://www.willdurand.fr"
+                },
+                {
+                    "name": "FriendsOfSymfony Community",
+                    "homepage": "https://github.com/friendsofsymfony/FOSJsRoutingBundle/contributors"
+                }
+            ],
+            "description": "A pretty nice way to expose your Symfony2 routing to client applications.",
+            "homepage": "http://friendsofsymfony.github.com",
+            "keywords": [
+                "Js Routing",
+                "javascript",
+                "routing"
+            ],
+            "time": "2014-05-12 16:12:44"
+        },
+        {
             "name": "friendsofsymfony/rest-bundle",
             "version": "dev-master",
             "target-dir": "FOS/RestBundle",
@@ -2150,6 +2207,25 @@
                 "sql"
             ],
             "time": "2014-04-17 01:55:36"
+        },
+        {
+            "name": "jeremymlane/bootbox",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jeremymlane/bootbox.git",
+                "reference": "9f989670d65493d301df25ae6ba5882f7598cddb"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jeremymlane/bootbox/zipball/9f989670d65493d301df25ae6ba5882f7598cddb",
+                "reference": "9f989670d65493d301df25ae6ba5882f7598cddb",
+                "shasum": ""
+            },
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "description": "Bootbox Bootstrap Alerts",
+            "time": "2013-11-19 00:48:53"
         },
         {
             "name": "jms/metadata",
@@ -5988,7 +6064,9 @@
         "hautelook/alice-bundle": 20,
         "liip/search-bundle": 20,
         "liip/imagine-bundle": 20,
-        "tapmodo/jcrop": 20
+        "tapmodo/jcrop": 20,
+        "jeremymlane/bootbox": 20,
+        "friendsofsymfony/jsrouting-bundle": 20
     },
     "platform": {
         "php": ">=5.3.3"

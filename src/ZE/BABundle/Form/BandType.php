@@ -18,7 +18,6 @@ class BandType extends AbstractType
             ->add('name')
             ->add('description')
             ->add('genres')
-            ->add('user')
         ;
     }
     

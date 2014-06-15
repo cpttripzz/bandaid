@@ -2,9 +2,11 @@
 
 namespace ZE\BABundle\Controller;
 
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
+use ZE\BABundle\Entity\Association;
 use ZE\BABundle\Entity\Document;
 use ZE\BABundle\Form\DocumentType;
 
@@ -29,6 +31,7 @@ class DocumentController extends Controller
             'entities' => $entities,
         ));
     }
+
     /**
      * Creates a new Document entity.
      *
@@ -49,7 +52,7 @@ class DocumentController extends Controller
 
         return $this->render('ZEBABundle:Document:new.html.twig', array(
             'entity' => $entity,
-            'form'   => $form->createView(),
+            'form' => $form->createView(),
         ));
     }
 
@@ -79,11 +82,11 @@ class DocumentController extends Controller
     public function newAction()
     {
         $entity = new Document();
-        $form   = $this->createCreateForm($entity);
+        $form = $this->createCreateForm($entity);
 
         return $this->render('ZEBABundle:Document:new.html.twig', array(
             'entity' => $entity,
-            'form'   => $form->createView(),
+            'form' => $form->createView(),
         ));
     }
 
@@ -104,7 +107,7 @@ class DocumentController extends Controller
         $deleteForm = $this->createDeleteForm($id);
 
         return $this->render('ZEBABundle:Document:show.html.twig', array(
-            'entity'      => $entity,
+            'entity' => $entity,
             'delete_form' => $deleteForm->createView(),
         ));
     }
@@ -127,19 +130,19 @@ class DocumentController extends Controller
         $deleteForm = $this->createDeleteForm($id);
 
         return $this->render('ZEBABundle:Document:edit.html.twig', array(
-            'entity'      => $entity,
-            'edit_form'   => $editForm->createView(),
+            'entity' => $entity,
+            'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
         ));
     }
 
     /**
-    * Creates a form to edit a Document entity.
-    *
-    * @param Document $entity The entity
-    *
-    * @return \Symfony\Component\Form\Form The form
-    */
+     * Creates a form to edit a Document entity.
+     *
+     * @param Document $entity The entity
+     *
+     * @return \Symfony\Component\Form\Form The form
+     */
     private function createEditForm(Document $entity)
     {
         $form = $this->createForm(new DocumentType(), $entity, array(
@@ -151,6 +154,7 @@ class DocumentController extends Controller
 
         return $form;
     }
+
     /**
      * Edits an existing Document entity.
      *
@@ -176,33 +180,39 @@ class DocumentController extends Controller
         }
 
         return $this->render('ZEBABundle:Document:edit.html.twig', array(
-            'entity'      => $entity,
-            'edit_form'   => $editForm->createView(),
+            'entity' => $entity,
+            'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
         ));
     }
+
     /**
      * Deletes a Document entity.
      *
      */
-    public function deleteAction(Request $request, $id)
+    public function deleteAction(Request $request, $id, $associationId)
     {
-        $form = $this->createDeleteForm($id);
+        $form = $this->createDeleteForm($id, $associationId);
         $form->handleRequest($request);
+        $em = $this->getDoctrine()->getManager();
+        $association = $em->getRepository('ZE\BABundle\Entity\Association')->find($associationId);
 
-        if ($form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $entity = $em->getRepository('ZEBABundle:Document')->find($id);
 
-            if (!$entity) {
-                throw $this->createNotFoundException('Unable to find Document entity.');
-            }
-
-            $em->remove($entity);
-            $em->flush();
+        if (false === $this->get('security.context')->isGranted('edit', $association)) {
+            return new JsonResponse('not authorized', 403);
         }
 
-        return $this->redirect($this->generateUrl('document'));
+        foreach ($association->getDocuments() as $document) {
+            if ($document->getId() == $id) {
+                $em->remove($document);
+                $em->flush();
+                return new JsonResponse('Successfully Removed');
+            }
+        }
+
+        return new JsonResponse('Unable to find Document entity.', 500);
+
+
     }
 
     /**
@@ -212,13 +222,12 @@ class DocumentController extends Controller
      *
      * @return \Symfony\Component\Form\Form The form
      */
-    private function createDeleteForm($id)
+    private function createDeleteForm($id, $associationId)
     {
         return $this->createFormBuilder()
-            ->setAction($this->generateUrl('document_delete', array('id' => $id)))
+            ->setAction($this->generateUrl('document_delete', array('id' => $id, 'associationId' => $associationId)))
             ->setMethod('DELETE')
             ->add('submit', 'submit', array('label' => 'Delete'))
-            ->getForm()
-        ;
+            ->getForm();
     }
 }

@@ -8,6 +8,7 @@
 
 namespace ZE\BABundle\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Criteria;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Gedmo\Timestampable\Traits\TimestampableEntity;
@@ -284,5 +285,13 @@ class Association
         $this->slug = $slug;
 
         return $this;
+    }
+
+    public function getDocumentsByTypeId($typeId)
+    {
+        $criteria = Criteria::create();
+        $criteria->where(Criteria::expr()->eq('type', $typeId));
+
+        return $this->documents->matching($criteria);
     }
 }

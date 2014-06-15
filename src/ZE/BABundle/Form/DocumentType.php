@@ -8,19 +8,17 @@ use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 class DocumentType extends AbstractType
 {
-        /**
+    /**
      * @param FormBuilderInterface $builder
      * @param array $options
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('file',  'file')
-            ->add('cropParams', 'hidden')
-            ->add('association')
-        ;
+            ->add('cropParams', 'hidden');
+
     }
-    
+
     /**
      * @param OptionsResolverInterface $resolver
      */
@@ -38,4 +36,6 @@ class DocumentType extends AbstractType
     {
         return 'ze_babundle_document';
     }
+
+
 }

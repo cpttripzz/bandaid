@@ -19,9 +19,8 @@ class MusicianType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('id')
             ->add('name')
-            ->add('description', 'hidden')
+            ->add('description')
             ->add('instruments', 'genemu_jqueryselect2_entity', array(
                 'multiple' => true,
                 'class' => 'ZE\BABundle\Entity\Instrument',
@@ -32,7 +31,8 @@ class MusicianType extends AbstractType
                 'class' => 'ZE\BABundle\Entity\Genre',
                 'property' => 'name',
             ))
-            ->add('user');
+
+        ;
     }
 
     public function buildView(FormView $view, FormInterface $form, array $options)

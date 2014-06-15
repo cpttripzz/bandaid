@@ -10,25 +10,58 @@
     {{ form_javascript(edit_form) }}
 {% endblock %}
 {% block container %}
-    <h1>Musician edit</h1>
-    {#{{ dump(edit_form.vars.value.documents) }}#}
     {{ form(edit_form) }}
-    <div class="row" style="text-align: center">
-        {% for document in edit_form.vars.value.documents%}
-        <div class="col-lg-2 col-sm-3 col-xs-4">
-            <a href="#">
-                <img src="/{{  document.getWebPath() }}" class="thumbnail img-responsive">
-            </a>
-        </div>
+    <div class="row">
+        {% for document in edit_form.vars.value.documents %}
+            {% set document_id = document.id %}
+            <div class="col-lg-2 col-sm-3 col-xs-4">
+                <a href="#">
+                    <img src="/{{ document.getWebPath() }}" class="thumbnail img-responsive">
+                </a>
+
+                <div id="delete-document-{{ document_id }}"
+                     data-document-id="{{ document_id }}"
+                     data-assoc-id="{{ edit_form.vars.value.id }}"
+                     class="delete-document fa fa-2x fa-times-circle"></div>
+                <div class="default-document fa fa-2x fa-check-circle"></div>
+            </div>
+            <div><button class="btn btn-primary"></button></div>
         {% endfor %}
     </div>
-    <li>
-        <a href="{{ path('musician') }}">
-            Back to the list
-        </a>
-    </li>
-    <li>{{ form(delete_form) }}</li>
-</ul>
+    </ul>
 
+    <div id="dialog-confirm" title="Delete Image?" style="visibility: hidden">
+        <p><span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 20px 0;"></span>
+        </p>
+    </div>
+    <script type="application/javascript">
+        $("div[id^='delete-document-']").on('click', function () {
+            var documentId = $(this).attr('data-document-id');
+            var assocId = $(this).attr('data-assoc-id');
+            var theDiv = $(this);
+            var url = Routing.generate('document_delete', {'id': documentId, 'association_id': assocId});
+            console.log(url);
+            $("#dialog-confirm").dialog({
+                resizable: false,
+                height: 140,
+                modal: true,
+                buttons: {
+                    "Delete item": function () {
+                        $.post(url, function () {
+                            bootbox.alert('Document successfully deleted');
+                            theDiv.remove();
+                        }).fail(function () {
+                            bootbox.alert("error");
+                        })
+                        ;
+                    },
+                    Cancel: function () {
+                        $(this).dialog("close");
+                    }
+                }
+            });
+        });
+
+    </script>
 
 {% endblock %}

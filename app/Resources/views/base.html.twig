@@ -1,9 +1,8 @@
-<!DOCTYPE html>
-<html>
+{% extends '@MopaBootstrap/base.html.twig' %}
+
 {% block head %}
-    <head>
-        <meta charset="UTF-8"/>
         {% block stylesheets %}
+            {{ parent() }}
             {% stylesheets filter="cssembed,cssrewrite,yui_css"
             '%kernel.root_dir%/../vendor/sonata-project/core-bundle/Resources/public/select2/select2.css'
             '@bootstrap_less'
@@ -16,28 +15,32 @@
 
 
         {% endblock %}
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 
         {% block head_script %}
             {% block javascripts %}
+                {{ parent() }}
                 {% javascripts
 
                 '@jquery_js' '@bootstrap_js'
                 '%kernel.root_dir%/../vendor/sonata-project/core-bundle/Resources/public/select2/select2.min.js'
                 '@jquery_ui_js'
                 '%kernel.root_dir%/../vendor/tapmodo/Jcrop/js/jquery.Jcrop.min.js'
+                '%kernel.root_dir%/../vendor/jeremymlane/bootbox/bootbox.js'
                 %}
                 <script src="{{ asset_url }}"></script>
 
                 {% endjavascripts %}
             {% endblock %}
+            <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
+            <script src="{{ path('fos_js_routing_js', {"callback": "fos.Router.setData"}) }}"></script>
         {% endblock head_script %}
 
-        <title>{% block title %}Mopa Bootstrap Bundle{% endblock title %}</title>
-        <link rel="shortcut icon" href="{{ asset('favicon.ico') }}"/>
-        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
 
-    </head>
+
+{% block head_bottom %}
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+{% endblock head_bottom %}
 {% endblock head %}
 
 
@@ -61,4 +64,3 @@
         {% endblock pre_container %}
     </body>
 {% endblock body %}
-</html>

@@ -38,6 +38,7 @@ class AppKernel extends Kernel
             new Genemu\Bundle\FormBundle\GenemuFormBundle(),
             new Liip\ImagineBundle\LiipImagineBundle(),
             new OldSound\RabbitMqBundle\OldSoundRabbitMqBundle(),
+            new FOS\JsRoutingBundle\FOSJsRoutingBundle(),
             new ZE\BABundle\ZEBABundle(),
         );
 

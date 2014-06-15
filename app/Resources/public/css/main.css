@@ -242,3 +242,31 @@
 .assoc-text {
     padding-left: 40px;
 }
+
+div.delete-document{
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    border: 1px solid #B3B3B3;
+    background: rgba(238, 238, 238, 0.6);
+    -webkit-box-shadow: #B3B3B3 5px 5px 5px;
+    -moz-box-shadow: #B3B3B3 5px 5px 5px;
+    box-shadow: #B3B3B3 5px 5px 5px;
+    position: absolute;
+    top: 0px;
+    right: 15px;
+}
+
+div.default-document{
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    border: 1px solid #B3B3B3;
+    background: rgba(238, 238, 238, 0.6);
+    -webkit-box-shadow: #B3B3B3 5px 5px 5px;
+    -moz-box-shadow: #B3B3B3 5px 5px 5px;
+    box-shadow: #B3B3B3 5px 5px 5px;
+    position: absolute;
+    top: 0px;
+    left: 15px;
+}
