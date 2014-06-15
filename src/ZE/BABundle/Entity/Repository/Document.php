@@ -17,8 +17,16 @@ class Document extends EntityRepository
             ->andWhere('d.type = :documentType')
             ->setParameter('associationId', $associationId)
             ->setParameter('documentType', Entity\Document::DOCUMENT_TYPE_IMAGE);
-
-        return $qb->getQuery()->getArrayResult();
+        $arrResult = array();
+        foreach($qb->getQuery()->getResult() as $document){
+            $arrResult[] = array(
+                'id' => $document->getId(),
+                'name' => $document->getName(),
+                'webpath' => $document->getWebPath(),
+                'association_id' => $document->getAssociation()->getId()
+            );
+        }
+        return $arrResult;
     }
 
 }
