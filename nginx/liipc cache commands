@@ -1,0 +1,9 @@
+app/console liip:imagine:cache:resolve uploads/documents/007a627347ac8f8ee171db110bda5d2bc2b7b298.jpeg
+app/console liip:imagine:cache:resolve img/genres/blues.jpg
+app/console liip:imagine:cache:resolve img/flags/il.png
+app/console liip:imagine:cache:resolve img/instruments/piano.png
+
+chmod -R 777 web/img/*
+chmod -R 777 web/media/cache/*
+sudo chmod -R 777 web/media/cache/*
+history | cut -c 8-

@@ -285,6 +285,7 @@ stof_doctrine_extensions:
     orm:
         default:
             sluggable: true
+            timestampable: true
 jcroll_foursquare_api:
     client_id:  NOP0Q1ZIA1E11J5EDO54GYTKNJUHTXB4DLUCFXTDKOOYGMSW
     client_secret:    SIYPSKTPUEEAUSVRZKFFN21F5O0EPQ4OU3STX5AFVGD52VI5
