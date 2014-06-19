@@ -1,6 +1,7 @@
 <?php
 // src/Application/Sonata/UserBundle/DataFixtures/ORM/010-LoadUserData.php
 namespace Application\Sonata\UserBundle\DataFixtures\ORM;
+
 use Symfony\Component\HttpFoundation\File;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\DataFixtures\FixtureInterface;
@@ -35,6 +36,8 @@ class AssignBandsMusicians extends AbstractFixture
      */
     private $container;
 
+    private $manager;
+
     /**
      * {@inheritDoc}
      */
@@ -45,33 +48,57 @@ class AssignBandsMusicians extends AbstractFixture
 
     public function load(ObjectManager $manager)
     {
-        $this->manager = $manager;
-
-
+        if (true) {
+            $this->manager = $manager;
 
 
             try {
                 $bands = $this->manager->getRepository('ZE\BABundle\Entity\Band')->findAll();
                 $musicians = $this->manager->getRepository('ZE\BABundle\Entity\Musician')->findAll();
-                $band = $bands[0];
-                $bandMusician = new BandMusician();
-                $bandMusician->setBand($band);
-                $bandMusician->setMusician($musicians[0]);
-                $bandMusician->setStatus(0);
-                $this->manager->persist($bandMusician);
-                $bandMusician = new BandMusician();
-                $bandMusician->setMusician($musicians[1]);
-                $bandMusician->setBand($band);
-                $bandMusician->setStatus(1);
-                $this->manager->persist($bandMusician);
+                foreach($bands as $band){
+                    $musArr = array();
+
+                    for ($i = 0; $i < rand(1, 5); $i++) {
+                        $randomMusician = $musicians[rand(0,count($musicians) -1)];
+                        if(! in_array($randomMusician->getId(),$musArr  )){
+                            $musArr[] =  $randomMusician->getId();
+                            $bandMusician = new BandMusician();
+                            $bandMusician->setBand($band);
+                            $bandMusician->setMusician($randomMusician);
+                            $this->manager->persist($bandMusician);
+                            $bandMusician->setStatus(0);
+
+                        }
+
+                    }
+
+
+                }
                 $this->manager->flush();
+
 
             } catch (\Exception $e) {
                 echo($e->getMessage());
                 $this->manager = $this->container->get('doctrine')->resetManager();
             }
 
-
+        }
+    }
+    /**
+     * @param $assoc
+     */
+    public function createRandomImage($imagePath= 'people')
+    {
+        $document = new Document();
+        $file = file_get_contents('http://lorempixel.com/300/150/' . $imagePath);
+        $pwd = getcwd();
+        $filename = sha1(uniqid(mt_rand(), true));
+        $document->setName($filename);
+        $document->setPath($filename . '.jpeg');
+        $filename = $pwd . '/web/uploads/documents/' . $filename . '.jpeg';
+        file_put_contents($filename, $file);
+        $this->manager->persist($document);
+        return $document;
     }
 
     /**
@@ -81,7 +108,6 @@ class AssignBandsMusicians extends AbstractFixture
     {
         return 2; // the order in which fixtures will be loaded
     }
-
 
 
 }

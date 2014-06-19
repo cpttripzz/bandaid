@@ -237,6 +237,8 @@ class LoadUserData extends AbstractFixture
                 $arrInstruments[] = $instrument->getName();
             }
         }
+        $document = $this->createRandomImage();
+        $document->setAssociation($assoc);
         $this->manager->persist($assoc);
         return $assoc;
     }
@@ -258,7 +260,7 @@ class LoadUserData extends AbstractFixture
      */
     public function load(ObjectManager $manager)
     {
-        if (false) {
+        if (true) {
             $this->manager = $manager;
 
             $countries = $this->manager->getRepository('ZE\BABundle\Entity\Country')->findAll();
@@ -283,7 +285,6 @@ class LoadUserData extends AbstractFixture
                 $this->loadGenres();
                 $this->genres = $this->manager->getRepository('ZE\BABundle\Entity\Genre')->findAll();
             }
-            $associations = $this->manager->getRepository('ZE\BABundle\Entity\Association')->findAll();
 
             $userManager = $this->container->get('fos_user.user_manager');
             $groupManager = $this->container->get('fos_user.group_manager');
@@ -294,7 +295,7 @@ class LoadUserData extends AbstractFixture
             }
             $this->faker = Faker\Factory::create();
 
-            for ($x = 0; $x < 10; $x++) {
+            for ($x = 0; $x < 50; $x++) {
                 try {
                     $user = $userManager->createUser();
                     $user->setUsername($this->faker->userName);
@@ -306,7 +307,7 @@ class LoadUserData extends AbstractFixture
                     $user->setLastname($this->faker->lastName);
                     $gender = (rand(0, 1) == 1 ? 'm' : 'f');
                     $user->setGender($gender);
-                    $user->setPhone($this->faker->phoneNumber);
+                    $user->setPhone('111-111-1111');
                     $user->addGroup($userGroup);
                     $user->setEnabled(true);
                     $user ->setRoles(array('ROLE_USER'));
@@ -355,7 +356,7 @@ class LoadUserData extends AbstractFixture
     public function createRandomImage($imagePath= 'people')
     {
         $document = new Document();
-        $file = file_get_contents('http://lorempixel.com/100/75/' . $imagePath);
+        $file = file_get_contents('http://lorempixel.com/300/225/' . $imagePath);
         $pwd = getcwd();
         $filename = sha1(uniqid(mt_rand(), true));
         $document->setName($filename);
