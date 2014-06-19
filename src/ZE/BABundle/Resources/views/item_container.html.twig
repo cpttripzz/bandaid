@@ -31,7 +31,7 @@
                             <li class="read-more"><a href="{{ entity_show_path }}" class="btn">Read more</a></li>
                         </ul>
                     </div>
-                    {% if entity_type == 'band' and is_granted('ROLE_USER') %}
+                    {% if entity_type == 'band' and is_granted('ROLE_USER') and not app.user.id == entity.user.id%}
                         <br>
                         <div>
                             <button href="{{ path('api_joinBandRequestAction', {'bandId': entity.id} ) }}" type="button"

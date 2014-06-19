@@ -77,6 +77,9 @@
         {% if item.attribute('icon') is not empty  %}
             <i class="{{ item.attribute('icon') }}"></i>
         {% endif %}
+        {% if item.attribute('badge') is not empty  %}
+            <span class="badge">{{ item.attribute('badge') }}</span>
+        {% endif %}
         {{ block('label') }}
     </a>
 {% endblock %}
