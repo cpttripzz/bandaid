@@ -16,10 +16,10 @@
             <p>{% include 'ZEBABundle::genres.html.twig' %}</p>
             <p>{% include 'ZEBABundle::instruments.html.twig' %}</p>
             <p>Description: {{ entity.description }}</p>
-            {% if entity.bands is defined %}
+            {% if entity.bands is defined and entity.bands|length > 0%}
                 {% include 'ZEBABundle::bands_associated.html.twig' with {'assocs': entity.bands, 'type' : 'band'} %}
             {% endif %}
-            {% if entity.musicians is defined %}
+            {% if entity.musicians is defined and entity.musicians|length > 0%}
                 {% include 'ZEBABundle::musicians_associated.html.twig' with {'assocs': entity.musicians, 'type' : 'musician'} %}
             {% endif %}
 

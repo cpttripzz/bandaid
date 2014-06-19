@@ -21,6 +21,7 @@ class BandController extends Controller
 
     public function indexAction()
     {
+
         $em = $this->getDoctrine()->getManager();
 
         $dql   = "SELECT b FROM ZEBABundle:Band b";
@@ -81,10 +82,10 @@ class BandController extends Controller
         $entity = new Band();
         $form   = $this->createCreateForm($entity);
 
-        return array(
+        return $this->render('ZEBABundle:Band:new.html.twig',array(
             'entity' => $entity,
             'form'   => $form->createView(),
-        );
+        ));
     }
 
 

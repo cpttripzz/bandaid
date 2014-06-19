@@ -3,7 +3,7 @@ band:
     defaults: { _controller: "ZEBABundle:Band:index" }
 
 band_show:
-    path:     /{slug}
+    path:     /{slug}/show
     defaults: { _controller: "ZEBABundle:Band:show" }
 
 band_new:

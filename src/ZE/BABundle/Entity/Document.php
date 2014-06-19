@@ -17,6 +17,7 @@ use Imagine\Image\Point;
 class Document
 {
     const DOCUMENT_TYPE_IMAGE = 1;
+    const UPLOAD_DIR = 'img/users';
     /**
      * @ORM\Id
      * @ORM\Column(type="integer")
@@ -60,21 +61,17 @@ class Document
     {
         return null === $this->path
             ? null
-            : $this->getUploadDir().'/'.$this->path;
+            : self::UPLOAD_DIR.'/'.$this->path;
     }
 
-    protected function getUploadRootDir()
+    public static function getUploadRootDir()
     {
         // the absolute directory path where uploaded
         // documents should be saved
-        return __DIR__.'/../../../../web/'.$this->getUploadDir();
+        return __DIR__.'/../../../../web/'.self::UPLOAD_DIR;
     }
 
-    protected function getUploadDir()
-    {
 
-        return 'uploads/documents';
-    }
 
     /**
      * @Assert\File(maxSize="6000000")
@@ -135,7 +132,7 @@ class Document
             return;
         }
         if(!empty($this->cropParams)) {
-            $path = $this->getUploadRootDir() . '/' .$this->path;
+            $path = self::getUploadRootDir() . '/' .$this->path;
             $arrCropParams = json_decode($this->cropParams,true);
             $imagine = new  Imagine();
             $image = $imagine->open($this->getFile());
@@ -147,7 +144,7 @@ class Document
             // if there is an error when moving the file, an exception will
             // be automatically thrown by move(). This will properly prevent
             // the entity from being persisted to the database on error
-            $this->getFile()->move($this->getUploadRootDir(), $this->path);
+            $this->getFile()->move(self::getUploadRootDir(), $this->path);
         }
 
         $this->file = null;
@@ -180,7 +177,7 @@ class Document
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -203,7 +200,7 @@ class Document
     /**
      * Get name
      *
-     * @return string 
+     * @return string
      */
     public function getName()
     {
@@ -226,7 +223,7 @@ class Document
     /**
      * Get path
      *
-     * @return string 
+     * @return string
      */
     public function getPath()
     {

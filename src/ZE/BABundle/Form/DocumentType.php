@@ -15,8 +15,10 @@ class DocumentType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('cropParams', 'hidden');
-
+            ->add('file',  'file')
+            ->add('cropParams', 'hidden')
+            ->add('association')
+        ;
     }
 
     /**
@@ -36,6 +38,4 @@ class DocumentType extends AbstractType
     {
         return 'ze_babundle_document';
     }
-
-
 }

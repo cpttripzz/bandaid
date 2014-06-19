@@ -7,3 +7,5 @@ chmod -R 777 web/img/*
 chmod -R 777 web/media/cache/*
 sudo chmod -R 777 web/media/cache/*
 history | cut -c 8-
+
+app/console fos:user:create admin admin@admin.com 123456 --super-admin

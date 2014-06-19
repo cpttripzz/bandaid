@@ -104,7 +104,7 @@ class DocumentController extends Controller
             throw $this->createNotFoundException('Unable to find Document entity.');
         }
 
-        $deleteForm = $this->createDeleteForm($id);
+        $deleteForm = $this->createDeleteForm($id, $entity->getAssociation()->getId());
 
         return $this->render('ZEBABundle:Document:show.html.twig', array(
             'entity' => $entity,

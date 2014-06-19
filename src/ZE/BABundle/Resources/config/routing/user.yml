@@ -1,0 +1,30 @@
+user:
+    path:     /
+    defaults: { _controller: "ZEBABundle:User:index" }
+
+user_show:
+    path:     /{slug}/show
+    defaults: { _controller: "ZEBABundle:User:show" }
+
+user_new:
+    path:     /new
+    defaults: { _controller: "ZEBABundle:User:new" }
+
+user_create:
+    path:     /create
+    defaults: { _controller: "ZEBABundle:User:create" }
+    requirements: { _method: post }
+
+user_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "ZEBABundle:User:edit" }
+
+user_update:
+    path:     /{id}/update
+    defaults: { _controller: "ZEBABundle:User:update" }
+    requirements: { _method: post|put }
+
+user_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "ZEBABundle:User:delete" }
+    requirements: { _method: post|delete }

@@ -15,6 +15,7 @@ use Application\Sonata\UserBundle\Entity\User;
 use Faker;
 use ZE\BABundle\Entity\Address;
 use ZE\BABundle\Entity\Band;
+use ZE\BABundle\Entity\BandMusician;
 use ZE\BABundle\Entity\City;
 use ZE\BABundle\Entity\Country;
 use ZE\BABundle\Entity\Document;
@@ -117,6 +118,7 @@ class LoadUserData extends AbstractFixture
                 if (empty($item['venue']['location']['address'])) {
                     continue;
                 }
+
                 $stamItem = $this->manager->getRepository('ZE\BABundle\Entity\Item')->findOneByFsId($item['venue']['id']);
                 if ($stamItem) {
                     continue;
@@ -260,7 +262,7 @@ class LoadUserData extends AbstractFixture
      */
     public function load(ObjectManager $manager)
     {
-        if (true) {
+        if (false) {
             $this->manager = $manager;
 
             $countries = $this->manager->getRepository('ZE\BABundle\Entity\Country')->findAll();
@@ -295,7 +297,7 @@ class LoadUserData extends AbstractFixture
             }
             $this->faker = Faker\Factory::create();
 
-            for ($x = 0; $x < 50; $x++) {
+            for ($x = 0; $x < 5; $x++) {
                 try {
                     $user = $userManager->createUser();
                     $user->setUsername($this->faker->userName);
@@ -318,6 +320,15 @@ class LoadUserData extends AbstractFixture
                             $band = $this->createRandomBand();
                             $user->addBand($band);
                             $band->setUser($user);
+                            $musician = $this->createRandomMusician();
+                            $user->addMusician($musician);
+                            $musician->setUser($user);
+                            $this->manager->flush();
+                            $bandMusician = new BandMusician();
+                            $bandMusician->setBand($band);
+                            $bandMusician->setMusician($musician);
+                            $this->manager->persist($bandMusician);
+                            $bandMusician->setStatus(1);
                         }
                     }
 
@@ -361,9 +372,12 @@ class LoadUserData extends AbstractFixture
         $filename = sha1(uniqid(mt_rand(), true));
         $document->setName($filename);
         $document->setPath($filename . '.jpeg');
-        $filename = $pwd . '/web/uploads/documents/' . $filename . '.jpeg';
+        $filename = $pwd . '/web/img/users/' . $filename . '.jpeg';
         file_put_contents($filename, $file);
         $this->manager->persist($document);
+
+
+
         return $document;
     }
 

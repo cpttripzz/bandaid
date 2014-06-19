@@ -16,19 +16,18 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class BandMusician
 {
-    /**
-     * @var integer $id
-     *
-     * @ORM\Id
-     * @ORM\Column(type="integer")
-     * @ORM\GeneratedValue(strategy="AUTO")
-     */
-    protected $id;
 
-    /** @ORM\ManyToOne(targetEntity="Musician",inversedBy="bands") */
+
+    /**
+     * @ORM\Id
+     * @ORM\ManyToOne(targetEntity="Musician",inversedBy="bands")
+     */
     protected $musician;
 
-    /** @ORM\ManyToOne(targetEntity="Band",inversedBy="musicians") */
+    /**
+     * @ORM\Id
+     * @ORM\ManyToOne(targetEntity="Band",inversedBy="musicians")
+     */
     protected $band;
 
     /**
@@ -40,21 +39,9 @@ class BandMusician
      */
     public function __construct()
     {
-        $this->band = new \Doctrine\Common\Collections\ArrayCollection();
+
     }
 
-
-
-
-    /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
 
     /**
      * Set status

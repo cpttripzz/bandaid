@@ -53,7 +53,7 @@ class MusicianController extends Controller
         ));
     }
 
-    private function createCreateForm(Entity\Musician $entity)
+    private function createCreateForm(Musician $entity)
     {
         $form = $this->createForm(new MusicianType(), $entity, array(
             'action' => $this->generateUrl('musician_create'),
@@ -70,10 +70,10 @@ class MusicianController extends Controller
         $entity = new Musician();
         $form = $this->createCreateForm($entity);
 
-        return array(
+        return $this->render('ZEBABundle:Musician:new.html.twig', array(
             'entity' => $entity,
             'form' => $form->createView(),
-        );
+        ));
     }
 
     public function showAction($slug)

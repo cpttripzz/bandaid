@@ -1,9 +1,7 @@
 home:
   path: /
   defaults: { _controller: "ZEBABundle:Home:index" }
-musician:
-    resource: "@ZEBABundle/Controller"
-    type:     annotation
+
 ZEBABundle_document:
   resource: "@ZEBABundle/Resources/config/routing/document.yml"
   prefix:   /document
@@ -12,7 +10,10 @@ ZEBABundle_band:
   prefix:   /band
 ZEBABundle_musician:
   resource: "@ZEBABundle/Resources/config/routing/musician.yml"
-  prefix:   /musician  
+  prefix:   /musician
+ZEBABundle_user:
+  resource: "@ZEBABundle/Resources/config/routing/user.yml"
+  prefix:   /user      
 ZEBABundle_api:
   resource: "@ZEBABundle/Resources/config/routing/api.yml"
   prefix:   /api

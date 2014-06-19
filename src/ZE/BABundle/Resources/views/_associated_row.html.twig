@@ -23,13 +23,13 @@
             {% include 'ZEBABundle::locations.html.twig' with {'entity':assoc } %}
             {% block assoc_actions %}
             {% if type == 'band' and is_granted('ROLE_USER') %}
-        <br>
-        <div>
-            <button href="{{ path('api_joinBandRequestAction', {'bandId': assoc.id} ) }}" type="button"
-                    class="btn btn-primary">Request Audition
-            </button>
-        </div>
-        {% endif %}
+                <br>
+                <div>
+                    <button href="{{ path('api_joinBandRequestAction', {'bandId': assoc.id} ) }}" type="button"
+                            class="btn btn-primary">Request Audition
+                    </button>
+                </div>
+            {% endif %}
         {% endblock assoc_actions %}
         </p>
     </div>

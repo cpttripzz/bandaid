@@ -22,6 +22,7 @@ use Gedmo\Timestampable\Traits\TimestampableEntity;
     * @ORM\InheritanceType("SINGLE_TABLE")
     * @ORM\DiscriminatorColumn(name="type", type="string")
     * @ORM\DiscriminatorMap({"association" = "Association", "musician" = "Musician", "band" = "Band"})
+    * @ORM\Entity(repositoryClass="ZE\BABundle\Entity\Repository\Association")
     */
 class Association
 {
@@ -63,7 +64,7 @@ class Association
 
 
     /**
-     * @ORM\ManyToOne(targetEntity="User", inversedBy="associations")
+     * @ORM\ManyToOne(targetEntity="User", inversedBy="associations",cascade={"persist"})
      */
     protected $user;
 

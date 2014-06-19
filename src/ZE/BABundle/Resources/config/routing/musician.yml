@@ -3,7 +3,7 @@ musician:
     defaults: { _controller: "ZEBABundle:Musician:index" }
 
 musician_show:
-    path:     /{slug}
+    path:     /{slug}/show
     defaults: { _controller: "ZEBABundle:Musician:show" }
 
 musician_new:

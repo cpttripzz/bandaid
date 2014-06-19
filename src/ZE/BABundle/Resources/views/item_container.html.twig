@@ -1,9 +1,15 @@
 {% block item_container %}
     {% if container_div_class  is not defined %} {% set container_div_class = "row multi-columns-row" %} {% endif %}
     {% if content_div_class is not defined %} {% set content_div_class="col-xs-6 col-sm-4 col-md-3 col-lg-3" %}  {% endif %}
+    {% if is_edit is not defined %} {% set is_edit = false %}  {% endif %}
+
     <div class="{{ container_div_class }} ">
         {% for entity in pagination %}
-            {% set entity_show_path= path( entity_type ~'_show', { 'slug': entity.slug }) %}
+            {% if is_edit == false%}
+                {% set entity_show_path= path( entity_type ~'_show', { 'slug': entity.slug }) %}
+            {% else %}
+                {% set entity_show_path= path( entity_type ~'_edit', { 'id': entity.id}) %}
+            {% endif %}
             <div class="{{ content_div_class }}">
                 <div class="association-item">
                     <div class="association-image">
@@ -25,13 +31,24 @@
                             <li class="read-more"><a href="{{ entity_show_path }}" class="btn">Read more</a></li>
                         </ul>
                     </div>
+                    {% if entity_type == 'band' and is_granted('ROLE_USER') %}
+                        <br>
+                        <div>
+                            <button href="{{ path('api_joinBandRequestAction', {'bandId': entity.id} ) }}" type="button"
+                                    class="btn btn-primary">Request Audition
+                            </button>
+                        </div>
+                    {% endif %}
                 </div>
+
             </div>
 
         {% endfor %}
 
     </div>
-    <div class="navigation">
-        {{ knp_pagination_render(pagination) }}
-    </div>
+    {% block navigaion %}
+        <div class="navigation">
+            {{ knp_pagination_render(pagination) }}
+        </div>
+    {% endblock navigaion %}
 {% endblock item_container %}
