@@ -3,9 +3,19 @@ app/console liip:imagine:cache:resolve img/genres/blues.jpg
 app/console liip:imagine:cache:resolve img/flags/il.png
 app/console liip:imagine:cache:resolve img/instruments/piano.png
 
-chmod -R 777 web/img/*
-chmod -R 777 web/media/cache/*
+sudo chmod -R 777 web/img/*
 sudo chmod -R 777 web/media/cache/*
+sudo sudo chmod -R 777 web/media/cache/*
 history | cut -c 8-
 
 app/console fos:user:create admin admin@admin.com 123456 --super-admin
+
+
+SELECT
+  *
+FROM
+  band_musician
+  INNER JOIN association
+    ON band_musician.musician_id = association.id
+WHERE `type` = 'musician'
+  AND band_id = 4
