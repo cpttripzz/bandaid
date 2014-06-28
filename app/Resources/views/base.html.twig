@@ -84,6 +84,23 @@
 
 
             {% endif %}
+
+            $(document).on("click", 'button',  function(){
+                var dataHref = $(this).attr('data-href');
+                console.log(dataHref);
+                if (dataHref){
+                    $.ajax({
+                        url: dataHref
+
+                    })
+                            .done(function( data ) {
+                                if ( console && console.log ) {
+                                    console.log(data);
+                                }
+                            });
+
+                }
+            });
         </script>
     {% endblock head_bottom %}
 {% endblock head %}
