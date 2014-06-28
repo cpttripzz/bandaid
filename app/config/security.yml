@@ -21,9 +21,8 @@ security:
                 provider: fos_userbundle
                 csrf_provider: form.csrf_provider
                 login_path: /login
-                default_target_path: /
-                always_use_default_target_path: true
                 check_path: /login_check
+                success_handler: ze_user_security.authentication.handler.login_success_handler
             oauth:
                 resource_owners:
                     facebook:           "/login/check-facebook"
@@ -31,12 +30,13 @@ security:
                     github:             "/login/check-github"
                 login_path:        /login
                 failure_path:      /login
-                default_target_path: /profile/edit-profile
-                always_use_default_target_path: true
                 oauth_user_provider:
                     service: my_user_provider
-            logout:       true
             anonymous:    true
+            logout:
+                path: fos_user_security_logout
+
+                success_handler: ze_user_security.authentication.handler.logout_success_handler
 
         login:
             pattern:  ^/login$

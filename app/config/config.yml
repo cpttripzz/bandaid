@@ -312,25 +312,13 @@ liip_imagine:
             quality: 75
             filters:
                 thumbnail: { size: [200, 120], mode: outbound }
-old_sound_rabbit_mq:
-    connections:
-        default:
-            host:     'localhost'
-            port:     5672
-            user:     'guest'
-            password: 'guest'
-            vhost:    '/'
-            lazy:     false
-    producers:
-        join_band:
-            connection:       default
-            exchange_options: {name: 'join_band', type: direct}
-    consumers:
-        join_band:
-            connection:       default
-            exchange_options: {name: 'join_band', type: direct}
-            queue_options:    {name: 'join_band'}
-            callback:         rabbitmq.callback.join_band_service
+
 
 fos_js_routing:
     routes_to_expose: [ document_delete ]
+snc_redis:
+    clients:
+        default:
+            type: predis
+            alias: default
+            dsn: redis://localhost

@@ -15,7 +15,7 @@ use ZE\BABundle\Form\BandType;
  *
  * @Route("/band")
  */
-class BandController extends Controller
+class BandController extends Controller implements UrlTracker
 {
 
 

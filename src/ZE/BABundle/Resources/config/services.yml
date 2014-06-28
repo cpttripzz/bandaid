@@ -1,5 +1,8 @@
 parameters:
     my_user_provider.class: ZE\BABundle\Service\Security\FOSUBUserProvider
+    ze_user_security.authentication.handler.login_success_handler.class: ZE\BABundle\Security\Authentication\Handler\LoginSuccessHandler
+    ze_user_security.authentication.handler.logout_success_handler.class: ZE\BABundle\Security\Authentication\Handler\LogoutSuccessHandler
+    ze_user_security.authentication.handler.login_failure_handler.class: ZE\BABundle\Security\Authentication\Handler\LoginFailureHandler
 services:
     my_user_provider:
         class: "%my_user_provider.class%"
@@ -36,7 +39,28 @@ services:
             ['@service_container']
         tags:
             - { name: kernel.event_listener, event: zeba.band.join_request, method: onJoinBandRequestEvent }
-    rabbitmq.callback.join_band_service:
-        class: ZE\BABundle\Consumer\JoinBandRequestConsumer
-        arguments:
-            ['@service_container']
+    ze_user_security.authentication.handler.login_success_handler:
+        class:  %ze_user_security.authentication.handler.login_success_handler.class%
+        arguments:  ['@service_container']
+        calls:
+            - [setSession, ["@session"]]
+        tags:
+            - { name: 'monolog.logger', channel: 'security' }
+    ze_user_security.authentication.handler.logout_success_handler:
+        class:  %ze_user_security.authentication.handler.logout_success_handler.class%
+        arguments:  [@router]
+
+        tags:
+            - { name: 'monolog.logger', channel: 'security' }
+    ze_user_security.authentication.handler.login_failure_handler:
+        class:  %ze_user_security.authentication.handler.login_failure_handler.class%
+        arguments:  [@router, @security.context]
+        tags:
+            - { name: 'monolog.logger', channel: 'security' }
+    ze.event_listener_set_url:
+        class:  ZE\BABundle\EventListener\SetUrlEventListener
+        arguments:  [@router]
+        calls:
+            - [setSession, ["@session"]]
+        tags:
+            - { name: kernel.event_listener, event: kernel.controller, method: onKernelController }

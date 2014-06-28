@@ -1,66 +1,112 @@
 {% extends '@MopaBootstrap/base.html.twig' %}
 
 {% block head %}
-        {% block stylesheets %}
+    {% block stylesheets %}
+        {{ parent() }}
+        {% stylesheets filter="cssembed,cssrewrite,yui_css"
+        '%kernel.root_dir%/../vendor/sonata-project/core-bundle/Resources/public/select2/select2.css'
+        '@bootstrap_less'
+        '@jquery_ui_css'
+        '../app/Resources/public/css/main.css'
+        '%kernel.root_dir%/../vendor/tapmodo/Jcrop/css/jquery.Jcrop.min.css' %}
+        <link href="{{ asset_url }}" type="text/css" rel="stylesheet"/>
+        {% endstylesheets %}
+
+
+    {% endblock %}
+
+
+    {% block head_script %}
+        {% block javascripts %}
             {{ parent() }}
-            {% stylesheets filter="cssembed,cssrewrite,yui_css"
-            '%kernel.root_dir%/../vendor/sonata-project/core-bundle/Resources/public/select2/select2.css'
-            '@bootstrap_less'
-            '@jquery_ui_css'
-            '../app/Resources/public/css/main.css'
-            '%kernel.root_dir%/../vendor/tapmodo/Jcrop/css/jquery.Jcrop.min.css'
-            %}
-            <link href="{{ asset_url }}" type="text/css" rel="stylesheet"/>
-            {% endstylesheets %}
+            {% javascripts
 
+            '@jquery_js' '@bootstrap_js'
+            '%kernel.root_dir%/../vendor/sonata-project/core-bundle/Resources/public/select2/select2.min.js'
+            '@jquery_ui_js'
+            '%kernel.root_dir%/../vendor/tapmodo/Jcrop/js/jquery.Jcrop.min.js'
+            '%kernel.root_dir%/../vendor/jeremymlane/bootbox/bootbox.js' %}
+            <script src="{{ asset_url }}"></script>
 
+            {% endjavascripts %}
         {% endblock %}
-
-
-        {% block head_script %}
-            {% block javascripts %}
-                {{ parent() }}
-                {% javascripts
-
-                '@jquery_js' '@bootstrap_js'
-                '%kernel.root_dir%/../vendor/sonata-project/core-bundle/Resources/public/select2/select2.min.js'
-                '@jquery_ui_js'
-                '%kernel.root_dir%/../vendor/tapmodo/Jcrop/js/jquery.Jcrop.min.js'
-                '%kernel.root_dir%/../vendor/jeremymlane/bootbox/bootbox.js'
-                %}
-                <script src="{{ asset_url }}"></script>
-
-                {% endjavascripts %}
-            {% endblock %}
-            <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
-            <script src="{{ path('fos_js_routing_js', {"callback": "fos.Router.setData"}) }}"></script>
-        {% endblock head_script %}
+        <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
+        <script src="{{ path('fos_js_routing_js', {"callback": "fos.Router.setData"}) }}"></script>
+    {% endblock head_script %}
 
 
 
-{% block head_bottom %}
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
-{% endblock head_bottom %}
+    {% block head_bottom %}
+
+        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+        <script src="http://localhost:8080/socket.io/socket.io.js"></script>
+        <script>
+
+            {%  if  app.session.id is defined  and  app.user.username is defined %}
+            var socket = io.connect('localhost:8080');
+            var userid = '{{ app.user.id }}';
+            var joinMsg = '{"id": '+userid+'}';
+            socket.emit('join', joinMsg);
+
+            socket.on('connect', function (data) {
+                setStatus('connected');
+            });
+
+            socket.on('reconnecting', function (data) {
+                setStatus('reconnecting');
+            });
+
+            socket.on("new_msg", function(data) {
+
+                newMessages = data.new_messages;
+                console.log(newMessages);
+                $('#message_bar').append('' +
+                        '<div id="alert-new-message" class="alert alert-success" data-alert="alert">' +
+                        '<button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>' +
+                        'You have received a new message</div>');
+                $('#new_messages_badge').text(newMessages);
+                $('#new_messages_badge').addClass("badge alert-success");
+                window.setTimeout(function() {
+                    $("#alert-new-message").fadeTo(500, 0).slideUp(500, function(){
+                        $(this).remove();
+                    });
+                }, 5000);
+
+            });
+            window.onbeforeunload = function(e) {
+                socket.emit('disconnect', joinMsg);
+            };
+
+
+            function setStatus(msg) {
+                console.log('Connection Status : ' + msg);
+            }
+
+
+            {% endif %}
+        </script>
+    {% endblock head_bottom %}
 {% endblock head %}
 
 
 {% block body %}
     <body>
-        {% block navbar %}
-            <div class="navbar navbar-default" role="navigation">
-                <div class="navbar-inner">
-                    {{ knp_menu_render('ZEBABundle:MenuBuilder:mainMenu', {'currentClass': 'active', 'template': 'ZEBABundle:Menu:main_menu.html.twig'}) }}
-                    {{ knp_menu_render('ZEBABundle:MenuBuilder:userMenu', {'currentClass': 'active', 'template': 'ZEBABundle:Menu:main_menu.html.twig'}) }}
-                </div>
+    {% block navbar %}
+        <div id="navbar" class="navbar navbar-default" role="navigation">
+            <div class="navbar-inner">
+                {{ knp_menu_render('ZEBABundle:MenuBuilder:mainMenu', {'currentClass': 'active', 'template': 'ZEBABundle:Menu:main_menu.html.twig'}) }}
+                {{ knp_menu_render('ZEBABundle:MenuBuilder:userMenu', {'currentClass': 'active', 'template': 'ZEBABundle:Menu:main_menu.html.twig'}) }}
             </div>
+        </div>
+        <div id="message_bar"></div>
 
-        {% endblock navbar %}
-        {% block pre_container %}
-            <div class="{% block container_class %}container{% endblock container_class %}">
+    {% endblock navbar %}
+    {% block pre_container %}
+        <div class="{% block container_class %}container{% endblock container_class %}">
             {% block container %}
-                    <div class="{% block content_class %}content{% endblock content_class %}"></div>
+                <div class="{% block content_class %}content{% endblock content_class %}"></div>
             {% endblock container %}
-            </div>
-        {% endblock pre_container %}
+        </div>
+    {% endblock pre_container %}
     </body>
 {% endblock body %}

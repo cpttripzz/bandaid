@@ -48,4 +48,18 @@ class Association extends EntityRepository
         return $arrResult;
     }
 
+    public function getAllMusiciansByBandId($bandId)
+    {
+
+        /*SELECT * FROM association
+        INNER JOIN band_musician ON band_musician.musician_id = association.id
+        WHERE `type`='musician' AND band_id = 4*/
+        $qb = $this->createQueryBuilder('a')
+            ->innerJoin('a.BandMusician', 'bm')
+            ->where('bm.bandId = :bandId')
+            ->andWhere('a  INSTANCE OF ZE\BABundle\Entity\Band')
+            ->setParameter('bandId', $bandId);
+        return $qb->getQuery()->getResult();
+    }
+
 }

@@ -12,6 +12,7 @@ namespace ZE\BABundle\EventListener;
 use Doctrine\ORM\EntityManager;
 use Symfony\Component\DependencyInjection\Container;
 use ZE\BABundle\Event\JoinBandRequestEvent;
+use  React\ZMQ\Context;
 
 class JoinBandRequestEventListener
 {
@@ -21,16 +22,33 @@ class JoinBandRequestEventListener
     public function __construct(Container $container)
     {
         $this->em = $container->get('doctrine');
-        $this->msgService = $container->get('old_sound_rabbit_mq.join_band_producer');
-
+        $this->msgService = $container->get('snc_redis.default');
     }
 
     public function onJoinBandRequestEvent(JoinBandRequestEvent $event)
     {
         $user = $event->getUser();
-//        $band = $this->em->getRepository('ZE\BABundle\Entity\Band')->find($event->getBandId());
-        $msg = array('user_id'=>$user->getId(),$event->getBandId() );
-        $this->msgService->setDeliveryMode(2);
-        $this->msgService->publish(serialize($msg));
+        $bandMembers = $this->em->getRepository('ZE\BABundle\Entity\BandMusician')->getAllMusiciansByBandId($event->getBandId());
+        if ($bandMembers) {
+            $msgRecipients = array();
+            foreach ($bandMembers as $bandMember) {
+                $userId = $bandMember->getMusician()->getUser()->getId();
+                $username = $bandMember->getMusician()->getUser()->getUsername();
+                $nextMessageId = $this->msgService->incr('next_message_id');
+                $this->msgService->hmset(
+                    'message:' . $nextMessageId,
+                    'fromUser:', $user->getId(),
+                    'messageType', 'JOIN',
+                    'subject', 'Join Request'
+                );
+                $this->msgService->lpush('messages:' . $userId, $nextMessageId);
+                $numNewMessages = $this->msgService->incr('new_messages:' . $userId);
+                $msgRecipients[$userId] = $numNewMessages;
+            }
+            $this->msgService->publish('realtime', json_encode($msgRecipients));
+            $nextMessageId = $this->msgService->incr('publisher_count');
+        }
+
+
     }
 } 

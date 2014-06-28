@@ -1,18 +1,10 @@
 {% extends '::base.html.twig' %}
 
 {% block body %}
-    {% block navbar %}
-        <div class="navbar navbar-default" role="navigation">
-            <div class="navbar-inner">
-                {{ knp_menu_render('ZEBABundle:MenuBuilder:mainMenu', {'currentClass': 'active', 'template': 'ZEBABundle:Menu:main_menu.html.twig'}) }}
-                {{ knp_menu_render('ZEBABundle:MenuBuilder:userMenu', {'currentClass': 'active', 'template': 'ZEBABundle:Menu:main_menu.html.twig'}) }}
-            </div>
-        </div>
 
-    {% endblock navbar %}
     {% block fos_user_content %}
         {% block sonata_user_registration %}
-            <div></div>
+
         {% endblock %}
     {% endblock fos_user_content %}
 {% endblock %}

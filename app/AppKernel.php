@@ -37,8 +37,10 @@ class AppKernel extends Kernel
             new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
             new Genemu\Bundle\FormBundle\GenemuFormBundle(),
             new Liip\ImagineBundle\LiipImagineBundle(),
-            new OldSound\RabbitMqBundle\OldSoundRabbitMqBundle(),
             new FOS\JsRoutingBundle\FOSJsRoutingBundle(),
+            new Sensio\Bundle\BuzzBundle\SensioBuzzBundle(),
+            new Snc\RedisBundle\SncRedisBundle(),
+
             new ZE\BABundle\ZEBABundle(),
         );
 

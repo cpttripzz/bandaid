@@ -13,6 +13,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * @ORM\Table(name="band_musician")
  * @ORM\Entity
+ * @ORM\Entity(repositoryClass="ZE\BABundle\Entity\Repository\BandMusician")
  */
 class BandMusician
 {

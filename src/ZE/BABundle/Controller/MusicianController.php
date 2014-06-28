@@ -13,7 +13,7 @@ use ZE\BABundle\Entity\Musician;
 use ZE\BABundle\Form\MusicianType;
 
 
-class MusicianController extends Controller
+class MusicianController extends Controller implements UrlTracker
 {
 
     public function indexAction()

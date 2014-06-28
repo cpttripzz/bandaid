@@ -39,7 +39,7 @@ class MenuBuilder extends ContainerAware
                 ->setAttribute('icon', 'icon-edit');
             $menu['User']->addChild('Messages', array('route' => 'fos_user_security_logout'))
                 ->setAttribute('badge', 5)
-                ->setAttribute('id', 'badge_new_messages');
+                ->setAttribute('id', 'new_messages');
             $menu['User']->addChild('Logout', array('route' => 'fos_user_security_logout'))
                 ->setAttribute('icon', 'fa fa-sign-out');
         } else {
