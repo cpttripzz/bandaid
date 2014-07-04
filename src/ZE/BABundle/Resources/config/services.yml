@@ -1,11 +1,11 @@
 parameters:
-    my_user_provider.class: ZE\BABundle\Service\Security\FOSUBUserProvider
+    zeba_user_provider.class: ZE\BABundle\Service\Security\FOSUBUserProvider
     ze_user_security.authentication.handler.login_success_handler.class: ZE\BABundle\Security\Authentication\Handler\LoginSuccessHandler
     ze_user_security.authentication.handler.logout_success_handler.class: ZE\BABundle\Security\Authentication\Handler\LogoutSuccessHandler
     ze_user_security.authentication.handler.login_failure_handler.class: ZE\BABundle\Security\Authentication\Handler\LoginFailureHandler
 services:
-    my_user_provider:
-        class: "%my_user_provider.class%"
+    zeba_user_provider:
+        class: "%zeba_user_provider.class%"
         arguments: [@fos_user.user_manager,{facebook: facebook_id, google: google_id, github: githubID}]
 
     menu.voter.request:
@@ -14,6 +14,7 @@ services:
             - @service_container
         tags:
             - { name: knp_menu.voter }
+
     sonata.user.admin.group:
         abstract: true
         public: false

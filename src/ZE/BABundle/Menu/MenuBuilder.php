@@ -46,8 +46,13 @@ class MenuBuilder extends ContainerAware
             $menu->addChild('User', array('label' => 'Hi Visitor' ))
                 ->setAttribute('dropdown', true)
                 ->setAttribute('icon', 'icon-user');
-            $menu['User']->addChild('Login', array('route' => 'sonata_user_admin_security_login'))
-                ->setAttribute('icon', 'fa fa-sign-in');
+            $menu['User']->addChild('Login', array('route' => 'fos_user_security_login'))
+                ->setAttribute('icon', 'fa fa-sign-in')
+                ->setAttribute('data-toggle','modal')
+                ->setAttribute('data-target','#login_modal')
+                ->setAttribute('id', 'btn_modal_login')
+
+            ;
         }
 
 

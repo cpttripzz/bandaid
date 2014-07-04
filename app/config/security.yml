@@ -28,10 +28,11 @@ security:
                     facebook:           "/login/check-facebook"
                     google:             "/login/check-google"
                     github:             "/login/check-github"
+                    twitter:             "/login/check-twitter"
                 login_path:        /login
                 failure_path:      /login
                 oauth_user_provider:
-                    service: my_user_provider
+                    service: zeba_user_provider
             anonymous:    true
             logout:
                 path: fos_user_security_logout

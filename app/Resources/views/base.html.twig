@@ -8,7 +8,9 @@
         '@bootstrap_less'
         '@jquery_ui_css'
         '../app/Resources/public/css/main.css'
+        '../app/Resources/public/css/social-buttons.css'
         '%kernel.root_dir%/../vendor/tapmodo/Jcrop/css/jquery.Jcrop.min.css' %}
+
         <link href="{{ asset_url }}" type="text/css" rel="stylesheet"/>
         {% endstylesheets %}
 
@@ -25,7 +27,9 @@
             '%kernel.root_dir%/../vendor/sonata-project/core-bundle/Resources/public/select2/select2.min.js'
             '@jquery_ui_js'
             '%kernel.root_dir%/../vendor/tapmodo/Jcrop/js/jquery.Jcrop.min.js'
-            '%kernel.root_dir%/../vendor/jeremymlane/bootbox/bootbox.js' %}
+            '%kernel.root_dir%/../vendor/jeremymlane/bootbox/bootbox.js'
+            '../app/Resources/public/js/main.js'
+            %}
             <script src="{{ asset_url }}"></script>
 
             {% endjavascripts %}
@@ -107,7 +111,9 @@
 
 
 {% block body %}
+    {% block body_start %}
     <body>
+    {% endblock body_start %}
     {% block navbar %}
         <div id="navbar" class="navbar navbar-default" role="navigation">
             <div class="navbar-inner">
@@ -125,5 +131,15 @@
             {% endblock container %}
         </div>
     {% endblock pre_container %}
+    {% block modal_dialog %}
+        <a data-toggle="modal" data-remote="{{ path('fos_user_security_login') }}" data-target="#login_modal">click me</a>
+
+    <div id="login_modal" tabindex="-1" >
+    </div>
+
+
+    {% endblock modal_dialog %}
+    {% block body_end %}
     </body>
+    {% endblock body_end %}
 {% endblock body %}

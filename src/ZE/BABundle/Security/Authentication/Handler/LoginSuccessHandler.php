@@ -31,7 +31,6 @@ class LoginSuccessHandler implements AuthenticationSuccessHandlerInterface
     public function onAuthenticationSuccess(Request $request, TokenInterface $token)
     {
 
-
         if ($this->security->isGranted('ROLE_SUPER_ADMIN') || ($this->security->isGranted('ROLE_ADMIN')) )
         {
             $response = new RedirectResponse($this->router->generate('sonata_admin_dashboard'));
@@ -45,10 +44,10 @@ class LoginSuccessHandler implements AuthenticationSuccessHandlerInterface
                 $baseUrl = $this->router->getContext()->getBaseUrl();
                 $this->session->remove($key);
                 $response = new RedirectResponse($baseUrl .$url);
-                try{
-                    $apiResponse = $this->api->get('http://localhost:26300/register-user/'. $this->session->getId());
-                }
-                catch(\Exception $e){}
+//                try{
+//                    $apiResponse = $this->api->get('http://localhost:26300/register-user/'. $this->session->getId());
+//                }
+//                catch(\Exception $e){}
 //                if($apiResponse->getStatusCode() == 200)
             } else {
                 $response = new RedirectResponse($this->router->generate('home'));

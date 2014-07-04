@@ -270,3 +270,11 @@ div.default-document{
     top: 0px;
     left: 15px;
 }
+
+button.btn-width-200{
+    width: 200px;
+}
+
+p.btn-width-200{
+    padding-left: 25px;
+}

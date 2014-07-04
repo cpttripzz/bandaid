@@ -26,7 +26,7 @@ class FOSUBUserProvider extends BaseClass
         $setter_id = $setter.'Id';
         $setter_token = $setter.'AccessToken';
 
-        //we "disconnect" previously connected users
+
         if (null !== $previousUser = $this->userManager->findUserBy(array($property => $username))) {
             $previousUser->$setter_id(null);
             $previousUser->$setter_token(null);
@@ -45,7 +45,7 @@ class FOSUBUserProvider extends BaseClass
      */
     public function loadUserByOAuthUserResponse(UserResponseInterface $response)
     {
-        $username = $response->getUsername();
+        $username = $response->getNickname();
         $user = $this->userManager->findUserBy(array($this->getProperty($response) => $username));
         //when the user is registrating
         if (null === $user) {
