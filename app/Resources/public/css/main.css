@@ -271,10 +271,9 @@ div.default-document{
     left: 15px;
 }
 
-button.btn-width-200{
+div.btn{
     width: 200px;
-}
-
-p.btn-width-200{
-    padding-left: 25px;
+    padding: 5px !important;
+    margin-left: 25px !important;
+    float: left;
 }

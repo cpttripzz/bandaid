@@ -1,6 +1,7 @@
 <?php
 namespace ZE\BABundle\Security\Authentication\Handler;
 
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Security\Http\Authentication\AuthenticationSuccessHandlerInterface;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 use Symfony\Component\Security\Core\SecurityContext;
@@ -30,10 +31,10 @@ class LoginSuccessHandler implements AuthenticationSuccessHandlerInterface
     }
     public function onAuthenticationSuccess(Request $request, TokenInterface $token)
     {
-
+        $returnUrl = '';
         if ($this->security->isGranted('ROLE_SUPER_ADMIN') || ($this->security->isGranted('ROLE_ADMIN')) )
         {
-            $response = new RedirectResponse($this->router->generate('sonata_admin_dashboard'));
+            $returnUrl = $this->router->generate('sonata_admin_dashboard');
         }
         elseif ($this->security->isGranted('ROLE_USER'))
         {
@@ -43,17 +44,23 @@ class LoginSuccessHandler implements AuthenticationSuccessHandlerInterface
                 $url = $this->session->get($key);
                 $baseUrl = $this->router->getContext()->getBaseUrl();
                 $this->session->remove($key);
-                $response = new RedirectResponse($baseUrl .$url);
+
+                $returnUrl = $baseUrl .$url;
 //                try{
 //                    $apiResponse = $this->api->get('http://localhost:26300/register-user/'. $this->session->getId());
 //                }
 //                catch(\Exception $e){}
 //                if($apiResponse->getStatusCode() == 200)
             } else {
-                $response = new RedirectResponse($this->router->generate('home'));
+                $returnUrl = $this->router->generate('home');
             }
         }
-
+        if ($request->isXmlHttpRequest()) {
+            $result = array('success' => true, 'url'=>$returnUrl);
+            $response = new JsonResponse($result);
+        } else {
+            $response = new RedirectResponse($returnUrl);
+        }
         return $response;
     }
 

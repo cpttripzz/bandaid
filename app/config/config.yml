@@ -226,17 +226,17 @@ hwi_oauth:
             #type:                twitter
             #client_id:           <client_id>
             #client_secret:       <client_secret>
-        #facebook:
-            #type:                facebook
-            #client_id:           <client_id>
-            #client_secret:       <client_secret>
-            #options:
-                #display: popup
-        #google:
-            #type:                google
-            #client_id:           <client_id>
-            #client_secret:       <client_secret>
-            #scope:               "https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile"
+        facebook:
+            type:                facebook
+            client_id:           683390381735822
+            client_secret:       bf791950b8e6500f10fb6188d10952c6
+            options:
+                display: popup
+        google:
+            type:                google
+            client_id:           309796006487-b6ju56r441plsk1uf8l2vod0f6v0efe9.apps.googleusercontent.com
+            client_secret:       eGPvuTMwuT4AkpHcTejMymga
+            scope:               "https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile"
 
     fosub:
         # try 30 times to check if a username is available (foo, foo1, foo2 etc)

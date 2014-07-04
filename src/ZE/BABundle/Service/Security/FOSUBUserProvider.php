@@ -45,11 +45,10 @@ class FOSUBUserProvider extends BaseClass
      */
     public function loadUserByOAuthUserResponse(UserResponseInterface $response)
     {
-        $username = $response->getNickname();
-        $user = $this->userManager->findUserBy(array($this->getProperty($response) => $username));
+        list($service, $username, $user) = $this->getUserNameByServiceType($response);
         //when the user is registrating
         if (null === $user) {
-            $service = $response->getResourceOwner()->getName();
+
             $setter = 'set'.ucfirst($service);
             $setter_id = $setter.'Id';
             $setter_token = $setter.'AccessToken';
@@ -68,15 +67,46 @@ class FOSUBUserProvider extends BaseClass
         }
 
         //if user exists - go with the HWIOAuth way
-        $user = parent::loadUserByOAuthUserResponse($response);
+        list($service, $username, $user) = $this->getUserNameByServiceType($response);
 
-        $serviceName = $response->getResourceOwner()->getName();
-        $setter = 'set' . ucfirst($serviceName) . 'AccessToken';
+        $setter = 'set' . ucfirst($service) . 'AccessToken';
 
         //update access token
         $user->$setter($response->getAccessToken());
 
         return $user;
+    }
+
+    protected function loadUserByOAuthUserResponseAndNickName($response)
+    {
+        $username = $response->getNickname();
+        $user = $this->userManager->findUserBy(array($this->getProperty($response) => $username));
+        return $user;
+    }
+
+    protected function loadUserByOAuthUserResponseAndRealName($response)
+    {
+        $username = $response->getRealName();
+        $user = $this->userManager->findUserBy(array($this->getProperty($response) => $username));
+        return $user;
+    }
+
+    /**
+     * @param UserResponseInterface $response
+     * @return array
+     */
+    public function getUserNameByServiceType(UserResponseInterface $response)
+    {
+        $service = $response->getResourceOwner()->getName();
+        if ($service == 'facebook') {
+            $username = $response->getRealName();
+            $user = $this->loadUserByOAuthUserResponseAndRealName($response);
+            return array($service, $username, $user);
+        } else {
+            $username = $response->getNickname();
+            $user = $this->loadUserByOAuthUserResponseAndNickName($response);
+            return array($service, $username, $user);
+        }
     }
 
 }
