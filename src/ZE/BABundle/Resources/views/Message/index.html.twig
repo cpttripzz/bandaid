@@ -1,19 +1,20 @@
 {% extends '::base.html.twig' %}
 {% block container %}
-    <div class="panel ">
-        Musician Profiles:
-        {% embed'ZEBABundle::item_container.html.twig' with { 'pagination': musician_profiles, 'entity_type' : 'musician','is_edit' : true} %}
-            {% block navigaion %}
-
-            {% endblock navigaion %}
-        {% endembed %}
-    </div>
-    <div class="panel ">
-        Bands Owned:
-        {% embed'ZEBABundle::item_container.html.twig' with { 'pagination': bands_owned, 'entity_type' : 'band', 'is_edit' : true} %}
-            {% block navigaion %}
-
-            {% endblock navigaion %}
-        {% endembed %}
-    </div>
-{% endblock container%}
+    <table id="messages" class="display" cellspacing="0" width="100%">
+        <thead>
+        <tr>
+            <th>Msg #</th>
+            <th>Sent</th>
+            <th>Message</th>           
+        </tr>
+                
+        </thead>
+        {% for msg in messages %}
+            <tr>
+                <td>{{ msg.counter }}</td>
+                <td>{{ msg.sent }}</td>
+                <td>{{ msg.message|raw }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock container %}

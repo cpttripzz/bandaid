@@ -30,14 +30,24 @@ class MessageController extends Controller
         foreach((array) $msgIds as $key=> $msgId){
             $message = $this->msgService->hgetall('message:'.$msgId);
             $requestUser = $em->getRepository('ZE\BABundle\Entity\User')->findOneById($message['fromUser']);
+            $requestBand = $em->getRepository('ZE\BABundle\Entity\Band')->findOneById($message['bandId']);
             $userPofileLink = $this->generateUrl('user_show', array('id' => $requestUser->getId()));
-            $message['userProfileUri'] = $userPofileLink;
+            $bandLink = $this->generateUrl('band_show', array('slug' => $requestBand->getSlug()));
+            $message['msgId'] = $msgId;
+            $message['counter'] = $arrCounter +1;
+            $requestUserLink = '<a href="'.$userPofileLink.'">' . $requestUser->getUserName() .'</a>';
+            $bandLink = '<a href="'.$bandLink.'">' . $requestBand->getName() .'</a';
+            $searchArr = array('[user]','[band]');
+            $replaceArr = array($requestUserLink,$bandLink);
+            $message['message'] = str_replace($searchArr,$replaceArr,$message['message']);
             $msgs[$arrCounter] = $message;
+
             $arrCounter ++;
         }
-//        return $this->render(
-//            'ZEBABundle:User:index.html.twig',array('bands_owned' => $bandsOwned, 'musician_profiles' => $musicianProfiles)
-//
-//        );
+        return $this->render(
+            'ZEBABundle:Message:index.html.twig',
+            array('messages' =>  $msgs->toArray())
+
+        );
     }
 }

@@ -3,6 +3,7 @@ namespace ZE\BABundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
+use ZE\BABundle\Entity\User;
 
 class UserController extends Controller
 {
@@ -19,7 +20,7 @@ class UserController extends Controller
         $user = $this->get('security.context')->getToken()->getUser();
         $em = $this->getDoctrine()->getManager();
 
-        $bandsOwned = $em->getRepository('ZE\BABundle\Entity\Association')->getAllBandsAssociatedByUserId($user->getId());
+        $bandsOwned = $em->getRepository('ZE\BABundle\Entity\Association')->getAllBandsOwnedByUserId($user->getId());
         $musicianProfiles = $em->getRepository('ZE\BABundle\Entity\Association')->getAllMusiciansOwnedByUserId($user->getId());
 
         return $this->render(
@@ -28,15 +29,15 @@ class UserController extends Controller
         );
     }
 
-    public function showAction(User $entity)
+    public function showAction(User $user)
     {
-        if (!$entity) {
+        if (!$user) {
             throw $this->createNotFoundException('Unable to find User entity.');
         }
 
         $em = $this->getDoctrine()->getManager();
 
-        $bandsOwned = $em->getRepository('ZE\BABundle\Entity\Association')->getAllBandsAssociatedByUserId($user->getId());
+        $bandsOwned = $em->getRepository('ZE\BABundle\Entity\Association')->getAllBandsOwnedByUserId($user->getId());
         $musicianProfiles = $em->getRepository('ZE\BABundle\Entity\Association')->getAllMusiciansOwnedByUserId($user->getId());
 
         return $this->render(

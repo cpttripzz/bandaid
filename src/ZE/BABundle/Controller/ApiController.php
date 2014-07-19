@@ -15,7 +15,7 @@ class ApiController extends Controller
     public function joinBandRequestAction($bandId)
     {
         $user = $this->get('security.context')->getToken()->getUser();
-        if (!$user){
+        if( !$this->get('security.context')->isGranted('IS_AUTHENTICATED_FULLY') ){
             return new JsonResponse(array("Not Logged In"),401);
         }
         if ($user->hasRole('ROLE_USER')) {

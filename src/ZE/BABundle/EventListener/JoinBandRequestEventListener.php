@@ -40,13 +40,16 @@ class JoinBandRequestEventListener
         foreach ((array)$bandMembers as $bandMember) {
             $userId = $bandMember->getMusician()->getUser()->getId();
 
+            $now = new \DateTime();
+            $now = $now->format('Y-m-d H:i:s');
             $nextMessageId = $this->msgService->incr('next_message_id');
             $this->msgService->hmset(
                 'message:' . $nextMessageId,
                 'fromUser', $requestingUserId,
                 'bandId', $bandId,
                 'messageType', $eventType,
-                'subject', 'User ' . $username . ' requested to join band ' . $bandName
+                'sent', $now,
+                'message', 'User [user] requested to join band [band]'
             );
             $this->msgService->rpush('messages:' . $userId, $nextMessageId);
             $numNewMessages = $this->msgService->incr('new_messages:' . $userId);
