@@ -1,0 +1,16 @@
+{% block request_audition_select_musician %}
+
+    <!-- Single button -->
+    <div class="btn-group">
+        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+            Request Audition To Join Band <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu musician-select" role="menu">
+            {% for musician in musicians %}
+            <li><a data-href="{{ path('api_joinBandRequestAction',
+                {'bandId': bandId, 'musicianId' : musician.id} ) |raw }}">{{ musician.name }}</a>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock request_audition_select_musician %}

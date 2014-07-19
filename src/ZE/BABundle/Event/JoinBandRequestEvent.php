@@ -11,36 +11,13 @@ namespace ZE\BABundle\Event;
 
 use Symfony\Component\EventDispatcher\Event;
 
-class JoinBandRequestEvent extends Event
+class JoinBandRequestEvent extends AbstractBandEvent
 {
-    protected $user;
-    protected $bandId;
-    protected $eventType = 'join-band';
 
-    public function __construct($user,$bandId)
+    public function __construct($user,$bandId, $musicianId)
     {
-        $this->user = $user;
-        $this->bandId = $bandId;
+        parent::__construct($user,$bandId, $musicianId);
+        $this->eventType = 'join-band';
     }
 
-    /**
-     * @return mixed
-     */
-    public function getBandId()
-    {
-        return $this->bandId;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getUser()
-    {
-        return $this->user;
-    }
-
-    public function getEventType()
-    {
-        return $this->eventType;
-    }
 } 

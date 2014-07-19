@@ -12,11 +12,18 @@
                 {% endblock location_text %}
             {% endembed %}
             <br>
+            {{ dump (app.user.musicians[0].id) }}
             <p>{% include 'ZEBABundle::genres.html.twig' %}</p>
             <p>{% include 'ZEBABundle::instruments.html.twig' %}</p>
             <p>Description: {{ entity.description }}</p>
             {% if entity.getClassName == 'band' and is_granted('ROLE_USER') and (( app.user.id == entity.user.id) == false)%}
-                {% include 'ZEBABundle::request_audition_button.html.twig' with {'bandId': entity.id} %}
+                {% if app.user.musicians|length == 1%}
+                    {% include 'ZEBABundle::request_audition_button.html.twig'
+                        with {'bandId': entity.id, 'musicianId': app.user.musicians[0].id} %}
+                {% elseif app.user.musicians|length > 1%}
+                    {% include 'ZEBABundle::request_audition_select_musician.html.twig'
+                    with {'bandId': entity.id,'musicians': app.user.musicians} %}
+                {% endif %}
             {% endif %}
             {% if entity.bands is defined and entity.bands|length > 0%}
                 {% include 'ZEBABundle::bands_associated.html.twig' with {'assocs': entity.bands, 'type' : 'band'} %}

@@ -23,7 +23,16 @@
             {% include 'ZEBABundle::locations.html.twig' with {'entity':assoc } %}
             {% block assoc_actions %}
             {% if type == 'band' and is_granted('ROLE_USER') %}
-                {% include 'ZEBABundle::request_audition_button.html.twig' with {'bandId': assoc.id} %}
+
+                {% if app.user.musicians|length == 1%}
+                    {% include 'ZEBABundle::request_audition_button.html.twig'
+                    with {'bandId': assoc.id, 'musicianId': app.user.musicians[0].id} %}
+                {% elseif app.user.musicians|length > 1%}
+                    {% include 'ZEBABundle::request_audition_select_musician.html.twig'
+                    with {'bandId': assoc.id,'musicians': app.user.musicians} %}
+                {% endif %}
+
+
             {% endif %}
         {% endblock assoc_actions %}
         </p>

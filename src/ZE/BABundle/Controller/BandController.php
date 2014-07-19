@@ -151,7 +151,9 @@ class BandController extends Controller implements UrlTracker
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find Band entity.');
         }
-
+        if (false === $this->get('security.context')->isGranted('edit', $entity)) {
+            throw new AccessDeniedException('Unauthorised access!');
+        }
         $deleteForm = $this->createDeleteForm($id);
         $editForm = $this->createEditForm($entity);
         $editForm->handleRequest($request);

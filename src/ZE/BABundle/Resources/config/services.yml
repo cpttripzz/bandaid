@@ -40,6 +40,12 @@ services:
             ['@service_container']
         tags:
             - { name: kernel.event_listener, event: zeba.band.join_request, method: onJoinBandRequestEvent }
+    zeba.listener.JoinBandAcceptEvent:
+        class: ZE\BABundle\EventListener\JoinBandAcceptEventListener
+        arguments:
+            ['@service_container']
+        tags:
+            - { name: kernel.event_listener, event: zeba.band.join_accept, method: onJoinBandAcceptEvent }
     ze_user_security.authentication.handler.login_success_handler:
         class:  %ze_user_security.authentication.handler.login_success_handler.class%
         arguments:  ['@service_container']

@@ -290,7 +290,13 @@ class User extends BaseUser
      */
     public function getMusicians()
     {
-        return $this->musicians;
+        $musicians = array();
+        foreach($this->associations as $association){
+            if ($association->getClassName() == 'musician'){
+                $musicians[] = $association;
+            }
+        }
+        return $musicians;
     }
 
     /**
@@ -324,7 +330,13 @@ class User extends BaseUser
      */
     public function getBands()
     {
-        return $this->bands;
+        $bands = array();
+        foreach($this->associations as $association){
+            if ($association->getClassName() == 'band'){
+                $bands[] = $association;
+            }
+        }
+        return $bands;
     }
 
 

@@ -44,7 +44,7 @@ class MusicianController extends Controller implements UrlTracker
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('musician_show', array('id' => $entity->getId())));
+            return $this->redirect($this->generateUrl('musician_show', array('slug' => $entity->getSlug())));
         }
 
         return $this->render('ZEBABundle:Musician:new.html.twig', array(
