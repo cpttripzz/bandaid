@@ -27,28 +27,34 @@ class JoinBandRequestEventListener
 
     public function onJoinBandRequestEvent(JoinBandRequestEvent $event)
     {
-        $user = $event->getUser();
-        $bandMembers = $this->em->getRepository('ZE\BABundle\Entity\BandMusician')->getAllMusiciansByBandId($event->getBandId());
+        $requestingUser = $event->getUser();
+        $requestingUserId = $requestingUser->getId();
+        $username = $requestingUser->getUsername();
+        $bandId = $event->getBandId();
+        $band = $this->em->getRepository('ZE\BABundle\Entity\Band')->findOneById($bandId);
+        $bandName = $band->getName();
+        $eventType = $event->getEventType();
+        $bandMembers = $this->em->getRepository('ZE\BABundle\Entity\BandMusician')->findAllMusiciansByBandId($event->getBandId());
 
-            $msgRecipients = array();
-            foreach ((array) $bandMembers as $bandMember) {
-                $userId = $bandMember->getMusician()->getUser()->getId();
-                $username = $bandMember->getMusician()->getUser()->getUsername();
-                $nextMessageId = $this->msgService->incr('next_message_id');
-                $this->msgService->hmset(
-                    'message:' . $nextMessageId,
-                    'fromUser:', $user->getId(),
-                    'messageType', 'JOIN',
-                    'subject', 'Join Request'
-                );
-                $this->msgService->lpush('messages:' . $userId, $nextMessageId);
-                $numNewMessages = $this->msgService->incr('new_messages:' . $userId);
-                $msgRecipients[$userId] = $numNewMessages;
-            }
-            $this->msgService->publish('realtime', json_encode($msgRecipients));
-            $nextMessageId = $this->msgService->incr('publisher_count');
+        $msgRecipients = array();
+        foreach ((array)$bandMembers as $bandMember) {
+            $userId = $bandMember->getMusician()->getUser()->getId();
+
+            $nextMessageId = $this->msgService->incr('next_message_id');
+            $this->msgService->hmset(
+                'message:' . $nextMessageId,
+                'fromUser', $requestingUserId,
+                'bandId', $bandId,
+                'messageType', $eventType,
+                'subject', 'User ' . $username . ' requested to join band ' . $bandName
+            );
+            $this->msgService->rpush('messages:' . $userId, $nextMessageId);
+            $numNewMessages = $this->msgService->incr('new_messages:' . $userId);
+            $msgRecipients[$userId] = $numNewMessages;
         }
+        $this->msgService->publish('realtime', json_encode($msgRecipients));
+        $nextMessageId = $this->msgService->incr('publisher_count');
+    }
 
 
-
-} 
+}

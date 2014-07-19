@@ -3,7 +3,7 @@ user:
     defaults: { _controller: "ZEBABundle:User:index" }
 
 user_show:
-    path:     /{slug}/show
+    path:     /{id}/show
     defaults: { _controller: "ZEBABundle:User:show" }
 
 user_new:

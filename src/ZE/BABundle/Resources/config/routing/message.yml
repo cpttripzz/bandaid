@@ -1,0 +1,30 @@
+message:
+    path:     /
+    defaults: { _controller: "ZEBABundle:Message:index" }
+
+message_show:
+    path:     /{slug}/show
+    defaults: { _controller: "ZEBABundle:Message:show" }
+
+message_new:
+    path:     /new
+    defaults: { _controller: "ZEBABundle:Message:new" }
+
+message_create:
+    path:     /create
+    defaults: { _controller: "ZEBABundle:Message:create" }
+    requirements: { _method: post }
+
+message_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "ZEBABundle:Message:edit" }
+
+message_update:
+    path:     /{id}/update
+    defaults: { _controller: "ZEBABundle:Message:update" }
+    requirements: { _method: post|put }
+
+message_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "ZEBABundle:Message:delete" }
+    requirements: { _method: post|delete }

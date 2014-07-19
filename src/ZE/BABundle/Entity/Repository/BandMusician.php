@@ -10,7 +10,7 @@ use ZE\BABundle\Entity;
 class BandMusician extends EntityRepository
 {
 
-    public function getAllMusiciansByBandId($bandId)
+    public function findAllMusiciansByBandId($bandId)
     {
         /*SELECT
         FROM

@@ -28,8 +28,7 @@
             '@jquery_ui_js'
             '%kernel.root_dir%/../vendor/tapmodo/Jcrop/js/jquery.Jcrop.min.js'
             '%kernel.root_dir%/../vendor/jeremymlane/bootbox/bootbox.js'
-            '../app/Resources/public/js/main.js'
-            %}
+            '../app/Resources/public/js/main.js' %}
             <script src="{{ asset_url }}"></script>
 
             {% endjavascripts %}
@@ -47,58 +46,79 @@
         <script>
 
             {%  if  app.session.id is defined  and  app.user.username is defined %}
-            var socket = io.connect('localhost:8080');
-            var userid = '{{ app.user.id }}';
-            var joinMsg = '{"id": '+userid+'}';
-            socket.emit('join', joinMsg);
+            try {
 
-            socket.on('connect', function (data) {
-                setStatus('connected');
-            });
+                var socket = io.connect('localhost:8080');
+                var userid = '{{ app.user.id }}';
+                var joinMsg = '{"id": ' + userid + '}';
+                socket.emit('join', joinMsg);
 
-            socket.on('reconnecting', function (data) {
-                setStatus('reconnecting');
-            });
+                socket.on('connect', function (data) {
+                    setStatus('connected');
+                });
+                socket.on('connect_success', function (data) {
+                    console.log('connect_success');
+                    newMessages = data.new_messages;
+                    if (newMessages) {
+                        if (newMessages == 1) {
+                            alertText = 'You have  ' + newMessages + ' new message';
+                        } else if (newMessages > 1) {
+                            alertText = 'You have  ' + newMessages + ' new messages';
+                        }
+                        bsNotify(newMessages, alertText);
+                    }
+                });
+                socket.on('reconnecting', function (data) {
+                    setStatus('reconnecting');
+                });
 
-            socket.on("new_msg", function(data) {
+                socket.on("new_msg", function (data) {
 
-                newMessages = data.new_messages;
-                console.log(newMessages);
-                $('#message_bar').append('' +
-                        '<div id="alert-new-message" class="alert alert-success" data-alert="alert">' +
-                        '<button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>' +
-                        'You have received a new message</div>');
-                $('#new_messages_badge').text(newMessages);
-                $('#new_messages_badge').addClass("badge alert-success");
-                window.setTimeout(function() {
-                    $("#alert-new-message").fadeTo(500, 0).slideUp(500, function(){
-                        $(this).remove();
-                    });
-                }, 5000);
+                    newMessages = data.new_messages;
+                    alertText = 'You have received a new message';
+                    console.log(data);
 
-            });
-            window.onbeforeunload = function(e) {
-                socket.emit('disconnect', joinMsg);
-            };
+                    bsNotify(newMessages,alertText);
+
+                });
+                window.onbeforeunload = function (e) {
+                    socket.emit('disconnect', joinMsg);
+                };
 
 
-            function setStatus(msg) {
-                console.log('Connection Status : ' + msg);
+                function setStatus(msg) {
+                    console.log('Connection Status : ' + msg);
+                }
+                function bsNotify(newMessages, text)
+                {
+                    $('#message_bar').append('' +
+                            '<div id="alert-new-message" class="alert alert-success" data-alert="alert">' +
+                            '<button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>' +
+                            text + '</div>');
+                    $('#new_messages_badge').text(newMessages);
+                    $('#new_messages_badge').addClass("badge alert-success");
+                    window.setTimeout(function () {
+                        $("#alert-new-message").fadeTo(500, 0).slideUp(500, function () {
+                            $(this).remove();
+                        });
+                    }, 5000);
+                }
+
+            } catch (e) {
+
             }
-
-
             {% endif %}
 
-            $(document).on("click", 'button',  function(){
+            $(document).on("click", 'button', function () {
                 var dataHref = $(this).attr('data-href');
                 console.log(dataHref);
-                if (typeof dataHref != 'undefined'){
+                if (typeof dataHref != 'undefined') {
                     $.ajax({
                         url: dataHref
 
                     })
-                            .done(function( data ) {
-                                if ( console && console.log ) {
+                            .done(function (data) {
+                                if (console && console.log) {
                                     console.log(data);
                                 }
                             });
@@ -112,7 +132,7 @@
 
 {% block body %}
     {% block body_start %}
-    <body>
+        <body>
     {% endblock body_start %}
     {% block navbar %}
         <div id="navbar" class="navbar navbar-default" role="navigation">
@@ -127,11 +147,13 @@
     {% block pre_container %}
         <div class="{% block container_class %}container{% endblock container_class %}">
             {% block modal_dialog %}
-                <div class="modal fade" id="login_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal fade" id="login_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+                     aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                                <button type="button" class="close" data-dismiss="modal"><span
+                                            aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
                                 <h4 class="modal-title" id="myModalLabel">Modal title</h4>
                             </div>
                             <div class="modal-body">
@@ -156,6 +178,6 @@
     {% endblock pre_container %}
 
     {% block body_end %}
-    </body>
+        </body>
     {% endblock body_end %}
 {% endblock body %}

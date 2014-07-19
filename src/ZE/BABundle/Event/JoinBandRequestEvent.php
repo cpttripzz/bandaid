@@ -15,6 +15,7 @@ class JoinBandRequestEvent extends Event
 {
     protected $user;
     protected $bandId;
+    protected $eventType = 'join-band';
 
     public function __construct($user,$bandId)
     {
@@ -36,5 +37,10 @@ class JoinBandRequestEvent extends Event
     public function getUser()
     {
         return $this->user;
+    }
+
+    public function getEventType()
+    {
+        return $this->eventType;
     }
 } 

@@ -14,6 +14,9 @@ ZEBABundle_musician:
 ZEBABundle_user:
   resource: "@ZEBABundle/Resources/config/routing/user.yml"
   prefix:   /user      
+ZEBABundle_message:
+  resource: "@ZEBABundle/Resources/config/routing/message.yml"
+  prefix:   /message
 ZEBABundle_api:
   resource: "@ZEBABundle/Resources/config/routing/api.yml"
   prefix:   /api

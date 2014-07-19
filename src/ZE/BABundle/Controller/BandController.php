@@ -98,10 +98,6 @@ class BandController extends Controller implements UrlTracker
         return $this->render('ZEBABundle:Band:show.html.twig', array(
             'entity'      => $entity,
         ));
-
-        return array(
-            'entity'      => $entity
-        );
     }
 
     public function editAction($id)
