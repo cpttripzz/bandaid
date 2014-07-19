@@ -30,9 +30,8 @@ class LoadUserData extends AbstractFixture
     FixtureInterface,
     ContainerAwareInterface
 {
-    /**
-     * @var ContainerInterface
-     */
+
+    private $run = false;
     private $container;
 
     private $cities;
@@ -262,7 +261,7 @@ class LoadUserData extends AbstractFixture
      */
     public function load(ObjectManager $manager)
     {
-        if (false) {
+        if ($this->run) {
             $this->manager = $manager;
 
             $countries = $this->manager->getRepository('ZE\BABundle\Entity\Country')->findAll();
@@ -372,6 +371,9 @@ class LoadUserData extends AbstractFixture
         $filename = sha1(uniqid(mt_rand(), true));
         $document->setName($filename);
         $document->setPath($filename . '.jpeg');
+        if (!is_dir($pwd . '/web/img/users/')){
+            mkdir($pwd . '/web/img/users/');
+        }
         $filename = $pwd . '/web/img/users/' . $filename . '.jpeg';
         file_put_contents($filename, $file);
         $this->manager->persist($document);

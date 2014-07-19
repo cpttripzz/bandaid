@@ -1,0 +1,9 @@
+{% block request_audition_button %}
+    <p>
+    <div>
+        <button href="{{ path('api_joinBandRequestAction', {'bandId': bandId} ) }}" type="button"
+                class="btn btn-primary">Request Audition To Join Band
+        </button>
+    </div>
+    </p>
+{% endblock request_audition_button %}

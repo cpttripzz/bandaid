@@ -23,12 +23,7 @@
             {% include 'ZEBABundle::locations.html.twig' with {'entity':assoc } %}
             {% block assoc_actions %}
             {% if type == 'band' and is_granted('ROLE_USER') %}
-                <br>
-                <div>
-                    <button data-href="{{ path('api_joinBandRequestAction', {'bandId': assoc.id} ) }}" type="button"
-                            class="btn btn-primary">Request Audition
-                    </button>
-                </div>
+                {% include 'ZEBABundle::request_audition_button.html.twig' with {'bandId': assoc.id} %}
             {% endif %}
         {% endblock assoc_actions %}
         </p>

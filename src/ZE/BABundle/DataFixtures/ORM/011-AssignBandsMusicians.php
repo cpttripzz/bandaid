@@ -31,6 +31,7 @@ class AssignBandsMusicians extends AbstractFixture
     FixtureInterface,
     ContainerAwareInterface
 {
+    private $run = true;
     /**
      * @var ContainerInterface
      */
@@ -48,7 +49,7 @@ class AssignBandsMusicians extends AbstractFixture
 
     public function load(ObjectManager $manager)
     {
-        if (true) {
+        if ($this->run) {
             $this->manager = $manager;
 
 

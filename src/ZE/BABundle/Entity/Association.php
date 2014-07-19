@@ -295,4 +295,11 @@ class Association
 
         return $this->documents->matching($criteria);
     }
+
+    public function getClassName()
+    {
+        $class = explode('\\', get_class($this));
+        return strtolower( array_pop($class) );
+
+    }
 }

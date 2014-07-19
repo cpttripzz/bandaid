@@ -29,9 +29,9 @@ class JoinBandRequestEventListener
     {
         $user = $event->getUser();
         $bandMembers = $this->em->getRepository('ZE\BABundle\Entity\BandMusician')->getAllMusiciansByBandId($event->getBandId());
-        if ($bandMembers) {
+
             $msgRecipients = array();
-            foreach ($bandMembers as $bandMember) {
+            foreach ((array) $bandMembers as $bandMember) {
                 $userId = $bandMember->getMusician()->getUser()->getId();
                 $username = $bandMember->getMusician()->getUser()->getUsername();
                 $nextMessageId = $this->msgService->incr('next_message_id');
@@ -50,5 +50,5 @@ class JoinBandRequestEventListener
         }
 
 
-    }
+
 } 
