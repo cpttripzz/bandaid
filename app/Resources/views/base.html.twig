@@ -11,6 +11,7 @@
         '../app/Resources/public/css/social-buttons.css'
         '%kernel.root_dir%/../vendor/tapmodo/Jcrop/css/jquery.Jcrop.min.css'
         '%kernel.root_dir%/../components/datatables/css/jquery.dataTables.min.css'
+
         %}
 
         <link href="{{ asset_url }}" type="text/css" rel="stylesheet"/>
@@ -32,6 +33,7 @@
             '%kernel.root_dir%/../vendor/jeremymlane/bootbox/bootbox.js'
             '../app/Resources/public/js/main.js'
             '%kernel.root_dir%/../components/datatables/js/jquery.dataTables.min.js'
+            '../app/Resources/public/js/dataTables.tableTools.min.js'
             %}
             <script src="{{ asset_url }}"></script>
 
@@ -46,7 +48,7 @@
     {% block head_bottom %}
 
         <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
-
+        <link rel="stylesheet" href="//cdn.datatables.net/tabletools/2.2.2/css/dataTables.tableTools.css">
         <script src="http://localhost:8080/socket.io/socket.io.js"></script>
         <script>
 

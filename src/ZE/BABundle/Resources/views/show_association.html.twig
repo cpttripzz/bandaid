@@ -12,7 +12,6 @@
                 {% endblock location_text %}
             {% endembed %}
             <br>
-            {{ dump (app.user.musicians[0].id) }}
             <p>{% include 'ZEBABundle::genres.html.twig' %}</p>
             <p>{% include 'ZEBABundle::instruments.html.twig' %}</p>
             <p>Description: {{ entity.description }}</p>

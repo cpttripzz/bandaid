@@ -29,7 +29,7 @@ class JoinBandRequestEventListener
     {
         $requestingUser = $event->getUser();
         $requestingUserId = $requestingUser->getId();
-        $username = $requestingUser->getUsername();
+        $musicianId = $event->getMusicianId();
         $bandId = $event->getBandId();
         $band = $this->em->getRepository('ZE\BABundle\Entity\Band')->findOneById($bandId);
         $bandName = $band->getName();
@@ -45,11 +45,11 @@ class JoinBandRequestEventListener
             $nextMessageId = $this->msgService->incr('next_message_id');
             $this->msgService->hmset(
                 'message:' . $nextMessageId,
-                'fromUser', $requestingUserId,
+                'musicianId', $musicianId,
                 'bandId', $bandId,
                 'messageType', $eventType,
                 'sent', $now,
-                'message', 'User [user] requested to join band [band]'
+                'message', 'Musician [musician] requested to join band [band]'
             );
             $this->msgService->rpush('messages:' . $userId, $nextMessageId);
             $numNewMessages = $this->msgService->incr('new_messages:' . $userId);

@@ -1,6 +1,10 @@
 api_joinBandRequestAction:
     path:     /joinBandRequestAction/{bandId}/{musicianId}
     defaults: { _controller: "ZEBABundle:Api:joinBandRequest" }
+api_joinBandAcceptAction:
+    path:     /joinBandAcceptAction/{bandId}/{musicianId}
+    defaults: { _controller: "ZEBABundle:Api:joinBandAccept" }
+
 
 api_getAllImagesByAssociationId:
     path:     /getAllImagesByAssociationId/{associationId}

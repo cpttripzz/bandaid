@@ -10,7 +10,7 @@
                 
         </thead>
         {% for msg in messages %}
-            <tr>
+            <tr  data-id="{{ msg.msgId }}">
                 <td>{{ msg.counter }}</td>
                 <td>{{ msg.sent }}</td>
                 <td>{{ msg.message|raw }}</td>
@@ -19,7 +19,26 @@
     </table>
     <script type="application/javascript">
         $(document).ready(function() {
-            $('#messages').dataTable();
+           var messagesTable = $('#messages').dataTable({
+                dom: 'T<"clear">lfrtip',
+                tableTools: {
+                    "sRowSelect": "multi",
+                    "aButtons": [
+                        "select_all",
+                        "select_none",
+                        {"sExtends":    "select","sButtonText": "Delete Selected Messages",
+                        "fnClick": function (nButton, oConfig, oFlash) {
+                            messagesTable.find('.selected').each( function( index ) {
+                                bootbox.confirm("Are you sure?", function(result) {
+                                    console.log("Confirm result: "+result);
+                                });
+                                return false;
+                                console.log( index + ": " + $( this ).attr('data-id') );
+                            });
+                        }
+
+                    } ] } }
+        );
         } );
     </script>
 {% endblock container %}

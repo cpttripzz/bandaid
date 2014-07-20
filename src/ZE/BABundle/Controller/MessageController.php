@@ -29,17 +29,23 @@ class MessageController extends Controller
         $arrCounter = 0;
         foreach((array) $msgIds as $key=> $msgId){
             $message = $this->msgService->hgetall('message:'.$msgId);
-            $requestUser = $em->getRepository('ZE\BABundle\Entity\User')->findOneById($message['fromUser']);
-            $requestBand = $em->getRepository('ZE\BABundle\Entity\Band')->findOneById($message['bandId']);
-            $userPofileLink = $this->generateUrl('user_show', array('id' => $requestUser->getId()));
-            $bandLink = $this->generateUrl('band_show', array('slug' => $requestBand->getSlug()));
+            $musician = $em->getRepository('ZE\BABundle\Entity\Musician')->findOneById($message['musicianId']);
+            $band = $em->getRepository('ZE\BABundle\Entity\Band')->findOneById($message['bandId']);
+            $musicianUri = $this->generateUrl('musician_show', array('slug' => $musician->getSlug()));
+            $bandUri = $this->generateUrl('band_show', array('slug' => $band->getSlug()));
+            $acceptUri = $this->generateUrl('api_joinBandRequestAction',
+                array('bandId' => $message['bandId'], 'musicianId' => $message['musicianId']));
             $message['msgId'] = $msgId;
             $message['counter'] = $arrCounter +1;
-            $requestUserLink = '<a href="'.$userPofileLink.'">' . $requestUser->getUserName() .'</a>';
-            $bandLink = '<a href="'.$bandLink.'">' . $requestBand->getName() .'</a';
-            $searchArr = array('[user]','[band]');
-            $replaceArr = array($requestUserLink,$bandLink);
-            $message['message'] = str_replace($searchArr,$replaceArr,$message['message']);
+            $musicianLink = '<a href="'.$musicianUri.'">' . $musician->getName() .'</a>';
+            $bandLink = '<a href="'.$bandUri.'">' . $band->getName() .'</a';
+            $acceptLink = '
+                <div><button data-href="'.$acceptUri.'"
+                    type="button" class="btn btn-primary">Accept Join Request</button>
+                </div>';
+            $searchArr = array('[musician]','[band]');
+            $replaceArr = array($musicianLink,$bandLink);
+            $message['message'] = str_replace($searchArr,$replaceArr,$message['message']) . $acceptLink;
             $msgs[$arrCounter] = $message;
 
             $arrCounter ++;

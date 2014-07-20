@@ -17,7 +17,7 @@ class JoinBandRequestEvent extends AbstractBandEvent
     public function __construct($user,$bandId, $musicianId)
     {
         parent::__construct($user,$bandId, $musicianId);
-        $this->eventType = 'join-band';
+        $this->eventType = self::EVENT_TYPE_JOIN;
     }
 
 } 

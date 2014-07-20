@@ -14,10 +14,10 @@ use Symfony\Component\EventDispatcher\Event;
 class JoinBandAcceptEvent extends AbstractBandEvent
 {
 
-    public function __construct($user,$bandId)
+    public function __construct($user,$bandId,$musicianId)
     {
-        parent::__construct($user,$bandId);
-        $this->eventType = 'accept-band';
+        parent::__construct($user,$bandId,$musicianId);
+        $this->eventType = self::EVENT_TYPE_ACCEPT;
     }
 
 } 

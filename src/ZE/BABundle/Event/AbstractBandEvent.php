@@ -17,6 +17,9 @@ abstract class AbstractBandEvent extends Event
     protected $bandId;
     protected $musicianId;
     protected $eventType;
+    const EVENT_TYPE_JOIN = 1;
+    const EVENT_TYPE_ACCEPT = 2;
+    const EVENT_TYPE_REJECT = 3;
 
     public function __construct($user,$bandId,$musicianId)
     {
