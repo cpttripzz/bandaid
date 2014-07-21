@@ -15,7 +15,7 @@
             <p>{% include 'ZEBABundle::genres.html.twig' %}</p>
             <p>{% include 'ZEBABundle::instruments.html.twig' %}</p>
             <p>Description: {{ entity.description }}</p>
-            {% if entity.getClassName == 'band' and is_granted('ROLE_USER') and (( app.user.id == entity.user.id) == false)%}
+            {% if entity.getClassName == 'band' and is_granted('ROLE_USER') and ( userInBand == false)%}
                 {% if app.user.musicians|length == 1%}
                     {% include 'ZEBABundle::request_audition_button.html.twig'
                         with {'bandId': entity.id, 'musicianId': app.user.musicians[0].id} %}

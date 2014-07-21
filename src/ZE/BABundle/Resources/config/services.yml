@@ -71,3 +71,6 @@ services:
             - [setSession, ["@session"]]
         tags:
             - { name: kernel.event_listener, event: kernel.controller, method: onKernelController }
+    ze.band_manager_service:
+        class:  ZE\BABundle\Service\Util\BandManager
+        arguments:  [@security.context, @doctrine.orm.entity_manager]

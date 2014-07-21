@@ -27,12 +27,9 @@ $(document).ready(function(){
         if (typeof dataHref != 'undefined') {
             $.ajax({
                 url: dataHref
-
-            })
-                .done(function (data) {
+            }).done(function (data) {
                     bsNotify(false, data.msg)
                 });
-
         }
     });
 });

@@ -94,9 +94,9 @@ class BandController extends Controller implements UrlTracker
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find Band entity.');
         }
-
+        $userInBand = $this->get('ze.band_manager_service')->isUserInBand($entity);
         return $this->render('ZEBABundle:Band:show.html.twig', array(
-            'entity'      => $entity,
+            'userInBand'=>$userInBand,'entity'=> $entity
         ));
     }
 

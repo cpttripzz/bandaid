@@ -2,17 +2,18 @@
 namespace ZE\BABundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Request;
+
+use ZE\BABundle\Event\JoinBandRequestEvent;
 
 class MessageController extends Controller
 {
     protected $msgService;
 
-    public function indexAction(){
+    public function indexAction(Request $request){
         $this->msgService = $this->get('snc_redis.default');
-        /**
-         * @var  ZE\BABundle\Entity\User
-         */
 
         if( !$this->get('security.context')->isGranted('IS_AUTHENTICATED_FULLY') ){
             return $this->render(
@@ -33,22 +34,36 @@ class MessageController extends Controller
             $band = $em->getRepository('ZE\BABundle\Entity\Band')->findOneById($message['bandId']);
             $musicianUri = $this->generateUrl('musician_show', array('slug' => $musician->getSlug()));
             $bandUri = $this->generateUrl('band_show', array('slug' => $band->getSlug()));
-            $acceptUri = $this->generateUrl('api_joinBandRequestAction',
+            $acceptUri = $this->generateUrl('api_joinBandAcceptAction',
                 array('bandId' => $message['bandId'], 'musicianId' => $message['musicianId']));
-            $message['msgId'] = $msgId;
+
+            $message['DT_RowId'] = $msgId;
             $message['counter'] = $arrCounter +1;
             $musicianLink = '<a href="'.$musicianUri.'">' . $musician->getName() .'</a>';
             $bandLink = '<a href="'.$bandUri.'">' . $band->getName() .'</a';
-            $acceptLink = '
+
+            $searchArr = array('[musician]','[band]');
+            $replaceArr = array($musicianLink,$bandLink);
+            $message['message'] = str_replace($searchArr,$replaceArr,$message['message']) ;
+            if ($message['messageType'] == JoinBandRequestEvent::EVENT_TYPE_JOIN ){
+                $acceptLink = '
+                <div><button data-href="'.$acceptUri.'"
+                    type="button" class="btn btn-primary">Accept Request</button>
+                </div>';
+
+                $rejectLink = '
                 <div><button data-href="'.$acceptUri.'"
                     type="button" class="btn btn-primary">Accept Join Request</button>
                 </div>';
-            $searchArr = array('[musician]','[band]');
-            $replaceArr = array($musicianLink,$bandLink);
-            $message['message'] = str_replace($searchArr,$replaceArr,$message['message']) . $acceptLink;
+                $message['message'] .= $acceptLink;
+            }
             $msgs[$arrCounter] = $message;
 
             $arrCounter ++;
+        }
+        if($request->isXmlHttpRequest())
+        {
+            return new JsonResponse(array("data"=>$msgs->toArray()));
         }
         return $this->render(
             'ZEBABundle:Message:index.html.twig',

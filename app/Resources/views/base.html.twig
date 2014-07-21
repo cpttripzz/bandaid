@@ -54,7 +54,39 @@
 
             {%  if  app.session.id is defined  and  app.user.username is defined %}
             try {
+                var messagesTable;
+                {% if app.request.attributes.get('_route') == 'message'%}
+                $(document).ready(function() {
 
+                    messagesTable = $('#messages').dataTable({
+                                "ajax": "{{ path('message') }}",
+                                "columns": [
+                                    { "data": "counter" },
+                                    { "data": "sent" },
+                                    { "data": "message" }
+                                ],
+                                dom: 'T<"clear">lfrtip',
+                                tableTools: {
+                                    "sRowSelect": "multi",
+                                    "aButtons": [
+                                        "select_all",
+                                        "select_none",
+                                        {"sExtends":    "select","sButtonText": "Delete Selected Messages",
+                                            "fnClick": function (nButton, oConfig, oFlash) {
+                                                messagesTable.find('.selected').each( function( index ) {
+                                                    bootbox.confirm("Are you sure?", function(result) {
+                                                        console.log("Confirm result: "+result);
+                                                    });
+                                                    return false;
+                                                    console.log( index + ": " + $( this ).attr('data-id') );
+                                                });
+                                            }
+
+                                        } ] } }
+                    );
+
+                } );
+                {% endif %}
                 var socket = io.connect('localhost:8080');
                 var userid = '{{ app.user.id }}';
                 var joinMsg = '{"id": ' + userid + '}';
@@ -83,9 +115,12 @@
 
                     newMessages = data.new_messages;
                     alertText = 'You have received a new message';
-                    console.log(data);
 
                     bsNotify(newMessages,alertText);
+                    {% if app.request.attributes.get('_route') == 'message'%}
+                        console.log('messagesTable.ajax.reload');
+                        messagesTable.ajax.reload();
+                    {% endif %}
 
                 });
                 window.onbeforeunload = function (e) {
@@ -112,6 +147,7 @@
                             $(this).remove();
                         });
                     }, 5000);
+
                 }
 
             } catch (e) {
@@ -144,6 +180,7 @@
         <body>
     {% endblock body_start %}
     {% block navbar %}
+
         <div id="navbar" class="navbar navbar-default" role="navigation">
             <div class="navbar-inner">
                 {{ knp_menu_render('ZEBABundle:MenuBuilder:mainMenu', {'currentClass': 'active', 'template': 'ZEBABundle:Menu:main_menu.html.twig'}) }}
