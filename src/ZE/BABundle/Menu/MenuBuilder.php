@@ -35,7 +35,7 @@ class MenuBuilder extends ContainerAware
                 ->setAttribute('dropdown', true)
                 ->setAttribute('icon', 'icon-user');
 
-            $menu['User']->addChild('Edit profile', array('route' => 'fos_user_profile_edit'))
+            $menu['User']->addChild('Edit profile', array('route' => 'user'))
                 ->setAttribute('icon', 'icon-edit');
             $menu['User']->addChild('Messages', array('route' => 'message'))
                 ->setAttribute('badge', 0)

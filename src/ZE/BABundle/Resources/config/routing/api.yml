@@ -4,7 +4,12 @@ api_joinBandRequestAction:
 api_joinBandAcceptAction:
     path:     /joinBandAcceptAction/{bandId}/{musicianId}
     defaults: { _controller: "ZEBABundle:Api:joinBandAccept" }
-
+api_getMessagesAction:
+    path:     /getMessagesAction/
+    defaults: { _controller: "ZEBABundle:Api:getMessages" }
+api_deleteMessagesAction:
+    path:     /deleteMessagesAction/{msgIds}
+    defaults: { _controller: "ZEBABundle:Api:deleteMessages" }
 
 api_getAllImagesByAssociationId:
     path:     /getAllImagesByAssociationId/{associationId}

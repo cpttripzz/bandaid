@@ -55,38 +55,7 @@
             {%  if  app.session.id is defined  and  app.user.username is defined %}
             try {
                 var messagesTable;
-                {% if app.request.attributes.get('_route') == 'message'%}
-                $(document).ready(function() {
 
-                    messagesTable = $('#messages').dataTable({
-                                "ajax": "{{ path('message') }}",
-                                "columns": [
-                                    { "data": "counter" },
-                                    { "data": "sent" },
-                                    { "data": "message" }
-                                ],
-                                dom: 'T<"clear">lfrtip',
-                                tableTools: {
-                                    "sRowSelect": "multi",
-                                    "aButtons": [
-                                        "select_all",
-                                        "select_none",
-                                        {"sExtends":    "select","sButtonText": "Delete Selected Messages",
-                                            "fnClick": function (nButton, oConfig, oFlash) {
-                                                messagesTable.find('.selected').each( function( index ) {
-                                                    bootbox.confirm("Are you sure?", function(result) {
-                                                        console.log("Confirm result: "+result);
-                                                    });
-                                                    return false;
-                                                    console.log( index + ": " + $( this ).attr('data-id') );
-                                                });
-                                            }
-
-                                        } ] } }
-                    );
-
-                } );
-                {% endif %}
                 var socket = io.connect('localhost:8080');
                 var userid = '{{ app.user.id }}';
                 var joinMsg = '{"id": ' + userid + '}';
@@ -117,10 +86,9 @@
                     alertText = 'You have received a new message';
 
                     bsNotify(newMessages,alertText);
-                    {% if app.request.attributes.get('_route') == 'message'%}
-                        console.log('messagesTable.ajax.reload');
+                    if(typeof messagesTable != 'undefined'){
                         messagesTable.ajax.reload();
-                    {% endif %}
+                    }
 
                 });
                 window.onbeforeunload = function (e) {
@@ -151,13 +119,12 @@
                 }
 
             } catch (e) {
-
+                console.log(e);
             }
             {% endif %}
 
             $(document).on("click", 'button', function () {
                 var dataHref = $(this).attr('data-href');
-                console.log(dataHref);
                 if (typeof dataHref != 'undefined') {
                     $.ajax({
                         url: dataHref

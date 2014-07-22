@@ -12,6 +12,54 @@
 
     </table>
     <script type="application/javascript">
+        $(document).ready(function() {
 
+            messagesTable = $('#messages').DataTable({
+                        "ajax": "{{ path('api_getMessagesAction') }}",
+                        "columns": [
+                            { "data": "counter" },
+                            { "data": "sent" },
+                            { "data": "message" }
+                        ],
+                        dom: 'T<"clear">lfrtip',
+                        tableTools: {
+                            "sRowSelect": "multi",
+                            "aButtons": [
+                                "select_all",
+                                "select_none",
+                                {"sExtends":    "select","sButtonText": "Delete Selected Messages",
+                                    "fnClick": function (nButton, oConfig, oFlash) {
+                                        var oTT = TableTools.fnGetInstance( 'messages' );
+                                        var aData = oTT.fnGetSelectedData();
+                                        var arrMsgIds = Array();
+
+                                        $(aData).each( function( index ) {
+                                            arrMsgIds.push(this.DT_RowId);
+                                        });
+                                            bootbox.confirm("Are you sure?", function(result) {
+                                                if(result){
+                                                    if (arrMsgIds.length > 0) {
+                                                        var url = Routing.generate('api_deleteMessagesAction', {'msgIds':arrMsgIds.join() });
+                                                        $.ajax({
+                                                            url: url
+
+                                                        })
+                                                                .done(function (data) {
+                                                                    messagesTable.ajax.reload();
+                                                                    bsNotify(false, data.msg)
+                                                                });
+
+                                                    }
+                                                }
+                                            });
+
+                                            return false;
+
+                                    }
+
+                                } ] } }
+            );
+
+        } );
     </script>
 {% endblock container %}
