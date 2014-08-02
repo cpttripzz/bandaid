@@ -3,7 +3,10 @@
 namespace ZE\BABundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Doctrine\Common\Collections\ArrayCollection;
+use Gedmo\Timestampable\Traits\TimestampableEntity;
+use Gedmo\Mapping\Annotation as Gedmo;
+
+
 
 /**
  * Address
@@ -12,6 +15,13 @@ use Doctrine\Common\Collections\ArrayCollection;
  */
 class Address
 {
+
+    /**
+     * Hook timestampable behavior
+     * updates createdAt, updatedAt fields
+     */
+    use TimestampableEntity;
+
     /**
      * @var integer
      *
@@ -170,27 +180,22 @@ class Address
         return $this->address . ' ' . $this->getCity()->getName();
     }
 
-    /**
-     * @ORM\ManyToOne(targetEntity="Association", inversedBy="addresses")
-     **/
-    protected $association;
-
-    public function setAssociation(Association $association)
+    public function getLongName()
     {
-        $this->association = $association;
+        $region = $this->getRegion();
+        if (!empty($region)){
+            $region = $this->getRegion()->getShortName() . ' ';
+        }
+
+        $name = $this->address . ' ' . $this->getCity()->getName() .' ' . $region
+            . $this->getCity()->getCountry()->getName() ;
+        return $name;
     }
 
+    /** @ORM\ManyToMany(targetEntity="Association", mappedBy="addresses") **/
+    protected $associations;
 
-
-    /**
-     * Get association
-     *
-     * @return \ZE\BABundle\Entity\Association 
-     */
-    public function getAssociation()
-    {
-        return $this->association;
-    }
+   
 
     /**
      * Set region

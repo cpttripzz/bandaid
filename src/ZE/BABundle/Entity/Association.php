@@ -42,7 +42,11 @@ class Association
     protected $description;
 
     /**
-     * @ORM\OneToMany(targetEntity="Address", mappedBy="association",cascade={"persist"})
+     * @ORM\ManyToMany(targetEntity="Address", inversedBy="associations")
+     * @ORM\JoinTable(name="association_address",
+     *   joinColumns={@ORM\JoinColumn(name="association_id", referencedColumnName="id")},
+     *   inverseJoinColumns={@ORM\JoinColumn(name="address_id", referencedColumnName="id")}
+     * )
      */
     protected $addresses;
 

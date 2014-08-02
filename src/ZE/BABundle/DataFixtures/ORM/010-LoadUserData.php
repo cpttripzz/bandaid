@@ -31,7 +31,7 @@ class LoadUserData extends AbstractFixture
     ContainerAwareInterface
 {
 
-    private $run = false;
+    private $run = true;
     private $container;
 
     private $cities;
@@ -197,7 +197,7 @@ class LoadUserData extends AbstractFixture
         }
         for ($i = 0; $i < rand(1, 2); $i++) {
             $address = $this->createRandomAddress();
-            $address->setAssociation($assoc);
+            $address->addAssociation($assoc);
             $assoc->addAddress($address);
         }
 
@@ -228,7 +228,7 @@ class LoadUserData extends AbstractFixture
         }
         for ($i = 0; $i < rand(1, 2); $i++) {
             $address = $this->createRandomAddress();
-            $address->setAssociation($assoc);
+            $address->addAssociation($assoc);
             $assoc->addAddress($address);
         }
         for ($i = 0; $i < rand(1, 2); $i++) {

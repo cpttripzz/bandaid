@@ -130,7 +130,8 @@ class MusicianController extends Controller implements UrlTracker
         if (false === $this->get('security.context')->isGranted('edit', $entity)) {
             throw new AccessDeniedException('Unauthorised access!');
         }
-        $form = $this->createForm(new MusicianType(), $entity, array(
+        $form = $this->createForm(new MusicianType($this->get('security.context')), $entity, array(
+            'show_legend' => false,
             'action' => $this->generateUrl('musician_update', array('id' => $entity->getId())),
             'method' => 'PUT',
         ));

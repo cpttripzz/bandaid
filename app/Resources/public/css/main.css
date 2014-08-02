@@ -277,3 +277,6 @@ div.btn{
     margin-left: 25px !important;
     float: left;
 }
+input.form-control{
+    width: 500px;;
+}

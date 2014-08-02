@@ -180,27 +180,22 @@ class Address
         return $this->address . ' ' . $this->getCity()->getName();
     }
 
-    /**
-     * @ORM\ManyToOne(targetEntity="Association", inversedBy="addresses")
-     **/
-    protected $association;
-
-    public function setAssociation(Association $association)
+    public function getLongName()
     {
-        $this->association = $association;
+        $region = $this->getRegion();
+        if (!empty($region)){
+            $region = $this->getRegion()->getShortName() . ' ';
+        }
+
+        $name = $this->address . ' ' . $this->getCity()->getName() .' ' . $region
+            . $this->getCity()->getCountry()->getName() ;
+        return $name;
     }
 
+    /** @ORM\ManyToMany(targetEntity="Association", mappedBy="addresses") **/
+    protected $associations;
 
 
-    /**
-     * Get association
-     *
-     * @return \ZE\BABundle\Entity\Association 
-     */
-    public function getAssociation()
-    {
-        return $this->association;
-    }
 
     /**
      * Set region
@@ -224,5 +219,49 @@ class Address
     public function getRegion()
     {
         return $this->region;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->associations = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add association.
+
+     *
+     * @param \ZE\BABundle\Entity\Association $association
+     *
+     * @return Address
+     */
+    public function addAssociation(\ZE\BABundle\Entity\Association $association)
+    {
+        $this->associations[] = $association;
+
+        return $this;
+    }
+
+    /**
+     * Remove association.
+
+     *
+     * @param \ZE\BABundle\Entity\Association $association
+     */
+    public function removeAssociation(\ZE\BABundle\Entity\Association $association)
+    {
+        $this->associations->removeElement($association);
+    }
+
+    /**
+     * Get associations.
+
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getAssociations()
+    {
+        return $this->associations;
     }
 }

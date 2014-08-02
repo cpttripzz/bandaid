@@ -10,31 +10,20 @@
     {{ form_javascript(edit_form) }}
 {% endblock %}
 {% block container %}
+    {% embed 'ZEBABundle::locations.html.twig' %}
+        {%  block location_label %}<span><b>Locations </b></span>{% endblock location_label %}
+        {% block location_text %}
+            {{ address.city.name  }},
+            {% if address.region.longName is defined %}{{ address.region.longName }},{% endif %}
+            {{ address.city.country.name }}
+        {% endblock location_text %}
+    {% endembed %}
     {{ form(edit_form) }}
-    <div class="row">
-        {% for document in edit_form.vars.value.documents %}
-            {% set document_id = document.id %}
-            <div class="col-lg-2 col-sm-3 col-xs-4">
-                <a href="#">
-                    <img src="/{{ document.getWebPath() }}" class="thumbnail img-responsive">
-                </a>
-
-                <div id="delete-document-{{ document_id }}"
-                     data-document-id="{{ document_id }}"
-                     data-assoc-id="{{ edit_form.vars.value.id }}"
-                     class="delete-document fa fa-2x fa-times-circle"></div>
-                <div class="default-document fa fa-2x fa-check-circle"></div>
-            </div>
-
-        {% endfor %}
-    </div>
-    <div><button class="btn btn-primary"></button></div>
-    </ul>
-
     <div id="dialog-confirm" title="Delete Image?" style="visibility: hidden">
         <p><span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 20px 0;"></span>
         </p>
     </div>
+
     <script type="application/javascript">
         $("div[id^='delete-document-']").on('click', function () {
             var documentId = $(this).attr('data-document-id');
