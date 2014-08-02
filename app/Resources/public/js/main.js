@@ -1,6 +1,5 @@
 $(document).ready(function(){
     $('[data-toggle="modal"]').click(function(e) {
-        debugger;
         var url = $(this).find('a').attr('href');
         var options = {
             show: 'true',

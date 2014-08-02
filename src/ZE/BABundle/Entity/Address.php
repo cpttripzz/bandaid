@@ -195,7 +195,7 @@ class Address
     /** @ORM\ManyToMany(targetEntity="Association", mappedBy="addresses") **/
     protected $associations;
 
-
+   
 
     /**
      * Set region

@@ -10,6 +10,7 @@
     {{ form_javascript(edit_form) }}
 {% endblock %}
 {% block container %}
+    {% include 'ZEBABundle::show_new_location_modal.html.twig' %}
     {% embed 'ZEBABundle::locations.html.twig' %}
         {%  block location_label %}<span><b>Locations </b></span>{% endblock location_label %}
         {% block location_text %}
@@ -18,6 +19,7 @@
             {{ address.city.country.name }}
         {% endblock location_text %}
     {% endembed %}
+    <button class="btn btn-primary" id="btnShowNewLocation" data-target="#largeModal">Add New Address</button>
     {{ form(edit_form) }}
     <div id="dialog-confirm" title="Delete Image?" style="visibility: hidden">
         <p><span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 20px 0;"></span>
@@ -25,6 +27,26 @@
     </div>
 
     <script type="application/javascript">
+        $("#basicModal").on("shown",function(){
+
+
+        });
+
+        $("#btnShowNewLocation").on('click', function () {
+            var options = {
+                "backdrop" : "static",
+                "show": true
+            }
+            $('#basicModal').modal(options);
+            setTimeout(function() {
+                map.setCenter(new google.maps.LatLng(0, 0));
+                map.setZoom( map.getZoom() );
+                google.maps.event.trigger(map, "resize");
+
+            }, 1000);
+
+
+        });
         $("div[id^='delete-document-']").on('click', function () {
             var documentId = $(this).attr('data-document-id');
             var assocId = $(this).attr('data-assoc-id');
