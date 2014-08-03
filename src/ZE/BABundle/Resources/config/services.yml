@@ -24,6 +24,13 @@ services:
             - @service_container
         tags:
             - { name: doctrine.event_listener, event: prePersist }
+    zeba_user.association_listener:
+            class:  ZE\BABundle\Doctrine\Listener\UserAssociationEventListener
+            arguments:
+                - @service_container
+            tags:
+                - { name: doctrine.event_listener, event: prePersist }
+
     security.access.post_voter:
         class:      ZE\BABundle\Security\Authorization\Voter\AssociationVoter
         public:     false
@@ -74,3 +81,6 @@ services:
     ze.band_manager_service:
         class:  ZE\BABundle\Service\Util\BandManager
         arguments:  [@security.context, @doctrine.orm.entity_manager]
+    ze.location_manager_service:
+        class:  ZE\BABundle\Service\Util\LocationManager
+        arguments:  [@security.context, @doctrine.orm.entity_manager, @google_geolocation.geolocation_api]

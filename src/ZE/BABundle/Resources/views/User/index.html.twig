@@ -7,6 +7,11 @@
 
             {% endblock navigaion %}
         {% endembed %}
+        <p>
+        <div>
+            <a href="{{ path('musician_new') }}" class="btn btn-primary">Create New Musician Profile</a>
+        </div>
+        </p>
     </div>
     <div class="panel ">
         Bands Owned:
@@ -15,5 +20,9 @@
 
             {% endblock navigaion %}
         {% endembed %}
+        <div>
+            <a href="{{ path('band_new') }}" class="btn btn-primary">Create New Band Profile</a>
+        </div>
+        </p>
     </div>
 {% endblock container%}

@@ -10,7 +10,9 @@ api_getMessagesAction:
 api_deleteMessagesAction:
     path:     /deleteMessagesAction/{msgIds}
     defaults: { _controller: "ZEBABundle:Api:deleteMessages" }
-
+api_saveNewAddressAction:
+    path:     /saveNewAddressAction/{associationId}/{associationType}/{address}
+    defaults: { _controller: "ZEBABundle:Api:saveNewAddress" }
 api_getAllImagesByAssociationId:
     path:     /getAllImagesByAssociationId/{associationId}
     defaults: { _controller: "ZEBABundle:Api:getAllImagesByAssociationId" }

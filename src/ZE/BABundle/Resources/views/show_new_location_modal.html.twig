@@ -27,23 +27,12 @@
         map = new google.maps.Map(document.getElementById("map"));
 
         function displayResults(result, div) {
-            html = ["Address: " + result.address()]
-            html.push("Latitude: " + result.lat())
-            html.push("Longitude: " + result.lng())
-            html.push("Long names:")
-            result.addressTypes().forEach(function(type) {
-                html.push("  " + type + ": " + result.nameForType(type))
-            })
-            html.push("Short names:")
-            result.addressTypes().forEach(function(type) {
-                html.push("  " + type + ": " + result.nameForType(type, true))
-            })
-            div.html( html.join('\n'));
+            console.log(result);
+
         }
 
 
         $( function() {
-            // instantiate the addressPicker suggestion engine (based on bloodhound)
             var addressPicker = new AddressPicker({map: {id: '#map'}, marker: {draggable: true, visible: true}, zoomForLocation: 18, reverseGeocoding: true});
 
             // instantiate the typeahead UI

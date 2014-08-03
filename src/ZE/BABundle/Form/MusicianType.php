@@ -61,6 +61,7 @@ class MusicianType extends AbstractType
                     'class' => 'ZE\BABundle\Entity\Address',
                     'property' => 'longName',
                     'multiple' => true,
+                    'required' =>false,
                     'query_builder' => function (EntityRepository $er) use ($user) {
                         // build a custom query
 

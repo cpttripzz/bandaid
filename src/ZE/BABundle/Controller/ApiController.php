@@ -9,53 +9,54 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use ZE\BABundle\Entity\Band;
 use ZE\BABundle\Event\JoinBandAcceptEvent;
 use ZE\BABundle\Event\JoinBandRequestEvent;
+use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 
 class ApiController extends Controller
 {
     protected $msgService;
     protected $em;
 
-    public function joinBandRequestAction($bandId,$musicianId)
+    public function joinBandRequestAction($bandId, $musicianId)
     {
         $this->em = $this->getDoctrine()->getManager();
         $user = $this->get('security.context')->getToken()->getUser();
-        if( !$this->get('security.context')->isGranted('IS_AUTHENTICATED_FULLY') ){
-            return new JsonResponse(array("Not Logged In"),401);
+        if (!$this->get('security.context')->isGranted('IS_AUTHENTICATED_FULLY')) {
+            return new JsonResponse(array("Not Logged In"), 401);
         }
         if ($user->hasRole('ROLE_USER')) {
             $band = $this->em->getRepository('ZE\BABundle\Entity\Band')->findOneById($bandId);
 
-            if( $this->get('ze.band_manager_service')->isUserInBand($band)){
-                return new JsonResponse(array("success" =>false, "msg"=>"User Already Member of Band"),404);
+            if ($this->get('ze.band_manager_service')->isUserInBand($band)) {
+                return new JsonResponse(array("success" => false, "msg" => "User Already Member of Band"), 404);
             }
             $dispatcher = $this->container->get('event_dispatcher');
             $dispatcher->dispatch('zeba.band.join_request', new JoinBandRequestEvent($user, $bandId, $musicianId));
-            return new JsonResponse(array("success" =>true, "msg"=>"Request sent."));
+            return new JsonResponse(array("success" => true, "msg" => "Request sent."));
         } else {
-            return new JsonResponse(array("success" =>false, "msg"=>"Not Logged In"),401);
+            return new JsonResponse(array("success" => false, "msg" => "Not Logged In"), 401);
         }
     }
 
-    public function joinBandAcceptAction($bandId,$musicianId)
+    public function joinBandAcceptAction($bandId, $musicianId)
     {
         $this->em = $this->getDoctrine()->getManager();
         $user = $this->get('security.context')->getToken()->getUser();
 
-        if( !$this->get('security.context')->isGranted('IS_AUTHENTICATED_FULLY') ){
-            return new JsonResponse(array("msg"=>"Not Logged In"),401);
+        if (!$this->get('security.context')->isGranted('IS_AUTHENTICATED_FULLY')) {
+            return new JsonResponse(array("msg" => "Not Logged In"), 401);
         }
 
         $band = $this->em->getRepository('ZE\BABundle\Entity\Band')->findOneById($bandId);
 
-        if(! $this->get('ze.band_manager_service')->isUserInBand($band)){
+        if (!$this->get('ze.band_manager_service')->isUserInBand($band)) {
             throw new AccessDeniedException('Unauthorised access!');
         }
         if ($user->hasRole('ROLE_USER')) {
             $dispatcher = $this->container->get('event_dispatcher');
-            $dispatcher->dispatch('zeba.band.join_accept', new JoinBandAcceptEvent($user,$bandId,$musicianId));
-            return new JsonResponse(array("success" =>true, "msg"=>"User accepted to band."));
+            $dispatcher->dispatch('zeba.band.join_accept', new JoinBandAcceptEvent($user, $bandId, $musicianId));
+            return new JsonResponse(array("success" => true, "msg" => "User accepted to band."));
         } else {
-            return new JsonResponse(array("success" =>false, "msg"=>"Not Logged In"),401);
+            return new JsonResponse(array("success" => false, "msg" => "Not Logged In"), 401);
         }
     }
 
@@ -63,19 +64,19 @@ class ApiController extends Controller
     {
         $this->em = $this->getDoctrine()->getManager();
         $this->msgService = $this->get('snc_redis.default');
-        if( !$this->get('security.context')->isGranted('IS_AUTHENTICATED_FULLY') ){
-            return new JsonResponse(array("success" =>false, "msg"=>"Not Logged In"),401);
+        if (!$this->get('security.context')->isGranted('IS_AUTHENTICATED_FULLY')) {
+            return new JsonResponse(array("success" => false, "msg" => "Not Logged In"), 401);
         }
         $user = $this->get('security.context')->getToken()->getUser();
 
-        $msgIds = $this->msgService->lrange('messages:'.$user->getId(), 0, -1);
-        if ($msgIds){
+        $msgIds = $this->msgService->lrange('messages:' . $user->getId(), 0, -1);
+        if ($msgIds) {
             $msgs = new \SplFixedArray(count($msgIds));
         }
         $arrCounter = 0;
-        foreach((array) $msgIds as $key=> $msgId){
-            $message = $this->msgService->hgetall('message:'.$msgId);
-            if($message) {
+        foreach ((array)$msgIds as $key => $msgId) {
+            $message = $this->msgService->hgetall('message:' . $msgId);
+            if ($message) {
                 $musician = $this->em->getRepository('ZE\BABundle\Entity\Musician')->findOneById($message['musicianId']);
                 $band = $this->em->getRepository('ZE\BABundle\Entity\Band')->findOneById($message['bandId']);
                 $musicianUri = $this->generateUrl('musician_show', array('slug' => $musician->getSlug()));
@@ -108,12 +109,12 @@ class ApiController extends Controller
                 $arrCounter++;
             }
         }
-        if(!empty($msgs) && count($msgs)){
+        if (!empty($msgs) && count($msgs)) {
             $msgs = $msgs->toArray();
         } else {
             $msgs = array();
         }
-        return new JsonResponse(array("data"=>$msgs));
+        return new JsonResponse(array("data" => $msgs));
 
     }
 
@@ -121,29 +122,42 @@ class ApiController extends Controller
     {
         $this->msgService = $this->get('snc_redis.default');
         $this->em = $this->getDoctrine()->getManager();
-        if( !$this->get('security.context')->isGranted('IS_AUTHENTICATED_FULLY') ){
-            return new JsonResponse(array("success" =>false, "msg"=>"Not Logged In"),401);
+        if (!$this->get('security.context')->isGranted('IS_AUTHENTICATED_FULLY')) {
+            return new JsonResponse(array("success" => false, "msg" => "Not Logged In"), 401);
         }
         $user = $this->get('security.context')->getToken()->getUser();
         $userId = $user->getId();
-        $arrMsgIds = explode(',',$msgIds);
-        $msgIds = $this->msgService->lrange('messages:'.$userId, 0, -1);
+        $arrMsgIds = explode(',', $msgIds);
+        $msgIds = $this->msgService->lrange('messages:' . $userId, 0, -1);
         $arrayIntersect = array_intersect($arrMsgIds, $msgIds);
         $this->msgService->decrby('new_messages:' . $userId, count($arrayIntersect));
 
-        foreach($arrayIntersect as $msgId){
-            $this->msgService->del('message:'.$msgId);
-            $this->msgService->lrem('messages:'.$userId, 0 ,$msgId);
+        foreach ($arrayIntersect as $msgId) {
+            $this->msgService->del('message:' . $msgId);
+            $this->msgService->lrem('messages:' . $userId, 0, $msgId);
         }
-        if (count($arrayIntersect) ==0 || count($arrayIntersect) > 1) {
+        if (count($arrayIntersect) == 0 || count($arrayIntersect) > 1) {
             $msg = count($arrayIntersect) . " Messages Deleted.";
         } else {
             $msg = "1 Message Deleted.";
         }
-        return new JsonResponse(array("success" =>true, "msg"=> $msg ));
+        return new JsonResponse(array("success" => true, "msg" => $msg));
 
     }
 
+    public function saveNewAddressAction($associationId, $associationType, $address)
+    {
+
+        $address = $this->get('ze.location_manager_service')->saveNewAddress($associationId, $associationType, $address);
+        if($address){
+            return new JsonResponse(array("success" => true, "msg" => 'Address created'));
+        } else{
+            return new JsonResponse(array("success" => false, "msg" => 'Address not created'));
+
+        }
+
+
+    }
 
     public function getAllImagesByAssociationIdAction($associationId)
     {

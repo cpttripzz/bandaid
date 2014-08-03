@@ -57,19 +57,6 @@ class LoadUserData extends AbstractFixture
     {
         return $this->instruments[rand(0, count($this->instruments) - 1)];
     }
-    public function loadCountries()
-    {
-        $filename = __DIR__ . DIRECTORY_SEPARATOR  . '001-countries.yml';
-        $yml      = Yaml::parse(file_get_contents($filename));
-        foreach ($yml['countries'] as $row => $data) {
-            $country = new Country();
-            $country->setName($data['l']);
-            $country->setCode($data['s']);
-            $this->manager->persist($country);
-        }
-        $this->manager->flush();
-
-    }
 
     public function loadInstruments()
     {
@@ -264,10 +251,6 @@ class LoadUserData extends AbstractFixture
         if ($this->run) {
             $this->manager = $manager;
 
-            $countries = $this->manager->getRepository('ZE\BABundle\Entity\Country')->findAll();
-            if (empty($countries)) {
-                $this->loadCountries();
-            }
 
             $this->cities = $this->manager->getRepository('ZE\BABundle\Entity\City')->findAll();
             if (empty($this->cities)) {
