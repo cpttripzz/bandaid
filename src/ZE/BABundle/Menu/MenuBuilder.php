@@ -48,9 +48,9 @@ class MenuBuilder extends ContainerAware
                 ->setAttribute('icon', 'icon-user');
             $menu['User']->addChild('Login', array('route' => 'fos_user_security_login'))
                 ->setAttribute('icon', 'fa fa-sign-in')
-                ->setAttribute('data-toggle','modal')
-                ->setAttribute('data-target','#login_modal')
-                ->setAttribute('id', 'btn_modal_login')
+                ->setLinkAttribute('data-toggle','modal')
+                ->setLinkAttribute('data-target','#login_modal')
+                ->setLinkAttribute('id', 'btn_modal_login')
 
             ;
         }

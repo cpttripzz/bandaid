@@ -56,7 +56,7 @@
         "sonata-project/core-bundle": "~2.2@dev",
         "phpunit/phpunit": "*",
         "mopa/bootstrap-bundle": "v3.0.0-beta3",
-        "twbs/bootstrap": "v3.0.0",
+        "twbs/bootstrap": "v3.2.0",
         "components/jquery": "1.9.*",
         "hwi/oauth-bundle": "0.4.*@dev",
         "knplabs/knp-menu": "2.0.*@dev,>=2.0.0-beta1",
@@ -82,7 +82,8 @@
         "sensio/buzz-bundle":"dev-master",
         "predis/predis": "0.8.x-dev",
         "snc/redis-bundle": "1.1.x-dev",
-        "drmonty/datatables": "dev-master"
+        "drmonty/datatables": "dev-master",
+        "raulfraile/ladybug-bundle": "~1.0"
 
         },
     "scripts": {

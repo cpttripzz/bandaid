@@ -1,5 +1,5 @@
 {% extends '::base.html.twig' %}
-{% block head %} {% endblock head %}
+{% block head %} <script type="application/javascript">console.log('dfdfdf')</script>{% endblock head %}
 {% block body %}
     {% block body_start %}{% endblock body_start %}
     {% block navbar %} {% endblock navbar %}
@@ -11,9 +11,6 @@
             <div>{{ error|trans({}, 'FOSUserBundle') }}</div>
         {% endif %}
 
-        <div  id="login_modal">
-            <div class="modal-dialog">
-        <div class="modal-content">
 
             <form action="{{ path("fos_user_security_check") }}" method="post" role="form" data-async data-target="#rating-modal" class="text-left">
                 <div class="modal-header">
@@ -27,11 +24,11 @@
                     <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
                     <div class="form-group container">
                         <label for="email">Username</label>
-                        <input type="text" class="form-control" id="username" name="_username" value="{{ last_username }}" required="required" placeholder="adresse@email.com">
+                        <input type="text" id="username" name="_username" value="{{ last_username }}" required="required" placeholder="adresse@email.com">
                     </div>
                     <div class="form-group container">
                         <label for="password">Password</label><br />
-                        <input type="password" id="password" name="_password" required="required" class="form-control" placeholder="********">
+                        <input type="password" id="password" name="_password" required="required" placeholder="********">
                     </div>
                     <div class="form-group container">
                         <label for="remember_me">
@@ -49,9 +46,6 @@
                     <a href="#" data-dismiss="modal" class="btn">Close</a>
                     <input type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans({}, 'FOSUserBundle') }}" />
                 </div>
-        </div>
-        </div>
-        </div>
         </form>
         <script>
             $(document).ready(function () {
