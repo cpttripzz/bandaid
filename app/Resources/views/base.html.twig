@@ -106,9 +106,9 @@
                 }
 
                 function reloadAddresses(target,newData){
-                    var data = $(target).select2('data');
+                    var data = $('#'+target).select2('data');
                     data.push(newData);
-                    $(target).select2("data", data, true);
+                    $('#'+target).select2("data", data, true);
                 }
 
                 function bsNotify(newMessages, text) {
@@ -142,16 +142,16 @@
 
                     })
                             .done(function (data) {
-                                debugger;
+                                bsNotify(false, data.msg);
                                 if (data.callback){
 
                                     var functionName = data.callback.callback;
                                     var target = data.callback.target;
                                     var data = data.callback.data;
-                                    var callback_function = new Function(functionName);
-                                    callback_function(target,data);
+                                    var fn = window[functionName];
+                                    fn(target,data);
                                 }
-                                bsNotify(false, data.msg)
+
                             });
 
                 }

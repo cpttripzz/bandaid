@@ -82,7 +82,7 @@ class LocationManager
         $association->addAddress($address);
         $this->em->persist($association);
         $this->em->flush();
-        return array($address->getId() =>$address->__toString());
+        return array('id'=>$address->getId(), 'text'=>$address->__toString());
 
     }
 
