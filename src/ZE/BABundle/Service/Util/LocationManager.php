@@ -5,7 +5,7 @@ namespace ZE\BABundle\Service\Util;
 
 use Symfony\Component\Security\Core\SecurityContext;
 use Doctrine\ORM\EntityManager;
-use ZE\BABundle\Entity\Band;
+use Doctrine\ORM\Query;
 use ZE\BABundle\Entity\City;
 use ZE\BABundle\Entity\Address;
 use ZE\BABundle\Entity\Region;
@@ -79,7 +79,26 @@ class LocationManager
         $city = $this->getOrCreateCity($strCity, $country);
         $region = $this->getOrCreateRegion($city);
         $address = $this->getOrCreateAddress($strAddress,$city,$region);
-        return $address;
+        $association->addAddress($address);
+        $this->em->persist($association);
+        $this->em->flush();
+        return array($address->getId() =>$address->__toString());
+
+    }
+
+    public function getAllAddressesForAssociation($associationId, $associationType)
+    {
+        if ($associationType == 'band') {
+            $association = $this->em->getRepository('ZE\BABundle\Entity\Band')->findOneById($associationId);
+        } elseif ($associationType == 'musician') {
+            $association = $this->em->getRepository('ZE\BABundle\Entity\Musician')->findOneById($associationId);
+        }
+        if (false === $this->security->isGranted('edit', $association)) {
+            throw new AccessDeniedException('Unauthorised access!');
+        }
+
+
+        return $association->getAddresses();
 
     }
 
@@ -104,7 +123,9 @@ class LocationManager
         if (!$address) {
             $address = new Address();
             $address->setAddress($strAddress);
+            $city->setRegion($region);
             $address->setCity($city);
+
             $this->em->persist($address);
             $this->em->flush();
         }

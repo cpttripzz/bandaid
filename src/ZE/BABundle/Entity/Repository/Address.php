@@ -56,7 +56,6 @@ class Address extends EntityRepository
 
     public function findOneByAddressAndCityAndRegion($address,$city,$region=null)
     {
-        $region=null;
         $cityId = $city->getId();
         $qb = $this->createQueryBuilder('a')
             ->innerJoin('a.city', 'city')
@@ -69,15 +68,12 @@ class Address extends EntityRepository
 
             if($region){
 
-                $qb->where('city.region = :regionId')
+                $qb->andWhere('city.region = :regionId')
                     ->setParameter('regionId', $region->getId());
             }
-        /*$query=$qb->getQuery();
-        $sql=$query->getSQL();
-        $parameters=$query->getParameters();
-        echo($sql);
-        var_dump($parameters);die;*/
 
-        return $qb->getQuery()->getResult();
+
+        return $qb->getQuery()->getOneOrNullResult();
     }
+
 }

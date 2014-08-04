@@ -150,7 +150,9 @@ class ApiController extends Controller
 
         $address = $this->get('ze.location_manager_service')->saveNewAddress($associationId, $associationType, $address);
         if($address){
-            return new JsonResponse(array("success" => true, "msg" => 'Address created'));
+//            $addresses = $this->get('ze.location_manager_service')->getAllAddressesForAssociation($associationId, $associationType);
+            $returnObj = array('callback'=>'reloadAddresses','target' => 's2id_ze_babundle_musician_addresses', 'data' => $address);
+            return new JsonResponse(array("success" => true, "msg" => 'Address created', 'callback' => $returnObj));
         } else{
             return new JsonResponse(array("success" => false, "msg" => 'Address not created'));
 

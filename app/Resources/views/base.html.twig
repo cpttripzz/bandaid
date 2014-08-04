@@ -105,6 +105,12 @@
                     console.log('Connection Status : ' + msg);
                 }
 
+                function reloadAddresses(target,newData){
+                    var data = $(target).select2('data');
+                    data.push(newData);
+                    $(target).select2("data", data, true);
+                }
+
                 function bsNotify(newMessages, text) {
 
                     $('#message_bar').append('' +
@@ -136,6 +142,15 @@
 
                     })
                             .done(function (data) {
+                                debugger;
+                                if (data.callback){
+
+                                    var functionName = data.callback.callback;
+                                    var target = data.callback.target;
+                                    var data = data.callback.data;
+                                    var callback_function = new Function(functionName);
+                                    callback_function(target,data);
+                                }
                                 bsNotify(false, data.msg)
                             });
 

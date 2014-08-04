@@ -25,22 +25,4 @@ class UserAssociationEventListener
             $association->setUser( $this->container->get('security.context')->getToken()->getUser());
         }
     }
-    /** @ORM\PreUpdate */
-    public function preUpdate(PreUpdateEventArgs $eventArgs){
-        if(($address = $eventArgs->getEntity()) instanceof Address){
-            if( !$address->latitude || !$address->longitude
-                || $eventArgs->hasChangedField('address')){
-
-                $this->geocodeAddress($address->__toString());
-
-                $em = $eventArgs->getEntityManager();
-                $uow = $em->getUnitOfWork();
-                $meta = $em->getClassMetadata(get_class($address));
-                $uow->recomputeSingleEntityChangeSet($meta, $address);
-            }
-        }
-    }
-
-
-
 }

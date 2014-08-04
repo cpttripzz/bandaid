@@ -27,52 +27,49 @@
     </div>
 
     <script type="application/javascript">
-        $("#basicModal").on("shown",function(){
+        $(document).ready(function() {
 
-
-        });
-
-        $("#btnShowNewLocation").on('click', function () {
-            var options = {
-                "backdrop" : "static",
-                "show": true
-            }
-            $('#basicModal').modal(options);
-            setTimeout(function() {
-                map.setCenter(new google.maps.LatLng(0, 0));
-                map.setZoom( map.getZoom() );
-                google.maps.event.trigger(map, "resize");
-
-            }, 1000);
-
-
-        });
-        $("div[id^='delete-document-']").on('click', function () {
-            var documentId = $(this).attr('data-document-id');
-            var assocId = $(this).attr('data-assoc-id');
-            var theDiv = $(this);
-            var url = Routing.generate('document_delete', {'id': documentId, 'association_id': assocId});
-            console.log(url);
-            $("#dialog-confirm").dialog({
-                resizable: false,
-                height: 140,
-                modal: true,
-                buttons: {
-                    "Delete item": function () {
-                        $.post(url, function () {
-                            bootbox.alert('Document successfully deleted');
-                            theDiv.remove();
-                        }).fail(function () {
-                            bootbox.alert("error");
-                        })
-                        ;
-                    },
-                    Cancel: function () {
-                        $(this).dialog("close");
-                    }
+            $("#btnShowNewLocation").on('click', function () {
+                var options = {
+                    "backdrop" : "static",
+                    "show": true
                 }
+                $('#modalShowNewLocation').modal(options);
+                setTimeout(function() {
+                    map.setCenter(new google.maps.LatLng(0, 0));
+                    map.setZoom( map.getZoom() );
+                    google.maps.event.trigger(map, "resize");
+                },1000);
+
+
             });
-        });
+            $("div[id^='delete-document-']").on('click', function () {
+                var documentId = $(this).attr('data-document-id');
+                var assocId = $(this).attr('data-assoc-id');
+                var theDiv = $(this);
+                var url = Routing.generate('document_delete', {'id': documentId, 'association_id': assocId});
+                console.log(url);
+                $("#dialog-confirm").dialog({
+                    resizable: false,
+                    height: 140,
+                    modal: true,
+                    buttons: {
+                        "Delete item": function () {
+                            $.post(url, function () {
+                                bootbox.alert('Document successfully deleted');
+                                theDiv.remove();
+                            }).fail(function () {
+                                bootbox.alert("error");
+                            })
+                            ;
+                        },
+                        Cancel: function () {
+                            $(this).dialog("close");
+                        }
+                    }
+                });
+
+            });     });
 
     </script>
 
