@@ -32,11 +32,44 @@
             map = new google.maps.Map(document.getElementById("map"));
 
             function displayResults(result, div) {
+                debugger;
+                var city='';
+                var country='';
+                var streetNo='';
+                var route='';
+                var comps = result.placeResult.address_components;
+                for (var x = 0; x < comps.length; x++) {
+                    var comp = comps[x];
+                    var compType = comps[x].types;
+                    for (var y = 0; y < compType.length; y++) {
+                        if (compType[y] == 'country') {
+                            country = comp.long_name;
+                            break;
+                        }
+                        if (compType[y] == "locality" ) {
+                            city = comp.long_name;
+                            break;
+                        }
+
+                        if (compType[y] == "street_number" ) {
+                            streetNo = comp.long_name;
+                            break;
+                        }
+
+                        if (compType[y] == "route" ) {
+                            route = comp.long_name;
+                            break;
+                        }
+                    }
+
+                }
+
+                var resultAddress = streetNo + ' ' + route + ', ' + city + ', ' + country;
                 var url = Routing.generate('api_saveNewAddressAction',
                         {
                             'associationId': {{ entity.id}},
-                            'associationType':"{{ entity.getClassName }}",
-                            'address': result.address()
+                            'associationType': "{{ entity.getClassName }}",
+                            'address': resultAddress
                         }
                 );
                 $('#btnSaveNewAddress').attr('data-href', url);

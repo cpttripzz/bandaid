@@ -81,7 +81,12 @@ class LocationManager
         $address = $this->getOrCreateAddress($strAddress,$city,$region);
         $association->addAddress($address);
         $this->em->persist($association);
-        $this->em->flush();
+        try {
+            $this->em->flush();
+        }
+        catch (\Exception $e){
+            return false;
+        }
         return array('id'=>$address->getId(), 'text'=>$address->__toString());
 
     }
