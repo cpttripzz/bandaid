@@ -32,7 +32,6 @@
             map = new google.maps.Map(document.getElementById("map"));
 
             function displayResults(result, div) {
-                debugger;
                 var city='';
                 var country='';
                 var streetNo='';
@@ -98,6 +97,24 @@
                     }
                 });
             })
+        });
+
+        $(document).ready(function() {
+
+            $("#btnShowNewLocation").on('click', function () {
+                var options = {
+                    "backdrop" : "static",
+                    "show": true
+                }
+                $('#modalShowNewLocation').modal(options);
+                setTimeout(function() {
+                    map.setCenter(new google.maps.LatLng(0, 0));
+                    map.setZoom( map.getZoom() );
+                    google.maps.event.trigger(map, "resize");
+                },1000);
+
+
+            });
         });
     </script>
 {% endblock new_location_container%}

@@ -1,7 +1,3 @@
-musician:
-    path:     /
-    defaults: { _controller: "ZEBABundle:Musician:index" }
-
 musician_show:
     path:     /{slug}/show
     defaults: { _controller: "ZEBABundle:Musician:show" }
@@ -28,3 +24,7 @@ musician_delete:
     path:     /{id}/delete
     defaults: { _controller: "ZEBABundle:Musician:delete" }
     requirements: { _method: post|delete }
+
+musician:
+    path:     /{address}
+    defaults: { _controller: "ZEBABundle:Musician:index", address:null }

@@ -10,9 +10,12 @@ use ZE\BABundle\Entity;
 class Address extends EntityRepository
 {
 
-    public function getClosestAddresses($latitude, $longitude, $distance=10, $association=null)
+    public function getClosestAddresses(Entity\Address $address)
     {
 
+        $latitude = $address->getLatitude();
+        $longitude = $address->getLongitude();
+        $distance=100;
         $rsm = new ResultSetMapping;
 
         $rsm->addEntityResult('ZE\BABundle\Entity\Address', 'a');
@@ -40,19 +43,18 @@ class Address extends EntityRepository
         foreach ($addresses as $address){
             $addressIds[] = $address->getId();
         }
-        $qb = $this->_em->createQueryBuilder();
-        $fields = array('a','a.address','a.latitude','a.longitude','city','country');
-        $qb->select($fields)
-            ->from('ZE\BABundle\Entity\Address','a')
+        $qb = $this->createQueryBuilder('a')
             ->innerJoin('a.city', 'city')
             ->innerJoin('city.country', 'country')
-            ->where($qb->expr()->in('a.id', '?1'))
+            ->where('a.id IN (:ids)')
+            ->setParameter('ids', $addressIds);
         ;
-        $qb->setParameter(1,$addressIds);
+
 
         $query = $qb->getQuery();
         return $query->getResult();
     }
+
 
     public function findOneByAddressAndCityAndRegion($address,$city,$region=null)
     {

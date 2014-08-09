@@ -20,9 +20,15 @@
 
             {% endblock navigaion %}
         {% endembed %}
+        {% if musician_profiles|length >0 %}
         <div>
             <a href="{{ path('band_new') }}" class="btn btn-primary">Create New Band Profile</a>
         </div>
+        {% else %}
+            <div>
+                <a href="{{ path('musician_new') }}" class="btn btn-primary">Create a New Musician First in Order to a Create New Band</a>
+            </div>
+        {% endif %}
         </p>
     </div>
 {% endblock container%}

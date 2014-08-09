@@ -5,7 +5,7 @@
                 {% for address in entity.addresses %}
                     {% set flag_path = '/img/flags/' ~ address.city.country.code |lower ~ '.png' %}
                     {% block location_text %}{% endblock location_text %}
-                        <img class="flag" src="{{  flag_path  }}" />
+                        <a href="{{ path( entity.className , { 'address': address.id} ) }}"><img class="flag" src="{{  flag_path  }}" /></a>
                     {% block location_suffix %}{% endblock location_suffix %}
                 {% endfor %}
         </div>

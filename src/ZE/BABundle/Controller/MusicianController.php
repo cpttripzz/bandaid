@@ -9,6 +9,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 use ZE\BABundle\Entity\Musician;
+use ZE\BABundle\Entity\Address;
 
 use ZE\BABundle\Form\MusicianType;
 
@@ -16,13 +17,17 @@ use ZE\BABundle\Form\MusicianType;
 class MusicianController extends Controller implements UrlTracker
 {
 
-    public function indexAction()
+    public function indexAction(Address $address=null)
     {
         $em = $this->getDoctrine()->getManager();
 
-        $dql = "SELECT m FROM ZEBABundle:Musician m";
-        $query = $em->createQuery($dql);
+        if($address){
+            $query =$this->get('ze.band_manager_service')->findAllAssociationsByProximityToAddress('Musician',$address);
 
+        } else {
+            $dql = "SELECT m FROM ZEBABundle:Musician m";
+            $query = $em->createQuery($dql);
+        }
         $paginator = $this->get('knp_paginator');
 
         $pagination = $paginator->paginate(
@@ -197,9 +202,10 @@ class MusicianController extends Controller implements UrlTracker
      */
     private function createDeleteForm($id)
     {
-        return $this->createFormBuilder()
+        return $this->createFormBuilder(null,array('show_legend' => false))
             ->setAction($this->generateUrl('musician_delete', array('id' => $id)))
             ->setMethod('DELETE')
+
             ->add('submit', 'submit', array('label' => 'Delete'))
             ->getForm();
     }

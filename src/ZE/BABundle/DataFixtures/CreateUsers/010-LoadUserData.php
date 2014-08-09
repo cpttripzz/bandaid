@@ -306,11 +306,7 @@ class LoadUserData extends AbstractFixture
                             $user->addMusician($musician);
                             $musician->setUser($user);
                             $this->manager->flush();
-                            $bandMusician = new BandMusician();
-                            $bandMusician->setBand($band);
-                            $bandMusician->setMusician($musician);
-                            $this->manager->persist($bandMusician);
-                            $bandMusician->setStatus(1);
+                            $this->container->get('ze.band_manager_service')->addMusicianToBand($musician,$band);
                         }
                     }
 

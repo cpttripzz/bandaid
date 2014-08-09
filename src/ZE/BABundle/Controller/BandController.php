@@ -4,37 +4,29 @@ namespace ZE\BABundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 use ZE\BABundle\Entity\Band;
 use ZE\BABundle\Form\BandType;
 
-/**
- * Band controller.
- *
- * @Route("/band")
- */
+
 class BandController extends Controller implements UrlTracker
 {
-
-
     public function indexAction()
     {
 
         $em = $this->getDoctrine()->getManager();
 
-        $dql   = "SELECT b FROM ZEBABundle:Band b";
+        $dql = "SELECT b FROM ZEBABundle:Band b";
         $query = $em->createQuery($dql);
 
-        $paginator  = $this->get('knp_paginator');
+        $paginator = $this->get('knp_paginator');
 
         $pagination = $paginator->paginate(
             $query,
-            $this->get('request')->query->get('page', 1),16
+            $this->get('request')->query->get('page', 1), 16
         );
         $pagination->setTemplate('KnpPaginatorBundle:Pagination:twitter_bootstrap_v3_pagination.html.twig');
-        return $this->render('ZEBABundle:Band:index.html.twig' , array('pagination' => $pagination, 'entity_type' => 'band'));
+        return $this->render('ZEBABundle:Band:index.html.twig', array('pagination' => $pagination, 'entity_type' => 'band'));
     }
 
     public function createAction(Request $request)
@@ -44,16 +36,19 @@ class BandController extends Controller implements UrlTracker
         $form->handleRequest($request);
 
         if ($form->isValid()) {
+//        if(true){
+
             $em = $this->getDoctrine()->getManager();
             $em->persist($entity);
             $em->flush();
-
-            return $this->redirect($this->generateUrl('band_show', array('id' => $entity->getId())));
+            $musician = $form->get('musician')->getData();
+            $this->get('ze.band_manager_service')->addMusicianToBand($musician, $entity);
+            return $this->redirect($this->generateUrl('band_edit', array('id' => $entity->getId())));
         }
 
         return array(
             'entity' => $entity,
-            'form'   => $form->createView(),
+            'form' => $form->createView(),
         );
     }
 
@@ -66,7 +61,7 @@ class BandController extends Controller implements UrlTracker
      */
     private function createCreateForm(Band $entity)
     {
-        $form = $this->createForm(new BandType(), $entity, array(
+        $form = $this->createForm(new BandType($this->get('security.context')), $entity, array(
             'action' => $this->generateUrl('band_create'),
             'method' => 'POST',
         ));
@@ -80,11 +75,11 @@ class BandController extends Controller implements UrlTracker
     public function newAction()
     {
         $entity = new Band();
-        $form   = $this->createCreateForm($entity);
+        $form = $this->createCreateForm($entity);
 
-        return $this->render('ZEBABundle:Band:new.html.twig',array(
+        return $this->render('ZEBABundle:Band:new.html.twig', array(
             'entity' => $entity,
-            'form'   => $form->createView(),
+            'form' => $form->createView(),
         ));
     }
 
@@ -96,7 +91,7 @@ class BandController extends Controller implements UrlTracker
         }
         $userInBand = $this->get('ze.band_manager_service')->isUserInBand($entity);
         return $this->render('ZEBABundle:Band:show.html.twig', array(
-            'userInBand'=>$userInBand,'entity'=> $entity
+            'userInBand' => $userInBand, 'entity' => $entity
         ));
     }
 
@@ -113,27 +108,28 @@ class BandController extends Controller implements UrlTracker
         $editForm = $this->createEditForm($entity);
         $deleteForm = $this->createDeleteForm($id);
 
-        return $this->render('ZEBABundle:Band:edit.html.twig',array(
-            'entity'      => $entity,
-            'edit_form'   => $editForm->createView(),
+        return $this->render('ZEBABundle:Band:edit.html.twig', array(
+            'entity' => $entity,
+            'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
         ));
     }
 
     /**
-    * Creates a form to edit a Band entity.
-    *
-    * @param Band $entity The entity
-    *
-    * @return \Symfony\Component\Form\Form The form
-    */
+     * Creates a form to edit a Band entity.
+     *
+     * @param Band $entity The entity
+     *
+     * @return \Symfony\Component\Form\Form The form
+     */
     private function createEditForm(Band $entity)
     {
-     if (false === $this->get('security.context')->isGranted('edit', $entity)) {
+        if (false === $this->get('security.context')->isGranted('edit', $entity)) {
             throw new AccessDeniedException('Unauthorised access!');
         }
-        $form = $this->createForm(new BandType(), $entity, array(
+        $form = $this->createForm(new BandType($this->get('security.context')), $entity, array(
             'action' => $this->generateUrl('band_update', array('id' => $entity->getId())),
+            'show_legend' => false,
             'method' => 'PUT',
         ));
 
@@ -165,15 +161,15 @@ class BandController extends Controller implements UrlTracker
         }
 
         return array(
-            'entity'      => $entity,
-            'edit_form'   => $editForm->createView(),
+            'entity' => $entity,
+            'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
         );
     }
 
-    public function deleteAction(Request $request, $slug)
+    public function deleteAction(Request $request, $id)
     {
-        $form = $this->createDeleteForm($slug);
+        $form = $this->createDeleteForm($id);
         $form->handleRequest($request);
 
         if ($form->isValid()) {
@@ -200,11 +196,10 @@ class BandController extends Controller implements UrlTracker
      */
     private function createDeleteForm($id)
     {
-        return $this->createFormBuilder()
+        return $this->createFormBuilder(null,array('show_legend' => false))
             ->setAction($this->generateUrl('band_delete', array('id' => $id)))
             ->setMethod('DELETE')
             ->add('submit', 'submit', array('label' => 'Delete'))
-            ->getForm()
-        ;
+            ->getForm();
     }
 }

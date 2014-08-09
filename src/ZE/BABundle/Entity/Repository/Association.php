@@ -19,47 +19,47 @@ class Association extends EntityRepository
         return $qb->getQuery()->getResult();
     }
 
-    public function getAllMusiciansOwnedByUserId($userId)
+    public function getAllMusiciansOwnedByUserId($userId, $returnQb=false)
     {
         $qb = $this->createQueryBuilder('a')
             ->where('a.user = :userId')
             ->andWhere('a  INSTANCE OF ZE\BABundle\Entity\Musician')
             ->setParameter('userId', $userId);
-
-        return $qb->getQuery()->getResult();
-    }
-
-    public function getAllBandsAssociatedByUserId($userId)
-    {
-        $qb = $this->createQueryBuilder('a')
-            ->innerJoin('a.bandMusician', 'bm')
-            ->where('a.id = :associationId')
-            ->andWhere('d.type = :documentType')
-            ->setParameter('documentType', Entity\Document::DOCUMENT_TYPE_IMAGE);
-        $arrResult = array();
-        foreach($qb->getQuery()->getResult() as $document){
-            $arrResult[] = array(
-                'id' => $document->getId(),
-                'name' => $document->getName(),
-                'webpath' => $document->getWebPath(),
-                'association_id' => $document->getAssociation()->getId()
-            );
+        if($returnQb){
+            return $qb;
         }
-        return $arrResult;
-    }
-
-    public function getAllMusiciansByBandId($bandId)
-    {
-
-        /*SELECT * FROM association
-        INNER JOIN band_musician ON band_musician.musician_id = association.id
-        WHERE `type`='musician' AND band_id = 4*/
-        $qb = $this->createQueryBuilder('a')
-            ->innerJoin('a.BandMusician', 'bm')
-            ->where('bm.bandId = :bandId')
-            ->andWhere('a  INSTANCE OF ZE\BABundle\Entity\Band')
-            ->setParameter('bandId', $bandId);
         return $qb->getQuery()->getResult();
     }
 
+    public function getAllAssociationsByTypeAndAddressIds($associationType,$addressIds)
+    {
+        $qb = $this->createQueryBuilder('a')
+            ->innerJoin('a.addresses', 'addresses')
+            ->where('addresses.id IN (?1)')
+            ->andWhere('a  INSTANCE OF ZE\BABundle\Entity\\'.$associationType )
+            ->setParameter(1, $addressIds);
+
+        return $qb->getQuery()->getResult();
+    }
+
+
+    public function findAllMusiciansByBandId($bandId, $returnQb=false)
+    {
+        /*SELECT
+        FROM
+          band_musician
+          INNER JOIN association
+            ON band_musician.musician_id = association.id
+        WHERE `type` = 'musician'
+            AND band_id = 4     */
+        $qb = $this->createQueryBuilder('m');
+        $qb ->innerJoin('ZEBABundle:BandMusician','bm','bm.musician_id = m.id')
+            ->where('bm.band = :bandId')
+            ->andWhere('bm.musician = m')
+            ->setParameter('bandId', $bandId);
+        if($returnQb){
+            return $qb;
+        }
+        return $qb->getQuery()->getResult();
+    }
 }

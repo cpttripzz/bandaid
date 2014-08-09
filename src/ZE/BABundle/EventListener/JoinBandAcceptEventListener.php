@@ -17,12 +17,14 @@ use ZE\BABundle\Entity\BandMusician;
 class JoinBandAcceptEventListener
 {
     protected $msgService;
+    protected $bandManager;
     protected $em;
 
     public function __construct(Container $container)
     {
         $this->em = $container->get('doctrine.orm.entity_manager');
         $this->msgService = $container->get('snc_redis.default');
+        $this->bandManager = $container->get('ze.band_manager_service');
     }
 
     public function onJoinBandAcceptEvent(JoinBandAcceptEvent $event)
@@ -36,12 +38,7 @@ class JoinBandAcceptEventListener
         $musician = $this->em->getRepository('ZE\BABundle\Entity\Musician')->findOneById($musicianId);
         $eventType = $event->getEventType();
         $recipientId = $musician->getUser()->getId();
-//        $bandMusician = new BandMusician();
-//        $bandMusician->setBand($band);
-//        $bandMusician->setMusician($musician);
-//        $bandMusician->setStatus(0);
-//        $this->em->persist($bandMusician);
-//        $this->em->flush();
+        $this->bandManager->addMusicianToBand($musician,$band);
         $now = new \DateTime();
         $now = $now->format('Y-m-d H:i:s');
         $nextMessageId = $this->msgService->incr('next_message_id');

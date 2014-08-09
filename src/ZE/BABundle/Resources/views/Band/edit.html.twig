@@ -1,16 +1,17 @@
 {% extends '::base.html.twig' %}
 
-{% block container -%}
-    <h1>Band edit</h1>
+{% block stylesheets %}
+    {{ parent() }}
+    {{ form_stylesheet(edit_form) }}
+{% endblock %}
 
+{% block javascripts %}
+    {{ parent() }}
+    {{ form_javascript(edit_form) }}
+{% endblock %}
+{% block container %}
+    {% include 'ZEBABundle::show_new_location_modal.html.twig' %}
+    <button class="btn btn-primary" id="btnShowNewLocation" data-target="#largeModal">Add New Address</button>
     {{ form(edit_form) }}
-
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('band') }}">
-            Back to the list
-        </a>
-    </li>
-    <li>{{ form(delete_form) }}</li>
-</ul>
+    {{ form(delete_form) }}
 {% endblock %}

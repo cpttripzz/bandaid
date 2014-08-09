@@ -21,8 +21,10 @@ class UserAssociationEventListener
 
     /** @ORM\PrePersist */
     public function prePersist(LifecycleEventArgs $eventArgs) {
-        if(($association = $eventArgs->getEntity()) instanceof Association){
-            $association->setUser( $this->container->get('security.context')->getToken()->getUser());
+        if (!empty($this->container->get('security.context')->getToken())) {
+            if (($association = $eventArgs->getEntity()) instanceof Association) {
+                $association->setUser($this->container->get('security.context')->getToken()->getUser());
+            }
         }
     }
 }
