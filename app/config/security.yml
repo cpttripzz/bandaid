@@ -4,7 +4,7 @@ security:
 
     role_hierarchy:
         ROLE_ADMIN:       ROLE_USER
-        ROLE_SUPER_ADMIN: ROLE_USER
+        ROLE_SUPER_ADMIN: ROLE_ADMIN,ROLE_ALLOWED_TO_SWITCH,ROLE_USER
 
     providers:
         fos_userbundle:
@@ -36,9 +36,8 @@ security:
             anonymous:    true
             logout:
                 path: fos_user_security_logout
-
                 success_handler: ze_user_security.authentication.handler.logout_success_handler
-
+            switch_user: true
         login:
             pattern:  ^/login$
             security: false

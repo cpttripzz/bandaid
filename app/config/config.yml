@@ -163,6 +163,9 @@ sonata_user:
             handler:            sonata.user.profile.form.handler.default
             name:               sonata_user_profile_form
             validation_groups:  [Profile]
+    impersonating:
+        route:                page_slug
+        parameters:           { path: / }
 sonata_admin:
     title:      Admin Panel
     title_logo: /bundles/sonataadmin/logo_title.png
