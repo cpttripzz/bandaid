@@ -1,15 +1,8 @@
 {% extends '::base.html.twig' %}
 
 {% block container %}
-    <h1>Musician creation</h1>
-
     {{ form(form) }}
-
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('musician') }}">
-            Back to the list
-        </a>
-    </li>
-</ul>
+    <a href="{{ path('musician') }}">
+        Back to the list
+    </a>
 {% endblock %}

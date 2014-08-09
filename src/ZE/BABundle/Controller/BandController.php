@@ -36,13 +36,9 @@ class BandController extends Controller implements UrlTracker
         $form->handleRequest($request);
 
         if ($form->isValid()) {
-//        if(true){
-
             $em = $this->getDoctrine()->getManager();
             $em->persist($entity);
             $em->flush();
-            $musician = $form->get('musician')->getData();
-            $this->get('ze.band_manager_service')->addMusicianToBand($musician, $entity);
             return $this->redirect($this->generateUrl('band_edit', array('id' => $entity->getId())));
         }
 
@@ -62,6 +58,7 @@ class BandController extends Controller implements UrlTracker
     private function createCreateForm(Band $entity)
     {
         $form = $this->createForm(new BandType($this->get('security.context')), $entity, array(
+            'show_legend' => false,
             'action' => $this->generateUrl('band_create'),
             'method' => 'POST',
         ));

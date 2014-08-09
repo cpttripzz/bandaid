@@ -15,7 +15,7 @@ use Application\Sonata\UserBundle\Entity\User;
 use Faker;
 use ZE\BABundle\Entity\Address;
 use ZE\BABundle\Entity\Band;
-use ZE\BABundle\Entity\BandMusician;
+
 use ZE\BABundle\Entity\City;
 use ZE\BABundle\Entity\Country;
 use ZE\BABundle\Entity\Document;

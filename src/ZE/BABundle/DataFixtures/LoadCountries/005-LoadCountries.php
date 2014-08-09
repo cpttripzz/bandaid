@@ -9,21 +9,8 @@ use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\DependencyInjection\ContainerAwareInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
-use Symfony\Component\Yaml\Yaml;
-use FOS\UserBundle\Entity\Group;
-use Application\Sonata\UserBundle\Entity\User;
 use Faker;
-use ZE\BABundle\Entity\Address;
-use ZE\BABundle\Entity\Band;
-use ZE\BABundle\Entity\BandMusician;
-use ZE\BABundle\Entity\City;
 use ZE\BABundle\Entity\Country;
-use ZE\BABundle\Entity\Document;
-use ZE\BABundle\Entity\Genre;
-use ZE\BABundle\Entity\Instrument;
-use ZE\BABundle\Entity\Item;
-use ZE\BABundle\Entity\Musician;
-use ZE\BABundle\Entity\Region;
 
 class LoadUserData extends AbstractFixture
     implements OrderedFixtureInterface,

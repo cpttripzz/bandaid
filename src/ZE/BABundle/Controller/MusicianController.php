@@ -61,6 +61,7 @@ class MusicianController extends Controller implements UrlTracker
     private function createCreateForm(Musician $entity)
     {
         $form = $this->createForm(new MusicianType($this->get('security.context')), $entity, array(
+            'show_legend' => false,
             'action' => $this->generateUrl('musician_create'),
             'method' => 'POST',
         ));

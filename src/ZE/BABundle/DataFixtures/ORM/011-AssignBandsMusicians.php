@@ -63,17 +63,11 @@ class AssignBandsMusicians extends AbstractFixture
                         $randomMusician = $musicians[rand(0,count($musicians) -1)];
                         if(! in_array($randomMusician->getId(),$musArr  )){
                             $musArr[] =  $randomMusician->getId();
-                            $bandMusician = new BandMusician();
-                            $bandMusician->setBand($band);
-                            $bandMusician->setMusician($randomMusician);
-                            $this->manager->persist($bandMusician);
-                            $bandMusician->setStatus(0);
-
+                            $this->manager->flush();
+                            $this->container->get('ze.band_manager_service')->addMusicianToBand($randomMusician,$band);
                         }
 
                     }
-
-
                 }
                 $this->manager->flush();
 

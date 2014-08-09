@@ -24,9 +24,9 @@ class BandManager
         if( !$this->security->isGranted('IS_AUTHENTICATED_FULLY') ){
             return false;
         }
-        $bandMembers = $this->em->getRepository('ZE\BABundle\Entity\BandMusician')->findAllMusiciansByBandId($band->getId());
+        $bandMembers = $band->getMusicians();
         foreach ($bandMembers as $bandMember){
-            if($bandMember->getMusician()->getUser()->getId() ==  $this->security->getToken()->getUser()->getId()){
+            if($bandMember->getUser()->getId() ==  $this->security->getToken()->getUser()->getId()){
                 return true;
             }
         }
@@ -48,9 +48,9 @@ class BandManager
     public function isMusicianInBand(Musician $musician, Band $band)
     {
         $musicianId = $musician->getId();
-        $bandMembers = $this->em->getRepository('ZE\BABundle\Entity\BandMusician')->findAllMusiciansByBandId($band->getId());
+        $bandMembers = $band->getMusicians();
         foreach ($bandMembers as $bandMember){
-            if($bandMember->getMusician()->getId() ==  $musicianId ){
+            if($bandMember->getId() ==  $musicianId ){
                 return true;
             }
         }
@@ -61,11 +61,10 @@ class BandManager
         if($this->isMusicianInBand($musician,$band)){
             return false;
         }
-        $bandMusician = new BandMusician();
-        $bandMusician->setBand($band);
-        $bandMusician->setMusician($musician);
-        $bandMusician->setStatus(1);
-        $this->em->persist($bandMusician);
+        $band->addMusician($musician);
+        $musician->addBand($band);
+        $this->em->persist($band);
+        $this->em->persist($musician);
         $this->em->flush();
     }
 }

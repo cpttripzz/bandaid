@@ -7,7 +7,7 @@ use Doctrine\ORM\Query\ResultSetMapping;
 use Doctrine\DBAL\Types\Type;
 use ZE\BABundle\Entity;
 
-class Association extends EntityRepository
+class Band extends EntityRepository
 {
     public function getAllBandsOwnedByUserId($userId)
     {
@@ -15,29 +15,6 @@ class Association extends EntityRepository
             ->where('a.user = :userId')
             ->andWhere('a  INSTANCE OF ZE\BABundle\Entity\Band')
             ->setParameter('userId', $userId);
-
-        return $qb->getQuery()->getResult();
-    }
-
-    public function getAllMusiciansOwnedByUserId($userId, $returnQb=false)
-    {
-        $qb = $this->createQueryBuilder('a')
-            ->where('a.user = :userId')
-            ->andWhere('a  INSTANCE OF ZE\BABundle\Entity\Musician')
-            ->setParameter('userId', $userId);
-        if($returnQb){
-            return $qb;
-        }
-        return $qb->getQuery()->getResult();
-    }
-
-    public function getAllAssociationsByTypeAndAddressIds($associationType,$addressIds)
-    {
-        $qb = $this->createQueryBuilder('a')
-            ->innerJoin('a.addresses', 'addresses')
-            ->where('addresses.id IN (?1)')
-            ->andWhere('a  INSTANCE OF ZE\BABundle\Entity\\'.$associationType )
-            ->setParameter(1, $addressIds);
 
         return $qb->getQuery()->getResult();
     }

@@ -34,11 +34,11 @@ class JoinBandRequestEventListener
         $band = $this->em->getRepository('ZE\BABundle\Entity\Band')->findOneById($bandId);
         $bandName = $band->getName();
         $eventType = $event->getEventType();
-        $bandMembers = $this->em->getRepository('ZE\BABundle\Entity\BandMusician')->findAllMusiciansByBandId($event->getBandId());
+        $bandMembers = $band->getMusicians($bandId);
 
         $msgRecipients = array();
-        foreach ((array)$bandMembers as $bandMember) {
-            $userId = $bandMember->getMusician()->getUser()->getId();
+        foreach ($bandMembers as $bandMember) {
+            $userId = $bandMember->getUser()->getId();
 
             $now = new \DateTime();
             $now = $now->format('Y-m-d H:i:s');

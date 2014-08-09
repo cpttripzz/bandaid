@@ -1,6 +1,6 @@
 app/console doctrine:fixtures:load --append --fixtures=/home/zach/dev/sf_bandaid/src/ZE/BABundle/DataFixtures/LoadCountries
 app/console doctrine:fixtures:load --append --fixtures=/home/zach/dev/sf_bandaid/src/ZE/BABundle/DataFixtures/CreateUsers
-
+app/console doctrine:fixtures:load --append --fixtures=/home/zach/dev/sf_bandaid/src/ZE/BABundle/DataFixtures/ORM
 
 app/console liip:imagine:cache:resolve uploads/documents/007a627347ac8f8ee171db110bda5d2bc2b7b298.jpeg
 app/console liip:imagine:cache:resolve img/genres/blues.jpg

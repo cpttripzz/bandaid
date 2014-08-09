@@ -88,10 +88,10 @@ class BandType extends AbstractType
                 if(!$data || !$data->getId()) {
                     $formOptions = array(
 
-                        'class' => 'ZE\BABundle\Entity\Association',
+                        'class' => 'ZE\BABundle\Entity\Musician',
                         'property' => 'name',
-                        'mapped' => false,
-                        'multiple' => false,
+                        'mapped' => true,
+                        'multiple' => true,
                         'required' =>true,
                         'query_builder' => function (EntityRepository $er) use ($user) {
                             return $er->getAllMusiciansOwnedByUserId($user->getId(), true);
@@ -99,7 +99,7 @@ class BandType extends AbstractType
                     );
                 } else {
                     $formOptions = array(
-                        'class' => 'ZE\BABundle\Entity\Association',
+                        'class' => 'ZE\BABundle\Entity\Musician',
                         'property' => 'name',
                         'mapped' => true,
                         'multiple' => true,
