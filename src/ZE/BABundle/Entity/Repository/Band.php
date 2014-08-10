@@ -20,19 +20,12 @@ class Band extends EntityRepository
     }
 
 
-    public function findAllMusiciansByBandId($bandId, $returnQb=false)
+    public function findAllBandsByMusicianId($musicianId, $returnQb=false)
     {
-        /*SELECT
-        FROM
-          band_musician
-          INNER JOIN association
-            ON band_musician.musician_id = association.id
-        WHERE `type` = 'musician'
-            AND band_id = 4     */
-        $qb = $this->createQueryBuilder('m');
-        $qb ->innerJoin('m.bands','bands')
-            ->where('bands.id = :bandId')
-            ->setParameter('bandId', $bandId);
+        $qb = $this->createQueryBuilder('b');
+        $qb ->innerJoin('b.musicians','musicians')
+            ->where('musicians.id = :musicianId')
+            ->setParameter('musicianId', $musicianId);
         if($returnQb){
             return $qb;
         }

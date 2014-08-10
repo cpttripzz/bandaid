@@ -51,44 +51,48 @@ class MusicianType extends AbstractType
                 'class' => 'ZE\BABundle\Entity\Genre',
                 'property' => 'name',
             ));
+
         $builder->addEventListener(
             FormEvents::PRE_SET_DATA,
-            function (FormEvent $event)  use ($user){
+            function (FormEvent $event)  {
                 $form = $event->getForm();
-                $event->getData();
+                $id = $event->getData()->getId();
                 $formOptions = array(
+                    'class' => 'ZE\BABundle\Entity\Band',
+                    'property' => 'name',
+                    'multiple' => true,
+                    'required' => false,
+                    'query_builder' => function (EntityRepository $er)  use ($id) {
+                        return $er->findAllBandsByMusicianId($id, true);
+                    },
+                );
+                $form->add('bands', 'genemu_jqueryselect2_entity', $formOptions);
+            }
+        );
 
+        $builder->addEventListener(
+            FormEvents::PRE_SET_DATA,
+            function (FormEvent $event) use ($user) {
+                $form = $event->getForm();
+
+                $formOptions = array(
                     'class' => 'ZE\BABundle\Entity\Address',
                     'property' => 'longName',
                     'multiple' => true,
-                    'required' =>false,
+                    'required' => false,
                     'query_builder' => function (EntityRepository $er) use ($user) {
-                        // build a custom query
-
-                        /*select * from address ad
-                        inner join association a on a.id = ad.association_id
-                        inner join fos_user_user u on u.id = a.user_id*/
-//                        and user_id = 10
                         $qb = $er->createQueryBuilder('ad');
                         $qb->select('ad')
                             ->innerJoin('ad.associations', 'a')
                             ->innerJoin('a.user', 'u')
                             ->where('u.id = :userId');
-
-
                         $qb->setParameters(array(
                             'userId' => $user->getId()
                         ));
                         return $qb;
-
                     },
                 );
-
-                // create the field, this is similar the $builder->add()
-                // field name, field type, data, options
                 $form->add('addresses', 'genemu_jqueryselect2_entity', $formOptions);
-
-//                $form->add('addresses', 'entity', $formOptions);
             }
         );
     }
