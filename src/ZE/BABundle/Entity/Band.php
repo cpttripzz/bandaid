@@ -20,7 +20,10 @@ class Band extends Association
      * )
      */
     private $musicians;
-
+    /**
+     * @ORM\OneToMany(targetEntity="BandVacancyAssociation", mappedBy="band", cascade={"persist"})
+     */
+    private $bandVacancyAssociations;
     /**
      * Constructor
      */
@@ -46,6 +49,43 @@ class Band extends Association
     public function getMusicians()
     {
         return $this->musicians;
+    }
+
+    /**
+     * Add bandVacancy.
+
+     *
+     * @param \ZE\BABundle\Entity\BandVacancy $bandVacancy
+     *
+     * @return Band
+     */
+    public function addBandVacancy(\ZE\BABundle\Entity\BandVacancy $bandVacancy)
+    {
+        $this->bandVacancyAssociations[] = $bandVacancy;
+
+        return $this;
+    }
+
+    /**
+     * Remove bandVacancy.
+
+     *
+     * @param \ZE\BABundle\Entity\BandVacancy $bandVacancy
+     */
+    public function removeBandVacancy(\ZE\BABundle\Entity\BandVacancy $bandVacancy)
+    {
+        $this->bandVacancyAssociations->removeElement($bandVacancy);
+    }
+
+    /**
+     * Get bandVacancies.
+
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getBandVacancyAssociations()
+    {
+        return $this->bandVacancyAssociations;
     }
 
 

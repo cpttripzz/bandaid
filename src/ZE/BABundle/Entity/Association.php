@@ -64,9 +64,6 @@ class Association
      */
     protected $genres;
 
-
-
-
     /**
      * @ORM\ManyToOne(targetEntity="User", inversedBy="associations",cascade={"persist"})
      */

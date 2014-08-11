@@ -12,6 +12,73 @@
 {% block container %}
     {% include 'ZEBABundle::show_new_location_modal.html.twig' %}
     <button class="btn btn-primary" id="btnShowNewLocation" data-target="#largeModal">Add New Address</button>
-    {{ form(edit_form) }}
+
+    {{ form_start(edit_form) }}
+    {# render the task's only field: description #}
+    {{ form_row(edit_form.name) }}
+    {{ form_row(edit_form.description) }}
+    {{ form_row(edit_form.genres) }}
+    {{ form_row(edit_form.addresses) }}
+    {{ form_row(edit_form.musicians) }}
+
+
+
+
+
+
+    <label>Band Vacancies</label>
+    <ul class="bandVacancies"  data-prototype="{{ form_widget(edit_form.bandVacancies.vars.prototype)|e }}">
+        {# iterate over each existing bandVacancy and render its only field: name #}
+        {% for bandVacancy in edit_form.bandVacancies%}
+            <li>{{ form_row(bandVacancy.name) }}</li>
+        {% endfor %}
+    </ul>
+    {{ form_end(edit_form) }}
+
     {{ form(delete_form) }}
+    <script type="application/javascript">
+        var $collectionHolder;
+
+        // setup an "add a bandVacancy" link
+        var $addBandVacancyLink = $('<a href="#" class="add_bandVacancy_link">Add a bandVacancy</a>');
+        var $newLinkLi = $('<li></li>').append($addBandVacancyLink);
+
+        $(document).ready(function() {
+            // Get the ul that holds the collection of bandVacancies
+            $collectionHolder = $('ul.bandVacancies');
+
+            // add the "add a bandVacancy" anchor and li to the bandVacancies ul
+            $collectionHolder.append($newLinkLi);
+
+            // count the current form inputs we have (e.g. 2), use that as the new
+            // index when inserting a new item (e.g. 2)
+            $collectionHolder.data('index', $collectionHolder.find(':input').length);
+
+            $addBandVacancyLink.on('click', function(e) {
+                // prevent the link from creating a "#" on the URL
+                e.preventDefault();
+
+                // add a new bandVacancy form (see next code block)
+                addBandVacancyForm($collectionHolder, $newLinkLi);
+            });
+        });
+        function addBandVacancyForm($collectionHolder, $newLinkLi) {
+            // Get the data-prototype explained earlier
+            var prototype = $collectionHolder.data('prototype');
+
+            // get the new index
+            var index = $collectionHolder.data('index');
+
+            // Replace '__name__' in the prototype's HTML to
+            // instead be a number based on how many items we have
+            var newForm = prototype.replace(/__name__/g, index);
+
+            // increase the index with one for the next item
+            $collectionHolder.data('index', index + 1);
+
+            // Display the form in the page in an li, before the "Add a tag" link li
+            var $newFormLi = $('<li></li>').append(newForm);
+            $newLinkLi.before($newFormLi);
+        }
+    </script>
 {% endblock %}
