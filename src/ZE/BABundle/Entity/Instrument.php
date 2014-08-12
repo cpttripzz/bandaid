@@ -72,6 +72,9 @@ class Instrument
     /** @ORM\ManyToMany(targetEntity="Musician", mappedBy="instruments") **/
     private $musicians;
 
+    /** @ORM\ManyToMany(targetEntity="BandVacancy", mappedBy="instruments") **/
+    protected $bandVacancies;
+
     public function setMusician(Musician $musician)
     {
         $this->musician = $musician;
@@ -146,5 +149,42 @@ class Instrument
     public function getSlug()
     {
         return $this->slug;
+    }
+
+    /**
+     * Add bandVacancy.
+
+     *
+     * @param \ZE\BABundle\Entity\BandVacancy $bandVacancy
+     *
+     * @return Instrument
+     */
+    public function addBandVacancy(\ZE\BABundle\Entity\BandVacancy $bandVacancy)
+    {
+        $this->bandVacancies[] = $bandVacancy;
+
+        return $this;
+    }
+
+    /**
+     * Remove bandVacancy.
+
+     *
+     * @param \ZE\BABundle\Entity\BandVacancy $bandVacancy
+     */
+    public function removeBandVacancy(\ZE\BABundle\Entity\BandVacancy $bandVacancy)
+    {
+        $this->bandVacancies->removeElement($bandVacancy);
+    }
+
+    /**
+     * Get bandVacancies.
+
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getBandVacancies()
+    {
+        return $this->bandVacancies;
     }
 }

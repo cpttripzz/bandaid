@@ -71,6 +71,9 @@ class Genre
     }
     /** @ORM\ManyToMany(targetEntity="Association", mappedBy="genres") **/
     protected $associations;
+
+    /** @ORM\ManyToMany(targetEntity="BandVacancy", mappedBy="genres") **/
+    protected $bandVacancies;
     /**
      * Constructor
      */

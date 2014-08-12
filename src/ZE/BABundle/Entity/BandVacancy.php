@@ -30,8 +30,22 @@ class BandVacancy
 
     /**
      * @ORM\ManyToMany(targetEntity="Genre", inversedBy="bandVacancies")
+     * @ORM\JoinTable(name="bandvacancy_genre",
+     *   joinColumns={@ORM\JoinColumn(name="bandvacancy_id", referencedColumnName="id")},
+     *   inverseJoinColumns={@ORM\JoinColumn(name="genre_id", referencedColumnName="id")}
+     * )
      */
-    private $genres;
+    protected $genres;
+
+
+    /**
+     * @ORM\ManyToMany(targetEntity="Instrument", inversedBy="bandVacancies")
+     * @ORM\JoinTable(name="bandvacancy_instrument",
+     *   joinColumns={@ORM\JoinColumn(name="bandvacancy_id", referencedColumnName="id")},
+     *   inverseJoinColumns={@ORM\JoinColumn(name="instrument_id", referencedColumnName="id")}
+     * )
+     */
+    protected $instruments;
 
     /** @ORM\Column(name="comment", type="text",nullable=true) */
     private $comment;
@@ -154,5 +168,42 @@ class BandVacancy
     public function getGenres()
     {
         return $this->genres;
+    }
+
+    /**
+     * Add instrument.
+
+     *
+     * @param \ZE\BABundle\Entity\Instrument $instrument
+     *
+     * @return BandVacancy
+     */
+    public function addInstrument(\ZE\BABundle\Entity\Instrument $instrument)
+    {
+        $this->instruments[] = $instrument;
+
+        return $this;
+    }
+
+    /**
+     * Remove instrument.
+
+     *
+     * @param \ZE\BABundle\Entity\Instrument $instrument
+     */
+    public function removeInstrument(\ZE\BABundle\Entity\Instrument $instrument)
+    {
+        $this->instruments->removeElement($instrument);
+    }
+
+    /**
+     * Get instruments.
+
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getInstruments()
+    {
+        return $this->instruments;
     }
 }

@@ -7,7 +7,7 @@ use Gedmo\Mapping\Annotation as Gedmo;
 /**
  * BandVacancyAssociation
  *
- * @ORM\Table(name="band-vacancy-association")
+ * @ORM\Table(name="band_vacancy_association")
  * @ORM\Entity
  */
 class BandVacancyAssociation
@@ -29,8 +29,7 @@ class BandVacancyAssociation
     /**
      * @ORM\ManyToOne(targetEntity="BandVacancy", inversedBy="bandVacancyAssociations")
      */
-    private $bandVacancyAssociations;
-
+    private $bandVacancies;
 
 
     /**
@@ -94,5 +93,31 @@ class BandVacancyAssociation
     public function getBandVacancyAssociations()
     {
         return $this->bandVacancyAssociations;
+    }
+
+    /**
+     * Set bandVacancies.
+
+     *
+     * @param \ZE\BABundle\Entity\BandVacancy $bandVacancies
+     *
+     * @return BandVacancyAssociation
+     */
+    public function setBandVacancies(\ZE\BABundle\Entity\BandVacancy $bandVacancies = null)
+    {
+        $this->bandVacancies = $bandVacancies;
+
+        return $this;
+    }
+
+    /**
+     * Get bandVacancies.
+
+     *
+     * @return \ZE\BABundle\Entity\BandVacancy
+     */
+    public function getBandVacancies()
+    {
+        return $this->bandVacancies;
     }
 }

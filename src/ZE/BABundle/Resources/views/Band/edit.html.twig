@@ -27,9 +27,9 @@
 
 
     <label>Band Vacancies</label>
-    <ul class="bandVacancies"  data-prototype="{{ form_widget(edit_form.bandVacancies.vars.prototype)|e }}">
+    <ul class="bandVacancyAssociations"  data-prototype="{{ form_widget(edit_form.bandVacancyAssociations.vars.prototype)|e }}">
         {# iterate over each existing bandVacancy and render its only field: name #}
-        {% for bandVacancy in edit_form.bandVacancies%}
+        {% for bandVacancy in edit_form.bandVacancyAssociations%}
             <li>{{ form_row(bandVacancy.name) }}</li>
         {% endfor %}
     </ul>
@@ -44,10 +44,10 @@
         var $newLinkLi = $('<li></li>').append($addBandVacancyLink);
 
         $(document).ready(function() {
-            // Get the ul that holds the collection of bandVacancies
-            $collectionHolder = $('ul.bandVacancies');
+            // Get the ul that holds the collection of bandVacancyAssociations
+            $collectionHolder = $('ul.bandVacancyAssociations');
 
-            // add the "add a bandVacancy" anchor and li to the bandVacancies ul
+            // add the "add a bandVacancy" anchor and li to the bandVacancyAssociations ul
             $collectionHolder.append($newLinkLi);
 
             // count the current form inputs we have (e.g. 2), use that as the new
