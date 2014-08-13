@@ -28,9 +28,9 @@
 
     <label>Band Vacancies</label>
     <ul class="bandVacancyAssociations"  data-prototype="{{ form_widget(edit_form.bandVacancyAssociations.vars.prototype)|e }}">
-        {# iterate over each existing bandVacancy and render its only field: name #}
-        {% for bandVacancy in edit_form.bandVacancyAssociations%}
-            <li>{{ form_row(bandVacancy.name) }}</li>
+
+        {% for bandVacancyAssociation in edit_form.bandVacancyAssociations%}
+            <li>{{ form_row(bandVacancyAssociation) }}</li>
         {% endfor %}
     </ul>
     {{ form_end(edit_form) }}

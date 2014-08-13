@@ -57,6 +57,13 @@ class BandVacancy
     {
         $this->bandVacancyAssociations = new \Doctrine\Common\Collections\ArrayCollection();
         $this->genres = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->instruments = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+
+    public function __toString()
+    {
+        return 'genres: ' .implode(',',$this->genres->toArray()) . ' instruments:'. implode(',',$this->instruments->toArray());
     }
 
     /**
