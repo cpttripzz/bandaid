@@ -29,7 +29,7 @@ class BandVacancyAssociation
     /**
      * @ORM\ManyToOne(targetEntity="BandVacancy", inversedBy="bandVacancyAssociations")
      */
-    private $bandVacancies;
+    private $bandVacancy;
 
 
     /**
@@ -69,55 +69,30 @@ class BandVacancyAssociation
         return $this->band;
     }
 
+
     /**
-     * Set bandVacancyAssociations.
+     * Set bandVacancy.
 
      *
-     * @param \ZE\BABundle\Entity\BandVacancy $bandVacancyAssociations
+     * @param \ZE\BABundle\Entity\BandVacancy $bandVacancy
      *
      * @return BandVacancyAssociation
      */
-    public function setBandVacancyAssociations(\ZE\BABundle\Entity\BandVacancy $bandVacancyAssociations = null)
+    public function setBandVacancy(\ZE\BABundle\Entity\BandVacancy $bandVacancy = null)
     {
-        $this->bandVacancyAssociations = $bandVacancyAssociations;
+        $this->bandVacancy = $bandVacancy;
 
         return $this;
     }
 
     /**
-     * Get bandVacancyAssociations.
+     * Get bandVacancy.
 
      *
      * @return \ZE\BABundle\Entity\BandVacancy
      */
-    public function getBandVacancyAssociations()
+    public function getBandVacancy()
     {
-        return $this->bandVacancyAssociations;
-    }
-
-    /**
-     * Set bandVacancies.
-
-     *
-     * @param \ZE\BABundle\Entity\BandVacancy $bandVacancies
-     *
-     * @return BandVacancyAssociation
-     */
-    public function setBandVacancies(\ZE\BABundle\Entity\BandVacancy $bandVacancies = null)
-    {
-        $this->bandVacancies = $bandVacancies;
-
-        return $this;
-    }
-
-    /**
-     * Get bandVacancies.
-
-     *
-     * @return \ZE\BABundle\Entity\BandVacancy
-     */
-    public function getBandVacancies()
-    {
-        return $this->bandVacancies;
+        return $this->bandVacancy;
     }
 }

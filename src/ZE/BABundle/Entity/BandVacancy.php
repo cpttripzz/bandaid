@@ -24,7 +24,7 @@ class BandVacancy
     private $id;
 
     /**
-     * @ORM\OneToMany(targetEntity="BandVacancyAssociation", mappedBy="bandVacancies")
+     * @ORM\OneToMany(targetEntity="BandVacancyAssociation", mappedBy="bandVacancy")
      */
     private $bandVacancyAssociations;
 

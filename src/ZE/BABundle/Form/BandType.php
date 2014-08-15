@@ -42,12 +42,7 @@ class BandType extends AbstractType
         $builder
             ->add('name')
             ->add('description')
-            ->add('bandVacancyAssociations','collection',
-                array(
-                    'type' => new BandVacancyAssociationType(),
-                    'allow_add' => true
-                )
-            )
+
             ->add('genres', 'genemu_jqueryselect2_entity', array(
                 'multiple' => true,
                 'class' => 'ZE\BABundle\Entity\Genre',
