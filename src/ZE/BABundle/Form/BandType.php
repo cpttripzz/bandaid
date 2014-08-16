@@ -44,6 +44,7 @@ class BandType extends AbstractType
             ->add('description')
             ->add('bandVacancyAssociations','collection',
                 array(
+
                     'by_reference' => true,
                     'type' => new BandVacancyAssociationType()
                 )

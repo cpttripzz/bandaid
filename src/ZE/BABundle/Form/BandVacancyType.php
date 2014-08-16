@@ -18,7 +18,9 @@ class BandVacancyType extends AbstractType
            'multiple' => true,
            'class' => 'ZE\BABundle\Entity\Instrument',
            'property' => 'name',
-       ));
+       ))
+       ->add('comment')
+       ;
 
     }
 
