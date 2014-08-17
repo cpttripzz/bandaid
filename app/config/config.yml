@@ -209,7 +209,14 @@ services:
         arguments: [null, ZE\BABundle\Entity\Address, ZEBABundle:AddressAdmin]
 
 mopa_bootstrap:
-    form: ~  # Adds twig form theme  support
+    form:
+        render_fieldset: false # default is true
+        render_collection_item: false # default is true
+        show_legend: false # default is true
+        show_child_legend: false # default is false
+        render_required_asterisk: false # default is true
+
+
     menu: ~  # enables twig helpers for menu
 hwi_oauth:
     connect:

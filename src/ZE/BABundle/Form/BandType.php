@@ -16,7 +16,6 @@ use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 class BandType extends AbstractType
 {
-    private $optionalVars = array('editId', 'existing_files', 'isNew');
 
     private $securityContext;
 
@@ -44,8 +43,16 @@ class BandType extends AbstractType
             ->add('description')
             ->add('bandVacancyAssociations','collection',
                 array(
-
+                    'show_legend' => false,
+                    'show_child_legend' => false,
                     'by_reference' => true,
+                    'allow_delete' => false,
+                    'label_render' => false,
+                    'prototype' => false,
+                    'options' => array( // options for collection fields
+                        'label_render' => false,
+
+                    ),
                     'type' => new BandVacancyAssociationType()
                 )
             )
@@ -127,12 +134,9 @@ class BandType extends AbstractType
     public function buildView(FormView $view, FormInterface $form, array $options)
     {
         parent::buildView($view, $form, $options);
-        foreach ($this->optionalVars as $optVar) {
-            if (isset($options[$optVar])) {
-                $view->$optVar = $options[$optVar];
-            }
-        }
+
     }
+
 
     /**
      * @param OptionsResolverInterface $resolver
@@ -142,7 +146,6 @@ class BandType extends AbstractType
         $resolver->setDefaults(array(
             'data_class' => 'ZE\BABundle\Entity\Band'
         ));
-        $resolver->setOptional($this->optionalVars);
     }
 
     /**

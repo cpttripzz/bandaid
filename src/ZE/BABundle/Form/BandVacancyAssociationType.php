@@ -15,7 +15,11 @@ class BandVacancyAssociationType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('bandVacancy', new BandVacancyType())
+            ->add('bandVacancy', new BandVacancyType(),array(
+                'show_legend' => false,
+                'show_child_legend' => false,
+                'label_render' => false,
+            ))
         ;
     }
     

@@ -10,17 +10,20 @@ class BandVacancyType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder->add('genres', 'genemu_jqueryselect2_entity', array(
+            'multiple' => true,
+            'class' => 'ZE\BABundle\Entity\Genre',
+            'property' => 'name',
+            'show_legend' => false,
+            'show_child_legend' => false,
+        ))
+            ->add('instruments', 'genemu_jqueryselect2_entity', array(
                 'multiple' => true,
-                'class' => 'ZE\BABundle\Entity\Genre',
-                'property' => 'name',
+                'class' => 'ZE\BABundle\Entity\Instrument',
+                'property' => 'name', 'show_legend' => false,
+                'show_child_legend' => false,
             ))
-       ->add('instruments', 'genemu_jqueryselect2_entity', array(
-           'multiple' => true,
-           'class' => 'ZE\BABundle\Entity\Instrument',
-           'property' => 'name',
-       ))
-       ->add('comment')
-       ;
+            ->add('comment')
+            ->add('name');
 
     }
 

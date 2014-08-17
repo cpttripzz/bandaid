@@ -50,6 +50,8 @@ class BandVacancy
     /** @ORM\Column(name="comment", type="text",nullable=true) */
     private $comment;
 
+    /** @ORM\Column(name="name", type="text",nullable=true) */
+    private $name;
     /**
      * Constructor
      */
@@ -212,5 +214,31 @@ class BandVacancy
     public function getInstruments()
     {
         return $this->instruments;
+    }
+
+    /**
+     * Set name.
+
+     *
+     * @param string $name
+     *
+     * @return BandVacancy
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * Get name.
+
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
     }
 }
