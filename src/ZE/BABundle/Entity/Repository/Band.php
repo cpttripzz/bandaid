@@ -31,4 +31,12 @@ class Band extends EntityRepository
         }
         return $qb->getQuery()->getResult();
     }
+
+    public function findAllBandsWithVacancies()
+    {
+        $qb = $this->createQueryBuilder('b');
+        $qb ->innerJoin('b.bandVacancyAssociations','bandVacancyAssociations');
+
+        return $qb->getQuery()->getResult();
+    }
 }

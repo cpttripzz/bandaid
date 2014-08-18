@@ -8,9 +8,12 @@ class HomeController extends Controller
 {
     public function indexAction(){
 
+        $em = $this->getDoctrine()->getManager();
+        $bands = $em->getRepository('ZE\BABundle\Entity\Band')->findAllBandsWithVacancies();
 
         return $this->render(
-            'ZEBABundle:Home:index.html.twig'
+            'ZEBABundle:Home:index.html.twig',array('bands' => $bands)
+
         );
     }
 }

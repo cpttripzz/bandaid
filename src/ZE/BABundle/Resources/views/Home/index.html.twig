@@ -1,2 +1,12 @@
 {% extends '::base.html.twig' %}
+{% block container %}
+    <div class="panel ">
+        Bands Searching For Musicians:
+        {% embed'ZEBABundle::item_container.html.twig' with { 'pagination': bands, 'entity_type' : 'band', 'is_edit' : true} %}
+            {% block navigaion %}
 
+            {% endblock navigaion %}
+        {% endembed %}
+
+    </div>
+{% endblock container%}
