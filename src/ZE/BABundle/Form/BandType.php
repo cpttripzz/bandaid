@@ -24,7 +24,7 @@ class BandType extends AbstractType
         $this->securityContext = $securityContext;
     }
 
-        /**
+    /**
      * @param FormBuilderInterface $builder
      * @param array $options
      */

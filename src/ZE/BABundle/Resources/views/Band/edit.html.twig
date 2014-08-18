@@ -13,15 +13,15 @@
 {% endblock %}
 {% block container %}
     {% include 'ZEBABundle::show_new_location_modal.html.twig' %}
-    <button class="btn btn-primary" id="btnShowNewLocation" data-target="#largeModal">Add New Address</button>
 
     {{ form_start(edit_form) }}
     {# render the task's only field: description #}
     {{ form_row(edit_form.name) }}
     {{ form_row(edit_form.description) }}
     {{ form_row(edit_form.genres) }}
-    {{ form_row(edit_form.addresses) }}
     {{ form_row(edit_form.musicians) }}
+    {{ form_row(edit_form.addresses) }}
+    <button class="btn btn-primary" id="btnShowNewLocation" data-target="#largeModal">Add New Address</button>
 
 
     <div class="panel"><h5>Band Vacancies</h5>
