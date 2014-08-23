@@ -71,8 +71,9 @@
                 });
                 socket.on('connect_success', function (data) {
                     console.log('connect_success');
-                    newMessages = data.new_messages;
-                    if (newMessages) {
+                    var alertText = '';
+                    var newMessages = data.new_messages;
+                    if (newMessages > 0) {
                         if (newMessages == 1) {
                             alertText = 'You have  ' + newMessages + ' new message';
                         } else if (newMessages > 1) {
