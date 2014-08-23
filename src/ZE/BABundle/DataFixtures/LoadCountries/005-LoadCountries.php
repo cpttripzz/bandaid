@@ -1,6 +1,7 @@
 <?php
 // src/Application/Sonata/UserBundle/DataFixtures/ORM/010-LoadUserData.php
 namespace Application\Sonata\UserBundle\DataFixtures\ORM;
+
 use Symfony\Component\HttpFoundation\File;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\DataFixtures\FixtureInterface;
@@ -18,7 +19,6 @@ class LoadUserData extends AbstractFixture
     ContainerAwareInterface
 {
 
-    private $run = true;
     private $container;
 
     private $cities;
@@ -297,19 +297,16 @@ class LoadUserData extends AbstractFixture
     }
 
 
-
     /**
      * {@inheritDoc}
      */
     public function load(ObjectManager $manager)
     {
-        if ($this->run) {
-            $this->manager = $manager;
 
+        $this->manager = $manager;
 
-            $this->loadCountries();
+        $this->loadCountries();
 
-        }
     }
 
 

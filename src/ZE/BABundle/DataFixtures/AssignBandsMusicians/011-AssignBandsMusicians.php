@@ -31,7 +31,6 @@ class AssignBandsMusicians extends AbstractFixture
     FixtureInterface,
     ContainerAwareInterface
 {
-    private $run = true;
     /**
      * @var ContainerInterface
      */
@@ -49,40 +48,38 @@ class AssignBandsMusicians extends AbstractFixture
 
     public function load(ObjectManager $manager)
     {
-        if ($this->run) {
-            $this->manager = $manager;
+        $this->manager = $manager;
 
 
-            try {
-                $bands = $this->manager->getRepository('ZE\BABundle\Entity\Band')->findAll();
-                $musicians = $this->manager->getRepository('ZE\BABundle\Entity\Musician')->findAll();
-                foreach($bands as $band){
-                    $musArr = array();
+        try {
+            $bands = $this->manager->getRepository('ZE\BABundle\Entity\Band')->findAll();
+            $musicians = $this->manager->getRepository('ZE\BABundle\Entity\Musician')->findAll();
+            foreach ($bands as $band) {
+                $musArr = array();
 
-                    for ($i = 0; $i < rand(1, 5); $i++) {
-                        $randomMusician = $musicians[rand(0,count($musicians) -1)];
-                        if(! in_array($randomMusician->getId(),$musArr  )){
-                            $musArr[] =  $randomMusician->getId();
-                            $this->manager->flush();
-                            $this->container->get('ze.band_manager_service')->addMusicianToBand($randomMusician,$band);
-                        }
-
+                for ($i = 0; $i < rand(1, 5); $i++) {
+                    $randomMusician = $musicians[rand(0, count($musicians) - 1)];
+                    if (!in_array($randomMusician->getId(), $musArr)) {
+                        $musArr[] = $randomMusician->getId();
+                        $this->manager->flush();
+                        $this->container->get('ze.band_manager_service')->addMusicianToBand($randomMusician, $band);
                     }
+
                 }
-                $this->manager->flush();
-
-
-            } catch (\Exception $e) {
-                echo($e->getMessage());
-                $this->manager = $this->container->get('doctrine')->resetManager();
             }
+            $this->manager->flush();
 
+
+        } catch (\Exception $e) {
+            echo($e->getMessage());
+            $this->manager = $this->container->get('doctrine')->resetManager();
         }
     }
+
     /**
      * @param $assoc
      */
-    public function createRandomImage($imagePath= 'people')
+    public function createRandomImage($imagePath = 'people')
     {
         $document = new Document();
         $file = file_get_contents('http://lorempixel.com/300/150/' . $imagePath);

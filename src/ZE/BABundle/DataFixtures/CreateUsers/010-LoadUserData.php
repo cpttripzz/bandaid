@@ -1,6 +1,7 @@
 <?php
 // src/Application/Sonata/UserBundle/DataFixtures/ORM/010-LoadUserData.php
 namespace Application\Sonata\UserBundle\DataFixtures\ORM;
+
 use Symfony\Component\HttpFoundation\File;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\DataFixtures\FixtureInterface;
@@ -60,8 +61,8 @@ class LoadUserData extends AbstractFixture
 
     public function loadInstruments()
     {
-        $filename = __DIR__ . DIRECTORY_SEPARATOR  . '003-instruments.yml';
-        $yml      = Yaml::parse(file_get_contents($filename));
+        $filename = __DIR__ . DIRECTORY_SEPARATOR . '003-instruments.yml';
+        $yml = Yaml::parse(file_get_contents($filename));
         foreach ($yml['instrument'] as $row => $data) {
             $instrument = new Instrument();
             $instrument->setName($data['name']);
@@ -70,10 +71,11 @@ class LoadUserData extends AbstractFixture
         $this->manager->flush();
 
     }
+
     public function loadCities()
     {
-        $filename = __DIR__ . DIRECTORY_SEPARATOR  . '002-cities.yml';
-        $yml      = Yaml::parse(file_get_contents($filename));
+        $filename = __DIR__ . DIRECTORY_SEPARATOR . '002-cities.yml';
+        $yml = Yaml::parse(file_get_contents($filename));
         foreach ($yml['city'] as $row => $data) {
             $city = new City();
             $city->setName($data['name']);
@@ -86,6 +88,7 @@ class LoadUserData extends AbstractFixture
         $this->manager->flush();
 
     }
+
     public function createRandomAddress()
     {
         $city = $this->cities[rand(0, count($this->cities) - 1)];
@@ -165,18 +168,18 @@ class LoadUserData extends AbstractFixture
     public function createRandomBand()
     {
         $assoc = new Band();
-        $assoc->setName(str_replace('.','',$this->faker->sentence($nbWords = rand(1, 5))));
+        $assoc->setName(str_replace('.', '', $this->faker->sentence($nbWords = rand(1, 5))));
         $assoc->setDescription($this->faker->text($maxNbChars = 200));
         for ($i = 0; $i < rand(1, 3); $i++) {
             $genre = $this->getRandomGenre();
             $gs = $assoc->getGenres();
             $arrGenres = array();
-            if(!empty($gs)) {
+            if (!empty($gs)) {
                 foreach ($gs as $g) {
                     $arrGenres[] = $g->getName();
                 }
             }
-            if (!in_array($genre->getName(), $arrGenres)){
+            if (!in_array($genre->getName(), $arrGenres)) {
                 $assoc->addGenre($genre);
             } else {
                 continue;
@@ -197,7 +200,7 @@ class LoadUserData extends AbstractFixture
     public function createRandomMusician()
     {
         $assoc = new Musician();
-        $assoc->setName(str_replace('.','',$this->faker->sentence($nbWords = rand(1, 5))));
+        $assoc->setName(str_replace('.', '', $this->faker->sentence($nbWords = rand(1, 5))));
         $assoc->setDescription($this->faker->text($maxNbChars = 200));
         $arrGenres = array();
         $arrInstruments = array();
@@ -205,7 +208,7 @@ class LoadUserData extends AbstractFixture
             $genre = $this->getRandomGenre();
             $gs = $assoc->getGenres();
 
-            if (!in_array($genre->getName(), $arrGenres)){
+            if (!in_array($genre->getName(), $arrGenres)) {
                 $assoc->addGenre($genre);
                 $arrGenres[] = $genre->getName();
             } else {
@@ -220,7 +223,7 @@ class LoadUserData extends AbstractFixture
         }
         for ($i = 0; $i < rand(1, 2); $i++) {
             $instrument = $this->getRandomInstrument();
-            if(!in_array($instrument->getName(), $arrInstruments)) {
+            if (!in_array($instrument->getName(), $arrInstruments)) {
                 $assoc->addInstrument($instrument);
                 $arrInstruments[] = $instrument->getName();
             }
@@ -248,86 +251,82 @@ class LoadUserData extends AbstractFixture
      */
     public function load(ObjectManager $manager)
     {
-        if ($this->run) {
-            $this->manager = $manager;
+        $this->manager = $manager;
 
-
+        $this->cities = $this->manager->getRepository('ZE\BABundle\Entity\City')->findAll();
+        if (empty($this->cities)) {
+            $this->loadCities();
             $this->cities = $this->manager->getRepository('ZE\BABundle\Entity\City')->findAll();
-            if (empty($this->cities)) {
-                $this->loadCities();
-                $this->cities = $this->manager->getRepository('ZE\BABundle\Entity\City')->findAll();
-            }
-
-            $this->instruments = $this->manager->getRepository('ZE\BABundle\Entity\Instrument')->findAll();
-            if (empty($this->instruments)) {
-                $this->loadInstruments();
-                $this->instruments = $this->manager->getRepository('ZE\BABundle\Entity\Instrument')->findAll();
-            }
-
-            $this->genres = $this->manager->getRepository('ZE\BABundle\Entity\Genre')->findAll();
-            if (empty($this->genres)) {
-                $this->loadGenres();
-                $this->genres = $this->manager->getRepository('ZE\BABundle\Entity\Genre')->findAll();
-            }
-
-            $userManager = $this->container->get('fos_user.user_manager');
-            $groupManager = $this->container->get('fos_user.group_manager');
-            $userGroup = $groupManager->findGroupByName('user');
-            if (!$userGroup) {
-                $userGroup = $groupManager->createGroup('user');
-                $groupManager->updateGroup($userGroup, true);
-            }
-            $this->faker = Faker\Factory::create();
-
-            for ($x = 0; $x < 5; $x++) {
-                try {
-                    $user = $userManager->createUser();
-                    $user->setUsername($this->faker->userName);
-                    $user->setEmail($this->faker->email);
-                    $user->setPlainPassword('123456');
-
-                    $user->setDateOfBirth($this->faker->dateTimeBetween($startDate = '-80 years', $endDate = '-20 years'));
-                    $user->setFirstname($this->faker->firstName);
-                    $user->setLastname($this->faker->lastName);
-                    $gender = (rand(0, 1) == 1 ? 'm' : 'f');
-                    $user->setGender($gender);
-                    $user->setPhone('111-111-1111');
-                    $user->addGroup($userGroup);
-                    $user->setEnabled(true);
-                    $user ->setRoles(array('ROLE_USER'));
-
-                    $randomAssociation = rand(1, 100);
-                    if ($randomAssociation > 90 || $randomAssociation > 50) {
-                        for ($j = 0; $j < rand(1, 2); $j++) {
-                            $band = $this->createRandomBand();
-                            $user->addBand($band);
-                            $band->setUser($user);
-                            $musician = $this->createRandomMusician();
-                            $user->addMusician($musician);
-                            $musician->setUser($user);
-                            $this->manager->flush();
-                            $this->container->get('ze.band_manager_service')->addMusicianToBand($musician,$band);
-                        }
-                    }
-
-                    if ($randomAssociation > 90 || $randomAssociation < 50) {
-                        for ($j = 0; $j < rand(1, 2); $j++) {
-                            $musician = $this->createRandomMusician();
-                            $user->addMusician($musician);
-                            $musician->setUser($user);
-                        }
-                    }
-                    $userManager->updateUser($user, true);
-                    $this->manager->flush();
-                    echo("\n user created:" . $user->getUsername());
-                } catch (\Exception $e) {
-                    echo($e->getMessage());
-                    $this->manager = $this->container->get('doctrine')->resetManager();
-                    continue;
-                }
-            }
         }
 
+        $this->instruments = $this->manager->getRepository('ZE\BABundle\Entity\Instrument')->findAll();
+        if (empty($this->instruments)) {
+            $this->loadInstruments();
+            $this->instruments = $this->manager->getRepository('ZE\BABundle\Entity\Instrument')->findAll();
+        }
+
+        $this->genres = $this->manager->getRepository('ZE\BABundle\Entity\Genre')->findAll();
+        if (empty($this->genres)) {
+            $this->loadGenres();
+            $this->genres = $this->manager->getRepository('ZE\BABundle\Entity\Genre')->findAll();
+        }
+
+        $userManager = $this->container->get('fos_user.user_manager');
+        $groupManager = $this->container->get('fos_user.group_manager');
+        $userGroup = $groupManager->findGroupByName('user');
+        if (!$userGroup) {
+            $userGroup = $groupManager->createGroup('user');
+            $groupManager->updateGroup($userGroup, true);
+        }
+        $this->faker = Faker\Factory::create();
+
+        for ($x = 0; $x < 5; $x++) {
+            try {
+                $user = $userManager->createUser();
+                $user->setUsername($this->faker->userName);
+                $user->setEmail($this->faker->email);
+                $user->setPlainPassword('123456');
+
+                $user->setDateOfBirth($this->faker->dateTimeBetween($startDate = '-80 years', $endDate = '-20 years'));
+                $user->setFirstname($this->faker->firstName);
+                $user->setLastname($this->faker->lastName);
+                $gender = (rand(0, 1) == 1 ? 'm' : 'f');
+                $user->setGender($gender);
+                $user->setPhone('111-111-1111');
+                $user->addGroup($userGroup);
+                $user->setEnabled(true);
+                $user ->setRoles(array('ROLE_USER'));
+
+                $randomAssociation = rand(1, 100);
+                if ($randomAssociation > 90 || $randomAssociation > 50) {
+                    for ($j = 0; $j < rand(1, 2); $j++) {
+                        $band = $this->createRandomBand();
+                        $user->addBand($band);
+                        $band->setUser($user);
+                        $musician = $this->createRandomMusician();
+                        $user->addMusician($musician);
+                        $musician->setUser($user);
+                        $this->manager->flush();
+                        $this->container->get('ze.band_manager_service')->addMusicianToBand($musician, $band);
+                    }
+                }
+
+                if ($randomAssociation > 90 || $randomAssociation < 50) {
+                    for ($j = 0; $j < rand(1, 2); $j++) {
+                        $musician = $this->createRandomMusician();
+                        $user->addMusician($musician);
+                        $musician->setUser($user);
+                    }
+                }
+                $userManager->updateUser($user, true);
+                $this->manager->flush();
+                echo("\n user created:" . $user->getUsername());
+            } catch (\Exception $e) {
+                echo($e->getMessage());
+                $this->manager = $this->container->get('doctrine')->resetManager();
+                continue;
+            }
+        }
     }
 
 
@@ -342,7 +341,7 @@ class LoadUserData extends AbstractFixture
     /**
      * @param $assoc
      */
-    public function createRandomImage($imagePath= 'people')
+    public function createRandomImage($imagePath = 'people')
     {
         $document = new Document();
         $file = file_get_contents('http://lorempixel.com/300/225/' . $imagePath);
@@ -350,13 +349,12 @@ class LoadUserData extends AbstractFixture
         $filename = sha1(uniqid(mt_rand(), true));
         $document->setName($filename);
         $document->setPath($filename . '.jpeg');
-        if (!is_dir($pwd . '/web/img/users/')){
+        if (!is_dir($pwd . '/web/img/users/')) {
             mkdir($pwd . '/web/img/users/');
         }
         $filename = $pwd . '/web/img/users/' . $filename . '.jpeg';
         file_put_contents($filename, $file);
         $this->manager->persist($document);
-
 
 
         return $document;
