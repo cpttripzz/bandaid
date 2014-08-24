@@ -24,12 +24,12 @@ class BandVacancy
     private $id;
 
     /**
-     * @ORM\OneToMany(targetEntity="BandVacancyAssociation", mappedBy="bandVacancy")
+     * @ORM\OneToMany(targetEntity="BandVacancyAssociation", mappedBy="bandVacancy",cascade={"persist"})
      */
     private $bandVacancyAssociations;
 
     /**
-     * @ORM\ManyToMany(targetEntity="Genre", inversedBy="bandVacancies")
+     * @ORM\ManyToMany(targetEntity="Genre", inversedBy="bandVacancies",cascade={"persist"})
      * @ORM\JoinTable(name="bandvacancy_genre",
      *   joinColumns={@ORM\JoinColumn(name="bandvacancy_id", referencedColumnName="id")},
      *   inverseJoinColumns={@ORM\JoinColumn(name="genre_id", referencedColumnName="id")}
@@ -39,7 +39,7 @@ class BandVacancy
 
 
     /**
-     * @ORM\ManyToMany(targetEntity="Instrument", inversedBy="bandVacancies")
+     * @ORM\ManyToMany(targetEntity="Instrument", inversedBy="bandVacancies",cascade={"persist"})
      * @ORM\JoinTable(name="bandvacancy_instrument",
      *   joinColumns={@ORM\JoinColumn(name="bandvacancy_id", referencedColumnName="id")},
      *   inverseJoinColumns={@ORM\JoinColumn(name="instrument_id", referencedColumnName="id")}

@@ -438,3 +438,8 @@ border: 2px solid red;
 .typeahead {
     width: 405px;
 }
+
+@media screen and (min-width: 768px) {
+    #modalShowNewBandVacancy.modal-dialog  {width:900px;}
+}
+#modalShowNewBandVacancy.modal-dialog  {width:75%;}

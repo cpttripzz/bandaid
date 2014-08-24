@@ -46,9 +46,10 @@ class BandType extends AbstractType
                     'show_legend' => false,
                     'show_child_legend' => false,
                     'by_reference' => true,
-                    'allow_delete' => false,
+                    'allow_delete' => true,
+                    'allow_add'    => true,
                     'label_render' => false,
-                    'prototype' => false,
+
                     'options' => array( // options for collection fields
                         'label_render' => false,
 

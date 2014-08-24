@@ -22,12 +22,12 @@ class BandVacancyAssociation
     private $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Band", inversedBy="bandVacancyAssociations")
+     * @ORM\ManyToOne(targetEntity="Band", inversedBy="bandVacancyAssociations",cascade={"persist"})
      */
     private $band;
 
     /**
-     * @ORM\ManyToOne(targetEntity="BandVacancy", inversedBy="bandVacancyAssociations")
+     * @ORM\ManyToOne(targetEntity="BandVacancy", inversedBy="bandVacancyAssociations",cascade={"persist"})
      */
     private $bandVacancy;
 

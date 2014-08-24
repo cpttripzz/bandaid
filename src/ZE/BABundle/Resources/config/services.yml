@@ -30,6 +30,12 @@ services:
                 - @service_container
             tags:
                 - { name: doctrine.event_listener, event: prePersist }
+    zeba_user.band_vacancy_association_listener:
+            class:  ZE\BABundle\Doctrine\Listener\BandVacancyEventListener
+            arguments:
+                - @service_container
+            tags:
+                - { name: doctrine.event_listener, event: prePersist }
 
     security.access.post_voter:
         class:      ZE\BABundle\Security\Authorization\Voter\AssociationVoter

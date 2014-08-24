@@ -24,10 +24,8 @@
     {{ form_row(edit_form.addresses) }}
 
 
-    <div class="panel"><h5>Band Vacancies</h5>
-
+    <div id="panelBandVacancies" class="panel" data-prototype="{{ form_widget(edit_form.bandVacancyAssociations.vars.prototype)|e }}"><h5>Band Vacancies</h5>
         {% for bandVacancyAssociation in edit_form.bandVacancyAssociations %}
-
             <div class="panel-group" >
                 <div class="panel panel-default" id="panel{{ bandVacancyAssociation.vars.data.id }}">
                     <div class="panel-heading">
@@ -60,16 +58,57 @@
 
         {% endfor %}
     </div>
-
+        {% include 'ZEBABundle::show_new_band_vacancy_modal.html.twig' %}
         {{ form_end(edit_form) }}
 
+
+
 <script type="application/javascript">
+
     var counter=-1;
     {% for bandVacancyAssociation in edit_form.bandVacancyAssociations %}
         counter ++;
         $("#ze_babundle_band_bandVacancyAssociations_"+counter+"_bandVacancy")
             .appendTo($('#panel-body{{ bandVacancyAssociation.vars.data.id }}'));
     {% endfor %}
+    var $collectionHolder;
 
+    // setup an "add a tag" link
+    var $addTagLink = $('<button href="#modalShowNewBandVacancy" data-toggle="modal"  class="btn btn-primary" id="btnShowNewLocation" >Add New Vacancy</button>');
+    var $newLinkLi = $('<div></div>').append($addTagLink);
+
+    function addTagForm($collectionHolder, $newLinkLi) {
+        // Get the data-prototype explained earlier
+        var prototype = $collectionHolder.data('prototype');
+
+        // get the new index
+        var index = $collectionHolder.data('index');
+
+        // Replace '__name__' in the prototype's HTML to
+        // instead be a number based on how many items we have
+        var newForm = prototype.replace(/__name__/g, index);
+
+        $("#divShowNewBandVacancy").prepend(newForm);
+
+    }
+
+    jQuery(document).ready(function() {
+        $("#btnShowNewLocation").appendTo($("#s2id_ze_babundle_band_addresses"));
+
+        // Get the ul that holds the collection of tags
+        $collectionHolder = $('#panelBandVacancies');
+
+        // add the "add a tag" anchor and li to the tags ul
+        $collectionHolder.append($newLinkLi);
+
+        // count the current form inputs we have (e.g. 2), use that as the new
+        // index when inserting a new item (e.g. 2)
+        $collectionHolder.data('index', $collectionHolder.find(':input').length);
+
+        $addTagLink.on('click', function(e) {
+            e.preventDefault();
+            addTagForm($collectionHolder, $newLinkLi);
+        });
+    });
 </script>
 {% endblock %}
