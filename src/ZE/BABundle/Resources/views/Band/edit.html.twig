@@ -13,7 +13,7 @@
 {% endblock %}
 {% block container %}
     {% include 'ZEBABundle::show_new_location_modal.html.twig' %}
-    <button class="btn btn-primary" id="btnShowNewLocation" data-target="#largeModal">Add New Address</button>
+    <button class="btn btn-primary fa fa-globe" id="btnShowNewLocation" data-target="#largeModal"> Add New Address</button>
 
     {{ form_start(edit_form) }}
     {# render the task's only field: description #}
@@ -36,7 +36,7 @@
                             </a>
                         </h4>
                     </div>
-                    <div id="collapse{{ bandVacancyAssociation.vars.data.id }}" class="panel-collapse collapse in">
+                    <div data-id="{{ bandVacancyAssociation.vars.data.id }}" id="collapse{{ bandVacancyAssociation.vars.data.id }}" class="panel-collapse collapse in">
                         <div class="panel-body" id="panel-body{{ bandVacancyAssociation.vars.data.id }}">
                            <div>
                             {{ form_row(bandVacancyAssociation.bandVacancy.name) }}
@@ -51,12 +51,16 @@
 
                            </div>
                         </div>
+                        <button class="btn btn-danger fa fa-trash-o" id="deleteBandVacancyAssociation{{ bandVacancyAssociation.vars.data.id }}" > Delete Vacancy</button>
                     </div>
                 </div>
 
             </div>
 
         {% endfor %}
+        <button href="#modalShowNewBandVacancy" data-toggle="modal"  class="btn btn-primary fa fa-plus-circle" id="btnShowNewBandVacancy" > Add New Vacancy</button>
+        <button type="submit" class="btn btn-primary"><span class="fa fa-floppy-o"></span> Submit Changes</button>
+
     </div>
         {% include 'ZEBABundle::show_new_band_vacancy_modal.html.twig' %}
         {{ form_end(edit_form) }}
@@ -73,9 +77,6 @@
     {% endfor %}
     var $collectionHolder;
 
-    // setup an "add a tag" link
-    var $addTagLink = $('<button href="#modalShowNewBandVacancy" data-toggle="modal"  class="btn btn-primary" id="btnShowNewLocation" >Add New Vacancy</button>');
-    var $newLinkLi = $('<div></div>').append($addTagLink);
 
     function addTagForm($collectionHolder, $newLinkLi) {
         // Get the data-prototype explained earlier
@@ -93,21 +94,17 @@
     }
 
     jQuery(document).ready(function() {
+        $(document).on("click",'button[id^="deleteBandVacancyAssociation"]' ,function(e) {
+            $(this).parent().parent().remove();
+        });
         $("#btnShowNewLocation").appendTo($("#s2id_ze_babundle_band_addresses"));
-
-        // Get the ul that holds the collection of tags
         $collectionHolder = $('#panelBandVacancies');
-
-        // add the "add a tag" anchor and li to the tags ul
         $collectionHolder.append($newLinkLi);
-
-        // count the current form inputs we have (e.g. 2), use that as the new
-        // index when inserting a new item (e.g. 2)
         $collectionHolder.data('index', $collectionHolder.find(':input').length);
 
         $addTagLink.on('click', function(e) {
             e.preventDefault();
-            addTagForm($collectionHolder, $newLinkLi);
+            addTagForm($collectionHolder);
         });
     });
 </script>

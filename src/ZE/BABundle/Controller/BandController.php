@@ -2,6 +2,7 @@
 
 namespace ZE\BABundle\Controller;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Security\Core\Exception\AccessDeniedException;
@@ -147,11 +148,34 @@ class BandController extends Controller implements UrlTracker
         if (false === $this->get('security.context')->isGranted('edit', $entity)) {
             throw new AccessDeniedException('Unauthorised access!');
         }
+        $originalBandVacancyAssociations = new ArrayCollection();
+
+        foreach ( $entity->getBandVacancyAssociations() as $bandVacancyAssociation)
+        {
+            $originalBandVacancyAssociations->add($bandVacancyAssociation);
+        }
+
         $deleteForm = $this->createDeleteForm($id);
         $editForm = $this->createEditForm($entity);
         $editForm->handleRequest($request);
 
         if ($editForm->isValid()) {
+            foreach ($originalBandVacancyAssociations as $bandVacancyAssociation) {
+                if (false === $entity->getBandVacancyAssociations()->contains($bandVacancyAssociation)) {
+                    // remove the Task from the Tag
+                    $entity->getBandVacancyAssociations()->removeElement($bandVacancyAssociation);
+
+                    // if it was a many-to-one relationship, remove the relationship like this
+                    // $tag->setTask(null);
+
+                    $em->persist($entity);
+
+                    // if you wanted to delete the Tag entirely, you can also do that
+                    $em->remove($bandVacancyAssociation);
+                }
+            }
+
+            $em->persist($entity);
             $em->flush();
 
             return $this->redirect($this->generateUrl('band_edit', array('id' => $id)));
