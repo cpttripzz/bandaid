@@ -38,18 +38,18 @@
                     </div>
                     <div data-id="{{ bandVacancyAssociation.vars.data.id }}" id="collapse{{ bandVacancyAssociation.vars.data.id }}" class="panel-collapse collapse in">
                         <div class="panel-body" id="panel-body{{ bandVacancyAssociation.vars.data.id }}">
-                           <div>
-                            {{ form_row(bandVacancyAssociation.bandVacancy.name) }}
+                            <div>
+                                {{ form_row(bandVacancyAssociation.bandVacancy.name) }}
 
-                            {{ form_row(bandVacancyAssociation.bandVacancy.comment) }}
-                            {% for genre in bandVacancyAssociation.bandVacancy.genres %}
-                               {{ form_row(genre) }}
-                            {% endfor %}
-                            {% for instrument in bandVacancyAssociation.bandVacancy.instruments %}
-                                {{ form_row(instrument) }}
-                            {% endfor %}
+                                {{ form_row(bandVacancyAssociation.bandVacancy.comment) }}
+                                {% for genre in bandVacancyAssociation.bandVacancy.genres %}
+                                    {{ form_row(genre) }}
+                                {% endfor %}
+                                {% for instrument in bandVacancyAssociation.bandVacancy.instruments %}
+                                    {{ form_row(instrument) }}
+                                {% endfor %}
 
-                           </div>
+                            </div>
                         </div>
                         <button class="btn btn-danger fa fa-trash-o" id="deleteBandVacancyAssociation{{ bandVacancyAssociation.vars.data.id }}" > Delete Vacancy</button>
                     </div>
@@ -58,54 +58,56 @@
             </div>
 
         {% endfor %}
-        <button href="#modalShowNewBandVacancy" data-toggle="modal"  class="btn btn-primary fa fa-plus-circle" id="btnShowNewBandVacancy" > Add New Vacancy</button>
-        <button type="submit" class="btn btn-primary"><span class="fa fa-floppy-o"></span> Submit Changes</button>
 
     </div>
-        {% include 'ZEBABundle::show_new_band_vacancy_modal.html.twig' %}
-        {{ form_end(edit_form) }}
+    {% include 'ZEBABundle::show_new_band_vacancy_modal.html.twig' %}
+    {{ form_end(edit_form) }}
 
 
 
-<script type="application/javascript">
+    <script type="application/javascript">
 
-    var counter=-1;
-    {% for bandVacancyAssociation in edit_form.bandVacancyAssociations %}
+        var counter=-1;
+        {% for bandVacancyAssociation in edit_form.bandVacancyAssociations %}
         counter ++;
         $("#ze_babundle_band_bandVacancyAssociations_"+counter+"_bandVacancy")
-            .appendTo($('#panel-body{{ bandVacancyAssociation.vars.data.id }}'));
-    {% endfor %}
-    var $collectionHolder;
+                .appendTo($('#panel-body{{ bandVacancyAssociation.vars.data.id }}'));
+        {% endfor %}
+        var $collectionHolder;
 
+        // setup an "add a tag" link
+        var $addTagLink = $('<button href="#modalShowNewBandVacancy" data-toggle="modal"  class="btn btn-primary fa fa-plus-circle" id="btnShowNewBandVacancy" > Add New Vacancy</button>');
+        var $newLinkLi = $('#panelBandVacancies').append($addTagLink);
+        $('#panelBandVacancies').append('<br/><button type="submit" class="btn btn-primary"><span class="fa fa-floppy-o"></span> Submit Changes</button>');
+        function addTagForm($collectionHolder, $newLinkLi) {
+            // Get the data-prototype explained earlier
+            var prototype = $collectionHolder.data('prototype');
 
-    function addTagForm($collectionHolder, $newLinkLi) {
-        // Get the data-prototype explained earlier
-        var prototype = $collectionHolder.data('prototype');
+            // get the new index
+            var index = $collectionHolder.data('index');
 
-        // get the new index
-        var index = $collectionHolder.data('index');
+            // Replace '__name__' in the prototype's HTML to
+            // instead be a number based on how many items we have
+            var newForm = prototype.replace(/__name__/g, index);
 
-        // Replace '__name__' in the prototype's HTML to
-        // instead be a number based on how many items we have
-        var newForm = prototype.replace(/__name__/g, index);
+            $("#divShowNewBandVacancy").prepend(newForm);
 
-        $("#divShowNewBandVacancy").prepend(newForm);
+        }
 
-    }
+        jQuery(document).ready(function() {
+            $(document).on("click",'button[id^="deleteBandVacancyAssociation"]' ,function(e) {
+                $(this).parent().parent().remove();
+            });
+            $("#ze_babundle_band_submit").hide();
+            $("#btnShowNewLocation").appendTo($("#s2id_ze_babundle_band_addresses"));
+            $collectionHolder = $('#panelBandVacancies');
+            $collectionHolder.append($newLinkLi);
+            $collectionHolder.data('index', $collectionHolder.find(':input').length);
 
-    jQuery(document).ready(function() {
-        $(document).on("click",'button[id^="deleteBandVacancyAssociation"]' ,function(e) {
-            $(this).parent().parent().remove();
+            $addTagLink.on('click', function(e) {
+                e.preventDefault();
+                addTagForm($collectionHolder, $newLinkLi);
+            });
         });
-        $("#btnShowNewLocation").appendTo($("#s2id_ze_babundle_band_addresses"));
-        $collectionHolder = $('#panelBandVacancies');
-        $collectionHolder.append($newLinkLi);
-        $collectionHolder.data('index', $collectionHolder.find(':input').length);
-
-        $addTagLink.on('click', function(e) {
-            e.preventDefault();
-            addTagForm($collectionHolder);
-        });
-    });
-</script>
+    </script>
 {% endblock %}

@@ -14,19 +14,23 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button id="btnClose" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 
-                    <button id="btnSaveNewAddress" type="button" class="btn btn-primary">Save changes</button>
+                    <button id="btnSaveNewBandVacancy" type="button" class="btn btn-primary">Save changes</button>
                 </div>
             </div>
         </div>
     </div>
     <script type="application/javascript">
         $(document).ready(function() {
-            $(document).on("click","#btnSaveNewAddress",function(e) {
+            $(document).on("click","#btnSaveNewBandVacancy",function(e) {
 
                 $("form:first").submit();
                 $('#modalShowNewBandVacancy').modal('hide');
+            });
+            $('#modalShowNewBandVacancy').on('hidden.bs.modal', function () {
+                $('div[id^="ze_babundle_band_bandVacancyAssociations"] ').remove();
+
             });
 
             $('#modalShowNewBandVacancy').on('show.bs.modal', function () {
