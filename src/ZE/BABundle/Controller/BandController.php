@@ -149,10 +149,12 @@ class BandController extends Controller implements UrlTracker
             throw new AccessDeniedException('Unauthorised access!');
         }
         $originalBandVacancyAssociations = new ArrayCollection();
-
-        foreach ( $entity->getBandVacancyAssociations() as $bandVacancyAssociation)
-        {
+        $originalBandMedia = new ArrayCollection();
+        foreach ($entity->getBandVacancyAssociations() as $bandVacancyAssociation) {
             $originalBandVacancyAssociations->add($bandVacancyAssociation);
+        }
+        foreach ($entity->getDocuments() as $document) {
+            $originalBandMedia->add($document);
         }
 
         $deleteForm = $this->createDeleteForm($id);
@@ -162,15 +164,8 @@ class BandController extends Controller implements UrlTracker
         if ($editForm->isValid()) {
             foreach ($originalBandVacancyAssociations as $bandVacancyAssociation) {
                 if (false === $entity->getBandVacancyAssociations()->contains($bandVacancyAssociation)) {
-                    // remove the Task from the Tag
                     $entity->getBandVacancyAssociations()->removeElement($bandVacancyAssociation);
-
-                    // if it was a many-to-one relationship, remove the relationship like this
-                    // $tag->setTask(null);
-
                     $em->persist($entity);
-
-                    // if you wanted to delete the Tag entirely, you can also do that
                     $em->remove($bandVacancyAssociation);
                 }
             }
@@ -217,7 +212,7 @@ class BandController extends Controller implements UrlTracker
      */
     private function createDeleteForm($id)
     {
-        return $this->createFormBuilder(null,array('show_legend' => false))
+        return $this->createFormBuilder(null, array('show_legend' => false))
             ->setAction($this->generateUrl('band_delete', array('id' => $id)))
             ->setMethod('DELETE')
             ->add('submit', 'submit', array('label' => 'Delete'))

@@ -21,7 +21,11 @@
         <li><a href="#tabBandsMedia" data-toggle="pill">Media</a></li>
     </ul>
     {{ form_start(edit_form) }}
-    <div class="tab-content">
+    <div class="tab-content" id="tab-content">
+        <div class="tab-pane" id="tabBandsMedia"
+             data-prototype="{{ form_widget(edit_form.documents.vars.prototype)|e }}">
+            {{ form_row(edit_form.documents) }}
+        </div>
         <div class="tab-pane active" id="tabBandsMain">
             <h4>Band Details</h4>
             {{ form_row(edit_form.name) }}
@@ -79,28 +83,17 @@
             </div>
             {% include 'ZEBABundle::show_new_band_vacancy_modal.html.twig' %}
         </div>
+
         {{ form_end(edit_form) }}
+
     </div><!-- tab content -->
 
 
     <script type="application/javascript">
 
-        var counter = -1;
-        {% for bandVacancyAssociation in edit_form.bandVacancyAssociations %}
-        counter++;
-        $("#ze_babundle_band_bandVacancyAssociations_" + counter + "_bandVacancy")
-                .appendTo($('#panel-body{{ bandVacancyAssociation.vars.data.id }}'));
-        {% endfor %}
-        var $collectionHolder;
-
-        // setup an "add a tag" link
-        var $addTagLink = $('<button href="#modalShowNewBandVacancy" data-toggle="modal"  class="btn btn-primary fa fa-plus-circle" id="btnShowNewBandVacancy" > Add New Vacancy</button>');
-        var $newLinkLi = $('#panelBandVacancies').append($addTagLink);
-        $('#panelBandVacancies').append('<br/><button type="submit" class="btn btn-primary"><span class="fa fa-floppy-o"></span> Submit Changes</button>');
-        function addTagForm($collectionHolder, $newLinkLi) {
+        function addForm($collectionHolder, $elementToPrepend) {
             // Get the data-prototype explained earlier
             var prototype = $collectionHolder.data('prototype');
-
             // get the new index
             var index = $collectionHolder.data('index');
 
@@ -108,24 +101,50 @@
             // instead be a number based on how many items we have
             var newForm = prototype.replace(/__name__/g, index);
 
-            $("#divShowNewBandVacancy").prepend(newForm);
+            $("#" + $elementToPrepend).prepend(newForm);
 
         }
-
         jQuery(document).ready(function () {
+            var counter = -1;
+            {% for bandVacancyAssociation in edit_form.bandVacancyAssociations %}
+            counter++;
+            $("#ze_babundle_band_bandVacancyAssociations_" + counter + "_bandVacancy")
+                    .appendTo($('#panel-body{{ bandVacancyAssociation.vars.data.id }}'));
+            {% endfor %}
+            var bandVacanciesHolder;
+            // setup an "add a tag" link
+            var addNewBandVacancy = $('<button href="#modalShowNewBandVacancy" data-toggle="modal"  class="btn btn-primary fa fa-plus-circle" id="btnShowNewBandVacancy" > Add New Vacancy</button>');
+            var $newLinkLi = $('#panelBandVacancies').append(addNewBandVacancy);
+            $('#tab-content').append('<br/><button type="submit" class="btn btn-primary"><span class="fa fa-floppy-o"></span> Submit Changes</button>');
+            bandVacanciesHolder = $('#panelBandVacancies');
+            bandVacanciesHolder.append($newLinkLi);
+            bandVacanciesHolder.data('index', bandVacanciesHolder.find(':input').length);
+
+            addNewBandVacancy.on('click', function (e) {
+                e.preventDefault();
+                addForm(bandVacanciesHolder, 'divShowNewBandVacancy');
+            });
+
+
+            var bandMediaHolder;
+            var addNewBandMedia = $('<button class="btn btn-primary fa fa-plus-circle" id="btnShowNewDocument" > Add New Document</button>');
+            var newBandMediaButton = $('#tabBandsMedia').append(addNewBandMedia);
+
+            bandMediaHolder = $('#tabBandsMedia');
+            bandMediaHolder.append(newBandMediaButton);
+            bandMediaHolder.data('index', bandVacanciesHolder.find(':input').length);
+
+            addNewBandMedia.on('click', function (e) {
+                e.preventDefault();
+                addForm(bandMediaHolder, 'tabBandsMedia');
+            });
+
             $(document).on("click", 'button[id^="deleteBandVacancyAssociation"]', function (e) {
                 $(this).parent().parent().remove();
             });
             $("#ze_babundle_band_submit").hide();
             $("#btnShowNewLocation").appendTo($("#s2id_ze_babundle_band_addresses"));
-            $collectionHolder = $('#panelBandVacancies');
-            $collectionHolder.append($newLinkLi);
-            $collectionHolder.data('index', $collectionHolder.find(':input').length);
 
-            $addTagLink.on('click', function (e) {
-                e.preventDefault();
-                addTagForm($collectionHolder, $newLinkLi);
-            });
         });
     </script>
 {% endblock %}

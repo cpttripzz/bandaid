@@ -49,7 +49,6 @@ class BandType extends AbstractType
                     'allow_delete' => true,
                     'allow_add'    => true,
                     'label_render' => false,
-
                     'options' => array( // options for collection fields
                         'label_render' => false,
 
@@ -57,7 +56,20 @@ class BandType extends AbstractType
                     'type' => new BandVacancyAssociationType()
                 )
             )
-
+            ->add('documents','collection',
+                array(
+                    'show_legend' => false,
+                    'show_child_legend' => false,
+                    'by_reference' => true,
+                    'allow_delete' => true,
+                    'allow_add'    => true,
+                    'label_render' => false,
+                    'options' => array( // options for collection fields
+                        'label_render' => false,
+                    ),
+                    'type' => new DocumentType()
+                )
+            )
 
             ->add('genres', 'genemu_jqueryselect2_entity', array(
                 'multiple' => true,

@@ -17,7 +17,6 @@ class DocumentType extends AbstractType
         $builder
             ->add('file',  'file')
             ->add('cropParams', 'hidden')
-            ->add('association')
         ;
     }
 
