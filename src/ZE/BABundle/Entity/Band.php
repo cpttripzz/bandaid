@@ -59,9 +59,9 @@ class Band extends Association
      *
      * @return Band
      */
-    public function addBandVacancy(\ZE\BABundle\Entity\BandVacancy $bandVacancy)
+    public function addBandVacancyAssociation(BandVacancyAssociation $bandVacancyAssociation)
     {
-        $this->bandVacancyAssociations[] = $bandVacancy;
+        $this->bandVacancyAssociations[] = $bandVacancyAssociation;
 
         return $this;
     }
@@ -72,9 +72,9 @@ class Band extends Association
      *
      * @param \ZE\BABundle\Entity\BandVacancy $bandVacancy
      */
-    public function removeBandVacancy(\ZE\BABundle\Entity\BandVacancy $bandVacancy)
+    public function removeBandVacancyAssociation(BandVacancyAssociation $bandVacancyAssociation)
     {
-        $this->bandVacancyAssociations->removeElement($bandVacancy);
+        $this->bandVacancyAssociations->removeElement($bandVacancyAssociation);
     }
 
     /**

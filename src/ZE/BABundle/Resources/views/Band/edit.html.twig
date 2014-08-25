@@ -24,7 +24,7 @@
     {{ form_row(edit_form.addresses) }}
 
 
-    <div id="panelBandVacancies" class="panel" data-prototype="{{ form_widget(edit_form.bandVacancyAssociations.vars.prototype)|e }}"><h5>Band Vacancies</h5>
+    <div id="panelBandVacancies" class="panel" data-prototype="{{ form_widget(edit_form.bandVacancyAssociations.vars.prototype)|e }}"><h3>Band Vacancies</h3>
         {% for bandVacancyAssociation in edit_form.bandVacancyAssociations %}
             <div class="panel-group" >
                 <div class="panel panel-default" id="panel{{ bandVacancyAssociation.vars.data.id }}">
