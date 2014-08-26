@@ -57,6 +57,7 @@ class BandType extends AbstractType
                 )
             )
             ->add('documents','collection',
+
                 array(
                     'show_legend' => false,
                     'show_child_legend' => false,

@@ -21,7 +21,6 @@ class BandVacancyEventListener
     public function prePersist(LifecycleEventArgs $eventArgs) {
         if (!empty($this->container->get('security.context')->getToken())) {
             if (($association = $eventArgs->getEntity()) instanceof BandVacancyAssociation) {
-                $band = $eventArgs->getObjectManager();
                 $em = $eventArgs->getEntityManager();
                 $uow = $em->getUnitOfWork();
                 $entities = $uow->getIdentityMap();

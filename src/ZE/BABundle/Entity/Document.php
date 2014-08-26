@@ -25,11 +25,6 @@ class Document
      */
     protected $id;
 
-    /**
-     * @ORM\Column(type="string", length=255)
-     * @Assert\NotBlank
-     */
-    protected $name;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
@@ -184,28 +179,7 @@ class Document
         return $this->id;
     }
 
-    /**
-     * Set name
-     *
-     * @param string $name
-     * @return Document
-     */
-    public function setName($name)
-    {
-        $this->name = $name;
 
-        return $this;
-    }
-
-    /**
-     * Get name
-     *
-     * @return string
-     */
-    public function getName()
-    {
-        return $this->name;
-    }
 
     /**
      * Set path

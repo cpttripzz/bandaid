@@ -1,7 +1,5 @@
 {% extends '::base.html.twig' %}
 
-
-
 {% block stylesheets %}
     {{ parent() }}
     {{ form_stylesheet(edit_form) }}
@@ -22,9 +20,11 @@
     </ul>
     {{ form_start(edit_form) }}
     <div class="tab-content" id="tab-content">
-        <div class="tab-pane" id="tabBandsMedia"
-             data-prototype="{{ form_widget(edit_form.documents.vars.prototype)|e }}">
-            {{ form_row(edit_form.documents) }}
+        <div class="tab-pane " id="tabBandsMedia">
+            {% for document in edit_form.documents.vars.data%}
+                <div class="col-xs-6 col-sm-4 col-md-3 col-lg-3" id="divDocument{{ document.id }}"><input type="checkbox" id="{{ document.id }}"/><img src="{{ document.getWebPath  | imagine_filter('assoc') }}"></div>
+            {% endfor %}
+
         </div>
         <div class="tab-pane active" id="tabBandsMain">
             <h4>Band Details</h4>
@@ -87,24 +87,32 @@
         {{ form_end(edit_form) }}
 
     </div><!-- tab content -->
+    <br>
+    <div id="divNewDocument" >
+        <form id="frm_upload_document" name="frm_upload_document" method="post" enctype="multipart/form-data" action="{{ path('document_create', { 'aid':  edit_form.vars.data.id })  }}">
+            Add New Document <input  class="btn btn-primary fa fa-plus-circle " id="btnShowNewDocument" name="btnShowNewDocument" type="file" />
+        </form>
+    </div>
 
 
     <script type="application/javascript">
-
         function addForm($collectionHolder, $elementToPrepend) {
             // Get the data-prototype explained earlier
             var prototype = $collectionHolder.data('prototype');
             // get the new index
             var index = $collectionHolder.data('index');
-
             // Replace '__name__' in the prototype's HTML to
             // instead be a number based on how many items we have
-            var newForm = prototype.replace(/__name__/g, index);
 
+            var newForm = prototype.replace(/__name__/g, index);
             $("#" + $elementToPrepend).prepend(newForm);
 
+
         }
+
         jQuery(document).ready(function () {
+            $('input[type=file]').bootstrapFileInput();
+            $("#tabBandsMedia").append($("#divNewDocument"));
             var counter = -1;
             {% for bandVacancyAssociation in edit_form.bandVacancyAssociations %}
             counter++;
@@ -125,26 +133,48 @@
                 addForm(bandVacanciesHolder, 'divShowNewBandVacancy');
             });
 
-
-            var bandMediaHolder;
-            var addNewBandMedia = $('<button class="btn btn-primary fa fa-plus-circle" id="btnShowNewDocument" > Add New Document</button>');
-            var newBandMediaButton = $('#tabBandsMedia').append(addNewBandMedia);
-
-            bandMediaHolder = $('#tabBandsMedia');
-            bandMediaHolder.append(newBandMediaButton);
-            bandMediaHolder.data('index', bandVacanciesHolder.find(':input').length);
-
-            addNewBandMedia.on('click', function (e) {
-                e.preventDefault();
-                addForm(bandMediaHolder, 'tabBandsMedia');
-            });
-
             $(document).on("click", 'button[id^="deleteBandVacancyAssociation"]', function (e) {
                 $(this).parent().parent().remove();
             });
             $("#ze_babundle_band_submit").hide();
             $("#btnShowNewLocation").appendTo($("#s2id_ze_babundle_band_addresses"));
+            $("div[id^='ze_babundle_band_documents']").remove();
+        });
+
+
+        $(function () {
+            $('#frm_upload_document')
+                    .submit(function (e) {
+
+                        var action = "{{ path('document_create', { 'aid':  edit_form.vars.data.id })  }}";
+                        var method = 'POST'
+                        $.ajax({
+                            url: action,
+                            type: method,
+                            data: new FormData(this),
+                            processData: false,
+                            contentType: false
+                        }).done(function (data) {
+                            if (typeof data != 'undefined') {
+                                debugger;
+                                var strDiv = '<div class="col-xs-6 col-sm-4 col-md-3 col-lg-3" id="divDocument'+ data.id +'"><input type="checkbox" id="'+ data.id +'"/>' +
+                                        '<img src=" '+ data.path +'"></div>';
+                                $("div[id^='divDocument']").last().append(strDiv);
+
+                            }
+
+                        });
+//                        location.reload();
+//                        $('#tab-content a[href="#tabBandsMedia"]').tab('show');
+
+                        e.preventDefault();
+                    });
+
+            $("#btnShowNewDocument").change(function (e) {
+                $('#frm_upload_document').submit();
+            });
 
         });
+
     </script>
 {% endblock %}

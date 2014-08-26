@@ -7,11 +7,11 @@ document_show:
     defaults: { _controller: "ZEBABundle:Document:show" }
 
 document_new:
-    path:     /new
+    path:     /new/{aid}
     defaults: { _controller: "ZEBABundle:Document:new" }
 
 document_create:
-    path:     /create
+    path:     /create/{aid}
     defaults: { _controller: "ZEBABundle:Document:create" }
     requirements: { _method: post }
 

@@ -36,20 +36,27 @@ class DocumentController extends Controller
      * Creates a new Document entity.
      *
      */
-    public function createAction(Request $request)
+    public function createAction(Request $request, $aid)
     {
         $entity = new Document();
-        $form = $this->createCreateForm($entity);
+        $form = $this->createCreateForm($entity,$aid);
         $form->handleRequest($request);
-
-        if ($form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($entity);
+        $em = $this->getDoctrine()->getManager();
+        $association = $em->getRepository('ZEBABundle:Association')->find($aid);
+        $entity->setAssociation($association);
+//        if ($form->isValid()) {
+        if(true){
+            foreach($request->files as $file){
+                $entity->setFile($file);
+                $em->persist($entity);
+            }
             $em->flush();
 
-            return $this->redirect($this->generateUrl('document_show', array('id' => $entity->getId())));
         }
-
+        if ($request->isXmlHttpRequest()) {
+            $path = $this->get('liip_imagine.cache.manager')->getBrowserPath($entity->getWebPath(), 'assoc');
+            return new JsonResponse(array('success' => true, 'path' => $path, 'id' => $entity->getId()));
+        }
         return $this->render('ZEBABundle:Document:new.html.twig', array(
             'entity' => $entity,
             'form' => $form->createView(),
@@ -63,10 +70,11 @@ class DocumentController extends Controller
      *
      * @return \Symfony\Component\Form\Form The form
      */
-    private function createCreateForm(Document $entity)
+    private function createCreateForm(Document $entity, $aid)
     {
+
         $form = $this->createForm(new DocumentType(), $entity, array(
-            'action' => $this->generateUrl('document_create'),
+            'action' => $this->generateUrl('document_create',array('aid' => $aid) ),
             'method' => 'POST',
         ));
 
@@ -79,10 +87,13 @@ class DocumentController extends Controller
      * Displays a form to create a new Document entity.
      *
      */
-    public function newAction()
+    public function newAction($aid)
     {
+        $em = $this->getDoctrine()->getManager();
         $entity = new Document();
-        $form = $this->createCreateForm($entity);
+        $em->persist($entity);
+        $em->flush();
+        $form = $this->createCreateForm($entity,  array('aid' => $aid));
 
         return $this->render('ZEBABundle:Document:new.html.twig', array(
             'entity' => $entity,

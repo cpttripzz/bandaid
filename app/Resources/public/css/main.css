@@ -443,3 +443,24 @@ border: 2px solid red;
     #modalShowNewBandVacancy.modal-dialog  {width:900px;}
 }
 #modalShowNewBandVacancy.modal-dialog  {width:75%;}
+
+.row {
+    position: relative;
+}
+.bottomaligned {position:relative; bottom:0;  margin-bottom:0px; left: 0;}
+
+div#divNewDocument {
+
+    /* IMPORTANT STUFF */
+    overflow: hidden;
+    position: relative;
+    cursor:   pointer;
+
+    /* SOME CUSTOM STYLING */
+    width:  200px;
+    padding: 10px;
+    text-align: center;
+    font-weight: bold
+
+}
+
