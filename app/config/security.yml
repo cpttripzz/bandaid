@@ -23,6 +23,7 @@ security:
                 login_path: /login
                 check_path: /login_check
                 success_handler: ze_user_security.authentication.handler.login_success_handler
+                failure_handler: ze_user_security.authentication.handler.login_failure_handler
             oauth:
                 resource_owners:
                     facebook:           "/login/check-facebook"

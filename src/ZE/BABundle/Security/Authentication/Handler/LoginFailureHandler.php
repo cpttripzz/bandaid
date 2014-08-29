@@ -1,6 +1,9 @@
 <?php
 namespace ZE\BABundle\Security\Authentication\Handler;
 
+use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\Security\Core\Exception\AuthenticationException;
+use Symfony\Component\Security\Http\Authentication\AuthenticationFailureHandlerInterface;
 use Symfony\Component\Security\Http\Authentication\AuthenticationSuccessHandlerInterface;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 use Symfony\Component\Security\Core\SecurityContext;
@@ -8,7 +11,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\Routing\Router;
 
-class LoginSuccessHandler implements AuthenticationSuccessHandlerInterface
+class LoginFailureHandler implements AuthenticationFailureHandlerInterface
 {
 
     protected $router;
@@ -20,22 +23,20 @@ class LoginSuccessHandler implements AuthenticationSuccessHandlerInterface
         $this->security = $security;
     }
 
-    public function onAuthenticationSuccess(Request $request, TokenInterface $token)
+    public function onAuthenticationFailure(Request $request, AuthenticationException $exception)
     {
 
-        if ($this->security->isGranted('ROLE_SUPER_ADMIN') || ($this->security->isGranted('ROLE_ADMIN')) )
-        {
-            $response = new RedirectResponse($this->router->generate('sonata_admin_dashboard'));
-        }
-        elseif ($this->security->isGranted('ROLE_USER'))
-        {
-            // redirect the user to where they were before the login process begun.
-            $referer_url = $request->headers->get('referer');
+        if ($request->isXmlHttpRequest()) {
+            $result = array('success' => false, 'message' => $exception->getMessage());
+            $response = new JsonResponse($result);
+            return $response;
+        } else {
+            // Create a flash message with the authentication error message
+            $request->getSession()->setFlash('error', $exception->getMessage());
+            $url = $this->router->generate('fos_user_security_login');
 
-            $response = new RedirectResponse($referer_url);
+            return new RedirectResponse($url);
         }
-
-        return $response;
     }
 
 }

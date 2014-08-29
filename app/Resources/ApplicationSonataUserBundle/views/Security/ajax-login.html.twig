@@ -1,5 +1,5 @@
 {% extends '::base.html.twig' %}
-{% block head %} <script type="application/javascript">console.log('dfdfdf')</script>{% endblock head %}
+{% block head %} {% endblock head %}
 {% block body %}
     {% block body_start %}{% endblock body_start %}
     {% block navbar %} {% endblock navbar %}
@@ -7,9 +7,6 @@
     {% block modal_dialog %} {% endblock modal_dialog %}
 
     {% block fos_user_content %}
-        {% if error %}
-            <div>{{ error|trans({}, 'FOSUserBundle') }}</div>
-        {% endif %}
 
 
             <form action="{{ path("fos_user_security_check") }}" method="post" role="form" data-async data-target="#rating-modal" class="text-left">
@@ -18,9 +15,10 @@
                     <h4 class="modal-title">Login</h4>
                 </div>
                 <div class="modal-body">
-                    {% if error %}
-                        <div>Error</div>
-                    {% endif %}
+
+                    <div class="error">
+
+                    </div>
                     <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
                     <div class="form-group container">
                         <label for="email">Username</label>
@@ -59,6 +57,7 @@
                     window.location = '{{ path("fos_user_security_login") }}/facebook';
                 });
                 $('#_submit').click(function (e) {
+
                     e.preventDefault();
                     console.log($('form').serialize());
                     $.ajax({
@@ -68,14 +67,16 @@
                         dataType: "json",
                         success: function (data, status, object) {
 
-                            if (data.error) {
+                            if (data.success == false) {
                                 $('.error').html(data.message);
+                            } else {
+                                window.location = data.url;
                             }
-                            window.location = data.url;
 
                         },
                         error: function (data, status, object) {
-                            console.log(data.message);
+                            debugger;
+
                         }
                     });
                 });

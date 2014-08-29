@@ -2,7 +2,7 @@
 {% block container %}
     <div class="panel ">
         Bands Searching For Musicians:
-        {% embed'ZEBABundle::item_container.html.twig' with { 'pagination': bands, 'entity_type' : 'band', 'is_edit' : true} %}
+        {% embed'ZEBABundle::item_container.html.twig' with { 'pagination': bands, 'entity_type' : 'band', 'is_edit' : false} %}
             {% block navigaion %}
 
             {% endblock navigaion %}
