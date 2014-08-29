@@ -332,3 +332,22 @@ snc_redis:
             type: predis
             alias: default
             dsn: redis://localhost
+        cache:
+            type: predis
+            alias: cache
+            dsn: redis://secret@localhost/1
+            options:
+               profile: 2.2
+               connection_timeout: 10
+               read_write_timeout: 30
+    doctrine:
+        metadata_cache:
+            client: cache
+            entity_manager: default          # the name of your entity_manager connection
+            document_manager: default        # the name of your document_manager connection
+        result_cache:
+            client: cache
+            entity_manager: [default]  # you may specify multiple entity_managers
+        query_cache:
+            client: cache
+            entity_manager: default
