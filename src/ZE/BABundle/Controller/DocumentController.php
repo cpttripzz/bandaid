@@ -233,10 +233,10 @@ class DocumentController extends Controller
      *
      * @return \Symfony\Component\Form\Form The form
      */
-    private function createDeleteForm($id, $associationId)
+    private function createDeleteForm($id)
     {
         return $this->createFormBuilder()
-            ->setAction($this->generateUrl('document_delete', array('id' => $id, 'associationId' => $associationId)))
+            ->setAction($this->generateUrl('document_delete'))
             ->setMethod('DELETE')
             ->add('submit', 'submit', array('label' => 'Delete'))
             ->getForm();

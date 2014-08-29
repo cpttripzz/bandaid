@@ -21,9 +21,15 @@
     {{ form_start(edit_form) }}
     <div class="tab-content" id="tab-content">
         <div class="tab-pane " id="tabBandsMedia">
+            <div class="row">
             {% for document in edit_form.documents.vars.data%}
-                <div class="col-xs-6 col-sm-4 col-md-3 col-lg-3" id="divDocument{{ document.id }}"><input type="checkbox" id="{{ document.id }}"/><img src="{{ document.getWebPath  | imagine_filter('assoc') }}"></div>
+                <div class="col-xs-6 col-sm-4 col-md-3 col-lg-3" name="chkDocuments" id="divDocument{{ document.id }}"><input type="checkbox" id="{{ document.id }}"/><img src="{{ document.getWebPath  | imagine_filter('assoc') }}"></div>
             {% endfor %}
+            </div>
+            <div class="row" id="mediaControls">
+
+                <a href="#" class="btn btn-danger fa fa-trash-o" id="deleteDocument"> Delete Document</a>
+            </div>
 
         </div>
         <div class="tab-pane active" id="tabBandsMain">
@@ -90,7 +96,7 @@
     <br>
     <div id="divNewDocument" >
         <form id="frm_upload_document" name="frm_upload_document" method="post" enctype="multipart/form-data" action="{{ path('document_create', { 'aid':  edit_form.vars.data.id })  }}">
-            Add New Document <input  class="btn btn-primary fa fa-plus-circle " id="btnShowNewDocument" name="btnShowNewDocument" type="file" />
+            <input  class="btn btn-primary fa fa-plus-circle " id="btnShowNewDocument" name="btnShowNewDocument" type="file" title=" Add New Document" />
         </form>
     </div>
 
@@ -112,12 +118,12 @@
 
         jQuery(document).ready(function () {
             $('input[type=file]').bootstrapFileInput();
-            $("#tabBandsMedia").append($("#divNewDocument"));
+            $("#mediaControls").append($("#divNewDocument"));
             var counter = -1;
             {% for bandVacancyAssociation in edit_form.bandVacancyAssociations %}
-            counter++;
-            $("#ze_babundle_band_bandVacancyAssociations_" + counter + "_bandVacancy")
-                    .appendTo($('#panel-body{{ bandVacancyAssociation.vars.data.id }}'));
+                counter++;
+                $("#ze_babundle_band_bandVacancyAssociations_" + counter + "_bandVacancy")
+                        .appendTo($('#panel-body{{ bandVacancyAssociation.vars.data.id }}'));
             {% endfor %}
             var bandVacanciesHolder;
             // setup an "add a tag" link
@@ -143,6 +149,16 @@
 
 
         $(function () {
+            $("#deleteDocument").on("click",function(){
+                var checked = $('input[name="divDocument"]:checked');
+                bootbox.confirm("Are you sure?", function(result) {
+                   debugger;
+                    if (result){
+
+                   }
+                    console.log(result,checked);
+                });
+            });
             $('#frm_upload_document')
                     .submit(function (e) {
 
@@ -156,16 +172,14 @@
                             contentType: false
                         }).done(function (data) {
                             if (typeof data != 'undefined') {
-                                debugger;
-                                var strDiv = '<div class="col-xs-6 col-sm-4 col-md-3 col-lg-3" id="divDocument'+ data.id +'"><input type="checkbox" id="'+ data.id +'"/>' +
+                                var strDiv = '<div class="col-xs-6 col-sm-4 col-md-3 col-lg-3" id="divDocument'+ data.id +'"><input type="checkbox" name="chkDocuments" id="'+ data.id +'"/>' +
                                         '<img src=" '+ data.path +'"></div>';
                                 $("div[id^='divDocument']").last().append(strDiv);
 
                             }
 
                         });
-//                        location.reload();
-//                        $('#tab-content a[href="#tabBandsMedia"]').tab('show');
+
 
                         e.preventDefault();
                     });

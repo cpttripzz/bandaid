@@ -154,9 +154,7 @@ class BandController extends Controller implements UrlTracker
             $originalBandVacancyAssociations->add($bandVacancyAssociation);
         }
 
-        foreach ($entity->getDocuments() as $document) {
-            $originalBandMedia->add($document);
-        }
+
 
         $deleteForm = $this->createDeleteForm($id);
         $editForm = $this->createEditForm($entity);
@@ -170,20 +168,11 @@ class BandController extends Controller implements UrlTracker
                     $em->remove($bandVacancyAssociation);
                 }
             }
-            foreach ($originalBandMedia as $bandMedia) {
-                if (false === $entity->getDocuments()->contains($bandMedia)) {
-                    $entity->getDocuments()->removeElement($bandMedia);
-                    $em->persist($entity);
-                    $em->remove($bandMedia);
-                }
-            }
+
 
             $em->persist($entity);
 
-            foreach ($entity->getDocuments() as $document) {
-                $document->setAssociation($entity);
-                $em->persist($document);
-            }
+
             $em->flush();
 
             return $this->redirect($this->generateUrl('band_edit', array('id' => $id)));
