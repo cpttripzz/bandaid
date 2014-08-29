@@ -78,6 +78,7 @@
         "friendsofsymfony/jsrouting-bundle": "2.0.*@dev",
         "predis/predis": "0.8.x-dev",
         "snc/redis-bundle": "1.1.x-dev",
+        "drmonty/datatables": "dev-master",
         "raulfraile/ladybug-bundle": "~1.0"
 
         },

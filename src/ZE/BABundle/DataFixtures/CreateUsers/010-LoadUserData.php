@@ -347,7 +347,6 @@ class LoadUserData extends AbstractFixture
         $file = file_get_contents('http://lorempixel.com/300/225/' . $imagePath);
         $pwd = getcwd();
         $filename = sha1(uniqid(mt_rand(), true));
-        $document->setName($filename);
         $document->setPath($filename . '.jpeg');
         if (!is_dir($pwd . '/web/img/users/')) {
             mkdir($pwd . '/web/img/users/');

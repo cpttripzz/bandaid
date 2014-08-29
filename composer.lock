@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "7df3f1a92ca140af0df75c62b911c74b",
+    "hash": "14320e33707f0b4f95e1de50a6753519",
     "packages": [
         {
             "name": "behat/transliterator",
@@ -1090,6 +1090,57 @@
                 "orm"
             ],
             "time": "2014-08-27 16:27:05"
+        },
+        {
+            "name": "drmonty/datatables",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/drmonty/datatables.git",
+                "reference": "5b1d625563437f3523c392409a1ea74ff88fae77"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/drmonty/datatables/zipball/5b1d625563437f3523c392409a1ea74ff88fae77",
+                "reference": "5b1d625563437f3523c392409a1ea74ff88fae77",
+                "shasum": ""
+            },
+            "require": {
+                "components/jquery": ">=1.7"
+            },
+            "type": "component",
+            "extra": {
+                "component": {
+                    "scripts": [
+                        "js/jquery.dataTables.js"
+                    ],
+                    "files": [
+                        "js/jquery.dataTables.min.js",
+                        "images/*.png",
+                        "css/jquery.dataTables.min.css",
+                        "css/jquery.dataTables_themeroller.css"
+                    ],
+                    "shim": {
+                        "deps": [
+                            "jquery"
+                        ]
+                    }
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "description": "DataTables is a plug-in for the jQuery Javascript library. It is a highly flexible tool, based upon the foundations of progressive enhancement, which will add advanced interaction controls to any HTML table.",
+            "homepage": "http://www.datatables.net/",
+            "keywords": [
+                "datatable",
+                "datatables",
+                "filter",
+                "grid",
+                "internationalisable",
+                "page",
+                "sort",
+                "table"
+            ],
+            "time": "2014-07-16 09:38:23"
         },
         {
             "name": "dsyph3r/google-geolocation-bundle",
@@ -6156,7 +6207,8 @@
         "jeremymlane/bootbox": 20,
         "friendsofsymfony/jsrouting-bundle": 20,
         "predis/predis": 20,
-        "snc/redis-bundle": 20
+        "snc/redis-bundle": 20,
+        "drmonty/datatables": 20
     },
     "prefer-stable": false,
     "platform": {
