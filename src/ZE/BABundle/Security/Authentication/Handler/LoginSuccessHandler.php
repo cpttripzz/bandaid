@@ -17,12 +17,10 @@ class LoginSuccessHandler implements AuthenticationSuccessHandlerInterface
     protected $router;
     protected $security;
     protected $session;
-    protected $api;
     public function __construct(Container $container)
     {
         $this->router = $container->get('router');
         $this->security = $container->get('security.context');
-        $this->api = $container->get('buzz');
     }
 
     public function setSession($session=null)
@@ -46,11 +44,6 @@ class LoginSuccessHandler implements AuthenticationSuccessHandlerInterface
                 $this->session->remove($key);
 
                 $returnUrl = $baseUrl .$url;
-//                try{
-//                    $apiResponse = $this->api->get('http://localhost:26300/register-user/'. $this->session->getId());
-//                }
-//                catch(\Exception $e){}
-//                if($apiResponse->getStatusCode() == 200)
             } else {
                 $returnUrl = $this->router->generate('home');
             }

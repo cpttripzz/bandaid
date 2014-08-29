@@ -38,7 +38,6 @@ class AppKernel extends Kernel
             new Genemu\Bundle\FormBundle\GenemuFormBundle(),
             new Liip\ImagineBundle\LiipImagineBundle(),
             new FOS\JsRoutingBundle\FOSJsRoutingBundle(),
-            new Sensio\Bundle\BuzzBundle\SensioBuzzBundle(),
             new Snc\RedisBundle\SncRedisBundle(),
 
             new ZE\BABundle\ZEBABundle(),
