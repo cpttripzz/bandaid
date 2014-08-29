@@ -46,6 +46,21 @@ class MusicianType extends AbstractType
                 'class' => 'ZE\BABundle\Entity\Instrument',
                 'property' => 'name',
             ))
+            ->add('documents','collection',
+
+                array(
+                    'show_legend' => false,
+                    'show_child_legend' => false,
+                    'by_reference' => true,
+                    'allow_delete' => false,
+                    'allow_add'    => false,
+                    'label_render' => false,
+                    'options' => array( // options for collection fields
+                        'label_render' => false,
+                    ),
+                    'type' => new DocumentType()
+                )
+            )
             ->add('genres', 'genemu_jqueryselect2_entity', array(
                 'multiple' => true,
                 'class' => 'ZE\BABundle\Entity\Genre',

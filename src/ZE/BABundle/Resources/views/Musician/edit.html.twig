@@ -1,17 +1,1 @@
-{% extends '::base.html.twig' %}
-
-{% block stylesheets %}
-    {{ parent() }}
-    {{ form_stylesheet(edit_form) }}
-{% endblock %}
-
-{% block javascripts %}
-    {{ parent() }}
-    {{ form_javascript(edit_form) }}
-{% endblock %}
-{% block container %}
-    {% include 'ZEBABundle::show_new_location_modal.html.twig' %}
-    <button class="btn btn-primary" id="btnShowNewLocation" data-target="#largeModal">Add New Address</button>
-    {{ form(edit_form) }}
-    {{ form(delete_form) }}
-{% endblock %}
+{% extends '@ZEBA/edit_assoc.html.twig' %}
