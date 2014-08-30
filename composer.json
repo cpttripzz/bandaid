@@ -50,6 +50,10 @@
         "sensio/generator-bundle": "~2.3",
         "incenteev/composer-parameter-handler": "~2.0",
         "friendsofsymfony/user-bundle": "1.3.2",
+        "friendsofsymfony/oauth-server-bundle": "dev-master",
+        "friendsofsymfony/jsrouting-bundle": "2.0.*@dev",
+        "friendsofsymfony/rest-bundle": "1.3.*",
+        "jms/serializer-bundle": "dev-master",
         "sonata-project/admin-bundle": "dev-master",
         "sonata-project/user-bundle": "dev-master",
         "sonata-project/doctrine-orm-admin-bundle": "dev-master",
@@ -75,7 +79,7 @@
         "liip/imagine-bundle": "dev-master",
         "tapmodo/Jcrop": "dev-master",
         "jeremymlane/bootbox": "dev-master",
-        "friendsofsymfony/jsrouting-bundle": "2.0.*@dev",
+
         "predis/predis": "0.8.x-dev",
         "snc/redis-bundle": "1.1.x-dev",
         "drmonty/datatables": "dev-master",
@@ -112,7 +116,7 @@
             "file": "app/config/parameters.yml"
         },
         "branch-alias": {
-            "dev-master": "2.4-dev"
+            "dev-master": "2.5-dev"
         }
     }
 }

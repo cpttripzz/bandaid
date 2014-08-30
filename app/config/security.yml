@@ -48,9 +48,20 @@ security:
                 lifetime: 31536000 # 365 days in seconds
                 path: /
                 domain: ~ # Defaults to the current domain from $_SERVER
+        oauth_token:
+            pattern:    ^/oauth/v2/token
+            security:   false
+
+
+        api:
+            pattern:    ^/api
+            fos_oauth:  true
+            stateless:  true
+            anonymous:  false # can be omitted as its default value
 
     access_control:
         - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/admin/, role: [ROLE_ADMIN,ROLE_SUPER_ADMIN] }
+        - { path: ^/api, roles: [ IS_AUTHENTICATED_FULLY ] }

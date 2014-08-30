@@ -351,3 +351,12 @@ snc_redis:
         query_cache:
             client: cache
             entity_manager: default
+            
+fos_oauth_server:
+    db_driver: orm
+    client_class:        ZE\BABundle\Entity\Client
+    access_token_class:  ZE\BABundle\Entity\AccessToken
+    refresh_token_class: ZE\BABundle\Entity\RefreshToken
+    auth_code_class:     ZE\BABundle\Entity\AuthCode
+    service:
+        user_provider: fos_user.user_manager

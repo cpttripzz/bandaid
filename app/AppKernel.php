@@ -39,6 +39,10 @@ class AppKernel extends Kernel
             new Liip\ImagineBundle\LiipImagineBundle(),
             new FOS\JsRoutingBundle\FOSJsRoutingBundle(),
             new Snc\RedisBundle\SncRedisBundle(),
+            new FOS\RestBundle\FOSRestBundle(),
+            new JMS\SerializerBundle\JMSSerializerBundle(),
+
+            new FOS\OAuthServerBundle\FOSOAuthServerBundle(),
 
             new ZE\BABundle\ZEBABundle(),
         );
