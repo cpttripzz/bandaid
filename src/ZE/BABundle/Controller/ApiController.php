@@ -166,4 +166,32 @@ class ApiController extends Controller
         $images = $this->em->getRepository('ZE\BABundle\Entity\Document')->getAllImagesByAssociationId($associationId);
         return new JsonResponse($images);
     }
+
+    /**
+     * Deletes a Document entity.
+     *
+     */
+    public function deleteDocumentsAction($ids, $associationId)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $association = $em->getRepository('ZE\BABundle\Entity\Association')->find($associationId);
+
+
+        if (false === $this->get('security.context')->isGranted('edit', $association)) {
+            return new JsonResponse('not authorized', 403);
+        }
+        $ids = explode(',',$ids);
+        $ids = array_flip($ids);
+        foreach ($association->getDocuments() as $document) {
+            if (isset ($ids[$document->getId()])) {
+                $em->remove($document);
+                $em->flush();
+
+            }
+        }
+
+        return new JsonResponse('Successfully Removed');
+
+
+    }
 }

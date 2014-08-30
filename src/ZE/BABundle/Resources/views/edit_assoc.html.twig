@@ -140,7 +140,6 @@
                 {% endfor %}
             {% endif %}
             var bandVacanciesHolder;
-            // setup an "add a tag" link
             var addNewBandVacancy = $('<button href="#modalShowNewBandVacancy" data-toggle="modal"  class="btn btn-primary fa fa-plus-circle" id="btnShowNewBandVacancy" > Add New Vacancy</button>');
             var $newLinkLi = $('#panelBandVacancies').append(addNewBandVacancy);
             $('#tab-content').append('<br/><button type="submit" class="btn btn-primary"><span class="fa fa-floppy-o"></span> Submit Changes</button>');
@@ -164,13 +163,35 @@
 
         $(function () {
             $("#deleteDocument").on("click", function () {
-                var checked = $('input[name="divDocument"]:checked');
+                var ids = Array();
+                var checked = $('input[name="chkDocuments"]:checked');
+                var count=checked.length;
+                $("div[id^='divDocument']").find("input:checked").each(function (i, ob) {
+                    ids.push($(ob).attr('id'));
+                });
+
                 bootbox.confirm("Are you sure?", function (result) {
-                    debugger;
                     if (result) {
+                        var url = Routing.generate('api_deleteDocumentsAction', {'ids':ids.join(),'associationId':{{edit_form.vars.data.id  }} });
+                        var method = 'POST'
+                        $.ajax({
+                            url: url,
+                            type: method
+                        }).done(function (data) {
+                            debugger;
+                            if (typeof data != 'undefined') {
+                                for(var i =0;i<count;i++){
+                                    $("#divDocument" + ids[i]).remove();
+                                }
+
+                            }
+
+                        });
+
+
 
                     }
-                    console.log(result, checked);
+
                 });
             });
             $('#frm_upload_document')

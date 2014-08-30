@@ -16,3 +16,6 @@ api_saveNewAddressAction:
 api_getAllImagesByAssociationId:
     path:     /getAllImagesByAssociationId/{associationId}
     defaults: { _controller: "ZEBABundle:Api:getAllImagesByAssociationId" }
+api_deleteDocumentsAction:
+    path:     /deleteDocumentsAction/{ids}/{associationId}
+    defaults: { _controller: "ZEBABundle:Api:deleteDocuments" }
