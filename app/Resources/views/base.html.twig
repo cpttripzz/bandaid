@@ -184,7 +184,7 @@
     {% block pre_container %}
         <div class="{% block container_class %}container{% endblock container_class %}">
             {% block modal_dialog %}
-                <div class="modal fade" id="login_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal fade" id="login_modal" tabindex="-1" role="dialog" aria-labelledby="login_modal" aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content"> </div>
                     </div>
@@ -192,10 +192,7 @@
 
             {% endblock modal_dialog %}
             {% block container %}
-                <div class="{% block content_class %}content{% endblock content_class %}">
-
-
-                </div>
+                <div class="{% block content_class %}content{% endblock content_class %}"></div>
             {% endblock container %}
         </div>
     {% endblock pre_container %}

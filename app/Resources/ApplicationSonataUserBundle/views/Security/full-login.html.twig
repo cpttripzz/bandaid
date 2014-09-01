@@ -1,45 +1,49 @@
 {% extends '::base.html.twig' %}
+{% block body %}
+    {% block pre_container %}
+        {% block login_js %}
 
-{% block fos_user_content %}
-    {{ dump(app.request.xmlHttpRequest) }}
-    {% if error %}
-        <div>{{ error|trans({}, 'FOSUserBundle') }}</div>
-    {% endif %}
+            <script type="application/javascript">
 
-            <form action="{{ path("fos_user_security_check") }}" method="post" role="form" data-async data-target="#rating-modal" class="text-left">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h4 class="modal-title">Login</h4>
-                </div>
-                <div class="modal-body">
-                    {% if error %}
-                        <div>Error</div>
-                    {% endif %}
-                    <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
-                    <div class="form-group container">
-                        <label for="email">Username</label>
-                        <input type="text" class="form-control" id="username" name="_username" value="{{ last_username }}" required="required" placeholder="adresse@email.com">
-                    </div>
-                    <div class="form-group container">
-                        <label for="password">Password</label><br />
-                        <input type="password" id="password" name="_password" required="required" class="form-control" placeholder="********">
-                    </div>
-                    <div class="form-group container">
-                        <label for="remember_me">
-                            <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
-                            Remember Me
-                        </label>
+                $(document).ready(function(){
+                    $('#btn_modal_login').click();
+                });
+            </script>
+        {% endblock login_js %}
+        <div class="{% block container_class %}container{% endblock container_class %}">
+            {% block modal_dialog %}
+                <div class="modal fade" id="login_modal" tabindex="-1" role="dialog" aria-labelledby="login_modal" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content"> </div>
                     </div>
                 </div>
-                <p class="text-right"><a href="#">Forgot password?</a></p>
-                <p class="pad-25"><button class="btn btn-facebook btn-width-200"><i class="fa fa-facebook"></i> | Connect with Facebook</button></p>
-                <p class="pad-25"><button class="btn btn-google-plus btn-width-200"><i class="fa fa-google-plus"></i> | Connect with Google +</button></p>
-                <p class="pad-25"><button class="btn btn-twitter btn-width-200"><i class="fa fa-twitter"></i> | Connect with Twitter</button></p>
-                <p class="pad-25"><button class="btn btn-github btn-width-200" ><i class="fa fa-github"></i> | Connect with Github</button></p>
-                <div class="modal-footer">
-                    <a href="#" data-dismiss="modal" class="btn">Close</a>
-                    <a href="#" class="btn btn-primary">Log-in</a>
-                </div>
 
-            </form>
-{% endblock fos_user_content %}
+            {% endblock modal_dialog %}
+            {% block container %}
+                <div class="{% block content_class %}content{% endblock content_class %}"></div>
+            {% endblock container %}
+        </div>
+    {% endblock pre_container %}
+    {% block fos_user_content %}
+
+
+        {% block navbar %}
+
+            <div id="navbar" class="navbar navbar-default" role="navigation">
+                <div class="navbar-inner">
+                    {{ knp_menu_render('ZEBABundle:MenuBuilder:mainMenu', {'currentClass': 'active', 'template': 'ZEBABundle:Menu:main_menu.html.twig'}) }}
+                    {{ knp_menu_render('ZEBABundle:MenuBuilder:userMenu', {'currentClass': 'active', 'template': 'ZEBABundle:Menu:main_menu.html.twig'}) }}
+                </div>
+            </div>
+            <div id="message_bar"></div>
+
+        {% endblock navbar %}
+
+    {% endblock fos_user_content %}
+
+    {% block body_end %} {% endblock body_end %}
+{% endblock body %}
+
+
+
+
