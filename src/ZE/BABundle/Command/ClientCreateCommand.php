@@ -36,6 +36,6 @@ EOT
         $client->setAllowedGrantTypes($input->getOption('grant-type'));
         $clientManager->updateClient($client);
         $output->writeln(sprintf('Added a new client with name <info>%s</info> and public id <info>%s</info>.', $client->getName(), $client->getPublicId()));
-        $output->writeln('oauth/v2/token?client_id=%s&client_secret=%s&grant_type=client_credentials', $client->getPublicId(), $client->getSecret);
+        $output->writeln('oauth/v2/token?client_id=%s&client_secret=%s&grant_type=client_credentials', $client->getPublicId(), $client->getSecret());
     }
 }
