@@ -45,8 +45,8 @@ class FOSUBUserProvider extends BaseClass
      */
     public function loadUserByOAuthUserResponse(UserResponseInterface $response)
     {
-        list($service, $username, $user) = $this->getUserNameByServiceType($response);
-        //when the user is registrating
+        list($service, $username, $user, $email) = $this->getUserNameByServiceType($response);
+
         if (null === $user) {
 
             $setter = 'set'.ucfirst($service);
@@ -59,7 +59,9 @@ class FOSUBUserProvider extends BaseClass
             //I have set all requested data with the user's username
             //modify here with relevant data
             $user->setUsername($username);
-            $user->setEmail($username);
+            if($email){
+                $user->setEmail($email);
+            }
 
             $user->setPassword(md5(microtime()));
             $user->setEnabled(true);
@@ -101,12 +103,14 @@ class FOSUBUserProvider extends BaseClass
         $service = $response->getResourceOwner()->getName();
         if ($service == 'facebook') {
             $username = $response->getRealName();
+
             $user = $this->loadUserByOAuthUserResponseAndRealName($response);
-            return array($service, $username, $user);
+            return array($service, $username, $user, 'fixme');
         } else {
             $username = $response->getNickname();
+            $email = $response->getEmail();
             $user = $this->loadUserByOAuthUserResponseAndNickName($response);
-            return array($service, $username, $user);
+            return array($service, $username, $user, $email);
         }
     }
 
