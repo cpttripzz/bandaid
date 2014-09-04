@@ -1,0 +1,37 @@
+{% extends '::base.html.twig' %}
+{% block head %} {% endblock head %}
+{% block body %}
+    {% block body_start %}{% endblock body_start %}
+    {% block navbar %} {% endblock navbar %}
+    {% block pre_container %} {% endblock pre_container %}
+    {% block modal_dialog %} {% endblock modal_dialog %}
+
+    {% block fos_user_content %}
+
+        <form action="{{ path('fos_user_registration_register') }}" {{ form_enctype(form) }} method="POST" class="fos_user_registration_register">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Login</h4>
+            </div>
+            {{ form_widget(form) }}
+
+
+
+            <div id="btn-facebook" class="btn btn-facebook btn-width-200"><i class="fa fa-facebook"></i> | Connect with Facebook</div>
+            <div id="btn-google-plus" class="btn btn-google-plus btn-width-200"><i class="fa fa-google-plus"></i> | Connect with Google +</div>
+            <div id="btn-twiter" class="btn btn-twitter btn-width-200"><i class="fa fa-twitter"></i> | Connect with Twitter</div>
+            <div id="btn-github" class="btn btn-github btn-width-200" ><i class="fa fa-github"></i> | Connect with Github</div>
+            <div class="modal-footer">
+                <input type="submit" value="{{ 'registration.submit'|trans({}, 'FOSUserBundle') }}" />
+            </div>
+        </form>
+        <script>
+            $(document).ready(function () {
+
+
+            });
+        </script>
+    {% endblock fos_user_content %}
+
+    {% block body_end %} {% endblock body_end %}
+{% endblock body %}

@@ -1,92 +1,101 @@
-{% extends '::base.html.twig' %}
-{% block head %} {% endblock head %}
-{% block body %}
-    {% block body_start %}{% endblock body_start %}
-    {% block navbar %} {% endblock navbar %}
-    {% block pre_container %} {% endblock pre_container %}
-    {% block modal_dialog %} {% endblock modal_dialog %}
+{% extends '::user-base-ajax.html.twig' %}
+{% block fos_user_content %}
 
-    {% block fos_user_content %}
+    <div id="remote-content">
+        <form action="{{ path("fos_user_security_check") }}" method="post" role="form" data-async
+              data-target="#rating-modal" class="text-left">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Login</h4>
+            </div>
+            <div class="modal-body">
 
+                <div class="error">
 
-            <form action="{{ path("fos_user_security_check") }}" method="post" role="form" data-async data-target="#rating-modal" class="text-left">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h4 class="modal-title">Login</h4>
                 </div>
-                <div class="modal-body">
+                <input type="hidden" name="_csrf_token" value="{{ csrf_token }}"/>
 
-                    <div class="error">
+                <div class="form-group container">
+                    <label for="email">Username</label>
+                    <input type="text" id="username" name="_username" value="{{ last_username }}"
+                           required="required" placeholder="adresse@email.com">
+                </div>
+                <div class="form-group container">
+                    <label for="password">Password</label><br/>
+                    <input type="password" id="password" name="_password" required="required"
+                           placeholder="********">
+                </div>
+                <div class="form-group container">
+                    <label for="remember_me">
+                        <input type="checkbox" id="remember_me" name="_remember_me" value="on"/>
+                        Remember Me
+                    </label>
+                </div>
+            </div>
 
-                    </div>
-                    <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
-                    <div class="form-group container">
-                        <label for="email">Username</label>
-                        <input type="text" id="username" name="_username" value="{{ last_username }}" required="required" placeholder="adresse@email.com">
-                    </div>
-                    <div class="form-group container">
-                        <label for="password">Password</label><br />
-                        <input type="password" id="password" name="_password" required="required" placeholder="********">
-                    </div>
-                    <div class="form-group container">
-                        <label for="remember_me">
-                            <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
-                            Remember Me
-                        </label>
-                    </div>
-                </div>
-                <p class="text-right"><a href="#">Forgot password?</a></p>
-                <div id="btn-facebook" class="btn btn-facebook btn-width-200"><i class="fa fa-facebook"></i> | Connect with Facebook</div>
-                <div id="btn-google-plus" class="btn btn-google-plus btn-width-200"><i class="fa fa-google-plus"></i> | Connect with Google +</div>
-                <div id="btn-twiter" class="btn btn-twitter btn-width-200"><i class="fa fa-twitter"></i> | Connect with Twitter</div>
-                <div id="btn-github" class="btn btn-github btn-width-200" ><i class="fa fa-github"></i> | Connect with Github</div>
-                <div class="modal-footer">
-                    <a href="#" data-dismiss="modal" class="btn">Close</a>
-                    <input type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans({}, 'FOSUserBundle') }}" />
-                </div>
+            <p class="text-right"><a class="btn btn-facebook btn-width-200" id="btn-register">Register</a></p>
+
+            <p class="text-right"><a href="#">Forgot password?</a></p>
+
+            <div id="btn-facebook" class="btn btn-facebook btn-width-200"><i class="fa fa-facebook"></i> | Connect
+                with Facebook
+            </div>
+            <div id="btn-google-plus" class="btn btn-google-plus btn-width-200"><i class="fa fa-google-plus"></i> |
+                Connect with Google +
+            </div>
+            <div id="btn-twiter" class="btn btn-twitter btn-width-200"><i class="fa fa-twitter"></i> | Connect with
+                Twitter
+            </div>
+            <div id="btn-github" class="btn btn-github btn-width-200"><i class="fa fa-github"></i> | Connect with
+                Github
+            </div>
+            <div class="modal-footer">
+                <a href="#" data-dismiss="modal" class="btn">Close</a>
+                <input type="submit" id="_submit" name="_submit"
+                       value="{{ 'security.login.submit'|trans({}, 'FOSUserBundle') }}"/>
+            </div>
         </form>
-        <script>
-            $(document).ready(function () {
-                $("#btn-github").on("click", function(){
-                    window.location = '{{ path("fos_user_security_login") }}/github';
-                });
-                $("#btn-google-plus").on("click", function(){
-                    window.location = '{{ path("fos_user_security_login") }}/google';
-                });
-                $("#btn-facebook").on("click", function(){
-                    window.location = '{{ path("fos_user_security_login") }}/facebook';
-                });
-                $('#_submit').click(function (e) {
+    </div>
+    <script>
+        $(document).ready(function () {
+            $("#btn-register").on("click", function () {
+                $("#remote-content").load("{{ path("fos_user_registration_register") }}");
 
-                    e.preventDefault();
-                    console.log($('form').serialize());
-                    $.ajax({
-                        type: $('form').attr('method'),
-                        url: '{{ path("fos_user_security_check") }}',
-                        data: $('form').serialize(),
-                        dataType: "json",
-                        success: function (data, status, object) {
+            });
+            $("#btn-github").on("click", function () {
+                window.location = '{{ path("fos_user_security_login") }}/github';
+            });
+            $("#btn-google-plus").on("click", function () {
+                window.location = '{{ path("fos_user_security_login") }}/google';
+            });
+            $("#btn-facebook").on("click", function () {
+                window.location = '{{ path("fos_user_security_login") }}/facebook';
+            });
+            $('#_submit').click(function (e) {
 
-                            if (data.success == false) {
-                                $('.error').html(data.message);
-                            } else {
-                                window.location = data.url;
-                            }
+                e.preventDefault();
+                console.log($('form').serialize());
+                $.ajax({
+                    type: $('form').attr('method'),
+                    url: '{{ path("fos_user_security_check") }}',
+                    data: $('form').serialize(),
+                    dataType: "json",
+                    success: function (data, status, object) {
 
-                        },
-                        error: function (data, status, object) {
-                            debugger;
-
+                        if (data.success == false) {
+                            $('.error').html(data.message);
+                        } else {
+                            window.location = data.url;
                         }
-                    });
+
+                    },
+                    error: function (data, status, object) {
+                        debugger;
+
+                    }
                 });
             });
-        </script>
-    {% endblock fos_user_content %}
-
-    {% block body_end %} {% endblock body_end %}
-{% endblock body %}
-
-
-
+        });
+    </script>
+{% endblock fos_user_content %}
 

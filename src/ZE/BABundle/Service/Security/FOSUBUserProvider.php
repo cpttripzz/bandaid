@@ -60,7 +60,8 @@ class FOSUBUserProvider extends BaseClass
             //modify here with relevant data
             $user->setUsername($username);
             $user->setEmail($username);
-            $user->setPassword($username);
+
+            $user->setPassword(md5(microtime()));
             $user->setEnabled(true);
             $this->userManager->updateUser($user);
             return $user;
