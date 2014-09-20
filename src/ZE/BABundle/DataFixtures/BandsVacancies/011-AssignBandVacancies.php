@@ -17,6 +17,8 @@ use Faker;
 use ZE\BABundle\Entity\Address;
 use ZE\BABundle\Entity\Band;
 use ZE\BABundle\Entity\BandMusician;
+use ZE\BABundle\Entity\BandVacancy;
+use ZE\BABundle\Entity\BandVacancyAssociation;
 use ZE\BABundle\Entity\City;
 use ZE\BABundle\Entity\Country;
 use ZE\BABundle\Entity\Document;
@@ -54,18 +56,21 @@ class BandVacancies extends AbstractFixture
 
         try {
             $bands = $this->manager->getRepository('ZE\BABundle\Entity\Band')->findAll();
-            $musicians = $this->manager->getRepository('ZE\BABundle\Entity\Musician')->findAll();
+            $genres = $this->manager->getRepository('ZE\BABundle\Entity\Genre')->findAll();
+            $instruments = $this->manager->getRepository('ZE\BABundle\Entity\Instrument')->findAll();
             foreach ($bands as $band) {
-                $musArr = array();
-
                 for ($i = 0; $i < rand(1, 5); $i++) {
-                    $randomMusician = $musicians[rand(0, count($musicians) - 1)];
-                    if (!in_array($randomMusician->getId(), $musArr)) {
-                        $musArr[] = $randomMusician->getId();
-                        $this->manager->flush();
-                        $this->container->get('ze.band_manager_service')->addMusicianToBand($randomMusician, $band);
-                    }
-
+                    $bandVacancy = new BandVacancy();
+                    $bandVacancy->setComment('added by sys');
+                    $bandVacancy->setName('vacancy-' . $band->getId());
+                    $bandVacancy->addGenre($genres[rand(0, count($genres) - 1)]);
+                    $bandVacancy->addInstrument($instruments[rand(0, count($instruments) - 1)]);
+                    $bandVacancyAssoc = new BandVacancyAssociation();
+                    $bandVacancyAssoc->setBand($band);
+                    $bandVacancyAssoc->setBandVacancy($bandVacancy);
+                    $bandVacancy->addBandVacancyAssociation($bandVacancyAssoc);
+                    $this->manager->persist($bandVacancyAssoc);
+                    $this->manager->persist($bandVacancy);
                 }
             }
             $this->manager->flush();
