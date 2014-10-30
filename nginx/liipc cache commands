@@ -52,3 +52,22 @@ php app/console ze:babundle:client:create --redirect-uri="http://bandaid.com/app
 
 export PHP_IDE_CONFIG='serverName=localhost'
 export XDEBUG_CONFIG='idekey=PHPSTORM'
+
+
+
+
+.bashrc
+mcd () {
+    mkdir -p $1
+    cd $1
+}
+
+git-rev (){
+    if [[ -z "$1" ]]
+       	then git stash show -p | git apply --reverse;
+    else
+     	git stash show -p "$1"| git apply --reverse;
+    fi
+}
+
+gitconfig
