@@ -12,3 +12,4 @@ web/media/*
 app/bootstrap*
 .idea/*
 web/img/users
+/media/cache

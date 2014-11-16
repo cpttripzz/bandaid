@@ -1,16 +1,6 @@
-{% extends '@MopaBootstrap/base.html.twig' %}
-
 {% block head %}
     {% block stylesheets %}
-        {{ parent() }}
-        {% stylesheets filter="cssembed,cssrewrite,yui_css"
-        '%kernel.root_dir%/../vendor/sonata-project/core-bundle/Resources/public/select2/select2.css'
-        '@bootstrap_less'
-        '@jquery_ui_css'
-        '../app/Resources/public/css/main.css'
-        '../app/Resources/public/css/social-buttons.css'
-        '%kernel.root_dir%/../vendor/tapmodo/Jcrop/css/jquery.Jcrop.min.css'
-        '%kernel.root_dir%/../components/datatables/css/jquery.dataTables.min.css'
+
 
         %}
 
@@ -26,180 +16,23 @@
             {{ parent() }}
             {% javascripts
 
-            '@jquery_js' '@bootstrap_js'
-            '%kernel.root_dir%/../vendor/sonata-project/core-bundle/Resources/public/select2/select2.min.js'
-            '@jquery_ui_js'
-            '%kernel.root_dir%/../vendor/tapmodo/Jcrop/js/jquery.Jcrop.min.js'
-            '%kernel.root_dir%/../vendor/jeremymlane/bootbox/bootbox.js'
-            '../app/Resources/public/js/main.js'
-            '%kernel.root_dir%/../components/datatables/js/jquery.dataTables.min.js'
-            '../app/Resources/public/js/dataTables.tableTools.min.js'
-            '../app/Resources/public/js/typeahead.js'
-            '../app/Resources/public/js/typeahead-addresspicker.js'
-            '../app/Resources/public/js/bootstrap.file-input.js'
-
 
             %}
             <script src="{{ asset_url }}"></script>
 
             {% endjavascripts %}
         {% endblock %}
-        <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
-        <script src="{{ path('fos_js_routing_js', {"callback": "fos.Router.setData"}) }}"></script>
+
     {% endblock head_script %}
 
 
 
     {% block head_bottom %}
 
-        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
-        <link rel="stylesheet" href="//cdn.datatables.net/tabletools/2.2.2/css/dataTables.tableTools.css">
-
-        <script src="http://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places"></script>
-        <script src="http://localhost:8080/socket.io/socket.io.js"></script>
-        <script>
-
-            {%  if  app.session.id is defined  and  app.user.username is defined %}
-            try {
-                var messagesTable;
-
-                var socket = io.connect('localhost:8080');
-                var userid = '{{ app.user.id }}';
-                var joinMsg = '{"id": ' + userid + '}';
-                socket.emit('join', joinMsg);
-
-                socket.on('connect', function (data) {
-                    setStatus('connected');
-                });
-                socket.on('connect_success', function (data) {
-                    console.log('connect_success');
-                    var alertText = '';
-
-                    var newMessages = data.new_messages;
-                    if (newMessages > 0) {
-                        if (newMessages == 1) {
-                            alertText = 'You have  ' + newMessages + ' new message';
-                        } else if (newMessages > 1) {
-                            alertText = 'You have  ' + newMessages + ' new messages';
-                        }
-                        bsNotify(newMessages, alertText);
-                    }
-                });
-                socket.on('reconnecting', function (data) {
-                    setStatus('reconnecting');
-                });
-
-                socket.on("new_msg", function (data) {
-
-                    newMessages = data.new_messages;
-                    alertText = 'You have received a new message';
-
-                    bsNotify(newMessages,alertText);
-                    if(typeof messagesTable != 'undefined'){
-                        messagesTable.ajax.reload();
-                    }
-
-                });
-                window.onbeforeunload = function (e) {
-                    socket.emit('disconnect', joinMsg);
-                };
-
-
-                function setStatus(msg) {
-                    console.log('Connection Status : ' + msg);
-                }
-
-                function reloadAddresses(target,newData){
-                    var data = $('#'+target).select2('data');
-                    data.push(newData);
-                    $('#'+target).select2("data", data, true);
-                }
-
-                function bsNotify(newMessages, text) {
-
-                    $('#message_bar').append('' +
-                            '<div id="alert-new-message" class="alert alert-success" data-alert="alert">' +
-                            '<button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>' +
-                            text + '</div>');
-                    if (newMessages) {
-                        $('#new_messages_badge').text(newMessages);
-                        $('#new_messages_badge').addClass("badge alert-success");
-                    }
-                    window.setTimeout(function () {
-                        $("#alert-new-message").fadeTo(500, 0).slideUp(500, function () {
-                            $(this).remove();
-                        });
-                    }, 5000);
-
-                }
-
-            } catch (e) {
-                console.log(e);
-            }
-            {% endif %}
-
-            $(document).on("click", 'button', function () {
-                var dataHref = $(this).attr('data-href');
-                if (typeof dataHref != 'undefined') {
-                    $.ajax({
-                        url: dataHref
-
-                    })
-                            .done(function (data) {
-                                bsNotify(false, data.msg);
-                                if (data.callback){
-
-                                    var functionName = data.callback.callback;
-                                    var target = data.callback.target;
-                                    var data = data.callback.data;
-                                    var fn = window[functionName];
-                                    fn(target,data);
-                                }
-
-                            });
-
-                }
-            });
-
-        </script>
     {% endblock head_bottom %}
 {% endblock head %}
 
 
 {% block body %}
-    {% block body_start %}
-        <body>
-    {% endblock body_start %}
-    {% block navbar %}
 
-        <div id="navbar" class="navbar navbar-default" role="navigation">
-            <div class="navbar-inner">
-                {{ knp_menu_render('ZEBABundle:MenuBuilder:mainMenu', {'currentClass': 'active', 'template': 'ZEBABundle:Menu:main_menu.html.twig'}) }}
-                {{ knp_menu_render('ZEBABundle:MenuBuilder:userMenu', {'currentClass': 'active', 'template': 'ZEBABundle:Menu:main_menu.html.twig'}) }}
-            </div>
-        </div>
-        <div id="message_bar"></div>
-
-    {% endblock navbar %}
-    {% block pre_container %}
-        <div class="{% block container_class %}container{% endblock container_class %}">
-            {% block modal_dialog %}
-                <div class="modal fade" id="login_modal" tabindex="-1" role="dialog" aria-labelledby="login_modal" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content"> </div>
-                    </div>
-                </div>
-
-            {% endblock modal_dialog %}
-            {% block container %}
-                <div class="{% block content_class %}content{% endblock content_class %}"></div>
-            {% endblock container %}
-        </div>
-    {% endblock pre_container %}
-    {% block fos_user_content %}
-
-    {% endblock fos_user_content %}
-    {% block body_end %}
-        </body>
-    {% endblock body_end %}
 {% endblock body %}
