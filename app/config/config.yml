@@ -1,11 +1,6 @@
 imports:
     - { resource: parameters.yml }
-    - { resource: security.yml }      
-
-
-parameters:
-    sonata.user.admin.user.class: ZE\BABundle\Admin\UserAdmin
-    sonata.user.admin.user.entity: ZE\BABundle\Entity\User
+    - { resource: security.yml }
 
 framework:
     trusted_proxies: ['127.0.0.1']
@@ -73,13 +68,6 @@ assetic:
                 inputs:
                     - '%kernel.root_dir%/../vendor/twbs/bootstrap/less/bootstrap.less'
                 filters: [less,cssembed]
-            jquery_ui_js:
-                inputs:
-                    - '%kernel.root_dir%/../vendor/sonata-project/admin-bundle/Resources/public/vendor/jqueryui/ui/minified/jquery-ui.min.js'
-            jquery_ui_css:
-                inputs:
-                    - '%kernel.root_dir%/../vendor/sonata-project/admin-bundle/Resources/public/vendor/jqueryui/themes/base/minified/jquery-ui.min.css'
-
 
 
 # Doctrine Configuration
@@ -130,94 +118,6 @@ fos_user:
             validation_groups:  [Authentication] # Please note : this is not the default value
 
 
-sonata_block:
-    default_contexts: [cms]
-    blocks:
-        sonata.admin.block.admin_list:
-            contexts:   [admin]
-        sonata.admin.block.search_result:
-            contexts: [admin]
-        sonata.block.service.text:
-        sonata.block.service.action:
-        sonata.block.service.rss:
-        sonata.user.block.menu:
-sonata_user:
-    class:
-        user: ZE\BABundle\Entity\User
-        group: ZE\BABundle\Entity\Group
-    profile:  # Profile Form (firstname, lastname, etc ...)
-        form:
-            type:               sonata_user_profile
-            handler:            sonata.user.profile.form.handler.default
-            name:               sonata_user_profile_form
-            validation_groups:  [Profile]
-
-sonata_user:
-    security_acl:           false
-    class:
-        user: ZE\BABundle\Entity\User
-        group: ZE\BABundle\Entity\Group
-    profile:  # Profile Form (firstname, lastname, etc ...)
-        form:
-            type:               sonata_user_profile
-            handler:            sonata.user.profile.form.handler.default
-            name:               sonata_user_profile_form
-            validation_groups:  [Profile]
-    impersonating:
-        route:                page_slug
-        parameters:           { path: / }
-sonata_admin:
-    title:      Admin Panel
-    title_logo: /bundles/sonataadmin/logo_title.png
-    options:
-        use_select2:  true
-services:
-    ZE.BABundle.admin.city:
-        class: ZE\BABundle\Admin\CityAdmin
-        tags:
-          - { name: sonata.admin, manager_type: orm, group: Users, label: city }
-        arguments: [null, ZE\BABundle\Entity\City, ZEBABundle:CityAdmin]
-    ZE.BABundle.admin.country:
-        class: ZE\BABundle\Admin\CountryAdmin
-        tags:
-          - { name: sonata.admin, manager_type: orm, group: Users, label: country }
-        arguments: [null, ZE\BABundle\Entity\Country, ZEBABundle:CountryAdmin]
-    ZE.BABundle.admin.document:
-        class: ZE\BABundle\Admin\DocumentAdmin
-        tags:
-          - { name: sonata.admin, manager_type: orm, group: Users, label: document }
-        arguments: [null, ZE\BABundle\Entity\Document, ZEBABundle:DocumentAdmin]
-    ZE.BABundle.admin.musician:
-        class: ZE\BABundle\Admin\MusicianAdmin
-        tags:
-          - { name: sonata.admin, manager_type: orm, group: Associations, label: musician}
-        arguments: [null, ZE\BABundle\Entity\Musician, ZEBABundle:MusicianAdmin]
-    ZE.BABundle.admin.band:
-        class: ZE\BABundle\Admin\BandAdmin
-        tags:
-          - { name: sonata.admin, manager_type: orm, group: Associations, label: band}
-        arguments: [null, ZE\BABundle\Entity\Band, ZEBABundle:BandAdmin]
-    ZE.BABundle.admin.genre:
-        class: ZE\BABundle\Admin\GenreAdmin
-        tags:
-          - { name: sonata.admin, manager_type: orm, group: Associations, label: genre}
-        arguments: [null, ZE\BABundle\Entity\Genre, ZEBABundle:GenreAdmin]
-    ZE.BABundle.admin.address:
-        class: ZE\BABundle\Admin\AddressAdmin
-        tags:
-          - { name: sonata.admin, manager_type: orm, group: Associations, label: address}
-        arguments: [null, ZE\BABundle\Entity\Address, ZEBABundle:AddressAdmin]
-
-mopa_bootstrap:
-    form:
-        render_fieldset: false # default is true
-        render_collection_item: false # default is true
-        show_legend: false # default is true
-        show_child_legend: false # default is false
-        render_required_asterisk: false # default is true
-
-
-    menu: ~  # enables twig helpers for menu
 hwi_oauth:
     connect:
         account_connector: zeba_user_provider
@@ -259,22 +159,6 @@ hwi_oauth:
             #facebook: faecbookID
             #google: googleID
 
-ivory_google_map:
-    map:
-        width: "1024px"
-        height: "760px"
-    geocoder:
-        # Enable the service
-        enabled: true
-
-        # Geocoder class
-        class: "Ivory\GoogleMap\Services\Geocoding\Geocoder"
-        provider:
-#            fake_ip: "123.345.567.123"
-            class: Bazinga\Bundle\GeocoderBundle\BazingaGeocoderBundle
-#            api_key: "apikey"
-            locale: "en"
-        adapter: "Geocoder\HttpAdapter\BuzzHttpAdapter"
 bazinga_geocoder:
     #fake_ip:    123.345.643.133
     #fake_ip:    192.114.71.13
@@ -300,8 +184,6 @@ jcroll_foursquare_api:
     client_id:  NOP0Q1ZIA1E11J5EDO54GYTKNJUHTXB4DLUCFXTDKOOYGMSW
     client_secret:    SIYPSKTPUEEAUSVRZKFFN21F5O0EPQ4OU3STX5AFVGD52VI5
 
-genemu_form:
-    select2: ~
 liip_imagine:
     driver:               gd
 
@@ -323,9 +205,6 @@ liip_imagine:
             filters:
                 thumbnail: { size: [200, 120], mode: outbound }
 
-
-fos_js_routing:
-    routes_to_expose: [ document_delete, fos_user_security_login, api_deleteMessagesAction,api_saveNewAddressAction,api_deleteDocumentsAction ]
 snc_redis:
     clients:
         default:
@@ -360,3 +239,4 @@ fos_oauth_server:
     auth_code_class:     ZE\BABundle\Entity\AuthCode
     service:
         user_provider: fos_user.user_manager
+nelmio_api_doc: ~
