@@ -15,12 +15,12 @@ class LoginSuccessHandler implements AuthenticationSuccessHandlerInterface
 {
 
     protected $router;
-    protected $security;
+    protected $securityContext;
     protected $session;
-    public function __construct(Container $container)
+    public function __construct($router,$securityContext)
     {
-        $this->router = $container->get('router');
-        $this->security = $container->get('security.context');
+        $this->router = $router;
+        $this->securityContext = $securityContext;
     }
 
     public function setSession($session=null)
@@ -30,11 +30,11 @@ class LoginSuccessHandler implements AuthenticationSuccessHandlerInterface
     public function onAuthenticationSuccess(Request $request, TokenInterface $token)
     {
         $returnUrl = '';
-        if ($this->security->isGranted('ROLE_SUPER_ADMIN') || ($this->security->isGranted('ROLE_ADMIN')) )
+        if ($this->securityContext->isGranted('ROLE_SUPER_ADMIN') || ($this->securityContext->isGranted('ROLE_ADMIN')) )
         {
             $returnUrl = $this->router->generate('sonata_admin_dashboard');
         }
-        elseif ($this->security->isGranted('ROLE_USER'))
+        elseif ($this->securityContext->isGranted('ROLE_USER'))
         {
             $key = 'currentUrl';
 

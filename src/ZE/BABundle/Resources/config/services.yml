@@ -8,20 +8,21 @@ services:
         class: "%zeba_user_provider.class%"
         arguments: [@fos_user.user_manager,{facebook: facebook_id, google: google_id, github: githubID}]
 
-    menu.voter.request:
-        class: ZE\BABundle\Menu\RequestVoter
+    zeba_cacheservice:
+        class: ZE\BABundle\Service\Cached\ServiceAbstract
+        abstract:  true
         arguments:
-            - @service_container
-        tags:
-            - { name: knp_menu.voter }
+            - @doctrine_cache.providers.redis_cache
+            - @doctrine.orm.entity_manager
+    zeba.band_service:
+        class: ZE\BABundle\Service\Cached\BandService
+        parent: zeba_cacheservice
 
-    sonata.user.admin.group:
-        abstract: true
-        public: false
+
     geocoder.listener:
         class:  ZE\BABundle\Doctrine\Listener\GeocoderEventListener
         arguments:
-            - @service_container
+            - @bazinga_geocoder.geocoder
         tags:
             - { name: doctrine.event_listener, event: prePersist }
     zeba_user.association_listener:
@@ -50,18 +51,24 @@ services:
     zeba.listener.JoinBandRequestEvent:
         class: ZE\BABundle\EventListener\JoinBandRequestEventListener
         arguments:
-            ['@service_container']
+            - @doctrine.orm.entity_manager
+            - @doctrine_cache.providers.redis_cache
+
         tags:
             - { name: kernel.event_listener, event: zeba.band.join_request, method: onJoinBandRequestEvent }
     zeba.listener.JoinBandAcceptEvent:
         class: ZE\BABundle\EventListener\JoinBandAcceptEventListener
         arguments:
-            ['@service_container']
+            - @doctrine.orm.entity_manager
+            - @doctrine_cache.providers.redis_cache
+            - @ze.band_manager_service
         tags:
             - { name: kernel.event_listener, event: zeba.band.join_accept, method: onJoinBandAcceptEvent }
     ze_user_security.authentication.handler.login_success_handler:
         class:  %ze_user_security.authentication.handler.login_success_handler.class%
-        arguments:  ['@service_container']
+        arguments:
+            - @router
+            - @security.context
         calls:
             - [setSession, ["@session"]]
         tags:
@@ -90,3 +97,7 @@ services:
     ze.location_manager_service:
         class:  ZE\BABundle\Service\Util\LocationManager
         arguments:  [@security.context, @doctrine.orm.entity_manager, @google_geolocation.geolocation_api]
+    kernel.event_listener.json_request_transformer:
+        class: ZE\BABundle\EventListener\JsonRequestTransformerListener
+        tags:
+          - { name: kernel.event_listener, event: kernel.request, method: onKernelRequest, priority: 100 }

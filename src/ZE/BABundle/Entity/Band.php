@@ -3,10 +3,13 @@
 namespace ZE\BABundle\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
-
+use JMS\Serializer\Annotation\ExclusionPolicy;
+use JMS\Serializer\Annotation\Exclude;
+use JMS\Serializer\Annotation\MaxDepth;
 /**
  * @ORM\Entity
  * @ORM\Entity(repositoryClass="ZE\BABundle\Entity\Repository\Band")
+ * @ExclusionPolicy("All")
  */
 class Band extends Association
 {
@@ -18,10 +21,14 @@ class Band extends Association
      *   joinColumns={@ORM\JoinColumn(name="band_id", referencedColumnName="id")},
      *   inverseJoinColumns={@ORM\JoinColumn(name="musician_id", referencedColumnName="id")}
      * )
+     *  @MaxDepth(1)
+     *
      */
+
     private $musicians;
     /**
      * @ORM\OneToMany(targetEntity="BandVacancyAssociation", mappedBy="band", cascade={"persist"})
+     *  @MaxDepth(1)
      */
     private $bandVacancyAssociations;
     /**

@@ -1,35 +1,7 @@
 {% block head %}
-    {% block stylesheets %}
-
-
-        %}
-
-        <link href="{{ asset_url }}" type="text/css" rel="stylesheet"/>
-        {% endstylesheets %}
-
-
-    {% endblock %}
-
-
-    {% block head_script %}
-        {% block javascripts %}
-            {{ parent() }}
-            {% javascripts
-
-
-            %}
-            <script src="{{ asset_url }}"></script>
-
-            {% endjavascripts %}
-        {% endblock %}
-
-    {% endblock head_script %}
 
 
 
-    {% block head_bottom %}
-
-    {% endblock head_bottom %}
 {% endblock head %}
 
 

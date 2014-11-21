@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "b7299544d1d3f838544a01b971bba0d9",
+    "hash": "22ff5c8aff8e8ad153dcb8858e1febf3",
     "packages": [
         {
             "name": "behat/transliterator",
@@ -583,12 +583,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/DoctrineCacheBundle.git",
-                "reference": "03b4890d61580d1bee710445abdf158bb224b251"
+                "reference": "5c5ee811ece1d79993cbee8bfa49ce2503adddd1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/DoctrineCacheBundle/zipball/03b4890d61580d1bee710445abdf158bb224b251",
-                "reference": "03b4890d61580d1bee710445abdf158bb224b251",
+                "url": "https://api.github.com/repos/doctrine/DoctrineCacheBundle/zipball/5c5ee811ece1d79993cbee8bfa49ce2503adddd1",
+                "reference": "5c5ee811ece1d79993cbee8bfa49ce2503adddd1",
                 "shasum": ""
             },
             "require": {
@@ -606,6 +606,8 @@
                 "phpunit/phpunit": "~3.7",
                 "satooshi/php-coveralls": "~0.6.1",
                 "squizlabs/php_codesniffer": "dev-master",
+                "symfony/console": "~2.2",
+                "symfony/finder": "~2.2",
                 "symfony/validator": "~2.2",
                 "symfony/yaml": "~2.2"
             },
@@ -656,7 +658,7 @@
                 "cache",
                 "caching"
             ],
-            "time": "2014-07-30 14:46:58"
+            "time": "2014-11-10 16:08:53"
         },
         {
             "name": "doctrine/doctrine-fixtures-bundle",
@@ -2764,12 +2766,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/KnpLabs/KnpPaginatorBundle.git",
-                "reference": "27c2a202192a2d96fd25aaed3ec95120c1e30af5"
+                "reference": "701dffe02dbe4aa8784d3d9e5343985318ef5e2c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/KnpLabs/KnpPaginatorBundle/zipball/27c2a202192a2d96fd25aaed3ec95120c1e30af5",
-                "reference": "27c2a202192a2d96fd25aaed3ec95120c1e30af5",
+                "url": "https://api.github.com/repos/KnpLabs/KnpPaginatorBundle/zipball/701dffe02dbe4aa8784d3d9e5343985318ef5e2c",
+                "reference": "701dffe02dbe4aa8784d3d9e5343985318ef5e2c",
                 "shasum": ""
             },
             "require": {
@@ -2814,7 +2816,7 @@
                 "pagination",
                 "paginator"
             ],
-            "time": "2014-08-25 23:31:20"
+            "time": "2014-09-15 15:49:24"
         },
         {
             "name": "kriswallsmith/assetic",
@@ -3733,6 +3735,46 @@
                 "url"
             ],
             "time": "2013-07-22 20:01:48"
+        },
+        {
+            "name": "qandidate/symfony-json-request-transformer",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/qandidate-labs/symfony-json-request-transformer.git",
+                "reference": "1af1e180fe7fde208adfa7d0cdca0f99931a9580"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/qandidate-labs/symfony-json-request-transformer/zipball/1af1e180fe7fde208adfa7d0cdca0f99931a9580",
+                "reference": "1af1e180fe7fde208adfa7d0cdca0f99931a9580",
+                "shasum": ""
+            },
+            "require": {
+                "symfony/http-kernel": "~2.4"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Qandidate\\Common\\Symfony\\HttpKernel\\EventListener": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Alexander",
+                    "email": "iam.asm89@gmail.com"
+                },
+                {
+                    "name": "Qandidate.com",
+                    "homepage": "http://labs.qandidate.com/"
+                }
+            ],
+            "description": "A Symfony 2 event listener for decoding JSON encoded request content",
+            "time": "2014-08-13 14:41:20"
         },
         {
             "name": "raulfraile/ladybug",

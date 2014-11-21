@@ -48,3 +48,8 @@ fos_oauth_server_authorize:
 NelmioApiDocBundle:
     resource: "@NelmioApiDocBundle/Resources/config/routing.yml"
     prefix:   /api/doc
+
+
+home:
+  type: rest
+  resource: ZE\BABundle\Controller\HomeController

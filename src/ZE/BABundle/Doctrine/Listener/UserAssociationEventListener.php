@@ -8,18 +8,18 @@ use ZE\BABundle\Entity\Association;
 
 class UserAssociationEventListener
 {
-    protected  $container;
+    protected  $securityContext;
 
     public function __construct(ContainerInterface $container = null)
     {
-        $this->container = $container;
+        $this->securityContext = $container;
     }
 
     /** @ORM\PrePersist */
     public function prePersist(LifecycleEventArgs $eventArgs) {
-        if (!empty($this->container->get('security.context')->getToken())) {
+        if (!empty($this->securityContext->get('security.context')->getToken())) {
             if (($association = $eventArgs->getEntity()) instanceof Association) {
-                $association->setUser($this->container->get('security.context')->getToken()->getUser());
+                $association->setUser($this->securityContext->get('security.context')->getToken()->getUser());
             }
         }
     }

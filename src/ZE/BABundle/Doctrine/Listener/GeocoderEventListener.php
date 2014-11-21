@@ -12,11 +12,11 @@ use ZE\BABundle\Entity\Address;
 
 class GeocoderEventListener
 {
-    protected  $container;
+    protected  $geocoder;
 
-    public function __construct(ContainerInterface $container = null)
+    public function __construct($geocoder = null)
     {
-        $this->container = $container;
+        $this->geocoder = $geocoder;
     }
 
     /** @ORM\PrePersist */
@@ -46,9 +46,7 @@ class GeocoderEventListener
 
     private function geocodeAddress($address){
         try {
-            $result = $this->container
-                ->get('bazinga_geocoder.geocoder')
-                ->geocode($address->__toString());
+            $result = $this->geocoder->geocode($address->__toString());
             $address->setLatitude($result['latitude']);
             $address->setLongitude($result['longitude']);
         } catch (\Exception $e){

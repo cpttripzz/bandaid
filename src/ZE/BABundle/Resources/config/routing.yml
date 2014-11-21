@@ -1,6 +1,4 @@
-home:
-  path: /
-  defaults: { _controller: "ZEBABundle:Home:index" }
+
 
 ZEBABundle_document:
   resource: "@ZEBABundle/Resources/config/routing/document.yml"

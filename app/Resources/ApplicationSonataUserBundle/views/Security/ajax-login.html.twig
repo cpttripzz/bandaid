@@ -75,6 +75,7 @@
 
                 e.preventDefault();
                 console.log($('form').serialize());
+                console.log('{{ path("fos_user_security_check") }}');
                 $.ajax({
                     type: $('form').attr('method'),
                     url: '{{ path("fos_user_security_check") }}',

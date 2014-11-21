@@ -26,17 +26,9 @@ class LoginFailureHandler implements AuthenticationFailureHandlerInterface
     public function onAuthenticationFailure(Request $request, AuthenticationException $exception)
     {
 
-        if ($request->isXmlHttpRequest()) {
-            $result = array('success' => false, 'message' => $exception->getMessage());
-            $response = new JsonResponse($result);
-            return $response;
-        } else {
-            // Create a flash message with the authentication error message
-            $request->getSession()->setFlash('error', $exception->getMessage());
-            $url = $this->router->generate('fos_user_security_login');
-
-            return new RedirectResponse($url);
-        }
+        $result = array('success' => false, 'message' => $exception->getMessage());
+        $response = new JsonResponse($result);
+        return $response;
     }
 
 }

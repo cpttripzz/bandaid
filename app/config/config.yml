@@ -88,6 +88,8 @@ doctrine:
     orm:
         auto_generate_proxy_classes: %kernel.debug%
         auto_mapping: true
+        metadata_cache_driver: redis
+        query_cache_driver: redis
 #        mappings:
 #            ApplicationSonataUserBundle:
 #                type: annotation
@@ -206,6 +208,7 @@ liip_imagine:
                 thumbnail: { size: [200, 120], mode: outbound }
 
 snc_redis:
+
     clients:
         default:
             type: predis
@@ -219,6 +222,9 @@ snc_redis:
                profile: 2.2
                connection_timeout: 10
                read_write_timeout: 30
+    session:
+        client: default
+        use_as_default: true
     doctrine:
         metadata_cache:
             client: cache
@@ -226,11 +232,14 @@ snc_redis:
             document_manager: default        # the name of your document_manager connection
         result_cache:
             client: cache
-            entity_manager: [default]  # you may specify multiple entity_managers
+            entity_manager: [default, read]  # you may specify multiple entity_managers
         query_cache:
             client: cache
             entity_manager: default
-            
+doctrine_cache:
+    providers:
+        redis_cache:
+            type: 'redis'
 fos_oauth_server:
     db_driver: orm
     client_class:        ZE\BABundle\Entity\Client
@@ -240,3 +249,25 @@ fos_oauth_server:
     service:
         user_provider: fos_user.user_manager
 nelmio_api_doc: ~
+lexik_jwt_authentication:
+  pass_phrase: "123456"
+  private_key_path: "%kernel.root_dir%/var/jwt/private.pem"
+  public_key_path: "%kernel.root_dir%/var/jwt/public.pem"
+  token_ttl: 86400
+nelmio_cors:
+    paths:
+        '/login_check':
+            allow_origin: ['http://localhost:4200']
+            allow_headers: ['origin', 'content-type','X-Custom-Auth']
+            allow_methods: ['POST', 'PUT', 'GET', 'DELETE','OPTIONS']
+            max_age: 3600
+fos_rest:
+    routing_loader:
+        default_format: json
+knp_paginator:
+    page_range: 5                      # default page range used in pagination control
+    default_options:
+        page_name: page                # page query parameter name
+        sort_field_name: sort          # sort field query parameter name
+        sort_direction_name: direction # sort direction query parameter name
+        distinct: true                 # ensure distinct results, useful when ORM queries are using GROUP BY statements

@@ -13,4 +13,8 @@ class ZEBABundle extends Bundle
 //        $config = $em->getConfiguration();
 //        $config->addEntityNamespace("ZEBA", "ZE\\BABundle\\Entity\\Address");
 //    }
+    public function getParent()
+    {
+        return 'FOSUserBundle';
+    }
 }

@@ -19,10 +19,10 @@ class JoinBandRequestEventListener
     protected $msgService;
     protected $em;
 
-    public function __construct(Container $container)
+    public function __construct($em, $msgService)
     {
-        $this->em = $container->get('doctrine');
-        $this->msgService = $container->get('snc_redis.default');
+        $this->em = $em;
+        $this->msgService = $msgService;
     }
 
     public function onJoinBandRequestEvent(JoinBandRequestEvent $event)

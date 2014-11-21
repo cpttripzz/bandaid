@@ -19,11 +19,11 @@ security:
             pattern: ^/
             form_login:
                 provider: fos_userbundle
-                csrf_provider: form.csrf_provider
                 login_path: /login
                 check_path: /login_check
-                success_handler: ze_user_security.authentication.handler.login_success_handler
+                success_handler: lexik_jwt_authentication.handler.authentication_success
                 failure_handler: ze_user_security.authentication.handler.login_failure_handler
+                require_previous_session: false
             oauth:
                 resource_owners:
                     facebook:           "/login/check-facebook"

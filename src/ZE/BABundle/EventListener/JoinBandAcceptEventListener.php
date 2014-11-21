@@ -20,11 +20,11 @@ class JoinBandAcceptEventListener
     protected $bandManager;
     protected $em;
 
-    public function __construct(Container $container)
+    public function __construct($em,$msgService,$bandManagerService)
     {
-        $this->em = $container->get('doctrine.orm.entity_manager');
-        $this->msgService = $container->get('snc_redis.default');
-        $this->bandManager = $container->get('ze.band_manager_service');
+        $this->em = $em;
+        $this->msgService = $msgService;
+        $this->bandManager = $bandManagerService;
     }
 
     public function onJoinBandAcceptEvent(JoinBandAcceptEvent $event)
