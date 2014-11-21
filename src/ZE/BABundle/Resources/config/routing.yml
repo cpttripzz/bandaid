@@ -15,6 +15,3 @@ ZEBABundle_user:
 ZEBABundle_message:
   resource: "@ZEBABundle/Resources/config/routing/message.yml"
   prefix:   /message
-ZEBABundle_api:
-  resource: "@ZEBABundle/Resources/config/routing/api.yml"
-  prefix:   /api
