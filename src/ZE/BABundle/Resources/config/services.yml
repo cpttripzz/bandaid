@@ -98,6 +98,6 @@ services:
         class:  ZE\BABundle\Service\Util\LocationManager
         arguments:  [@security.context, @doctrine.orm.entity_manager, @google_geolocation.geolocation_api]
     kernel.event_listener.json_request_transformer:
-        class: ZE\BABundle\EventListener\JsonRequestTransformerListener
+        class: Qandidate\Common\Symfony\HttpKernel\EventListener\JsonRequestTransformerListener
         tags:
           - { name: kernel.event_listener, event: kernel.request, method: onKernelRequest, priority: 100 }
