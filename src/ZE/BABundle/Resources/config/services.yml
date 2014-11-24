@@ -17,8 +17,16 @@ services:
     zeba.band_service:
         class: ZE\BABundle\Service\Cached\BandService
         parent: zeba_cacheservice
+    zeba.homeitems_service:
+        class: ZE\BABundle\Service\Cached\HomeItemsService
+        parent: zeba_cacheservice
+        arguments:
+            - @zeba.band_service
 
-
+    zeba_api.event.authentication_success_listener:
+        class: ZE\BABundle\EventListener\AuthenticationSuccessListener
+        tags:
+            - { name: kernel.event_listener, event: lexik_jwt_authentication.on_authentication_success, method: onAuthenticationSuccessResponse }
     geocoder.listener:
         class:  ZE\BABundle\Doctrine\Listener\GeocoderEventListener
         arguments:

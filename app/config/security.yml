@@ -65,4 +65,7 @@ security:
         - { path: ^/profile*, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/admin/, role: [ROLE_ADMIN,ROLE_SUPER_ADMIN] }
+        - { path: ^/api/homeitems$, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/api/genres$, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/api/bands$, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/api, roles: [ IS_AUTHENTICATED_FULLY ] }

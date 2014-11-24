@@ -1,4 +1,5 @@
 app/console doctrine:fixtures:load --append --fixtures=src/ZE/BABundle/DataFixtures/LoadCountries
+app/console doctrine:fixtures:load --append --fixtures=src/ZE/BABundle/DataFixtures/ReloadUserImages/
 for i in `seq 1 10`;
 do
     echo "$i"
@@ -9,6 +10,18 @@ app/console doctrine:fixtures:load --append --fixtures=src/ZE/BABundle/DataFixtu
 app/console doctrine:fixtures:load --append --fixtures=src/ZE/BABundle/DataFixtures/BandsVacancies
 
 app/console liip:imagine:cache:resolve web/img/users/
+for f in 100x50.gif avant-garde.jpg blues.jpg country.jpg folk.jpg funk.jpg heavy-metal.jpg jazz.jpg punk-rock.jpg rap.jpg reggae.jpg rock.jpg
+do
+    app/console liip:imagine:cache:resolve "img/genres/$f"
+done
+
+for f in bass-guitar.png  contrabass.png  drums.png  flute.png  guitar.jpg  guitar.png  piano.png  saxophone.png  trombone.png  trumpet.png  tuba.png  violin.png
+do
+    app/console liip:imagine:cache:resolve "img/instruments/$f"
+done
+
+
+
 app/console liip:imagine:cache:resolve img/genres/blues.jpg
 app/console liip:imagine:cache:resolve img/flags/il.png
 app/console liip:imagine:cache:resolve img/instruments/piano.png

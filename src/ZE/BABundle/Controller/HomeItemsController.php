@@ -5,7 +5,7 @@ use FOS\RestBundle\Controller\FOSRestController;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
 use Nelmio\ApiDocBundle\Annotation\ApiDoc;
-class HomeController extends FOSRestController
+class HomeItemsController extends FOSRestController
 {
     /**
      * Get content for homepage customized for user
@@ -21,7 +21,7 @@ class HomeController extends FOSRestController
      *  }
      * )
      */
-    public function getHomeAction()
+    public function getHomeitemsAction()
     {
         $userId = null;
         if( $this->get('security.context')->isGranted('IS_AUTHENTICATED_FULLY') ){
@@ -29,7 +29,7 @@ class HomeController extends FOSRestController
             $userId = $user->getId();
         }
 
-        $data = $this->get('zeba.band_service')->findAllBandsWithVacancies(
+        $data = $this->get('zeba.homeitems_service')->getHomeItems(
             $userId,$this->get('request')->query->get('page', 1),$this->get('request')->query->get('limit', 10)
         );
 

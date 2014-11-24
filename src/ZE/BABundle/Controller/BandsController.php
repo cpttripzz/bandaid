@@ -3,15 +3,42 @@
 namespace ZE\BABundle\Controller;
 
 use Doctrine\Common\Collections\ArrayCollection;
+use FOS\RestBundle\Controller\FOSRestController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 use ZE\BABundle\Entity\Band;
-use ZE\BABundle\Form\BandType;
+use Nelmio\ApiDocBundle\Annotation\ApiDoc;
 
 
-class BandController extends Controller implements UrlTracker
+class BandsController extends FOSRestController
 {
+
+    /**
+     * Get content for homepage customized for user
+     * if a valid token is passed though http headers handled
+     * by symfony security
+     *
+     * @ApiDoc(
+     *  resource=false,
+     *  description="Get homepage content",
+     *  filters={
+     *      {"name"="page", "dataType"="integer"},
+     *      {"name"="limit", "dataType"="integer"},
+     *  }
+     * )
+     */
+    public function getBandsAction()
+    {
+
+        $data = $this->get('zeba.band_service')->findAllBands($this->get('request')->query->get('page', 1),$this->get('request')->query->get('limit', 12));
+
+        $view = $this->view($data, 200);
+
+        return $this->handleView($view);
+
+    }
+
     public function indexAction()
     {
 

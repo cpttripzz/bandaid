@@ -50,6 +50,18 @@ NelmioApiDocBundle:
     prefix:   /api/doc
 
 
-home:
+homeitems:
   type: rest
-  resource: ZE\BABundle\Controller\HomeController
+  resource: ZE\BABundle\Controller\HomeItemsController
+  prefix:   /api
+
+genres:
+  type: rest
+  resource: ZE\BABundle\Controller\GenresController
+  prefix:   /api
+
+
+bands:
+  type: rest
+  resource: ZE\BABundle\Controller\BandsController
+  prefix:   /api

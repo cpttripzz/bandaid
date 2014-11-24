@@ -48,4 +48,34 @@ class ServiceAbstract
         $key = md5(__METHOD__ . $key);
         return $key;
     }
+
+    public function sideloadData($keyToProcess,&$arrToProcess, &$arrToStoreRelations){
+        if(!isset($arrToProcess[$keyToProcess])){
+            return false;
+        }
+        $arrToStoreIds = array();
+        if(is_array($arrToProcess[$keyToProcess])) {
+            foreach ($arrToProcess[$keyToProcess] as $key =>$arrProcessed) {
+                if(is_array($arrProcessed)) {
+                    $arrToStoreIds[] = isset($arrProcessed['id']) ? $arrProcessed['id']: $arrProcessed[0];
+                } else {
+                    if($key==='id'){
+                        $arrToStoreIds[] = $arrProcessed;
+                    }
+                }
+            }
+        } else {
+            return false;
+        }
+        if(empty($arrToProcess[$keyToProcess][0])){
+            $arrToAddToRelations = array($arrToProcess[$keyToProcess]);
+        } else {
+            $arrToAddToRelations = $arrToProcess[$keyToProcess];
+        }
+        $arrToStoreRelations = array_merge($arrToStoreRelations,$arrToAddToRelations);
+        $arrToStoreRelations = array_map("unserialize", array_unique(array_map("serialize", $arrToStoreRelations)));
+        $arrToProcess[$keyToProcess] = $arrToStoreIds;
+
+    }
+
 }
