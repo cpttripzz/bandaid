@@ -8,9 +8,6 @@ use ZE\BABundle\Entity\User;
 class UserController extends Controller
 {
     public function indexAction(){
-        /**
-         * @var  ZE\BABundle\Entity\User
-         */
 
         if( !$this->get('security.context')->isGranted('IS_AUTHENTICATED_FULLY') ){
             return $this->render(

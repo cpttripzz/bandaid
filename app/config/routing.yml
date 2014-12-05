@@ -65,3 +65,8 @@ bands:
   type: rest
   resource: ZE\BABundle\Controller\BandsController
   prefix:   /api
+
+userbands:
+  type: rest
+  resource: ZE\BABundle\Controller\UserBandsController
+  prefix:   /api

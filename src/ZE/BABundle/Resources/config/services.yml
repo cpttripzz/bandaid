@@ -17,6 +17,9 @@ services:
     zeba.band_service:
         class: ZE\BABundle\Service\Cached\BandService
         parent: zeba_cacheservice
+    zeba.userbands_service:
+        class: ZE\BABundle\Service\Cached\UserBandsService
+        parent: zeba_cacheservice
     zeba.homeitems_service:
         class: ZE\BABundle\Service\Cached\HomeItemsService
         parent: zeba_cacheservice

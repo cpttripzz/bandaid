@@ -5,7 +5,6 @@ namespace ZE\BABundle\Controller;
 use Doctrine\Common\Collections\ArrayCollection;
 use FOS\RestBundle\Controller\FOSRestController;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 use ZE\BABundle\Entity\Band;
 use Nelmio\ApiDocBundle\Annotation\ApiDoc;
