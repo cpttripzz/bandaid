@@ -57,15 +57,11 @@ class UserBandsService extends ServiceAbstract
             }
             $meta = array('total'=>$totalItems,'pagesCount'=>$pagesCount);
 
-
             return array(
                 'bands' => $arrEntity,'genres' =>$arrGenres,'countries' =>$arrCountries,
                 'regions' => $arrRegions,'cities' =>$arrCities,'addresses' => $arrAddresses,
                 'meta' =>$meta
             );
-
-
-
         }
     }
 

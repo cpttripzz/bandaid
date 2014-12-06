@@ -29,7 +29,7 @@ class GenresController extends FOSRestController
             $userId = $user->getId();
         }
 
-        $data = $this->get('zeba.band_service')->findAllBands(
+        $data = $this->get('zeba.band_service')->findBands(
             $userId,$this->get('request')->query->get('page', 1),$this->get('request')->query->get('limit', 10)
         );
 

@@ -30,7 +30,10 @@ class BandsController extends FOSRestController
     public function getBandsAction()
     {
 
-        $data = $this->get('zeba.band_service')->findAllBands($this->get('request')->query->get('page', 1),$this->get('request')->query->get('limit', 12));
+        $data = $this->get('zeba.band_service')->findBands(
+            $this->get('request')->query->get('page', 1),
+            $this->get('request')->query->get('limit', 12)
+        );
 
         $view = $this->view($data, 200);
 
@@ -38,6 +41,30 @@ class BandsController extends FOSRestController
 
     }
 
+    /**
+     *
+     * @ApiDoc(
+     *  resource=false,
+     *  description="Get Specific Band Info",
+     *  filters={
+     *      {"name"="slug", "dataType"="string"},
+     *  }
+     * )
+     */
+    public function getBandAction($slug)
+    {
+
+        $data = $this->get('zeba.band_service')->findBands(
+            $this->get('request')->query->get('page', 1),
+            $this->get('request')->query->get('limit', 12),
+            array('bandSlug'=>$slug)
+        );
+
+        $view = $this->view($data, 200);
+
+        return $this->handleView($view);
+
+    }
     public function indexAction()
     {
 

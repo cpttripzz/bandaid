@@ -68,6 +68,9 @@ class ServiceAbstract
             return false;
         }
         if(empty($arrToProcess[$keyToProcess][0])){
+            if ( empty($arrToProcess[$keyToProcess])){
+                return false;
+            }
             $arrToAddToRelations = array($arrToProcess[$keyToProcess]);
         } else {
             $arrToAddToRelations = $arrToProcess[$keyToProcess];

@@ -19,12 +19,12 @@ class BandService extends ServiceAbstract
      * @param $limit
      * @return array
      */
-    public function findAllBands($page, $limit,$userId=null,$withVacancies=false)
+    public function findBands($page, $limit, $params = array())
     {
-        $bands = $this->getCachedByParams(array('userId' => $userId, 'page' => $page, 'limit' => $limit));
-        if (empty($bands)) {
+//        $bands = $this->getCachedByParams(array('userId' => $userId, 'page' => $page, 'limit' => $limit, $params));
 
-            $dql = "
+
+        $dql = "
               SELECT b, bg, ba, br, bac, bacc, m, mg, mi, ma, mr, mac, macc, bd, md
               FROM ZEBABundle:Band b
               LEFT JOIN b.genres bg
@@ -43,52 +43,64 @@ class BandService extends ServiceAbstract
               LEFT JOIN m.documents md
             ";
 
-            if($withVacancies){
-                $dql .= ' INNER JOIN b.bandVacancyAssociations bva ';
-            }
-            $query = $this->em->createQuery($dql)
-                ->setFirstResult(($page-1) * $limit )
-                ->setMaxResults($limit)
-                ->setResultCacheDriver($this->cacheProvider)
-                ->setResultCacheLifetime(86400)
-            ;
-            $query->getArrayResult();
-            $paginator = new Paginator($query, $fetchJoinCollection = true);
-            $totalItems = count($paginator);
-            $pagesCount = ceil($totalItems / $limit);
-            $arrEntity = iterator_to_array($paginator,true);
-            $arrGenres = $arrAddresses = $arrInstruments = $arrCities =
-                $arrCountries = $arrRegions = $arrMusicians = $arrDocuments = array();
-
-
-            foreach($arrEntity as $keyEntity => &$arrEnt){
-                $this->sideloadEntity($arrEnt, $arrAddress, $arrGenres, $arrCountries, $arrCities, $arrRegions, $arrAddresses,$arrDocuments);
-                foreach($arrEnt['musicians'] as &$musician) {
-                    $this->sideloadEntity($musician, $arrAddress, $arrGenres, $arrCountries, $arrCities, $arrRegions, $arrAddresses,$arrDocuments,$arrInstruments);
-                }
-                $this->sideloadData('musicians', $arrEnt,$arrMusicians);
-
-                unset($arrEnt['addresses']);
-                unset($arrEnt['musicians']);
-//                unset($arrEnt['genres']);
-
-            }
-            $meta = array('total'=>$totalItems,'pagesCount'=>$pagesCount);
-
-            return array(
-                'bands' => $arrEntity,'genres' =>$arrGenres,'documents'=>$arrDocuments, 'meta' =>$meta
-            );
-            return array(
-                'bands' => $arrEntity,'genres' =>$arrGenres,'countries' =>$arrCountries,
-                'regions' => $arrRegions,'cities' =>$arrCities,'addresses' => $arrAddresses,
-                'musicians' => $arrMusicians, 'instruments' => $arrInstruments,'meta' =>$meta
-            );
-
-
-
+        if (!empty($params['withVacancies'])) {
+            $dql .= ' INNER JOIN b.bandVacancyAssociations bva ';
         }
-    }
+        $entitySingular = false;
+        $entityReturnName = 'bands';
+        if (!empty($params['bandId'])) {
+            $entitySingular = true;
+            $dql .= ' WHERE b.id = ' . (int)$params['bandId'];
+        }
+        if (!empty($params['bandSlug'])) {
+            $entitySingular = true;
+            $dql .= ' WHERE b.slug = :bandSlug';
+        }
+        $query = $this->em->createQuery($dql)
+            ->setFirstResult(($page - 1) * $limit)
+            ->setMaxResults($limit)
+            ->setResultCacheDriver($this->cacheProvider)
+            ->setResultCacheLifetime(86400);
+        if (!empty($params['bandSlug'])) {
+            $query->setParameter('bandSlug', $params['bandSlug']);
+        }
+        $query->getArrayResult();
+        $paginator = new Paginator($query, $fetchJoinCollection = true);
+        $totalItems = count($paginator);
+        $pagesCount = ceil($totalItems / $limit);
+        $arrEntity = iterator_to_array($paginator, true);
+        $arrGenres = $arrAddresses = $arrInstruments = $arrCities =
+        $arrCountries = $arrRegions = $arrMusicians = $arrDocuments = array();
 
+
+        foreach ($arrEntity as $keyEntity => &$arrEnt) {
+            $this->sideloadEntity($arrEnt, $arrAddress, $arrGenres, $arrCountries, $arrCities, $arrRegions, $arrAddresses, $arrDocuments);
+            foreach ($arrEnt['musicians'] as &$musician) {
+                $this->sideloadEntity($musician, $arrAddress, $arrGenres, $arrCountries, $arrCities, $arrRegions, $arrAddresses, $arrDocuments, $arrInstruments);
+            }
+            $this->sideloadData('musicians', $arrEnt, $arrMusicians);
+//            unset($arrEnt['musicians']);
+        }
+        $meta = array('total' => $totalItems, 'pagesCount' => $pagesCount);
+        if($entitySingular){
+            $entityReturnName = 'band';
+            $arrEntity = reset($arrEntity);
+        }
+
+        return array(
+            $entityReturnName => $arrEntity, 'genres' => $arrGenres, 'countries' => $arrCountries,
+            'regions' => $arrRegions, 'cities' => $arrCities, 'addresses' => $arrAddresses,
+            'documents' => $arrDocuments, 'musicians' => $arrMusicians, 'instruments' => $arrInstruments,
+            'meta' => $meta,
+        );
+
+        return array(
+            'bands' => $arrEntity, 'genres' => $arrGenres, 'countries' => $arrCountries,
+            'regions' => $arrRegions, 'cities' => $arrCities, 'addresses' => $arrAddresses,
+            'musicians' => $arrMusicians, 'instruments' => $arrInstruments, 'meta' => $meta
+        );
+
+    }
 
 
     /**
@@ -101,19 +113,24 @@ class BandService extends ServiceAbstract
      * @param $arrAddresses
      * @param array $arrInstruments
      */
-    protected function sideloadEntity(&$arrEnt, &$arrAddress, &$arrGenres, &$arrCountries, &$arrCities, &$arrRegions, &$arrAddresses, &$arrDocuments, &$arrInstruments=array())
+    protected function sideloadEntity(&$arrEnt, &$arrAddress, &$arrGenres, &$arrCountries, &$arrCities, &$arrRegions, &$arrAddresses, &$arrDocuments, &$arrInstruments = array())
     {
         $this->sideloadData('genres', $arrEnt, $arrGenres);
-        if(isset($arrEnt['instruments'])){
-            $this->sideloadData('instruments', $arrEnt,$arrInstruments);
+        if (isset($arrEnt['instruments'])) {
+            $this->sideloadData('instruments', $arrEnt, $arrInstruments);
         }
         foreach ($arrEnt['addresses'] as $keyAddress => &$arrAddress) {
             if (!empty($arrAddress['city'])) {
                 $this->sideloadData('country', $arrAddress['city'], $arrCountries);
-                $arrAddress['country'] = $arrAddress['city']['country'][0];
+                $arrAddress['countries'] = array($arrAddress['city']['country'][0]);
                 unset($arrAddress['city']['country']);
                 $this->sideloadData('city', $arrAddress, $arrCities);
                 $this->sideloadData('region', $arrAddress, $arrRegions);
+                $arrAddress['cities'] = $arrAddress['city'];
+                unset($arrAddress['city']);
+
+                $arrAddress['regions'] = $arrAddress['region'];
+                unset ($arrAddress['region']);
             }
         }
         $this->sideloadData('addresses', $arrEnt, $arrAddresses);
