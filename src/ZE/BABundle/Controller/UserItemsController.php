@@ -5,7 +5,7 @@ use FOS\RestBundle\Controller\FOSRestController;
 use ZE\BABundle\Entity\User;
 use Nelmio\ApiDocBundle\Annotation\ApiDoc;
 
-class UserBandsController  extends FOSRestController
+class UserItemsController  extends FOSRestController
 {
     /**
      * Get content for homepage customized for user
@@ -21,7 +21,7 @@ class UserBandsController  extends FOSRestController
      *  }
      * )
      */
-    public function getUserBandsAction()
+    public function getUserItemsAction()
     {
 
         if( !$this->get('security.context')->isGranted('IS_AUTHENTICATED_FULLY') ){
@@ -31,7 +31,7 @@ class UserBandsController  extends FOSRestController
             return $this->handleView($view);
         }
         $userId = $this->get('security.context')->getToken()->getUser()->getId();
-        $data = $this->get('zeba.userbands_service')->findAll($this->get('request')->query->get('page', 1),$this->get('request')->query->get('limit', 12),$userId);
+        $data = $this->get('zeba.useritems_service')->findAll($this->get('request')->query->get('page', 1),$this->get('request')->query->get('limit', 12),$userId);
 
         $view = $this->view($data, 200);
         return $this->handleView($view);

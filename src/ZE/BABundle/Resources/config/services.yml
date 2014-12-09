@@ -21,10 +21,15 @@ services:
         class: ZE\BABundle\Service\Cached\UserBandsService
         parent: zeba_cacheservice
     zeba.homeitems_service:
-        class: ZE\BABundle\Service\Cached\HomeItemsService
+            class: ZE\BABundle\Service\Cached\HomeItemsService
+            parent: zeba_cacheservice
+            arguments:
+                - @zeba.band_service
+    zeba.useritems_service:
+        class: ZE\BABundle\Service\Cached\UserItemsService
         parent: zeba_cacheservice
         arguments:
-            - @zeba.band_service
+            - @zeba.userbands_service
 
     zeba_api.event.authentication_success_listener:
         class: ZE\BABundle\EventListener\AuthenticationSuccessListener
