@@ -12,7 +12,7 @@ security:
 
     firewalls:
         gettoken:
-            pattern:  ^/api/getToken$
+            pattern:  ^/api/open/getToken$
             stateless: true
             gfreeau_get_jwt:
                 # this is the default config
@@ -28,7 +28,7 @@ security:
 
 
         api:
-            pattern:    ^/api
+            pattern:    ^/api/secure/*
             stateless:  true
             lexik_jwt:
                 authorization_header: # check token in Authorization Header
@@ -38,13 +38,5 @@ security:
                 create_entry_point:      true      # When no authentication details are provided, create a default entry point that returns a 401 response
 
     access_control:
-        - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/profile*, role: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/admin/, role: [ROLE_ADMIN,ROLE_SUPER_ADMIN] }
-        - { path: ^/api/homeitems$, role: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/api/genres$, role: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/api/bands$, role: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/api/user/bands$, roles: [ IS_AUTHENTICATED_FULLY ] }
-        - { path: ^/api/*, roles: [ IS_AUTHENTICATED_FULLY ] }
+        - { path: ^/api/open/*, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/api/secure/*, roles: [ IS_AUTHENTICATED_FULLY ] }
