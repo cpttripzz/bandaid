@@ -25,8 +25,7 @@ class LoginFailureHandler implements AuthenticationFailureHandlerInterface
 
     public function onAuthenticationFailure(Request $request, AuthenticationException $exception)
     {
-        $logger = $this->get('logger');
-        $logger->info('fuck');
+        error_log(serialize($request->headers));
 
         $result = array('success' => false, 'message' => $exception->getMessage());
         $response = new JsonResponse($result);

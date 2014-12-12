@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "22ff5c8aff8e8ad153dcb8858e1febf3",
+    "hash": "946c2032e30f02d131ccbd8384c8d94b",
     "packages": [
         {
             "name": "behat/transliterator",
@@ -1875,6 +1875,54 @@
             "time": "2014-06-26 19:06:37"
         },
         {
+            "name": "gfreeau/get-jwt-bundle",
+            "version": "dev-master",
+            "target-dir": "Gfreeau/Bundle/GetJWTBundle",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/gfreeau/GfreeauGetJWTBundle.git",
+                "reference": "b80befba1c7a88a734e509ea87b92da8c60bfcfb"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/gfreeau/GfreeauGetJWTBundle/zipball/b80befba1c7a88a734e509ea87b92da8c60bfcfb",
+                "reference": "b80befba1c7a88a734e509ea87b92da8c60bfcfb",
+                "shasum": ""
+            },
+            "require": {
+                "lexik/jwt-authentication-bundle": "1.0.*@dev",
+                "php": ">=5.3.3",
+                "symfony/framework-bundle": "~2.3",
+                "symfony/symfony": "~2.3"
+            },
+            "type": "symfony-bundle",
+            "autoload": {
+                "psr-0": {
+                    "Gfreeau\\Bundle\\GetJWTBundle": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Greg Freeman",
+                    "homepage": "http://www.gregfreeman.org"
+                }
+            ],
+            "description": "This Symfony2 bundle provides a security listener to return a JWT",
+            "homepage": "https://github.com/gfreeau/GfreeauGetJWTBundle",
+            "keywords": [
+                "Authentication",
+                "JWS",
+                "Symfony2",
+                "bundle",
+                "jwt"
+            ],
+            "time": "2014-10-29 04:10:39"
+        },
+        {
             "name": "guzzle/guzzle",
             "version": "dev-master",
             "source": {
@@ -3502,6 +3550,64 @@
                 "crossdomain"
             ],
             "time": "2014-10-21 20:22:46"
+        },
+        {
+            "name": "nixilla/php-jwt",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/nixilla/php-jwt.git",
+                "reference": "aa6661420e1fc01d288a5151aeb5a23c37ff370f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/nixilla/php-jwt/zipball/aa6661420e1fc01d288a5151aeb5a23c37ff370f",
+                "reference": "aa6661420e1fc01d288a5151aeb5a23c37ff370f",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.2"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "3.7.*@dev"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "JWT": "lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Janusz Slota",
+                    "email": "janusz.slota@nixilla.com",
+                    "homepage": "http://www.nixilla.com",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Jody Mickey",
+                    "email": "jody.mickey@gmail.com"
+                },
+                {
+                    "name": "Neuman Vong",
+                    "email": "neuman+pear@twilio.com",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Anant Narayanan",
+                    "email": "anant@php.net",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Json Web Token for PHP",
+            "keywords": [
+                "jwt"
+            ],
+            "time": "2013-05-21 13:55:14"
         },
         {
             "name": "phpcollection/phpcollection",
@@ -5901,7 +6007,9 @@
         "nelmio/cors-bundle": 20,
         "lexik/jwt-authentication-bundle": 20,
         "friendsofsymfony/oauth-server-bundle": 20,
-        "nelmio/api-doc-bundle": 20
+        "nelmio/api-doc-bundle": 20,
+        "nixilla/php-jwt": 20,
+        "gfreeau/get-jwt-bundle": 20
     },
     "prefer-stable": false,
     "platform": {

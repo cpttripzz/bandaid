@@ -117,3 +117,6 @@ services:
         class: Qandidate\Common\Symfony\HttpKernel\EventListener\JsonRequestTransformerListener
         tags:
           - { name: kernel.event_listener, event: kernel.request, method: onKernelRequest, priority: 100 }
+    zeba.encoder.nixilla_jwt_encoder:
+        class: ZE\BABundle\Security\NixillaJWTEncoder
+        arguments: [eyJleHAiOjE0MTg0MjI0NTUsInVzZXJuYW1lIjoianV]

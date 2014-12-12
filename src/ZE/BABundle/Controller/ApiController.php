@@ -6,6 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Response;
 use ZE\BABundle\Entity\Band;
 use ZE\BABundle\Event\JoinBandAcceptEvent;
 use ZE\BABundle\Event\JoinBandRequestEvent;
@@ -16,6 +17,11 @@ class ApiController extends Controller
     protected $msgService;
     protected $em;
 
+    public function getTokenAction()
+    {
+        // The security layer will intercept this request
+        return new Response('', 401);
+    }
     public function joinBandRequestAction($bandId, $musicianId)
     {
         $this->em = $this->getDoctrine()->getManager();

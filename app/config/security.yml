@@ -11,19 +11,22 @@ security:
             id: fos_user.user_provider.username_email
 
     firewalls:
+        gettoken:
+            pattern:  ^/api/getToken$
+            stateless: true
+            gfreeau_get_jwt:
+                # this is the default config
+                username_parameter: username
+                password_parameter: password
+                post_only: true
+                success_handler: lexik_jwt_authentication.handler.authentication_success
+                failure_handler: ze_user_security.authentication.handler.login_failure_handler
+
         dev:
             pattern:  ^/(_(profiler|wdt)|css|images|js)/
             security: false
 
         main:
-            pattern: ^/
-            form_login:
-                provider: fos_userbundle
-                login_path: /login
-                check_path: /login_check
-                success_handler: lexik_jwt_authentication.handler.authentication_success
-                failure_handler: ze_user_security.authentication.handler.login_failure_handler
-                require_previous_session: false
             oauth:
                 resource_owners:
                     facebook:           "/login/check-facebook"
@@ -39,25 +42,11 @@ security:
                 path: fos_user_security_logout
                 success_handler: ze_user_security.authentication.handler.logout_success_handler
             switch_user: true
-        login:
-            pattern:  ^/login$
-            security: false
-
-            remember_me:
-                key: "%secret%"
-                lifetime: 31536000 # 365 days in seconds
-                path: /
-                domain: ~ # Defaults to the current domain from $_SERVER
-        oauth_token:
-            pattern:    ^/oauth/v2/token
-            security:   false
-
 
         api:
             pattern:    ^/api
-            fos_oauth:  true
             stateless:  true
-            anonymous:  false # can be omitted as its default value
+            lexik_jwt: ~
 
     access_control:
         - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
@@ -67,5 +56,5 @@ security:
         - { path: ^/admin/, role: [ROLE_ADMIN,ROLE_SUPER_ADMIN] }
         - { path: ^/api/homeitems$, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/api/genres$, role: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/api/bands/*, role: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/api, roles: [ IS_AUTHENTICATED_FULLY ] }
+        - { path: ^/api/bands$, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/api/*, roles: [ IS_AUTHENTICATED_FULLY ] }

@@ -35,7 +35,8 @@ geocode:
   defaults:  { _controller: ZEBABundle:Location:geocode}
 homepage:
   pattern: /
-
+gettoken:
+  path: /api/getToken
 
 _liip_imagine:
     resource: "@LiipImagineBundle/Resources/config/routing.xml"
