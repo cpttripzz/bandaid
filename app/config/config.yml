@@ -120,46 +120,7 @@ fos_user:
             validation_groups:  [Authentication] # Please note : this is not the default value
 
 
-hwi_oauth:
-    connect:
-        account_connector: zeba_user_provider
-        confirmation: true
-        registration_form_handler: hwi_oauth.registration.form.handler.fosub_bridge
-        registration_form: fos_user.registration.form
-    firewall_name: main
 
-    resource_owners:
-        github:
-            type:                github
-            client_id:           19a3e93bb28c7df99257
-            client_secret:       e294564e11f60bb0edda2c24d443b2f667c7aa7a
-            scope:               "user:email"
-         #twitter:
-            #type:                twitter
-            #client_id:           <client_id>
-            #client_secret:       <client_secret>
-        facebook:
-            type:                facebook
-            client_id:           683390381735822
-            client_secret:       bf791950b8e6500f10fb6188d10952c6
-            options:
-                display: popup
-        google:
-            type:                google
-            client_id:           309796006487-b6ju56r441plsk1uf8l2vod0f6v0efe9.apps.googleusercontent.com
-            client_secret:       eGPvuTMwuT4AkpHcTejMymga
-            scope:               "https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile"
-
-    fosub:
-        # try 30 times to check if a username is available (foo, foo1, foo2 etc)
-        username_iterations: 30
-
-        # mapping between resource owners (see below) and properties
-        properties:
-            github: githubID
-            #twitter: twitterID
-            #facebook: faecbookID
-            #google: googleID
 
 bazinga_geocoder:
     #fake_ip:    123.345.643.133
@@ -240,21 +201,13 @@ doctrine_cache:
     providers:
         redis_cache:
             type: 'redis'
-fos_oauth_server:
-    db_driver: orm
-    client_class:        ZE\BABundle\Entity\Client
-    access_token_class:  ZE\BABundle\Entity\AccessToken
-    refresh_token_class: ZE\BABundle\Entity\RefreshToken
-    auth_code_class:     ZE\BABundle\Entity\AuthCode
-    service:
-        user_provider: fos_user.user_manager
-nelmio_api_doc: ~
+
 lexik_jwt_authentication:
   pass_phrase: "123456"
   private_key_path: "%kernel.root_dir%/var/jwt/private.pem"
   public_key_path: "%kernel.root_dir%/var/jwt/public.pem"
   token_ttl: 86400
-
+  encoder_service: zeba.encoder.nixilla_jwt_encoder
 nelmio_cors:
     paths:
         '/login_check':

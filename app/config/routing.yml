@@ -15,15 +15,6 @@ fos_user_resetting:
   resource: "@FOSUserBundle/Resources/config/routing/resetting.xml"
 fos_user_security:
   resource: "@FOSUserBundle/Resources/config/routing/security.xml"
-hwi_oauth_connect:
-  prefix: /login
-  resource: "@HWIOAuthBundle/Resources/config/routing/connect.xml"
-hwi_oauth_redirect:
-  prefix: /login
-  resource: "@HWIOAuthBundle/Resources/config/routing/redirect.xml"
-hwi_oauth_security:
-  prefix: /login
-  resource: "@HWIOAuthBundle/Resources/config/routing/login.xml"
 github_login:
   pattern: /login/check-github
 
@@ -40,15 +31,6 @@ gettoken:
 
 _liip_imagine:
     resource: "@LiipImagineBundle/Resources/config/routing.xml"
-fos_oauth_server_token:
-    resource: "@FOSOAuthServerBundle/Resources/config/routing/token.xml"
-
-fos_oauth_server_authorize:
-    resource: "@FOSOAuthServerBundle/Resources/config/routing/authorize.xml"
-
-NelmioApiDocBundle:
-    resource: "@NelmioApiDocBundle/Resources/config/routing.yml"
-    prefix:   /api/doc
 
 
 homeitems:

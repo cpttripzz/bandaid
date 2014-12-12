@@ -26,27 +26,16 @@ security:
             pattern:  ^/(_(profiler|wdt)|css|images|js)/
             security: false
 
-        main:
-            oauth:
-                resource_owners:
-                    facebook:           "/login/check-facebook"
-                    google:             "/login/check-google"
-                    github:             "/login/check-github"
-                    twitter:             "/login/check-twitter"
-                login_path:        /login
-                failure_path:      /login
-                oauth_user_provider:
-                    service: zeba_user_provider
-            anonymous:    true
-            logout:
-                path: fos_user_security_logout
-                success_handler: ze_user_security.authentication.handler.logout_success_handler
-            switch_user: true
 
         api:
             pattern:    ^/api
             stateless:  true
-            lexik_jwt: ~
+            lexik_jwt:
+                authorization_header: # check token in Authorization Header
+                    enabled: true
+                    prefix:  Bearer
+                throw_exceptions:        true     # When an authentication failure occurs, return a 401 response immediately
+                create_entry_point:      true      # When no authentication details are provided, create a default entry point that returns a 401 response
 
     access_control:
         - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
@@ -57,4 +46,5 @@ security:
         - { path: ^/api/homeitems$, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/api/genres$, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/api/bands$, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/api/user/bands$, roles: [ IS_AUTHENTICATED_FULLY ] }
         - { path: ^/api/*, roles: [ IS_AUTHENTICATED_FULLY ] }
